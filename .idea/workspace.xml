@@ -1,10 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0842e942-7252-4a46-994b-9e6ae5777635" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/PersonController.java" afterDir="false" />
+    <list default="true" id="0842e942-7252-4a46-994b-9e6ae5777635" name="Default Changelist" comment="refactored:&#10;PrimaryController --&gt; searchScreenController&#10;primary.fxml --&gt; SearchGUI.fxml&#10;SecondaryController --&gt; CreditsController&#10;secondary.fxml --&gt; DisplayCredits.fxml&#10;&#10;Tilføjet &quot;Productions.txt&quot; i src mappen med 2 film&#10;Arbejdet på">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/Logic/CreditsController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/Logic/searchScreenController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/Logic/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/PersonController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/Logic/PersonController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/PrimaryController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/SecondaryController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/example/primary.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/Presentation/SearchGUI.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/example/secondary.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/Presentation/DisplayCredits.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,7 +70,15 @@
     </task>
     <servers />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="refactored:&#10;PrimaryController --&gt; searchScreenController&#10;primary.fxml --&gt; SearchGUI.fxml&#10;SecondaryController --&gt; CreditsController&#10;secondary.fxml --&gt; DisplayCredits.fxml&#10;&#10;Tilføjet &quot;Productions.txt&quot; i src mappen med 2 film&#10;Arbejdet på" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactored:&#10;PrimaryController --&gt; searchScreenController&#10;primary.fxml --&gt; SearchGUI.fxml&#10;SecondaryController --&gt; CreditsController&#10;secondary.fxml --&gt; DisplayCredits.fxml&#10;&#10;Tilføjet &quot;Productions.txt&quot; i src mappen med 2 film&#10;Arbejdet på" />
+  </component>
   <component name="WindowStateProjectService">
+    <state x="266" y="22" key="CommitChangelistDialog2" timestamp="1587074634284">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="266" y="22" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1587074634284" />
     <state x="147" y="65" key="DiffContextDialog" timestamp="1587043483898">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -85,14 +103,18 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1493" height="210" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1586174921898" />
+    <state x="361" y="148" key="Vcs.Push.Dialog.v2" timestamp="1587043854401">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="361" y="148" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1587043854401" />
     <state x="477" y="240" key="com.intellij.ide.util.TipDialog" timestamp="1586610275535">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="477" y="240" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1586610275535" />
-    <state x="392" y="216" key="git4idea.merge.GitPullDialog" timestamp="1587043416756">
+    <state x="392" y="216" key="git4idea.merge.GitPullDialog" timestamp="1587074229954">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="392" y="216" key="git4idea.merge.GitPullDialog/0.0.1536.824@0.0.1536.824" timestamp="1587043416756" />
+    <state x="392" y="216" key="git4idea.merge.GitPullDialog/0.0.1536.824@0.0.1536.824" timestamp="1587074229954" />
     <state x="209" y="117" key="new project wizard" timestamp="1586205070594">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
