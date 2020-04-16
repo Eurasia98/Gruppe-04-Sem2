@@ -6,7 +6,6 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="Gruppe-04-Sem2" />
         <module name="KrediteringsSystem" />
       </profile>
     </annotationProcessing>
