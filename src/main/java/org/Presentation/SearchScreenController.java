@@ -5,7 +5,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 
-public class searchScreenController {
+public class SearchScreenController {
 
     @FXML
     private TextField textFieldSearch;
@@ -16,8 +16,8 @@ public class searchScreenController {
     @FXML
     void buttonHandlerSearch(ActionEvent event) {
         if (!textFieldSearch.getText().isEmpty()){
-            DatabaseController databaseController = new DatabaseController();
-            databaseController.searchProduction(textFieldSearch.getText());
+//            DatabaseController databaseController = new DatabaseController();
+//            databaseController.searchProduction(textFieldSearch.getText());
         }
     }
 
