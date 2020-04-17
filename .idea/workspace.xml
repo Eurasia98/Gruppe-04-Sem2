@@ -2,20 +2,26 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0842e942-7252-4a46-994b-9e6ae5777635" name="Default Changelist" comment="refactored:&#10;PrimaryController --&gt; searchScreenController&#10;primary.fxml --&gt; SearchGUI.fxml&#10;SecondaryController --&gt; CreditsController&#10;secondary.fxml --&gt; DisplayCredits.fxml&#10;&#10;Tilføjet &quot;Productions.txt&quot; i src mappen med 2 film&#10;Arbejdet på">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/Logic/CreditsController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/Logic/searchScreenController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/github/eurasia98/gruppe04sem2/CreditSystem.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/Logic/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/PersonController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/Logic/PersonController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/PrimaryController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/SecondaryController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/example/primary.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/Presentation/SearchGUI.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/example/secondary.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/Presentation/DisplayCredits.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/Logic/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/Presentation/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/Logic/CreditsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/Presentation/CreditsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/Logic/PersonController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/Presentation/PersonController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/Logic/searchScreenController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/Presentation/SearchScreenController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/Presentation/DisplayCredits.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/Presentation/credits.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/Presentation/SearchGUI.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/Presentation/searchScreen.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/io/github/eurasia98/gruppe04sem2/CreditsSystem.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/module-info.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/module-info.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/App.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/PrimaryController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/SecondaryController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/primary.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/secondary.fxml" beforeDir="false" />
     </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -55,7 +61,55 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/pom.xml" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Application.CreditSystem">
+    <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.Presentation.App" />
+      <module name="Gruppe-04-Sem2" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.Presentation.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CreditSystem" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.Logic.CreditSystem" />
+      <module name="Gruppe-04-Sem2" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.Logic.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.CreditSystem" />
+        <item itemvalue="Application.App" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -67,8 +121,26 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1586173082249</updated>
+      <workItem from="1587137126621" duration="3000" />
+      <workItem from="1587137144374" duration="1501000" />
     </task>
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="refactored:&#10;PrimaryController --&gt; searchScreenController&#10;primary.fxml --&gt; SearchGUI.fxml&#10;SecondaryController --&gt; CreditsController&#10;secondary.fxml --&gt; DisplayCredits.fxml&#10;&#10;Tilføjet &quot;Productions.txt&quot; i src mappen med 2 film&#10;Arbejdet på" />

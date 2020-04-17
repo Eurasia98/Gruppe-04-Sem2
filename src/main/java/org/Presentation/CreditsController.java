@@ -1,9 +1,6 @@
-package org.Logic;
-
-import java.io.IOException;
+package org.Presentation;
 
 import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
 
 public class CreditsController {
 

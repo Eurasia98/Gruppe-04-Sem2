@@ -1,4 +1,4 @@
-package org.Logic;
+package org.Presentation;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;

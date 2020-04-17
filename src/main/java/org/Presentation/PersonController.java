@@ -1,4 +1,4 @@
-package org.Logic;
+package org.Presentation;
 
 public class PersonController {
 }
