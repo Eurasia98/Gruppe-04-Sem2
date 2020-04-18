@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0842e942-7252-4a46-994b-9e6ae5777635" name="Default Changelist" comment="">
+    <list default="true" id="0842e942-7252-4a46-994b-9e6ae5777635" name="Default Changelist" comment="refactored:&#10;PrimaryController --&gt; searchScreenController&#10;primary.fxml --&gt; SearchGUI.fxml&#10;SecondaryController --&gt; CreditsController&#10;secondary.fxml --&gt; DisplayCredits.fxml&#10;&#10;Tilføjet &quot;Productions.txt&quot; i src mappen med 2 film&#10;Arbejdet på">
+      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/Logic/CreditSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/Logic/CreditSystem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/Presentation/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/Presentation/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/Presentation/SearchScreenController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/Presentation/SearchScreenController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/Presentation/SearchScreenController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/Presentation/SearchScreenController.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,7 +49,19 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../1semester/Semester-Projekt/semester-2-udgave/Semester-Projekt-2/World of Zuul/pom.xml" />
+    <property name="last_opened_file_path" value="$USER_HOME$/1semester/Semester-Projekt/semester-2-udgave/Semester-Projekt-2/World of Zuul/pom.xml" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
   </component>
   <component name="RunManager" selected="Application.App">
     <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">

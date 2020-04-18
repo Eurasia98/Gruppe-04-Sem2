@@ -20,7 +20,8 @@ public class CreditSystem {
         List<Map<String, Integer>> searchResults = new ArrayList<>();
         searchResults.add(databaseController.searchProduction(title));
         return searchResults;
-
+    }
+    
     public void search(String searchString){
 //        DatabaseController.Search(searchString);
     }
