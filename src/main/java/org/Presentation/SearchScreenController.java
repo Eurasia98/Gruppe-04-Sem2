@@ -24,7 +24,8 @@ public class SearchScreenController {
     @FXML
     void buttonHandlerSearch(ActionEvent event) throws IOException {
         if (!textFieldSearchInput.getText().isEmpty()) {
-            Map<String, Integer> resultMap = DatabaseController.searchProduction(textFieldSearchInput.getText());
+            DatabaseController dc = new DatabaseController();
+            Map<String, Integer> resultMap = dc.searchProduction(textFieldSearchInput.getText());
             displaySearchResults(resultMap);
 
         }
@@ -32,18 +33,17 @@ public class SearchScreenController {
 
     public void displaySearchResults(Map<String, Integer> productionMap) throws IOException {
         List<Hyperlink> hyperlinks = new ArrayList<>();
-        App.setRoot("DisplaySearchResultsGUI");
-
         for (String title : productionMap.keySet()) {
             Hyperlink hl = new Hyperlink(title);
             hl.setOnAction(new EventHandler<ActionEvent>() {
                 @Override
                 public void handle(ActionEvent actionEvent) {
-
+                    App.switchToDisplaySearchResultsUI(productionMap.get(title));
                 }
             });
             hyperlinks.add(hl);
         }
+
 
     }
 
