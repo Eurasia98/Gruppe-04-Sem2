@@ -12,6 +12,7 @@ import java.util.Map;
 public class CreditsController {
 
 
+
     @FXML
     private Button buttonNewSearch;
 

@@ -3,10 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="0842e942-7252-4a46-994b-9e6ae5777635" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/Logic/CreditSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/Logic/CreditSystem.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/Presentation/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/Presentation/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/Presentation/CreditsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/Presentation/CreditsController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/Presentation/SearchScreenController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/Presentation/SearchScreenController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/Presentation/CreditsController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/Presentation/CreditsController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/org/Presentation/SearchScreenController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/Presentation/SearchScreenController.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -22,6 +21,7 @@
       <list>
         <option value="FxmlFile" />
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -114,7 +114,14 @@
       <option name="project" value="LOCAL" />
       <updated>1587205517780</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Arbejdet med search funktionen">
+      <created>1587210077404</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1587210077404</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -137,13 +144,26 @@
     <MESSAGE value="refactored:&#10;PrimaryController --&gt; searchScreenController&#10;primary.fxml --&gt; SearchGUI.fxml&#10;SecondaryController --&gt; CreditsController&#10;secondary.fxml --&gt; DisplayCredits.fxml&#10;&#10;Tilføjet &quot;Productions.txt&quot; i src mappen med 2 film&#10;Arbejdet på" />
     <MESSAGE value="Indsat lidt FXML docs og lidt klasser. Små commits, og der er testet at programmet stadig kører" />
     <MESSAGE value="Indsat flere klasser og lir, og tjekket programmet stadig kører" />
-    <option name="LAST_COMMIT_MESSAGE" value="Indsat flere klasser og lir, og tjekket programmet stadig kører" />
+    <MESSAGE value="Arbejdet med search funktionen" />
+    <option name="LAST_COMMIT_MESSAGE" value="Arbejdet med search funktionen" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="266" y="0" key="CommitChangelistDialog2" timestamp="1587205516765">
+    <state x="574" y="119" key="#com.intellij.ide.util.MemberChooser" timestamp="1587218786098">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="266" y="0" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1587205516765" />
+    <state x="574" y="119" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1587218786098" />
+    <state x="421" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1587216875895">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="421" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1536.824@0.0.1536.824" timestamp="1587216875895" />
+    <state x="499" y="162" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1587218656091">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="499" y="162" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1536.824@0.0.1536.824" timestamp="1587218656091" />
+    <state x="266" y="0" key="CommitChangelistDialog2" timestamp="1587210075926">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="266" y="0" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1587210075926" />
     <state x="147" y="65" key="DiffContextDialog" timestamp="1587043483898">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -152,41 +172,53 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="549" y="170" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1587207944699" />
-    <state width="1493" height="210" key="GridCell.Tab.0.bottom" timestamp="1587210027770">
+    <state width="1493" height="210" key="GridCell.Tab.0.bottom" timestamp="1587239566441">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="210" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1587210027770" />
-    <state width="1493" height="210" key="GridCell.Tab.0.center" timestamp="1587210027769">
+    <state width="1493" height="210" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1587239566441" />
+    <state width="1493" height="210" key="GridCell.Tab.0.center" timestamp="1587239566440">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="210" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1587210027769" />
-    <state width="1493" height="210" key="GridCell.Tab.0.left" timestamp="1587210027769">
+    <state width="1493" height="210" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1587239566440" />
+    <state width="1493" height="210" key="GridCell.Tab.0.left" timestamp="1587239566440">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="210" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1587210027769" />
-    <state width="1493" height="210" key="GridCell.Tab.0.right" timestamp="1587210027770">
+    <state width="1493" height="210" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1587239566440" />
+    <state width="1493" height="210" key="GridCell.Tab.0.right" timestamp="1587239566440">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="210" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1587210027770" />
-    <state x="361" y="148" key="Vcs.Push.Dialog.v2" timestamp="1587205525070">
+    <state width="1493" height="210" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1587239566440" />
+    <state x="361" y="148" key="Vcs.Push.Dialog.v2" timestamp="1587210087789">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="361" y="148" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1587205525070" />
+    <state x="361" y="148" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1587210087789" />
     <state x="477" y="240" key="com.intellij.ide.util.TipDialog" timestamp="1586610275535">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="477" y="240" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1586610275535" />
-    <state x="392" y="216" key="git4idea.merge.GitPullDialog" timestamp="1587210056677">
+    <state x="414" y="30" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1587220443604">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="392" y="216" key="git4idea.merge.GitPullDialog/0.0.1536.824@0.0.1536.824" timestamp="1587210056677" />
+    <state x="414" y="30" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1536.824@0.0.1536.824" timestamp="1587220443604" />
+    <state x="580" y="331" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1587215798689">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="580" y="331" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.824@0.0.1536.824" timestamp="1587215798689" />
+    <state x="474" y="46" width="588" height="732" key="find.popup" timestamp="1587220430020">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="474" y="46" width="588" height="732" key="find.popup/0.0.1536.824@0.0.1536.824" timestamp="1587220430020" />
+    <state x="392" y="216" key="git4idea.merge.GitPullDialog" timestamp="1587239586067">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="392" y="216" key="git4idea.merge.GitPullDialog/0.0.1536.824@0.0.1536.824" timestamp="1587239586067" />
     <state x="209" y="117" key="new project wizard" timestamp="1586205070594">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="209" y="117" key="new project wizard/0.0.1536.824@0.0.1536.824" timestamp="1586205070594" />
-    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1587207660441">
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1587220438324">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1587207660441" />
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1587220438324" />
   </component>
 </project>
