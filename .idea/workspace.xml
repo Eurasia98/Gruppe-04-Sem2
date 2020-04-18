@@ -1,13 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0842e942-7252-4a46-994b-9e6ae5777635" name="Default Changelist" comment="Indsat lidt FXML docs og lidt klasser. Små commits, og der er testet at programmet stadig kører">
-      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
+    <list default="true" id="0842e942-7252-4a46-994b-9e6ae5777635" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/Presentation/CreditsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/Presentation/CreditsController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/Presentation/SearchScreenController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/Presentation/SearchScreenController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/Presentation/searchScreen.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/Presentation/searchScreen.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/Presentation/CreditsController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/Presentation/CreditsController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/Presentation/SearchScreenController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/Presentation/SearchScreenController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/org/Presentation/searchScreen.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/Presentation/searchScreen.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -21,8 +18,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="FxmlFile" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -101,6 +98,14 @@
       <workItem from="1587137126621" duration="3000" />
       <workItem from="1587137144374" duration="1501000" />
     </task>
+    <task id="LOCAL-00001" summary="Indsat lidt FXML docs og lidt klasser. Små commits, og der er testet at programmet stadig kører">
+      <created>1587205027592</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1587205027592</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -125,10 +130,10 @@
     <option name="LAST_COMMIT_MESSAGE" value="Indsat lidt FXML docs og lidt klasser. Små commits, og der er testet at programmet stadig kører" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="266" y="0" key="CommitChangelistDialog2" timestamp="1587204997133">
+    <state x="266" y="0" key="CommitChangelistDialog2" timestamp="1587205026049">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="266" y="0" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1587204997133" />
+    <state x="266" y="0" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1587205026049" />
     <state x="147" y="65" key="DiffContextDialog" timestamp="1587043483898">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -137,34 +142,34 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="549" y="170" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1586610385108" />
-    <state width="1493" height="210" key="GridCell.Tab.0.bottom" timestamp="1587204899070">
+    <state width="1493" height="210" key="GridCell.Tab.0.bottom" timestamp="1587205470779">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="210" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1587204899070" />
-    <state width="1493" height="210" key="GridCell.Tab.0.center" timestamp="1587204899070">
+    <state width="1493" height="210" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1587205470779" />
+    <state width="1493" height="210" key="GridCell.Tab.0.center" timestamp="1587205470779">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="210" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1587204899070" />
-    <state width="1493" height="210" key="GridCell.Tab.0.left" timestamp="1587204899070">
+    <state width="1493" height="210" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1587205470779" />
+    <state width="1493" height="210" key="GridCell.Tab.0.left" timestamp="1587205470778">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="210" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1587204899070" />
-    <state width="1493" height="210" key="GridCell.Tab.0.right" timestamp="1587204899070">
+    <state width="1493" height="210" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1587205470778" />
+    <state width="1493" height="210" key="GridCell.Tab.0.right" timestamp="1587205470779">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="210" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1587204899070" />
-    <state x="361" y="148" key="Vcs.Push.Dialog.v2" timestamp="1587043854401">
+    <state width="1493" height="210" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1587205470779" />
+    <state x="361" y="148" key="Vcs.Push.Dialog.v2" timestamp="1587205040346">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="361" y="148" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1587043854401" />
+    <state x="361" y="148" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1587205040346" />
     <state x="477" y="240" key="com.intellij.ide.util.TipDialog" timestamp="1586610275535">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="477" y="240" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1586610275535" />
-    <state x="392" y="216" key="git4idea.merge.GitPullDialog" timestamp="1587204836531">
+    <state x="392" y="216" key="git4idea.merge.GitPullDialog" timestamp="1587205490080">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="392" y="216" key="git4idea.merge.GitPullDialog/0.0.1536.824@0.0.1536.824" timestamp="1587204836531" />
+    <state x="392" y="216" key="git4idea.merge.GitPullDialog/0.0.1536.824@0.0.1536.824" timestamp="1587205490080" />
     <state x="209" y="117" key="new project wizard" timestamp="1586205070594">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
