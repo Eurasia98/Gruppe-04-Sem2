@@ -1,10 +1,24 @@
 package org.Presentation;
 
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.scene.control.Button;
+
+import java.util.Map;
 
 public class CreditsController {
 
 
-    public void switchToPrimary(ActionEvent actionEvent) {
+    @FXML
+    private Button buttonNewSearch;
+
+    @FXML
+    void buttonHandlerNewSearch(ActionEvent event) {
+
+    }
+
+    public void displayCredits(Map<String, Integer> productionMap){
+
+
     }
 }

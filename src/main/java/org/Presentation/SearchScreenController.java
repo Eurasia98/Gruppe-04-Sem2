@@ -11,7 +11,7 @@ public class SearchScreenController {
     private TextField textFieldSearch;
 
     @FXML
-    private Button searchButton;
+    private Button buttonSearch;
 
     @FXML
     void buttonHandlerSearch(ActionEvent event) {
