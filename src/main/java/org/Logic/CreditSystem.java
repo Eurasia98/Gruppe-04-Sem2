@@ -1,5 +1,6 @@
 package org.Logic;
 
+import javafx.event.ActionEvent;
 import javafx.scene.control.Hyperlink;
 
 import java.lang.reflect.Array;
@@ -28,6 +29,10 @@ public class CreditSystem {
             resultsList.add(hl);
         }
         return resultsList;
+    }
+
+    public void searchCredits(String title){
+
     }
 
 
