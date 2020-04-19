@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="io.github.eurasia98.sem2.presentation.SearchScreenController">
+   <children>
+      <Button fx:id="buttonSearch" layoutX="58.0" layoutY="78.0" mnemonicParsing="false" onAction="#buttonHandlerSearch" text="Button" />
+      <TextField fx:id="textFieldSearch" layoutX="219.0" layoutY="78.0" prefHeight="26.0" prefWidth="194.0" />
+      <AnchorPane layoutY="121.0" prefHeight="281.0" prefWidth="600.0">
+         <children>
+            <VBox fx:id="VboxSearchResults" layoutX="-5.0" layoutY="-3.0" prefHeight="282.0" prefWidth="600.0" visible="false" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
