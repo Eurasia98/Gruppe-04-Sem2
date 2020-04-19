@@ -29,6 +29,9 @@ public class DatabaseController {
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
+        for (SearchResults sr : searchResultsList){
+            System.out.println(" " + sr.toString());
+        }
         return searchResultsList;
     }
 

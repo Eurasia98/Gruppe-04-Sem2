@@ -36,4 +36,5 @@ public class SearchResults {
         }
         return searchResultsList;
     }
+
 }
