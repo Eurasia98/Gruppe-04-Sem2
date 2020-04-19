@@ -1,6 +1,6 @@
-package org.Presentation;
+package io.github.eurasia98.sem2.presentation;
 
-import org.Logic.CreditSystem;
+import io.github.eurasia98.sem2.logic.CreditSystem;
 
 public class Main {
     public static void main(String[] args) {

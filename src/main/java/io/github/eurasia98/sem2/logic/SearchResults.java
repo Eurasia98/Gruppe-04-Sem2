@@ -1,7 +1,5 @@
-package org.Logic;
+package io.github.eurasia98.sem2.logic;
 
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.scene.control.Hyperlink;
 
 import java.util.ArrayList;

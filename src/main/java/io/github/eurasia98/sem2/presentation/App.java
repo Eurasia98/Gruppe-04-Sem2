@@ -1,4 +1,4 @@
-package org.Presentation;
+package io.github.eurasia98.sem2.presentation;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -6,8 +6,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Hyperlink;
 import javafx.stage.Stage;
-import org.Logic.Credit;
-import org.Logic.CreditSystem;
+import io.github.eurasia98.sem2.logic.CreditSystem;
 
 import java.io.IOException;
 import java.util.List;

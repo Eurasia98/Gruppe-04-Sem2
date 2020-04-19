@@ -1,4 +1,4 @@
-package org.Logic;
+package io.github.eurasia98.sem2.logic;
 
 public class Credit {
     private Person person;

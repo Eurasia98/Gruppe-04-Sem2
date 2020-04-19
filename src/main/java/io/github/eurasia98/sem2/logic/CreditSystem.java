@@ -1,13 +1,9 @@
-package org.Logic;
+package io.github.eurasia98.sem2.logic;
 
-import javafx.event.ActionEvent;
 import javafx.scene.control.Hyperlink;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 public class CreditSystem {
     public static DatabaseController databaseController = new DatabaseController();

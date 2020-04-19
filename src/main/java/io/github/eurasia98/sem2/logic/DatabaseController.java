@@ -1,4 +1,4 @@
-package org.Logic;
+package io.github.eurasia98.sem2.logic;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -10,8 +10,12 @@ public class DatabaseController {
     private Credit credit;
     private Person person;
 
+    private File getFile(String fileName) {
+        return new File(getClass().getClassLoader().getResource(fileName).getFile());
+    }
+
     public List<SearchResults> searchProductions(String searchString) {
-        file = new File("Productions.txt");
+        file = getFile("Productions.txt");
         List<SearchResults> searchResultsList = new ArrayList<SearchResults>();
         try {
             Scanner s = new Scanner(file);
@@ -29,7 +33,7 @@ public class DatabaseController {
     }
 
     public String searchProductionTitleFromId(int productionId) {
-        file = new File("Productions.txt");
+        file = getFile("Productions.txt");
         String title = null;
         try {
             Scanner s = new Scanner(file);

@@ -1,19 +1,12 @@
-package org.Presentation;
+package io.github.eurasia98.sem2.presentation;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.Node;
 import javafx.scene.control.Button;
-import javafx.scene.control.Hyperlink;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
-import org.Logic.CreditSystem;
-import org.Logic.SearchResults;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Map;
 
 public class SearchScreenController {
 
