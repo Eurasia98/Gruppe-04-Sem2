@@ -1,30 +1,40 @@
 package org.Logic;
 
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.scene.control.Hyperlink;
-import org.Data.DatabaseController;
-import org.Presentation.App;
-import org.Presentation.DisplaySearchResultsController;
 
-import java.io.IOException;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
-import java.util.Iterator;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 public class CreditSystem {
-    static DatabaseController databaseController = new DatabaseController();
+    public static DatabaseController databaseController = new DatabaseController();
+    private SearchResults sResults;
 
-    public List<Map<String, Integer>> initializeSearch(String title) {
-        List<Map<String, Integer>> searchResults = new ArrayList<>();
-        searchResults.add(databaseController.searchProduction(title));
-        return searchResults;
-    }
+    public CreditSystem(){}
+
     
-    public void search(String searchString){
-//        DatabaseController.Search(searchString);
+    public ArrayList<Hyperlink> search(String searchString){
+        List<SearchResults> productionsList = databaseController.searchProductions(searchString);
+        ArrayList<Hyperlink> hyperLinksToDisplay = createHyperlinksToDisplay(productionsList);
+        return hyperLinksToDisplay;
     }
+
+    public ArrayList<Hyperlink> createHyperlinksToDisplay(List<SearchResults> searchResultsList){
+        ArrayList<Hyperlink> resultsList = new ArrayList<>();
+        for (SearchResults s : searchResultsList){
+            Hyperlink hl = new Hyperlink(s.getTitle());
+            resultsList.add(hl);
+        }
+        return resultsList;
+    }
+
+    public void searchCredits(String title){
+
+    }
+
 
     public String login (String username, String password){
         String accountType = null;
