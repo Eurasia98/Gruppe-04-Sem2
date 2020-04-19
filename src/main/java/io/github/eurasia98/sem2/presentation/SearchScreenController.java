@@ -26,8 +26,9 @@ public class SearchScreenController {
     void buttonHandlerSearch(ActionEvent event) throws IOException {
         if (!textFieldSearch.getText().isEmpty()) {
             ListView listView = new ListView();
+            VboxSearchResults.setVisible(true);
             ArrayList<Hyperlink> hyperlinkArrayList = App.creditSystem.search(textFieldSearch.getText());
-            listView.getItems().addAll(hyperlinkArrayList);
+            listView.getItems().addAll(VboxSearchResults.getChildren().addAll(hyperlinkArrayList));
         }
     }
 
