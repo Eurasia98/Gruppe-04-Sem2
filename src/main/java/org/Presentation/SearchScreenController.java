@@ -29,8 +29,7 @@ public class SearchScreenController {
     @FXML
     void buttonHandlerSearch(ActionEvent event) throws IOException {
         if (!textFieldSearch.getText().isEmpty()) {
-            App.creditSystem.search(textFieldSearch.getText());
-            VboxSearchResults.getChildren().addAll();
+            VboxSearchResults.getChildren().addAll(App.creditSystem.search(textFieldSearch.getText()));
             VboxSearchResults.setVisible(true);
         }
     }

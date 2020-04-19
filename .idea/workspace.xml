@@ -5,8 +5,11 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/Logic/CreditSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/Logic/CreditSystem.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/Logic/DatabaseController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/Logic/DatabaseController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/Logic/Person.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/Logic/Person.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/Presentation/SearchScreenController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/Presentation/SearchScreenController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/Presentation/searchScreen.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/Presentation/searchScreen.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/Logic/CreditSystem.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/Logic/CreditSystem.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/Presentation/credits.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/Presentation/searchScreen.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/Presentation/searchScreen.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -148,7 +151,14 @@
       <option name="project" value="LOCAL" />
       <updated>1587300669546</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Arbejdet videre med search">
+      <created>1587308842860</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1587308842860</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -194,10 +204,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="499" y="162" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1536.824@0.0.1536.824" timestamp="1587218656091" />
-    <state x="266" y="0" key="CommitChangelistDialog2" timestamp="1587300668447">
+    <state x="266" y="0" key="CommitChangelistDialog2" timestamp="1587308841059">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="266" y="0" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1587300668447" />
+    <state x="266" y="0" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1587308841059" />
     <state x="147" y="65" key="DiffContextDialog" timestamp="1587043483898">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -222,10 +232,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1493" height="210" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1587239566440" />
-    <state x="361" y="148" key="Vcs.Push.Dialog.v2" timestamp="1587300680759">
+    <state x="361" y="148" key="Vcs.Push.Dialog.v2" timestamp="1587308851648">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="361" y="148" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1587300680759" />
+    <state x="361" y="148" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1587308851648" />
     <state x="477" y="240" key="com.intellij.ide.util.TipDialog" timestamp="1587302722959">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -242,10 +252,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="474" y="46" width="588" height="732" key="find.popup/0.0.1536.824@0.0.1536.824" timestamp="1587220430020" />
-    <state x="392" y="216" key="git4idea.merge.GitPullDialog" timestamp="1587308822729">
+    <state x="392" y="216" key="git4idea.merge.GitPullDialog" timestamp="1587309816506">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="392" y="216" key="git4idea.merge.GitPullDialog/0.0.1536.824@0.0.1536.824" timestamp="1587308822729" />
+    <state x="392" y="216" key="git4idea.merge.GitPullDialog/0.0.1536.824@0.0.1536.824" timestamp="1587309816506" />
     <state x="209" y="117" key="new project wizard" timestamp="1586205070594">
       <screen x="0" y="0" width="1536" height="824" />
     </state>

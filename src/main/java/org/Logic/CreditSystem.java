@@ -10,7 +10,7 @@ import java.util.Map;
 
 public class CreditSystem {
     public static DatabaseController databaseController = new DatabaseController();
-    private SearchResults;
+    private SearchResults sResults;
 
     public CreditSystem(){}
 

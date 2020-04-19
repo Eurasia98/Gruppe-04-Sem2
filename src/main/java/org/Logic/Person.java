@@ -22,8 +22,8 @@ public class Person { //extends Account {
         this.lastName = lastName;
     }
 
-    public ArrayList showMyCredits(){
+    /*public ArrayList showMyCredits(){
         this.myCreditsList = DatabaseController.showMyCredits(accountNumber);
         return this.myCreditsList;
-    }
+    }*/
 }

@@ -23,7 +23,7 @@ public class DatabaseController {
         return searchResultsList;
     }
 
-    public String[][] searchCredits(int productionId) {
+    public ArrayList<String> searchCredits(int productionId) {
         file = new File("Credits.txt");
         ArrayList<String[]> creditsArrayList = new ArrayList<>();
         try {
@@ -32,7 +32,7 @@ public class DatabaseController {
                 String line = s.nextLine();
                 String[] lineArray = line.split(";");
                 if (productionId == Integer.parseInt(lineArray[0])) {
-                    creditsArrayList.add(lineArray);
+                    creditsArrayList.add();
                 }
             }
         } catch (FileNotFoundException e) {
