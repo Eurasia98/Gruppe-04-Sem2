@@ -23,7 +23,7 @@ public class Person { //extends Account {
     }
 
     public ArrayList showMyCredits(){
-        this.myCreditsList = DatabaseController.showMyCredits(accountNumber);
+//        this.myCreditsList = DatabaseController.showMyCredits(accountNumber);
         return this.myCreditsList;
     }
 }
