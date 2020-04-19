@@ -10,12 +10,23 @@ public class Production {
     private Date creationDate;
     private ArrayList<Credit> myCreditsList;
 
-    public Production(String title, int productionID, int releaseYear, Date creationDate, ArrayList<Credit> myCreditsList) {
+    public Production(String title, int productionID, int releaseYear, Date creationDate) {
         this.title = title;
         this.productionID = productionID;
         this.releaseYear = releaseYear;
         this.creationDate = creationDate;
-        this.myCreditsList = myCreditsList;
+        myCreditsList = null;
+    }
+
+    public Production(String title, int id, int productionID, Date creationDate, ArrayList<Credit> myCreditsList) {
+        this.title = title;
+        this.productionID = productionID;
+        this.myCreditsList = null;
+    }
+
+    public Production(String title, int productionID){
+        this.title = title;
+        this.productionID = productionID;
     }
 
     public String getTitle() {
@@ -36,5 +47,16 @@ public class Production {
 
     public ArrayList<Credit> getMyCreditsList() {
         return myCreditsList;
+    }
+
+    @Override
+    public String toString(){
+        return title;
+    }
+
+    public void printMyCreditsList(){
+        for (int i = 0; i < myCreditsList.size(); i++){
+            System.out.println(myCreditsList.get(i).toString());
+        }
     }
 }

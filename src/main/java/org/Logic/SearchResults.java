@@ -15,6 +15,11 @@ public class SearchResults {
         return title;
     }
 
+    @Override
+    public String toString(){
+        return title;
+    }
+
     public int getProductionId() {
         return productionId;
     }

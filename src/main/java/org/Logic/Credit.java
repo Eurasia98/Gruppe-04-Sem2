@@ -46,7 +46,8 @@ public class Credit {
         this.roleName = roleName;
     }
 
-    public void displayCredits(){
-
+    @Override
+    public String toString(){
+        return person.getFirstName() + " " + person.getLastName() + "\t" + roleType + " " + roleName;
     }
 }
