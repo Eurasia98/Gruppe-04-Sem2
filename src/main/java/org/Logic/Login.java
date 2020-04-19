@@ -6,17 +6,17 @@ public class Login {
     private String password;
     private String accountType;
 
-    public String loginVerify (String username, String password) {
+    /*public String loginVerify (String username, String password) {
         this.username = username;
         this.password = password;
 
         if (DatabaseController.loginVerify(username, password)){
-//            this.accountType = DatabaseController.getAccountType();
+            this.accountType = DatabaseController.getAccountType();
             return this.accountType;
         }
 
         return "Denied";
-    }
+    }*/
 
 
 
