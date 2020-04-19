@@ -1,4 +1,4 @@
-package org.Data;
+package org.Logic;
 
 public class DatabaseController {
 }

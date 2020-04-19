@@ -6,7 +6,6 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Hyperlink;
 import javafx.stage.Stage;
-import org.Data.DatabaseController;
 import org.Logic.CreditSystem;
 
 import java.io.IOException;
@@ -43,12 +42,29 @@ public class App extends Application {
         return fxmlLoader.load();
     }
 
-    public static void switchToDisplaySearchResultsUI(List<Hyperlink> searchResults){
+    public static void switchToDisplayCreditsScreen(List<Hyperlink> searchResults){
         try {
-            scene.setRoot(loadFXML("DisplaySearchResultsGUI"));
-            window.setTitle("Select an option to diplay credits: ");
+            scene.setRoot(loadFXML("DisplayCreditsScreen"));
+            window.setTitle("Credits");
         } catch (IOException e) {
-            System.out.println("Cant change root scene ");
+            System.out.println("Cant change root scene. ");
+            e.printStackTrace();
+        }
+    }
+
+    public static void switchToLoginScreen(){
+        try {
+            scene.setRoot(loadFXML("LoginScreen"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void switchToSearchScreen(){
+        try {
+            scene.setRoot(loadFXML("FrontPage"));
+        } catch (IOException e) {
+            System.out.println("Can't change root scene. ");
             e.printStackTrace();
         }
     }

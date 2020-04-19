@@ -1,15 +1,8 @@
 package org.Logic;
 
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
-import javafx.scene.control.Hyperlink;
-import org.Data.DatabaseController;
-import org.Presentation.App;
 import org.Presentation.DisplaySearchResultsController;
 
-import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
