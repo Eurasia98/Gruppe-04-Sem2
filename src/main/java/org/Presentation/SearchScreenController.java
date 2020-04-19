@@ -2,12 +2,17 @@ package org.Presentation;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.Node;
 import javafx.scene.control.Button;
+import javafx.scene.control.Hyperlink;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
 import org.Logic.CreditSystem;
+import org.Logic.SearchResults;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Map;
 
 public class SearchScreenController {
@@ -24,17 +29,10 @@ public class SearchScreenController {
     @FXML
     void buttonHandlerSearch(ActionEvent event) throws IOException {
         if (!textFieldSearch.getText().isEmpty()) {
-            App.creditSystem.databaseController.searchProductions(textFieldSearch.getText());
+            App.creditSystem.search(textFieldSearch.getText());
+            VboxSearchResults.getChildren().addAll();
+            VboxSearchResults.setVisible(true);
         }
-    }
-
-    @FXML
-    public void initialize() throws Exception {
-        VboxSearchResults.setVisible(false);
-    }
-
-    public void updateUI(){
-        VboxSearchResults.setVisible(true);
     }
 
 }
