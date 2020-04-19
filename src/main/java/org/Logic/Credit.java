@@ -45,4 +45,8 @@ public class Credit {
     public void setRoleName(String roleName) {
         this.roleName = roleName;
     }
+
+    public void displayCredits(){
+
+    }
 }

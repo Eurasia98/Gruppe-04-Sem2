@@ -6,6 +6,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Hyperlink;
 import javafx.stage.Stage;
+import org.Logic.Credit;
 import org.Logic.CreditSystem;
 
 import java.io.IOException;
@@ -19,7 +20,7 @@ public class App extends Application {
     //this is a comment
     private static Scene scene;
     private static Stage window;
-    static CreditSystem creditSystem = new CreditSystem();
+    static CreditSystem creditSystem;
 
     public CreditSystem getCreditSystem() {
         return creditSystem;
@@ -31,6 +32,10 @@ public class App extends Application {
         scene = new Scene(loadFXML("searchScreen"));
         window.setScene(scene);
         window.show();
+    }
+
+    public static void injectCreditSystem(CreditSystem cs){
+        creditSystem = cs;
     }
 
     static void setRoot(String fxml) throws IOException {

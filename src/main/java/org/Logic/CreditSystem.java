@@ -1,23 +1,23 @@
 package org.Logic;
 
-import org.Presentation.DisplaySearchResultsController;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
 public class CreditSystem {
-    static DatabaseController databaseController = new DatabaseController();
+    public static DatabaseController databaseController;
 
-    public List<Map<String, Integer>> initializeSearch(String title) {
-        List<Map<String, Integer>> searchResults = new ArrayList<>();
-        searchResults.add(databaseController.searchProduction(title));
-        return searchResults;
+    public CreditSystem(){
+        databaseController = new DatabaseController();
     }
+
     
-    public void search(String searchString){
-//        DatabaseController.Search(searchString);
+    public List<SearchResults> search(String searchString){
+        databaseController = new DatabaseController();
+        List<SearchResults> productionsList = databaseController.searchProductions(searchString);
+        return productionsList;
     }
+
 
     public String login (String username, String password){
         String accountType = null;

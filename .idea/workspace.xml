@@ -3,10 +3,12 @@
   <component name="ChangeListManager">
     <list default="true" id="0842e942-7252-4a46-994b-9e6ae5777635" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/Data/DatabaseController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/Logic/DatabaseController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/Logic/Credit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/Logic/Credit.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/Logic/CreditSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/Logic/CreditSystem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/Logic/DatabaseController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/Logic/DatabaseController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/Logic/Login.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/Logic/Login.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/Presentation/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/Presentation/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/Presentation/credits.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/Presentation/DisplayCreditsScreen.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/Presentation/SearchScreenController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/Presentation/SearchScreenController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/org/Presentation/searchScreen.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/Presentation/searchScreen.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -65,7 +67,7 @@
       <module name="Gruppe-04-Sem2" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="org.Presentation.*" />
+          <option name="PATTERN" value="org.Logic.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -135,7 +137,14 @@
       <option name="project" value="LOCAL" />
       <updated>1587290794021</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Rykket DatabaseController til LogikLag. Lavet to tekstfiler til Data lag.">
+      <created>1587294334325</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1587294334326</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -160,17 +169,18 @@
     <MESSAGE value="Indsat flere klasser og lir, og tjekket programmet stadig kører" />
     <MESSAGE value="Arbejdet med search funktionen" />
     <MESSAGE value="Pulled fra ProductionBranch&#10;Lavet org.Data package og DatabaseController klasse i den" />
-    <option name="LAST_COMMIT_MESSAGE" value="Pulled fra ProductionBranch&#10;Lavet org.Data package og DatabaseController klasse i den" />
+    <MESSAGE value="Rykket DatabaseController til LogikLag. Lavet to tekstfiler til Data lag." />
+    <option name="LAST_COMMIT_MESSAGE" value="Rykket DatabaseController til LogikLag. Lavet to tekstfiler til Data lag." />
   </component>
   <component name="WindowStateProjectService">
     <state x="574" y="119" key="#com.intellij.ide.util.MemberChooser" timestamp="1587218786098">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="574" y="119" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1587218786098" />
-    <state x="571" y="304" width="393" height="220" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1587293745326">
+    <state x="571" y="304" width="393" height="220" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1587299298553">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="571" y="304" width="393" height="220" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1536.824@0.0.1536.824" timestamp="1587293745326" />
+    <state x="571" y="304" width="393" height="220" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1536.824@0.0.1536.824" timestamp="1587299298553" />
     <state x="421" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1587216875895">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -179,10 +189,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="499" y="162" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1536.824@0.0.1536.824" timestamp="1587218656091" />
-    <state x="266" y="0" key="CommitChangelistDialog2" timestamp="1587290792991">
+    <state x="266" y="0" key="CommitChangelistDialog2" timestamp="1587294333160">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="266" y="0" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1587290792991" />
+    <state x="266" y="0" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1587294333160" />
     <state x="147" y="65" key="DiffContextDialog" timestamp="1587043483898">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -207,10 +217,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1493" height="210" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1587239566440" />
-    <state x="361" y="148" key="Vcs.Push.Dialog.v2" timestamp="1587290815745">
+    <state x="361" y="148" key="Vcs.Push.Dialog.v2" timestamp="1587294343948">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="361" y="148" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1587290815745" />
+    <state x="361" y="148" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1587294343948" />
     <state x="477" y="240" key="com.intellij.ide.util.TipDialog" timestamp="1586610275535">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -227,17 +237,17 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="474" y="46" width="588" height="732" key="find.popup/0.0.1536.824@0.0.1536.824" timestamp="1587220430020" />
-    <state x="392" y="216" key="git4idea.merge.GitPullDialog" timestamp="1587294293201">
+    <state x="392" y="216" key="git4idea.merge.GitPullDialog" timestamp="1587300635216">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="392" y="216" key="git4idea.merge.GitPullDialog/0.0.1536.824@0.0.1536.824" timestamp="1587294293201" />
+    <state x="392" y="216" key="git4idea.merge.GitPullDialog/0.0.1536.824@0.0.1536.824" timestamp="1587300635216" />
     <state x="209" y="117" key="new project wizard" timestamp="1586205070594">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="209" y="117" key="new project wizard/0.0.1536.824@0.0.1536.824" timestamp="1586205070594" />
-    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1587220438324">
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1587294757832">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1587220438324" />
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1587294757832" />
   </component>
 </project>
