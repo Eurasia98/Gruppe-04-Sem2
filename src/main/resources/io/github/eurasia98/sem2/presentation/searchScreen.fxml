@@ -1,16 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="io.github.eurasia98.sem2.presentation.SearchScreenController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: lightgrey;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="io.github.eurasia98.sem2.presentation.SearchScreenController">
    <children>
-      <Button fx:id="buttonSearch" layoutX="58.0" layoutY="78.0" mnemonicParsing="false" onAction="#buttonHandlerSearch" text="Button" />
-      <TextField fx:id="textFieldSearch" layoutX="219.0" layoutY="78.0" prefHeight="26.0" prefWidth="194.0" />
-      <AnchorPane layoutY="121.0" prefHeight="281.0" prefWidth="600.0">
-         <children>
-            <VBox fx:id="VboxSearchResults" layoutX="-5.0" layoutY="-3.0" prefHeight="282.0" prefWidth="600.0" visible="false" />
-         </children>
-      </AnchorPane>
+      <Button fx:id="buttonSearch" layoutX="76.0" layoutY="134.0" mnemonicParsing="false" onAction="#buttonHandlerSearch" text="Søg igen" />
+      <TextField fx:id="textFieldSearch" alignment="CENTER" layoutX="193.0" layoutY="132.0" prefHeight="30.0" prefWidth="406.0" promptText="Indsæt titel">
+         <font>
+            <Font size="14.0" />
+         </font></TextField>
+      <VBox fx:id="vBoxSearchResults" layoutY="178.0" prefHeight="222.0" prefWidth="600.0" visible="false" />
+      <ImageView fitHeight="118.0" fitWidth="208.0" layoutX="196.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true" />
    </children>
 </AnchorPane>

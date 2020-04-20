@@ -46,9 +46,9 @@ public class App extends Application {
         return fxmlLoader.load();
     }
 
-    public static void switchToDisplayCreditsScreen(List<Hyperlink> searchResults){
+    public static void switchToDisplayCreditsScreen(){
         try {
-            scene.setRoot(loadFXML("DisplayCreditsScreen"));
+            scene.setRoot(loadFXML("DisplayCreditsFirstIteration"));
             window.setTitle("Credits");
         } catch (IOException e) {
             System.out.println("Cant change root scene. ");
@@ -71,6 +71,11 @@ public class App extends Application {
             System.out.println("Can't change root scene. ");
             e.printStackTrace();
         }
+    }
+
+    public void closeSystem(){
+        Stage stage = (Stage) scene.getWindow();
+        stage.close();
     }
 
     public static void launch(String[] args) {
