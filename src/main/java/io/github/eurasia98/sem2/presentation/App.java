@@ -1,6 +1,8 @@
 package io.github.eurasia98.sem2.presentation;
 
 import javafx.application.Application;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -9,6 +11,7 @@ import javafx.stage.Stage;
 import io.github.eurasia98.sem2.logic.CreditSystem;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -76,6 +79,21 @@ public class App extends Application {
     public void closeSystem(){
         Stage stage = (Stage) scene.getWindow();
         stage.close();
+    }
+
+    public static ArrayList<Hyperlink> appSearch(String searchString){
+        ArrayList<Hyperlink> hyperlinkArrayList = App.creditSystem.search(searchString);
+        ArrayList<Hyperlink> finalList = new ArrayList<>();
+        for (Hyperlink hl : hyperlinkArrayList){
+            hl.setOnAction(new EventHandler<ActionEvent>() {
+                @Override
+                public void handle(ActionEvent actionEvent) {
+                    App.switchToDisplayCreditsScreen();
+                }
+            });
+            finalList.add(hl);
+        }
+        return finalList;
     }
 
     public static void launch(String[] args) {

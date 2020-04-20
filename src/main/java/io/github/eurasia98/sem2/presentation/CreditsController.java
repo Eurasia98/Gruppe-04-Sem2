@@ -13,10 +13,10 @@ import java.util.Map;
 public class CreditsController {
 
     @FXML
-    private VBox VBoxDisplayCredits;
+    private ListView<?> ListviewCredits;
 
     @FXML
-    private ListView<?> ListviewCredits;
+    private VBox VBoxDisplayCredits;
 
     public void displayCredits(List<String> stringList){
         stringList = new ArrayList<>();
