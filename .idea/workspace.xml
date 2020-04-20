@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0842e942-7252-4a46-994b-9e6ae5777635" name="Default Changelist" comment="pillet ved searchGUI">
+    <list default="true" id="0842e942-7252-4a46-994b-9e6ae5777635" name="Default Changelist" comment="nu virker links">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/github/eurasia98/sem2/presentation/CreditsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/github/eurasia98/sem2/presentation/CreditsController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/io/github/eurasia98/sem2/presentation/SearchScreenController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/github/eurasia98/sem2/presentation/SearchScreenController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/io/github/eurasia98/sem2/presentation/DisplayCreditsScreen.fxml" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -236,7 +238,14 @@
       <option name="project" value="LOCAL" />
       <updated>1587328766703</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="nu virker links">
+      <created>1587329946561</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1587329946561</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -267,7 +276,8 @@
     <MESSAGE value="lidt mere" />
     <MESSAGE value="rykket rundt på pakker og lavet mere search" />
     <MESSAGE value="pillet ved searchGUI" />
-    <option name="LAST_COMMIT_MESSAGE" value="pillet ved searchGUI" />
+    <MESSAGE value="nu virker links" />
+    <option name="LAST_COMMIT_MESSAGE" value="nu virker links" />
   </component>
   <component name="WindowStateProjectService">
     <state x="574" y="119" key="#com.intellij.ide.util.MemberChooser" timestamp="1587311341122">
@@ -286,10 +296,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="499" y="162" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1536.824@0.0.1536.824" timestamp="1587218656091" />
-    <state x="266" y="0" key="CommitChangelistDialog2" timestamp="1587328794912">
+    <state x="266" y="0" key="CommitChangelistDialog2" timestamp="1587329988937">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="266" y="0" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1587328794912" />
+    <state x="266" y="0" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1587329988937" />
     <state x="147" y="65" key="DiffContextDialog" timestamp="1587043483898">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -318,10 +328,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="359" y="126" key="RollbackChangesDialog/0.0.1536.824@0.0.1536.824" timestamp="1587326351396" />
-    <state x="361" y="148" key="Vcs.Push.Dialog.v2" timestamp="1587328802601">
+    <state x="361" y="148" key="Vcs.Push.Dialog.v2" timestamp="1587329961308">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="361" y="148" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1587328802601" />
+    <state x="361" y="148" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1587329961308" />
     <state x="477" y="240" key="com.intellij.ide.util.TipDialog" timestamp="1587302722959">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -338,14 +348,18 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="474" y="46" width="588" height="732" key="find.popup/0.0.1536.824@0.0.1536.824" timestamp="1587220430020" />
-    <state x="392" y="216" key="git4idea.merge.GitPullDialog" timestamp="1587329926122">
+    <state x="392" y="216" key="git4idea.merge.GitPullDialog" timestamp="1587335166917">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="392" y="216" key="git4idea.merge.GitPullDialog/0.0.1536.824@0.0.1536.824" timestamp="1587329926122" />
+    <state x="392" y="216" key="git4idea.merge.GitPullDialog/0.0.1536.824@0.0.1536.824" timestamp="1587335166917" />
     <state x="209" y="117" key="new project wizard" timestamp="1586205070594">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="209" y="117" key="new project wizard/0.0.1536.824@0.0.1536.824" timestamp="1586205070594" />
+    <state x="425" y="187" key="run.anything.popup" timestamp="1587334501759">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="425" y="187" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1587334501759" />
     <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1587294757832">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
