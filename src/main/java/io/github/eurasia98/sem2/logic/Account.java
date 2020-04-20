@@ -6,13 +6,16 @@ public class Account {
     private String password;
     private int accountType;
 
-    public Account(String Username, String Password, int typeNum) {
-        this.username = Username;
-        this.password = Password;
+    public Account(String username, String password, int typeNum) {
+        this.username = username;
+        this.password = password;
         this.accountType = typeNum;
     }
-    Account
-    acc1 = new Account("Nybruger","password123", 1);
+    Account acc1 = new Account("Nybruger","password123", 1);
+
+    public Account() {
+
+    }
 
     public String getUsername() {
         return username;
@@ -25,5 +28,4 @@ public class Account {
     public int getAccountType() {
         return accountType;
     }
-
 }
