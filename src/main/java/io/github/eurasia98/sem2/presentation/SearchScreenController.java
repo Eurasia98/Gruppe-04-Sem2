@@ -34,7 +34,7 @@ public class SearchScreenController {
         if (!textFieldSearch.getText().isEmpty()) {
             vBoxSearchResults.setVisible(true);
             ListView listView = new ListView();
-            listView.getItems().addAll(vBoxSearchResults.getChildren().addAll(App.appSearch(textFieldSearch.getText())));
+            listView.getItems().addAll(vBoxSearchResults.getChildren().addAll(App.creditSystem.userSearch(textFieldSearch.getText())));
 
         }
     }

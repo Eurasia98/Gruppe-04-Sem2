@@ -2,12 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0842e942-7252-4a46-994b-9e6ae5777635" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/github/eurasia98/sem2/logic/CreditSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/github/eurasia98/sem2/logic/CreditSystem.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/io/github/eurasia98/sem2/presentation/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/github/eurasia98/sem2/presentation/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/io/github/eurasia98/sem2/presentation/CreditsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/github/eurasia98/sem2/presentation/CreditsController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/io/github/eurasia98/sem2/presentation/SearchScreenController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/github/eurasia98/sem2/presentation/SearchScreenController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Productions.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Productions.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/io/github/eurasia98/sem2/presentation/DisplayCreditsFirstIteration.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/io/github/eurasia98/sem2/presentation/DisplayCreditsFirstIteration.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -275,7 +274,14 @@
       <option name="project" value="LOCAL" />
       <updated>1587408243001</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="lavvet appSearch() i App">
+      <created>1587409735478</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1587409735478</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -310,7 +316,8 @@
     <MESSAGE value="arbejdet videre med search" />
     <MESSAGE value="Lavet hyperlinks søgeresultater til at gøre skifte scene" />
     <MESSAGE value="merget med alle andre" />
-    <option name="LAST_COMMIT_MESSAGE" value="merget med alle andre" />
+    <MESSAGE value="lavvet appSearch() i App" />
+    <option name="LAST_COMMIT_MESSAGE" value="lavvet appSearch() i App" />
   </component>
   <component name="WindowStateProjectService">
     <state x="574" y="119" key="#com.intellij.ide.util.MemberChooser" timestamp="1587311341122">
@@ -329,10 +336,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="499" y="162" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1536.824@0.0.1536.824" timestamp="1587218656091" />
-    <state x="266" y="0" key="CommitChangelistDialog2" timestamp="1587408241633">
+    <state x="266" y="0" key="CommitChangelistDialog2" timestamp="1587409734418">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="266" y="0" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1587408241633" />
+    <state x="266" y="0" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1587409734418" />
     <state x="147" y="65" key="DiffContextDialog" timestamp="1587406925996">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -341,38 +348,38 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="549" y="170" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1587315480912" />
-    <state width="1267" height="174" key="GridCell.Tab.0.bottom" timestamp="1587409580039">
+    <state width="1265" height="174" key="GridCell.Tab.0.bottom" timestamp="1587411355738">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1267" height="174" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1587409580039" />
-    <state width="1267" height="174" key="GridCell.Tab.0.center" timestamp="1587409580039">
+    <state width="1265" height="174" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1587411355738" />
+    <state width="1265" height="174" key="GridCell.Tab.0.center" timestamp="1587411355738">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1267" height="174" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1587409580039" />
-    <state width="1267" height="174" key="GridCell.Tab.0.left" timestamp="1587409580039">
+    <state width="1265" height="174" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1587411355738" />
+    <state width="1265" height="174" key="GridCell.Tab.0.left" timestamp="1587411355738">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1267" height="174" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1587409580038" />
-    <state width="1267" height="174" key="GridCell.Tab.0.right" timestamp="1587409580039">
+    <state width="1265" height="174" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1587411355738" />
+    <state width="1265" height="174" key="GridCell.Tab.0.right" timestamp="1587411355738">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1267" height="174" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1587409580039" />
-    <state x="147" y="65" key="MergeDialog" timestamp="1587407010285">
+    <state width="1265" height="174" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1587411355738" />
+    <state x="147" y="65" key="MergeDialog" timestamp="1587409829069">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="147" y="65" key="MergeDialog/0.0.1536.824@0.0.1536.824" timestamp="1587407010285" />
-    <state x="481" y="130" key="MultipleFileMergeDialog" timestamp="1587407020501">
+    <state x="147" y="65" key="MergeDialog/0.0.1536.824@0.0.1536.824" timestamp="1587409829069" />
+    <state x="481" y="130" key="MultipleFileMergeDialog" timestamp="1587409829079">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="481" y="130" key="MultipleFileMergeDialog/0.0.1536.824@0.0.1536.824" timestamp="1587407020501" />
+    <state x="481" y="130" key="MultipleFileMergeDialog/0.0.1536.824@0.0.1536.824" timestamp="1587409829079" />
     <state x="359" y="126" key="RollbackChangesDialog" timestamp="1587326351396">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="359" y="126" key="RollbackChangesDialog/0.0.1536.824@0.0.1536.824" timestamp="1587326351396" />
-    <state x="361" y="148" key="Vcs.Push.Dialog.v2" timestamp="1587409707679">
+    <state x="361" y="148" key="Vcs.Push.Dialog.v2" timestamp="1587409742696">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="361" y="148" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1587409707679" />
+    <state x="361" y="148" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1587409742696" />
     <state x="477" y="240" key="com.intellij.ide.util.TipDialog" timestamp="1587302722959">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -389,10 +396,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="474" y="46" width="588" height="732" key="find.popup/0.0.1536.824@0.0.1536.824" timestamp="1587220430020" />
-    <state x="392" y="216" key="git4idea.merge.GitPullDialog" timestamp="1587409694951">
+    <state x="392" y="216" key="git4idea.merge.GitPullDialog" timestamp="1587409914053">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="392" y="216" key="git4idea.merge.GitPullDialog/0.0.1536.824@0.0.1536.824" timestamp="1587409694951" />
+    <state x="392" y="216" key="git4idea.merge.GitPullDialog/0.0.1536.824@0.0.1536.824" timestamp="1587409914053" />
     <state x="209" y="117" key="new project wizard" timestamp="1586205070594">
       <screen x="0" y="0" width="1536" height="824" />
     </state>

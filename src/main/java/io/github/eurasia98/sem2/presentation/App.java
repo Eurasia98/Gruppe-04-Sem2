@@ -31,8 +31,9 @@ public class App extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         window = stage;
-        scene = new Scene(loadFXML("searchScreen"));
+        scene = new Scene(loadFXML("FrontPage"));
         window.setScene(scene);
+        window.setTitle("");
         window.show();
     }
 
@@ -81,19 +82,12 @@ public class App extends Application {
         stage.close();
     }
 
-    public static ArrayList<Hyperlink> appSearch(String searchString){
-        ArrayList<Hyperlink> hyperlinkArrayList = App.creditSystem.search(searchString);
-        ArrayList<Hyperlink> finalList = new ArrayList<>();
-        for (Hyperlink hl : hyperlinkArrayList){
-            hl.setOnAction(new EventHandler<ActionEvent>() {
-                @Override
-                public void handle(ActionEvent actionEvent) {
-                    App.switchToDisplayCreditsScreen();
-                }
-            });
-            finalList.add(hl);
+    public static void switchToFrontPage(){
+        try {
+            scene.setRoot(loadFXML("FrontPage"));
+        } catch (IOException e) {
+            e.printStackTrace();
         }
-        return finalList;
     }
 
     public static void launch(String[] args) {
