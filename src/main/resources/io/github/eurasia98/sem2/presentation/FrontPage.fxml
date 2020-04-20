@@ -8,7 +8,8 @@
 <?import javafx.scene.layout.BorderPane?>
 
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<?import java.net.URL?>
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="io.github.eurasia98.sem2.presentation.FrontPageController">
    <children>
       <BorderPane prefHeight="400.0" prefWidth="600.0">
          <top>
@@ -30,7 +31,7 @@
             <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                <children>
                   <TextField fx:id="txtFieldSearch" prefHeight="25.0" prefWidth="224.0" promptText="Søg efter film / serie " />
-                  <ImageView fx:id="ivSearch" fitHeight="23.0" fitWidth="25.0" layoutX="198.0" layoutY="1.0" onMouseClicked="#buttonActionSearch" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="ivSearch" fitHeight="23.0" fitWidth="25.0" layoutX="198.0" layoutY="1.0" onMouseClicked="#ivSearchActionHandler" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@images/Search_Icon.png" />
                      </image>
@@ -46,4 +47,7 @@
          </bottom>
       </BorderPane>
    </children>
+   <stylesheets>
+      <URL value="@FrontPageCSS.css" />
+   </stylesheets>
 </AnchorPane>
