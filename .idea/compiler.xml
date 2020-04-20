@@ -8,6 +8,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="Gruppe-04-Sem2" />
         <module name="KrediteringsSystem" />
+        <module name="Gruppe-04-Sem2" />
       </profile>
     </annotationProcessing>
   </component>

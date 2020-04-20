@@ -28,7 +28,7 @@ public class App extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         window = stage;
-        scene = new Scene(loadFXML("searchScreen"));
+        scene = new Scene(loadFXML("FrontPage"));
         window.setScene(scene);
         window.show();
     }
@@ -76,6 +76,15 @@ public class App extends Application {
     public void closeSystem(){
         Stage stage = (Stage) scene.getWindow();
         stage.close();
+    }
+
+    public static void switchToFrontPage(){
+        try{
+            scene.setRoot(loadFXML("FrontPage"));
+        } catch (IOException e) {
+            System.out.println("Can't change root scene");
+            e.printStackTrace();
+        }
     }
 
     public static void launch(String[] args) {

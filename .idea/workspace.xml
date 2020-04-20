@@ -1,8 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
+<<<<<<< Updated upstream
     <list default="true" id="0842e942-7252-4a46-994b-9e6ae5777635" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+=======
+    <list default="true" id="0842e942-7252-4a46-994b-9e6ae5777635" name="Default Changelist" comment="nu virker links">
+      <change afterPath="$PROJECT_DIR$/src/main/java/io/github/eurasia98/sem2/logic/Account.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/github/eurasia98/sem2/presentation/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/github/eurasia98/sem2/presentation/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/github/eurasia98/sem2/presentation/FrontPageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/github/eurasia98/sem2/presentation/FrontPageController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/io/github/eurasia98/sem2/presentation/FrontPage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/io/github/eurasia98/sem2/presentation/FrontPage.fxml" afterDir="false" />
+>>>>>>> Stashed changes
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -10,20 +21,29 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="CodeStyleSettingsInfer">
-    <option name="done" value="true" />
-  </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="FxmlFile" />
         <option value="Interface" />
         <option value="Class" />
+        <option value="CSS File" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="PREVIOUS_COMMIT_AUTHORS">
+      <list>
+        <option value="Thomsen" />
+      </list>
+    </option>
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="ProductionBranch" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="UPDATE_TYPE" value="MERGE" />
   </component>
   <component name="MavenImportPreferences">
     <option name="importingSettings">
@@ -32,10 +52,7 @@
       </MavenImportingSettings>
     </option>
   </component>
-  <component name="ProjectCodeStyleSettingsMigration">
-    <option name="version" value="1" />
-  </component>
-  <component name="ProjectId" id="1aAKi9LcaWKBwh2nxa9vFsIK3ZO" />
+  <component name="ProjectId" id="1aATBKl4p1PgIkCsPmrkiKlCllx" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="1" id="Add" />
   </component>
@@ -49,6 +66,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/pom.xml" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
   </component>
   <component name="RecentsManager">
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
@@ -148,8 +166,8 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="0842e942-7252-4a46-994b-9e6ae5777635" name="Default Changelist" comment="" />
-      <created>1586173082249</created>
+      <changelist id="ee5fccad-6595-4165-9f51-be05e2812e13" name="Default Changelist" comment="" />
+      <created>1586177262656</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1586173082249</updated>
@@ -158,12 +176,12 @@
       <workItem from="1587197528046" duration="3835000" />
       <workItem from="1587330198884" duration="3722000" />
     </task>
-    <task id="LOCAL-00001" summary="Indsat lidt FXML docs og lidt klasser. Små commits, og der er testet at programmet stadig kører">
-      <created>1587205027592</created>
+    <task id="LOCAL-00001" summary="Account klasse">
+      <created>1587396228796</created>
       <option name="number" value="00001" />
       <option name="presentableId" value="LOCAL-00001" />
       <option name="project" value="LOCAL" />
-      <updated>1587205027592</updated>
+      <updated>1587396228797</updated>
     </task>
     <task id="LOCAL-00002" summary="Indsat flere klasser og lir, og tjekket programmet stadig kører">
       <created>1587205517780</created>
@@ -276,19 +294,6 @@
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State>
-              <option name="COLUMN_ORDER" />
-            </State>
-          </value>
-        </entry>
-      </map>
-    </option>
-  </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="refactored:&#10;PrimaryController --&gt; searchScreenController&#10;primary.fxml --&gt; SearchGUI.fxml&#10;SecondaryController --&gt; CreditsController&#10;secondary.fxml --&gt; DisplayCredits.fxml&#10;&#10;Tilføjet &quot;Productions.txt&quot; i src mappen med 2 film&#10;Arbejdet på" />
     <MESSAGE value="Indsat lidt FXML docs og lidt klasser. Små commits, og der er testet at programmet stadig kører" />
@@ -318,8 +323,8 @@
     <state x="421" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1587216875895">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="421" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1536.824@0.0.1536.824" timestamp="1587216875895" />
-    <state x="499" y="162" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1587218656091">
+    <state x="758" y="10" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1587396222056" />
+    <state x="583" y="167" key="com.intellij.ide.util.TipDialog" timestamp="1587288352080">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="499" y="162" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1536.824@0.0.1536.824" timestamp="1587218656091" />
@@ -391,5 +396,19 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1587294757832" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/main/java/org/example/PrimaryController.java</url>
+          <line>8</line>
+          <properties class="org.example.PrimaryController">
+            <option name="EMULATED" value="true" />
+          </properties>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
