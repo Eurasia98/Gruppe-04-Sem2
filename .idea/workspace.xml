@@ -7,6 +7,7 @@
       <change beforePath="$PROJECT_DIR$/src/main/java/io/github/eurasia98/sem2/presentation/SearchScreenController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/github/eurasia98/sem2/presentation/SearchScreenController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/io/github/eurasia98/sem2/presentation/DisplayCreditsScreen.fxml" beforeDir="false" />
     </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -56,6 +57,18 @@
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="org.Logic" />
     </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
   </component>
   <component name="RunManager" selected="Application.Main (1)">
     <configuration name="App (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
@@ -146,6 +159,7 @@
       <workItem from="1587137126621" duration="3000" />
       <workItem from="1587137144374" duration="7163000" />
       <workItem from="1587197528046" duration="3835000" />
+      <workItem from="1587330198884" duration="3722000" />
     </task>
     <task id="LOCAL-00001" summary="Indsat lidt FXML docs og lidt klasser. Små commits, og der er testet at programmet stadig kører">
       <created>1587205027592</created>
