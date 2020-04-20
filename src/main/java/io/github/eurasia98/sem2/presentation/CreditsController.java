@@ -21,6 +21,6 @@ public class CreditsController {
     public void displayCredits(List<String> stringList){
         stringList = new ArrayList<>();
         VBoxDisplayCredits.setVisible(true);
-        ListviewCredits.getItems().addAll(stringList);
+        //ListviewCredits.getItems().addAll(stringList);
     }
 }
