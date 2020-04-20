@@ -1,4 +1,4 @@
-package org.example;
+package io.github.eurasia98.sem2.logic;
 
 public class Account {
 
@@ -11,8 +11,7 @@ public class Account {
         this.password = password;
         this.accountType = typeNum;
     }
-    Account
-    acc1 = new Account("Nybruger","password123", 1);
+    Account acc1 = new Account("Nybruger","password123", 1);
 
     public Account() {
 

@@ -1,4 +1,4 @@
-package org.example;
+package io.github.eurasia98.sem2.logic;
 
 public class User extends Account{
     private String productionCompanyName;
@@ -6,16 +6,15 @@ public class User extends Account{
     private String lName;
     private String email;
 
-    public User(String productionCompanyName, String fName, String lName, String email, int typeNum) {
-        super();
+    public User(String username, String password, int typeNum,String productionCompanyName,
+                String fName, String lName, String email) {
+        super(username, password, typeNum);
         this.productionCompanyName = productionCompanyName;
         this.fName = fName;
         this.lName = lName;
         this.email = email;
-        this.accountType = typeNum;
     }
-    User
-    user1 = new User("Tv2", "Jens", "Jensen", "Jens@Jensen.tv2.dk", 1)
+    User user1 = new User("MediaKing" ,"1234" , 2, "TV2", "Jens", "Jensen", "Jensen.tv2.dk");
 
     public String getProductionCompanyName() {
         return productionCompanyName;
