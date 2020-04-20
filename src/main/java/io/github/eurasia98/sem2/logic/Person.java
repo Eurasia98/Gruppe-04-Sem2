@@ -27,13 +27,8 @@ public class Person { //extends Account {
         this.lastName = lastName;
     }
 
-<<<<<<< HEAD:src/main/java/io/github/eurasia98/sem2/logic/Person.java
     /*public ArrayList showMyCredits(){
         this.myCreditsList = DatabaseController.showMyCredits(accountNumber);
-=======
-    public ArrayList showMyCredits(){
-//        this.myCreditsList = DatabaseController.showMyCredits(accountNumber);
->>>>>>> Amilcar:src/main/java/org/Logic/Person.java
         return this.myCreditsList;
     }*/
 
