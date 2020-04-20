@@ -1,6 +1,8 @@
 package io.github.eurasia98.sem2.presentation;
 
 import javafx.application.Application;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -9,6 +11,7 @@ import javafx.stage.Stage;
 import io.github.eurasia98.sem2.logic.CreditSystem;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -28,8 +31,9 @@ public class App extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         window = stage;
-        scene = new Scene(loadFXML("searchScreen"));
+        scene = new Scene(loadFXML("FrontPage"));
         window.setScene(scene);
+        window.setTitle("");
         window.show();
     }
 
@@ -46,9 +50,9 @@ public class App extends Application {
         return fxmlLoader.load();
     }
 
-    public static void switchToDisplayCreditsScreen(List<Hyperlink> searchResults){
+    public static void switchToDisplayCreditsScreen(){
         try {
-            scene.setRoot(loadFXML("DisplayCreditsScreen"));
+            scene.setRoot(loadFXML("DisplayCreditsFirstIteration"));
             window.setTitle("Credits");
         } catch (IOException e) {
             System.out.println("Cant change root scene. ");
@@ -69,6 +73,19 @@ public class App extends Application {
             scene.setRoot(loadFXML("FrontPage"));
         } catch (IOException e) {
             System.out.println("Can't change root scene. ");
+            e.printStackTrace();
+        }
+    }
+
+    public void closeSystem(){
+        Stage stage = (Stage) scene.getWindow();
+        stage.close();
+    }
+
+    public static void switchToFrontPage(){
+        try {
+            scene.setRoot(loadFXML("FrontPage"));
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }
