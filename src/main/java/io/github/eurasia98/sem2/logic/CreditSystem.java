@@ -1,6 +1,7 @@
 package io.github.eurasia98.sem2.logic;
 
 import io.github.eurasia98.sem2.presentation.App;
+import io.github.eurasia98.sem2.presentation.CreditsController;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.Hyperlink;
@@ -19,23 +20,22 @@ public class CreditSystem {
     public ArrayList<Hyperlink> userSearch(String searchString){
         List<SearchResults> productionsList = databaseController.searchProductions(searchString);
         ArrayList<Hyperlink> hyperLinksToDisplay = createHyperlinksToDisplay(productionsList);
-        ArrayList<Hyperlink> finalList = new ArrayList<>();
-        for (Hyperlink hl : hyperLinksToDisplay){
-            hl.setOnAction(new EventHandler<ActionEvent>() {
-                @Override
-                public void handle(ActionEvent actionEvent) {
-                    App.switchToDisplayCreditsScreen();
-                }
-            });
-            finalList.add(hl);
-        }
-        return finalList;
+
+        return hyperLinksToDisplay;
     }
 
     public ArrayList<Hyperlink> createHyperlinksToDisplay(List<SearchResults> searchResultsList){
         ArrayList<Hyperlink> resultsList = new ArrayList<>();
+        CreditsController cr = new CreditsController();
         for (SearchResults s : searchResultsList){
             Hyperlink hl = new Hyperlink(s.getTitle());
+            hl.setOnAction(new EventHandler<ActionEvent>() {
+                @Override
+                public void handle(ActionEvent actionEvent) {
+                    App.switchToDisplayCreditsScreen();
+                    cr.displayCredits(databaseController.searchCredits(databaseController.getProductionId(hl.getText())));
+                }
+            });
             resultsList.add(hl);
         }
         return resultsList;

@@ -14,6 +14,22 @@ public class DatabaseController {
         return new File(getClass().getClassLoader().getResource(fileName).getFile());
     }
 
+    public int getProductionId(String title){
+        file = getFile("Productions.txt");
+        try {
+            Scanner s = new Scanner(file);
+            while (s.hasNextLine()){
+                String line = s.nextLine();
+                String[] lineArray = line.split(";");
+                if (title == lineArray[0]){
+                    return Integer.parseInt(lineArray[1]);
+                }
+            }
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } return 0;
+    }
+
     public List<SearchResults> searchProductions(String searchString) {
         file = getFile("Productions.txt");
         List<SearchResults> searchResultsList = new ArrayList<SearchResults>();
@@ -54,7 +70,7 @@ public class DatabaseController {
     }
 
     public List<Credit> searchCredits(int productionId) {
-        file = new File("Credits.txt");
+        file = getFile("Credits.txt");
         List<Credit> creditsList = new ArrayList<>();
         try {
             Scanner s = new Scanner(file);
