@@ -1,8 +1,6 @@
 package io.github.eurasia98.sem2.presentation;
 
 import javafx.application.Application;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -11,7 +9,6 @@ import javafx.stage.Stage;
 import io.github.eurasia98.sem2.logic.CreditSystem;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -28,12 +25,13 @@ public class App extends Application {
         return creditSystem;
     }
 
+    private final SearchScreenController searchScreen = new SearchScreenController();
+
     @Override
     public void start(Stage stage) throws IOException {
         window = stage;
         scene = new Scene(loadFXML("FrontPage"));
         window.setScene(scene);
-        window.setTitle("");
         window.show();
     }
 
@@ -50,44 +48,21 @@ public class App extends Application {
         return fxmlLoader.load();
     }
 
-    public static void switchToDisplayCreditsScreen(){
+    public static void switchScene(String sceneName){
         try {
-            scene.setRoot(loadFXML("DisplayCreditsFirstIteration"));
-            window.setTitle("Credits");
-        } catch (IOException e) {
-            System.out.println("Cant change root scene. ");
-            e.printStackTrace();
-        }
-    }
-
-    public static void switchToLoginScreen(){
-        try {
-            scene.setRoot(loadFXML("LoginScreen"));
+            scene.setRoot(loadFXML(sceneName));
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
-    public static void switchToSearchScreen(){
-        try {
-            scene.setRoot(loadFXML("FrontPage"));
-        } catch (IOException e) {
-            System.out.println("Can't change root scene. ");
-            e.printStackTrace();
-        }
+    public static void searchField(String searchString){
+
     }
 
     public void closeSystem(){
         Stage stage = (Stage) scene.getWindow();
         stage.close();
-    }
-
-    public static void switchToFrontPage(){
-        try {
-            scene.setRoot(loadFXML("FrontPage"));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
     }
 
     public static void launch(String[] args) {

@@ -3,13 +3,9 @@ package io.github.eurasia98.sem2.presentation;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
-import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.VBox;
-
-import java.io.IOException;
 
 public class FrontPageController {
     @FXML
@@ -28,26 +24,22 @@ public class FrontPageController {
     private ImageView ivSearch;
 
     @FXML
-    void ivSearchActionHandler(MouseEvent event) {
-            if (!txtFieldSearch.getText().isEmpty()) {
-                App.switchToSearchScreen();
-/*
-                ListView listView = new ListView();
-                VBox vbox = new VBox();
-                listView.getItems().addAll(
-                        App.creditSystem.userSearch(txtFieldSearch.getText()));
-*/
-            }
+    private void ivSearchActionHandler(MouseEvent event) {
+        if(!txtFieldSearch.getText().isEmpty()) {
+            App.searchField(txtFieldSearch.getText());
+            App.switchScene("searchScreen");
         }
+        txtFieldSearch.setStyle("-fx-prompt-text-fill: red");
+    }
 
     @FXML
     void buttonHandlerLogin(ActionEvent event) {
-
+        App.switchScene("LoginScreen");
     }
 
     @FXML
     void ivLogoActionHandler(MouseEvent event) {
-        App.switchToFrontPage();
+        App.switchScene("FrontPage");
     }
 
 }

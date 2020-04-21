@@ -4,6 +4,8 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 
 public class LoginController {
     @FXML
@@ -16,7 +18,16 @@ public class LoginController {
     private Button buttonLogin;
 
     @FXML
-    void buttonHandlerLogin(ActionEvent event) {
+    private ImageView ivLogo;
 
+    @FXML
+    void buttonHandlerLogin(ActionEvent event) {
+        // Needs to validate login
+        App.switchScene("FrontPage");
+    }
+
+
+    public void ivLogoActionHandler(MouseEvent mouseEvent) {
+        App.switchScene("FrontPage");
     }
 }
