@@ -25,7 +25,7 @@ public class App extends Application {
         return creditSystem;
     }
 
-    private final SearchScreenController searchScreen = new SearchScreenController();
+    public static String searchFieldString;
 
     @Override
     public void start(Stage stage) throws IOException {
@@ -57,7 +57,7 @@ public class App extends Application {
     }
 
     public static void searchField(String searchString){
-
+        searchFieldString = searchString;
     }
 
     public void closeSystem(){

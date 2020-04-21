@@ -1,8 +1,8 @@
-Harry Potter and the philosephers stone;1;
-Harry Potter and the chamber of secrets;2;
-Harry Potter and the prisoner of Azkaban;3;
-Harry Potter and the goblet of fire;4;
-Harry Potter and the order of the phoenix;5;
-Harry Potter and the the half blood prince;6;
-Harry Potter and the deadly hallows;7;
-Harry Potter and the deadly hallows;8;
+Harry Potter og De Vises Sten (Harry Potter and the Philosopher's Stone);1;
+Harry Potter og Hemmelighedernes Kammer (Harry Potter and the Chamber of Secrets);2;
+Harry Potter og Fangen fra Azkaban (Harry Potter and the Prisoner of Azkaban);3;
+Harry Potter og Flammernes Pokal (Harry Potter and the Goblet of Fire);4;
+Harry Potter og Fønixordenen (Harry Potter and the Order of the Phoenix);5;
+Harry Potter og Halvblodsprinsen (Harry Potter and the Half-Blood Prince);6;
+Harry Potter og Dødsregalierne - Del 1 (Harry Potter and the Deathly Hallows - Part 1);7;
+Harry Potter og Dødsregalierne - Del 2 (Harry Potter and the Deathly Hallows - Part 2);8;
