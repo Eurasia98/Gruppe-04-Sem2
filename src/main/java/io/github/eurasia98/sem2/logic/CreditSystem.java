@@ -32,7 +32,7 @@ public class CreditSystem {
             hl.setOnAction(new EventHandler<ActionEvent>() {
                 @Override
                 public void handle(ActionEvent actionEvent) {
-                    App.switchToDisplayCreditsScreen();
+                    App.switchScene("DisplayCreditsFirstIteration");
                     cr.displayCredits(databaseController.searchCredits(databaseController.getProductionId(hl.getText())));
                 }
             });

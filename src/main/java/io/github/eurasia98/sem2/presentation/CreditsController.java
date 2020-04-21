@@ -1,26 +1,22 @@
 package io.github.eurasia98.sem2.presentation;
 
-import javafx.event.ActionEvent;
+import io.github.eurasia98.sem2.logic.Credit;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.ListView;
-import javafx.scene.layout.VBox;
-
-import java.util.ArrayList;
+import javafx.scene.control.TextArea;
 import java.util.List;
-import java.util.Map;
+
 
 public class CreditsController {
 
     @FXML
-    private VBox VBoxDisplayCredits;
+    private TextArea txtAreaCreditsDisplay;
 
-    @FXML
-    private ListView<?> ListviewCredits;
-
-    public void displayCredits(List<String> stringList){
-        stringList = new ArrayList<>();
-        VBoxDisplayCredits.setVisible(true);
-        //ListviewCredits.getItems().addAll(stringList);
+    public void displayCredits(List<Credit> creditList){
+        StringBuilder txt = new StringBuilder();
+        for (Credit credit : creditList){
+            txt.append(credit.toString()).append("\n");
+        }
+        txtAreaCreditsDisplay.setText(txt.toString());
     }
+
 }

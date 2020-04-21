@@ -39,7 +39,7 @@ public class SearchScreenController {
         if (!textFieldSearch.getText().isEmpty()) {
             vBoxSearchResults.setVisible(true);
             ListView listView = new ListView();
-            ArrayList<Hyperlink> hyperlinkArrayList = App.creditSystem.search(textFieldSearch.getText());
+            ArrayList<Hyperlink> hyperlinkArrayList = App.creditSystem.userSearch(textFieldSearch.getText());
             ArrayList<Hyperlink> finalList = new ArrayList<>();
             for (Hyperlink hl : hyperlinkArrayList){
                 hl.setOnAction(new EventHandler<ActionEvent>() {
