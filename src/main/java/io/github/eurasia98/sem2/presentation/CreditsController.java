@@ -16,11 +16,11 @@ public class CreditsController {
     private VBox VBoxDisplayCredits;
 
     @FXML
-    private ListView<?> ListviewCredits;
+    private ListView<String> ListviewCredits;
 
     public void displayCredits(List<String> stringList){
-        stringList = new ArrayList<>();
+//        ArrayList creditsList = new ArrayList<>();
         VBoxDisplayCredits.setVisible(true);
-        //ListviewCredits.getItems().addAll(stringList);
+        ListviewCredits.getItems().addAll(stringList);
     }
 }

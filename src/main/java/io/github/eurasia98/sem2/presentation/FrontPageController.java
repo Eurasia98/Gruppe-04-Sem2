@@ -24,18 +24,22 @@ public class FrontPageController {
     private ImageView ivSearch;
 
     @FXML
-    void ivSearchActionHandler(MouseEvent event) {
-        App.switchToSearchScreen();
+    private void ivSearchActionHandler(MouseEvent event) {
+        if(!txtFieldSearch.getText().isEmpty()) {
+            App.searchField(txtFieldSearch.getText());
+            App.switchScene("searchScreen");
+        }
+        txtFieldSearch.setStyle("-fx-prompt-text-fill: red");
     }
 
     @FXML
     void buttonHandlerLogin(ActionEvent event) {
-
+        App.switchScene("LoginScreen");
     }
 
     @FXML
     void ivLogoActionHandler(MouseEvent event) {
-        App.switchToFrontPage();
+        App.switchScene("FrontPage");
     }
 
 }

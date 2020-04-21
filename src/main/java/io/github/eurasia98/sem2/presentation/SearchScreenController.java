@@ -10,6 +10,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Hyperlink;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 
@@ -28,6 +30,9 @@ public class SearchScreenController {
     @FXML
     private TextField textFieldSearch;
 
+    @FXML
+    private ImageView ivLogo;
+
 
     @FXML
     void buttonHandlerSearch(ActionEvent event) throws IOException {
@@ -40,7 +45,7 @@ public class SearchScreenController {
                 hl.setOnAction(new EventHandler<ActionEvent>() {
                     @Override
                     public void handle(ActionEvent actionEvent) {
-                        App.switchToDisplayCreditsScreen();
+                        App.switchScene("DisplayCreditsFirstIteration");
                     }
                 });
                 finalList.add(hl);
@@ -49,4 +54,11 @@ public class SearchScreenController {
         }
     }
 
+    public void ivLogoActionHandler(MouseEvent mouseEvent) {
+        App.switchScene("FrontPage");
+    }
+
+    public void setTextFieldSearch(String searchString){
+        textFieldSearch.setText(searchString);
+    }
 }
