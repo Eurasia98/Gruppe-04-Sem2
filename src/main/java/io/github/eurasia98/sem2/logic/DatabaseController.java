@@ -32,9 +32,9 @@ public class DatabaseController {
         } return productionId;
     }
 
-    public List<SearchResults> searchProductions(String searchString) {
+    public ArrayList<SearchResults> searchProductions(String searchString) {
         file = getFile("Productions.txt");
-        List<SearchResults> searchResultsList = new ArrayList<SearchResults>();
+        ArrayList<SearchResults> searchResultsList = new ArrayList<SearchResults>();
         try {
             Scanner s = new Scanner(file);
             while (s.hasNextLine()) {
@@ -83,13 +83,14 @@ public class DatabaseController {
                     person = new Person(lineArray[1], lineArray[2]);
                     production = new Production(searchProductionTitleFromId(productionId), productionId);
                     credit = new Credit(person, production, lineArray[3], lineArray[4]);
-                    sb.append(credit.toString());
+                    sb.append(credit.toString() + "\n");
                 }
             }
         } catch (FileNotFoundException e) {
             System.out.println();
             e.printStackTrace();
         }
+        System.out.println(sb.toString());
         return sb.toString();
     }
 }

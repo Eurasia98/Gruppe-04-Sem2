@@ -18,15 +18,11 @@ public class CreditSystem {
 
     
     public ArrayList<Hyperlink> userSearch(String searchString){
-        List<SearchResults> productionsList = databaseController.searchProductions(searchString);
-        ArrayList<Hyperlink> hyperLinksToDisplay = createHyperlinksToDisplay(productionsList);
+        ArrayList<SearchResults> productionsList = databaseController.searchProductions(searchString);
+
+        ArrayList<Hyperlink> hyperLinksToDisplay = createHyperlinksResults(productionsList);
 
         return hyperLinksToDisplay;
-    }
-
-    public ArrayList<Hyperlink> createHyperlinksToDisplay(List<SearchResults> searchResultsList){
-        ArrayList<Hyperlink> resultsList = new ArrayList<>();
-        return resultsList;
     }
 
     public String searchCredits(String title){
@@ -44,6 +40,24 @@ public class CreditSystem {
         }
 
         return "Login successful.";
+    }
+
+    // metode til at lave hyperlinks ud af de resultater der findes i en søgning.
+    public ArrayList<Hyperlink> createHyperlinksResults(ArrayList<SearchResults> searchResults){
+        ArrayList<Hyperlink> searchResultsList = new ArrayList<>();
+        for (int i = 0; i < searchResults.size(); i++){
+            Hyperlink hl = new Hyperlink(searchResults.get(i).getTitle());
+            hl.setOnAction(new EventHandler<ActionEvent>() {
+                @Override
+                public void handle(ActionEvent actionEvent) {
+                    App.switchScene("DisplayCreditsFirstIteration");
+                    CreditsController creditsController = new CreditsController();
+                    creditsController.displayCredits(searchCredits(hl.getText()));
+                }
+            });
+            searchResultsList.add(hl);
+        }
+        return searchResultsList;
     }
 
     public static void main(String[] args) {
