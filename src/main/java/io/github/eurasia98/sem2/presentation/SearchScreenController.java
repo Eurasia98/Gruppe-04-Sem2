@@ -39,9 +39,7 @@ public class SearchScreenController implements Initializable {
      * */
     @FXML
     void buttonHandlerSearch(ActionEvent event) throws IOException {
-        if (!textFieldSearch.getText().isEmpty()) {
-            search();
-        }
+        search();
     }
 
     public void ivLogoActionHandler(MouseEvent mouseEvent) {

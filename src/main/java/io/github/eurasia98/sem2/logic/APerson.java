@@ -2,17 +2,15 @@ package io.github.eurasia98.sem2.logic;
 
 import java.util.ArrayList;
 
-public class Person { //extends Account {
+public class APerson { //extends Account {
 
-    private int accountNumber;
+    private String username;
     private String firstName;
     private String lastName;
     private String email;
     private ArrayList<String> myCreditsList;
-    static int accountCounter = 0;
 
-    public Person(String firstName, String lastName, String email) {
-        accountCounter++;
+    public APerson(String username, String firstName, String lastName, String email) {
         this.accountNumber = accountCounter;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -20,7 +18,7 @@ public class Person { //extends Account {
 
     }
 
-    public Person(String firstName, String lastName) {
+    public APerson(String firstName, String lastName) {
         accountCounter++;
         this.accountNumber = accountCounter;
         this.firstName = firstName;

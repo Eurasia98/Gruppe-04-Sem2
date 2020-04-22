@@ -1,22 +1,32 @@
 package io.github.eurasia98.sem2.logic;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 public class Login {
 
-    private String username;
-    private String password;
-    private String accountType;
+    private DatabaseController databaseController = new DatabaseController();
 
-    /*public String loginVerify (String username, String password) {
-        this.username = username;
-        this.password = password;
+    private Account account;
 
-        if (DatabaseController.loginVerify(username, password)){
-            this.accountType = DatabaseController.getAccountType();
-            return this.accountType;
+    public String loginVerify (String username, String password) {
+        List<String> accountVerified = new ArrayList<String>();
+        accountVerified.addAll(databaseController.verifyLogin(username,password));
+        System.out.println("Hej efter verified");
+        if (accountVerified.get(0).equals("Wrong username / password.")){
+            return "Wrong username / password.";
         }
+        else if (accountVerified.get(0).equals("System error. Try again.")){
+            return "System error. Try again.";
+        }
+        loginVerified(accountVerified);
+        return accountVerified.get(3);
+    }
 
-        return "Denied";
-    }*/
+    public void loginVerified(List<String> accountArray){
+        account = new Account (accountArray.get(0), accountArray.get(1), accountArray.get(3));
+    }
 
 
 

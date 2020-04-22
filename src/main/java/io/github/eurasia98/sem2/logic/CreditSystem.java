@@ -36,14 +36,12 @@ public class CreditSystem {
 
 
     public String login (String username, String password){
-        String accountType = null;
-//      accountType = Login.loginVerify(username, password);
-
-        if (accountType.equals("Denied")){
-            return "Wrong username / password.";
-        }
-
-        return "Login successful.";
+        Login login = new Login();
+        String verification = null;
+        System.out.println("1");
+        verification = login.loginVerify(username, password);
+        System.out.println("2");
+        return verification;
     }
 
     public static void main(String[] args) {
