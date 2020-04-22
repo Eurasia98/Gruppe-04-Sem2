@@ -7,6 +7,8 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 
+import java.io.IOException;
+
 public class FrontPageController {
     @FXML
     private Button buttonLogin;
@@ -30,6 +32,10 @@ public class FrontPageController {
             App.switchScene("searchScreen");
         }
         txtFieldSearch.setStyle("-fx-prompt-text-fill: red");
+    }
+
+    public TextField getTxtFieldSearch(){
+        return txtFieldSearch;
     }
 
     @FXML

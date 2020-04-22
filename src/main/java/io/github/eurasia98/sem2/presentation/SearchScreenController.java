@@ -7,10 +7,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Hyperlink;
-import javafx.scene.control.ListView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
@@ -25,10 +22,10 @@ import java.util.ResourceBundle;
 public class SearchScreenController implements Initializable {
 
     @FXML
-    private VBox vBoxSearchResults;
+    private Button buttonSearch;
 
     @FXML
-    private Button buttonSearch;
+    private VBox vBoxSearchResults;
 
     @FXML
     private TextField textFieldSearch;
@@ -36,24 +33,14 @@ public class SearchScreenController implements Initializable {
     @FXML
     private ImageView ivLogo;
 
-
+    /* håndterer "søg" og "søg igen" knapperne. Sender data
+     *  videre til App og videre til creditsystem, der laver
+     * det om til hyperlinks.
+     * */
     @FXML
     void buttonHandlerSearch(ActionEvent event) throws IOException {
         if (!textFieldSearch.getText().isEmpty()) {
-            vBoxSearchResults.setVisible(true);
-            ListView listView = new ListView();
-            ArrayList<Hyperlink> hyperlinkArrayList = App.creditSystem.search(textFieldSearch.getText());
-            ArrayList<Hyperlink> finalList = new ArrayList<>();
-            for (Hyperlink hl : hyperlinkArrayList){
-                hl.setOnAction(new EventHandler<ActionEvent>() {
-                    @Override
-                    public void handle(ActionEvent actionEvent) {
-                        App.switchScene("DisplayCreditsFirstIteration");
-                    }
-                });
-                finalList.add(hl);
-            }
-            listView.getItems().addAll(vBoxSearchResults.getChildren().addAll(finalList));
+            search();
         }
     }
 
@@ -61,28 +48,25 @@ public class SearchScreenController implements Initializable {
         App.switchScene("FrontPage");
     }
 
-    public void setTextFieldSearch(String searchString) throws IOException {
+    /*public void setTextFieldSearch(String searchString) throws IOException {
         textFieldSearch.setText(searchString);
         search();
-    }
+    }*/
 
     public void search() throws IOException {
         if (!textFieldSearch.getText().isEmpty()) {
-            vBoxSearchResults.setVisible(true);
-            ListView listView = new ListView();
-            ArrayList<Hyperlink> hyperlinkArrayList = App.creditSystem.search(textFieldSearch.getText());
-            ArrayList<Hyperlink> finalList = new ArrayList<>();
-            for (Hyperlink hl : hyperlinkArrayList){
-                hl.setOnAction(new EventHandler<ActionEvent>() {
-                    @Override
-                    public void handle(ActionEvent actionEvent) {
-                        App.switchScene("DisplayCreditsFirstIteration");
-                    }
-                });
-                finalList.add(hl);
-            }
-            listView.getItems().addAll(vBoxSearchResults.getChildren().addAll(finalList));
+            vBoxSearchResults.getChildren().addAll(
+                    App.creditSystem.userSearch(textFieldSearch.getText()));
         }
+    }
+
+
+    public VBox getVBoxSearchResults() {
+        return vBoxSearchResults;
+    }
+
+    public TextField getTextFieldSearch(){
+            return textFieldSearch;
     }
 
     @Override

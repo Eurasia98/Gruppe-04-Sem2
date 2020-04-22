@@ -14,6 +14,24 @@ public class DatabaseController {
         return new File(getClass().getClassLoader().getResource(fileName).getFile());
     }
 
+    public int getProductionId(String title){
+        file = getFile("Productions.txt");
+        int productionId = 0;
+        try {
+            Scanner s = new Scanner(file);
+            while (s.hasNextLine()){
+                String line = s.nextLine();
+                String[] lineArray = line.split(";");
+                if (title.equalsIgnoreCase(lineArray[0])){
+                    System.out.println(title);
+                    productionId = Integer.parseInt(lineArray[1]);
+                }
+            }
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } return productionId;
+    }
+
     public List<SearchResults> searchProductions(String searchString) {
         file = getFile("Productions.txt");
         List<SearchResults> searchResultsList = new ArrayList<SearchResults>();
@@ -53,9 +71,9 @@ public class DatabaseController {
         return title;
     }
 
-    public List<Credit> searchCredits(int productionId) {
-        file = new File("Credits.txt");
-        List<Credit> creditsList = new ArrayList<>();
+    public String searchCredits(int productionId) {
+        StringBuilder sb = new StringBuilder();
+        file = getFile("Credits.txt");
         try {
             Scanner s = new Scanner(file);
             while (s.hasNextLine()) {
@@ -65,12 +83,13 @@ public class DatabaseController {
                     person = new Person(lineArray[1], lineArray[2]);
                     production = new Production(searchProductionTitleFromId(productionId), productionId);
                     credit = new Credit(person, production, lineArray[3], lineArray[4]);
-                    creditsList.add(credit);
+                    sb.append(credit.toString());
                 }
             }
         } catch (FileNotFoundException e) {
+            System.out.println();
             e.printStackTrace();
         }
-        return creditsList;
+        return sb.toString();
     }
 }
