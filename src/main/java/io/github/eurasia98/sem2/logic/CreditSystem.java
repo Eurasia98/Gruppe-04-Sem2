@@ -41,8 +41,10 @@ public class CreditSystem {
         return resultsList;
     }
 
-    public void searchCredits(String title){
-
+    public List<Credit> searchCredits(String title){
+        int id = databaseController.getProductionId(title);
+        List<Credit> creditList = databaseController.searchCredits(id);
+        return creditList;
     }
 
 

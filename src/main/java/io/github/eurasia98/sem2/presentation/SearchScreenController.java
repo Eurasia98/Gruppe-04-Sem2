@@ -49,6 +49,8 @@ public class SearchScreenController implements Initializable {
                     @Override
                     public void handle(ActionEvent actionEvent) {
                         App.switchScene("DisplayCreditsFirstIteration");
+                        CreditsController creditsController = new CreditsController();
+                        creditsController.displayCredits(App.creditSystem.searchCredits(hl.getText()));
                     }
                 });
                 finalList.add(hl);
@@ -70,7 +72,7 @@ public class SearchScreenController implements Initializable {
         if (!textFieldSearch.getText().isEmpty()) {
             vBoxSearchResults.setVisible(true);
             ListView listView = new ListView();
-            ArrayList<Hyperlink> hyperlinkArrayList = App.creditSystem.search(textFieldSearch.getText());
+            ArrayList<Hyperlink> hyperlinkArrayList = App.creditSystem.userSearch(textFieldSearch.getText());
             ArrayList<Hyperlink> finalList = new ArrayList<>();
             for (Hyperlink hl : hyperlinkArrayList){
                 hl.setOnAction(new EventHandler<ActionEvent>() {

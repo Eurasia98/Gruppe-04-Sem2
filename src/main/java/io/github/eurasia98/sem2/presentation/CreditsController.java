@@ -16,7 +16,15 @@ public class CreditsController {
         for (Credit credit : creditList){
             txt.append(credit.toString()).append("\n");
         }
-        txtAreaCreditsDisplay.setText(txt.toString());
+        setText(txt.toString());
+    }
+
+    public void setText(String text){
+        this.txtAreaCreditsDisplay.setText(text);
+    }
+
+    public String getText(){
+        return txtAreaCreditsDisplay.getText();
     }
 
 }
