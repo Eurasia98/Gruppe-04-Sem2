@@ -5,6 +5,6 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="io.github.eurasia98.sem2.presentation.CreditsController">
    <children>
-      <TextArea fx:id="txtAreaCreditsDisplay" layoutX="142.0" layoutY="79.0" prefHeight="321.0" prefWidth="458.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="142.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="79.0" />
+      <TextArea fx:id="txtAreaCreditsDisplay" editable="false" layoutX="142.0" layoutY="79.0" prefHeight="321.0" prefWidth="458.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="142.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="79.0" />
    </children>
 </AnchorPane>

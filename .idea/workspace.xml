@@ -3,11 +3,16 @@
   <component name="ChangeListManager">
     <list default="true" id="0842e942-7252-4a46-994b-9e6ae5777635" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/github/eurasia98/sem2/logic/CreditSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/github/eurasia98/sem2/logic/CreditSystem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/github/eurasia98/sem2/logic/DatabaseController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/github/eurasia98/sem2/logic/DatabaseController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/io/github/eurasia98/sem2/logic/SearchResults.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/github/eurasia98/sem2/logic/SearchResults.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/io/github/eurasia98/sem2/presentation/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/github/eurasia98/sem2/presentation/App.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/io/github/eurasia98/sem2/presentation/CreditsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/github/eurasia98/sem2/presentation/CreditsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/io/github/eurasia98/sem2/presentation/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/github/eurasia98/sem2/presentation/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/github/eurasia98/sem2/presentation/FrontPageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/github/eurasia98/sem2/presentation/FrontPageController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/io/github/eurasia98/sem2/presentation/SearchScreenController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/github/eurasia98/sem2/presentation/SearchScreenController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/Productions.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Productions.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/io/github/eurasia98/sem2/presentation/DisplayCreditsFirstIteration.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/io/github/eurasia98/sem2/presentation/DisplayCreditsFirstIteration.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/io/github/eurasia98/sem2/presentation/searchScreen.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/io/github/eurasia98/sem2/presentation/searchScreen.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,8 +24,8 @@
       <list>
         <option value="FxmlFile" />
         <option value="Interface" />
-        <option value="Class" />
         <option value="CSS File" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -290,7 +295,14 @@
       <option name="project" value="LOCAL" />
       <updated>1587551012474</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="Flyttet logic vedrørende omdannelsen af søgeresultater til hyperlinks fra presentation til SearchResults i logik.">
+      <created>1587559890182</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1587559890182</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -313,13 +325,14 @@
     <MESSAGE value="Lavet hyperlinks søgeresultater til at gøre skifte scene" />
     <MESSAGE value="Merget med amilcar og arbejdet med search" />
     <MESSAGE value="Arbejdet videre med at få displayCredits til vise credits på GUI" />
-    <option name="LAST_COMMIT_MESSAGE" value="Arbejdet videre med at få displayCredits til vise credits på GUI" />
+    <MESSAGE value="Flyttet logic vedrørende omdannelsen af søgeresultater til hyperlinks fra presentation til SearchResults i logik." />
+    <option name="LAST_COMMIT_MESSAGE" value="Flyttet logic vedrørende omdannelsen af søgeresultater til hyperlinks fra presentation til SearchResults i logik." />
   </component>
   <component name="WindowStateProjectService">
-    <state x="574" y="119" key="#com.intellij.ide.util.MemberChooser" timestamp="1587311341122">
+    <state x="574" y="119" key="#com.intellij.ide.util.MemberChooser" timestamp="1587568918952">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="574" y="119" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1587311341122" />
+    <state x="574" y="119" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1587568918952" />
     <state x="571" y="304" width="393" height="220" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1587299298553">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -328,10 +341,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="499" y="162" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1536.824@0.0.1536.824" timestamp="1587218656091" />
-    <state x="266" y="0" key="CommitChangelistDialog2" timestamp="1587551011238">
+    <state x="266" y="0" key="CommitChangelistDialog2" timestamp="1587559888955">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="266" y="0" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1587551011238" />
+    <state x="266" y="0" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1587559888955" />
     <state x="147" y="65" key="DiffContextDialog" timestamp="1587406925996">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -340,22 +353,38 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="549" y="170" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1587315480912" />
-    <state width="1263" height="174" key="GridCell.Tab.0.bottom" timestamp="1587559707159">
+    <state width="1260" height="163" key="GridCell.Tab.0.bottom" timestamp="1587570047223">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1263" height="174" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1587559707159" />
-    <state width="1263" height="174" key="GridCell.Tab.0.center" timestamp="1587559707159">
+    <state width="1260" height="163" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1587570047223" />
+    <state width="1260" height="163" key="GridCell.Tab.0.center" timestamp="1587570047223">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1263" height="174" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1587559707159" />
-    <state width="1263" height="174" key="GridCell.Tab.0.left" timestamp="1587559707159">
+    <state width="1260" height="163" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1587570047223" />
+    <state width="1260" height="163" key="GridCell.Tab.0.left" timestamp="1587570047223">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1263" height="174" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1587559707159" />
-    <state width="1263" height="174" key="GridCell.Tab.0.right" timestamp="1587559707159">
+    <state width="1260" height="163" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1587570047223" />
+    <state width="1260" height="163" key="GridCell.Tab.0.right" timestamp="1587570047223">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1263" height="174" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1587559707159" />
+    <state width="1260" height="163" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1587570047223" />
+    <state width="746" height="261" key="GridCell.Tab.1.bottom" timestamp="1587569845097">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="746" height="261" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1587569845097" />
+    <state width="746" height="261" key="GridCell.Tab.1.center" timestamp="1587569845096">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="746" height="261" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1587569845096" />
+    <state width="746" height="261" key="GridCell.Tab.1.left" timestamp="1587569845096">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="746" height="261" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1587569845096" />
+    <state width="746" height="261" key="GridCell.Tab.1.right" timestamp="1587569845097">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="746" height="261" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1587569845097" />
     <state x="147" y="65" key="MergeDialog" timestamp="1587407010285">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -364,14 +393,14 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="481" y="130" key="MultipleFileMergeDialog/0.0.1536.824@0.0.1536.824" timestamp="1587407020501" />
-    <state x="359" y="126" key="RollbackChangesDialog" timestamp="1587326351396">
+    <state x="359" y="126" key="RollbackChangesDialog" timestamp="1587561994471">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="359" y="126" key="RollbackChangesDialog/0.0.1536.824@0.0.1536.824" timestamp="1587326351396" />
-    <state x="361" y="148" key="Vcs.Push.Dialog.v2" timestamp="1587551021114">
+    <state x="359" y="126" key="RollbackChangesDialog/0.0.1536.824@0.0.1536.824" timestamp="1587561994471" />
+    <state x="361" y="148" key="Vcs.Push.Dialog.v2" timestamp="1587559896985">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="361" y="148" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1587551021114" />
+    <state x="361" y="148" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1587559896985" />
     <state x="477" y="240" key="com.intellij.ide.util.TipDialog" timestamp="1587302722959">
       <screen x="0" y="0" width="1536" height="824" />
     </state>

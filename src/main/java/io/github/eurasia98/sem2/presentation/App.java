@@ -48,6 +48,7 @@ public class App extends Application {
         return fxmlLoader.load();
     }
 
+    //bruges til at skifte mellem fxml filerne.
     public static void switchScene(String sceneName){
         try {
             scene.setRoot(loadFXML(sceneName));
@@ -56,9 +57,11 @@ public class App extends Application {
         }
     }
 
+    //bruges til at sende string fra frontpage searchfield til searchscreencontroller i initialize.
     public static void searchField(String searchString){
         searchFieldString = searchString;
     }
+
     //lukker programmet
     public void closeSystem(){
         Stage stage = (Stage) scene.getWindow();

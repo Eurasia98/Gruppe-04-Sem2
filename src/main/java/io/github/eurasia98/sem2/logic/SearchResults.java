@@ -14,40 +14,23 @@ public class SearchResults {
     private int productionId;
     private CreditSystem cs = new CreditSystem();
 
+    public SearchResults(String title, int productionId){
+        this.title = title;
+        this.productionId = productionId;
+    }
+
     public String getTitle() {
         return title;
     }
+
+    public int getProductionId(){return productionId; }
 
     @Override
     public String toString(){
         return title;
     }
 
-    public int getProductionId() {
-        return productionId;
-    }
 
-    public SearchResults(String title, int productionId){
-        this.title = title;
-        this.productionId = productionId;
-    }
 
-    // metode til at lave hyperlinks ud af de resultater der findes i en søgning.
-    public List<Hyperlink> createHyperlinksResults(ArrayList<SearchResults> searchResults){
-        List<Hyperlink> searchResultsList = new ArrayList<>();
-        for (int i = 0; i < searchResults.size(); i++){
-            Hyperlink hl = new Hyperlink(searchResults.get(i).title);
-            hl.setOnAction(new EventHandler<ActionEvent>() {
-                @Override
-                public void handle(ActionEvent actionEvent) {
-                    App.switchScene(hl.getText());
-                    CreditsController creditsController = new CreditsController();
-                    creditsController.displayCredits(cs.searchCredits(hl.getText()));
-                }
-            });
-            searchResultsList.add(hl);
-        }
-        return searchResultsList;
-    }
 
 }

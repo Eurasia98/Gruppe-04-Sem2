@@ -26,25 +26,12 @@ public class CreditSystem {
 
     public ArrayList<Hyperlink> createHyperlinksToDisplay(List<SearchResults> searchResultsList){
         ArrayList<Hyperlink> resultsList = new ArrayList<>();
-        CreditsController cr = new CreditsController();
-        for (SearchResults s : searchResultsList){
-            Hyperlink hl = new Hyperlink(s.getTitle());
-            hl.setOnAction(new EventHandler<ActionEvent>() {
-                @Override
-                public void handle(ActionEvent actionEvent) {
-                    App.switchScene("DisplayCreditsFirstIteration");
-                    cr.displayCredits(databaseController.searchCredits(databaseController.getProductionId(hl.getText())));
-                }
-            });
-            resultsList.add(hl);
-        }
         return resultsList;
     }
 
-    public List<Credit> searchCredits(String title){
+    public String searchCredits(String title){
         int id = databaseController.getProductionId(title);
-        List<Credit> creditList = databaseController.searchCredits(id);
-        return creditList;
+        return databaseController.searchCredits(id);
     }
 
 
