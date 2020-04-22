@@ -36,26 +36,17 @@ public class SearchScreenController implements Initializable {
     @FXML
     private ImageView ivLogo;
 
-
+    /* håndterer "søg" og "søg igen" knapperne. Sender data
+    *  videre til App og videre til creditsystem, der laver
+    * det om til hyperlinks. Der
+    * */
     @FXML
     void buttonHandlerSearch(ActionEvent event) throws IOException {
         if (!textFieldSearch.getText().isEmpty()) {
             vBoxSearchResults.setVisible(true);
             ListView listView = new ListView();
-            ArrayList<Hyperlink> hyperlinkArrayList = App.creditSystem.userSearch(textFieldSearch.getText());
-            ArrayList<Hyperlink> finalList = new ArrayList<>();
-            for (Hyperlink hl : hyperlinkArrayList){
-                hl.setOnAction(new EventHandler<ActionEvent>() {
-                    @Override
-                    public void handle(ActionEvent actionEvent) {
-                        App.switchScene("DisplayCreditsFirstIteration");
-                        CreditsController creditsController = new CreditsController();
-                        creditsController.displayCredits(App.creditSystem.searchCredits(hl.getText()));
-                    }
-                });
-                finalList.add(hl);
-            }
-            listView.getItems().addAll(vBoxSearchResults.getChildren().addAll(finalList));
+            listView.getItems().addAll(vBoxSearchResults.getChildren().addAll(
+                    App.creditSystem.userSearch(textFieldSearch.getText())));
         }
     }
 

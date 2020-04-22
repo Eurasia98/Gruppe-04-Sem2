@@ -19,7 +19,7 @@ public class App extends Application {
     //this is a comment
     private static Scene scene;
     private static Stage window;
-    static CreditSystem creditSystem;
+    static CreditSystem creditSystem = new CreditSystem();
 
     public CreditSystem getCreditSystem() {
         return creditSystem;
@@ -34,15 +34,15 @@ public class App extends Application {
         window.setScene(scene);
         window.show();
     }
-
-    public static void injectCreditSystem(CreditSystem cs){
+    //initialiserer creditsysstem. Ikke nødvendigt da vi blot initialiserer ved deklaration i stedet.
+    /*public static void injectCreditSystem(CreditSystem cs){
         creditSystem = cs;
-    }
+    }*/
 
     static void setRoot(String fxml) throws IOException {
         scene.setRoot(loadFXML(fxml));
     }
-
+    //loader fxml dokumentet
     private static Parent loadFXML(String fxml) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource(fxml + ".fxml"));
         return fxmlLoader.load();
@@ -59,7 +59,7 @@ public class App extends Application {
     public static void searchField(String searchString){
         searchFieldString = searchString;
     }
-
+    //lukker programmet
     public void closeSystem(){
         Stage stage = (Stage) scene.getWindow();
         stage.close();
