@@ -13,7 +13,6 @@ public class Login {
     public String loginVerify (String username, String password) {
         List<String> accountVerified = new ArrayList<String>();
         accountVerified.addAll(databaseController.verifyLogin(username,password));
-        System.out.println("Hej efter verified");
         if (accountVerified.get(0).equals("Wrong username / password.")){
             return "Wrong username / password.";
         }

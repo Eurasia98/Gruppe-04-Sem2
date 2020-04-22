@@ -34,9 +34,7 @@ public class CreditSystem {
     public String login (String username, String password){
         Login login = new Login();
         String verification = null;
-        System.out.println("1");
         verification = login.loginVerify(username, password);
-        System.out.println("2");
         return verification;
     }
 

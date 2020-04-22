@@ -11,27 +11,31 @@ public class APerson { //extends Account {
     private ArrayList<String> myCreditsList;
 
     public APerson(String username, String firstName, String lastName, String email) {
-        this.accountNumber = accountCounter;
+        this.username = username;
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
 
     }
 
-    public APerson(String firstName, String lastName) {
-        accountCounter++;
-        this.accountNumber = accountCounter;
+    public APerson(String username, String firstName, String lastName) {
+        this.username = username;
         this.firstName = firstName;
         this.lastName = lastName;
     }
 
-    /*public ArrayList showMyCredits(){
+    public APerson(String firstName, String lastName) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+    }
+
+   /*public ArrayList showMyCredits(){
         this.myCreditsList = DatabaseController.showMyCredits(accountNumber);
         return this.myCreditsList;
     }*/
 
-    public int getAccountNumber() {
-        return accountNumber;
+    public String getUsername() {
+        return username;
     }
 
     public String getFirstName() {
