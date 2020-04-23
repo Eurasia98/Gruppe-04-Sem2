@@ -40,7 +40,7 @@ public class CreditsController implements Initializable {
     @FXML
     void ivSearchMouseClickHandler() {
         if(!txtFieldSearch.getText().isEmpty()) {
-            App.searchField(txtFieldSearch.getText());
+            App.setSearchField(txtFieldSearch.getText());
             App.switchScene("searchScreen");
         }
         txtFieldSearch.setStyle("-fx-prompt-text-fill: red");

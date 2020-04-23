@@ -43,7 +43,7 @@ public class SearchScreenController implements Initializable {
     @FXML
     private void ivSearchMouseClickHandler() throws IOException {
         if(!txtFieldSearch.getText().isEmpty()) {
-            search();
+            search1();
         }
         txtFieldSearch.setStyle("-fx-prompt-text-fill: red");
     }
@@ -59,32 +59,18 @@ public class SearchScreenController implements Initializable {
         }
     }
 
-    public void search() throws IOException {
-        if (!txtFieldSearch.getText().isEmpty()) {
     /* Sætter hyperLinks fra getHyperlinks
     *  ind på vBox så bruger kan se dem i gui.
     * */
     public void search1(){
-        if (!textFieldSearch.getText().isEmpty()) {
+        if (!txtFieldSearch.getText().isEmpty()) {
             vBoxSearchResults.getChildren().clear();
             vBoxSearchResults.setVisible(true);
             vBoxSearchResults.getChildren().addAll(getHyperLinks());
-        } else textFieldSearch.setStyle("-fx-prompt-text-fill: red");
-            ListView listView = new ListView();
-            ArrayList<Hyperlink> hyperlinkArrayList = App.creditSystem.userSearch(txtFieldSearch.getText());
-            ArrayList<Hyperlink> finalList = new ArrayList<>();
-            for (Hyperlink hl : hyperlinkArrayList){
-                hl.setOnAction(new EventHandler<ActionEvent>() {
-                    @Override
-                    public void handle(ActionEvent actionEvent) {
-                        App.setSelectedTitle(hl);
-                        App.switchScene("DisplayCreditsFirstIteration");
-                    }
-                });
-                finalList.add(hl);
-            }
-            listView.getItems().addAll(vBoxSearchResults.getChildren().addAll(finalList));
-        }
+        } else {txtFieldSearch.setStyle("-fx-prompt-text-fill: red");}
+//            ListView listView = new ListView();
+
+//            listView.getItems().addAll(vBoxSearchResults.getChildren().addAll(finalList));
     }
 
     /*
@@ -93,7 +79,7 @@ public class SearchScreenController implements Initializable {
          linker videre til credits displayal.
      */
     public ArrayList<Hyperlink> getHyperLinks(){
-        ArrayList<Hyperlink> hyperlinkArrayList = App.creditSystem.userSearch(textFieldSearch.getText());
+        ArrayList<Hyperlink> hyperlinkArrayList = App.creditSystem.userSearch(txtFieldSearch.getText());
         ArrayList<Hyperlink> finalList = new ArrayList<>();
         for (Hyperlink hl : hyperlinkArrayList){
             hl.setOnAction(new EventHandler<ActionEvent>() {
@@ -110,7 +96,7 @@ public class SearchScreenController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        textFieldSearch.setText(App.searchFieldString);
+        txtFieldSearch.setText(App.searchFieldString);
         search1();
     }
 }

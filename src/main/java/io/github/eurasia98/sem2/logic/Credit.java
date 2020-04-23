@@ -49,5 +49,6 @@ public class Credit {
     @Override
     public String toString(){
         return person.getFirstName() + " " + person.getLastName() + "\t" + roleType + "\t" + roleName;
+//        return String.format("%s %10s");
     }
 }
