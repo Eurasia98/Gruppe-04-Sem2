@@ -43,14 +43,15 @@ public class CreditSystem {
         ArrayList<Hyperlink> searchResultsList = new ArrayList<>();
         for (int i = 0; i < searchResults.size(); i++){
             Hyperlink hl = new Hyperlink(searchResults.get(i).getTitle());
-            hl.setOnAction(new EventHandler<ActionEvent>() {
-                @Override
-                public void handle(ActionEvent actionEvent) {
-                    App.switchScene("DisplayCreditsFirstIteration");
-                    CreditsController creditsController = new CreditsController();
-                    creditsController.displayCredits(searchCredits(hl.getText()));
-                }
-            });
+//            hl.setOnAction(new EventHandler<ActionEvent>() {
+//                @Override
+//                public void handle(ActionEvent actionEvent) {
+//                    App.switchScene("DisplayCreditsFirstIteration");
+//                    CreditsController creditsController = new CreditsController();
+//                    creditsController.displayCredits(searchCredits(hl.getText()));
+//                }
+//            });
+
             searchResultsList.add(hl);
         }
         return searchResultsList;

@@ -19,27 +19,8 @@ public class CreditsController implements Initializable {
     @FXML
     private TextArea txtAreaCreditsDisplay;
 
-    public TextArea getTxtAreaCreditsDisplay() {
-        return txtAreaCreditsDisplay;
-    }
-
-    //metode til at tilføje credits til et tomt textarea så user kan se det. Virker ikke efter planen
-    public void displayCredits(String credits){
-        App.switchScene("DisplayCreditsFirstIteration");
-        setText(credits);
-    }
-
-    //sætter tekst på textarea
-    public void setText(String text){
-        txtAreaCreditsDisplay.setText(text);
-    }
-
-    public String getText(){
-        return txtAreaCreditsDisplay.getText();
-    }
-
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
+        txtAreaCreditsDisplay.appendText(App.creditSystem.searchCredits(App.selectedTitle));
     }
 }

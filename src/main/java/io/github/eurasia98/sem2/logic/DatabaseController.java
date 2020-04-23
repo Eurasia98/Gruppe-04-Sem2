@@ -23,7 +23,7 @@ public class DatabaseController {
                 String line = s.nextLine();
                 String[] lineArray = line.split(";");
                 if (title.equalsIgnoreCase(lineArray[0])){
-                    System.out.println(title);
+//                    System.out.println(title);
                     productionId = Integer.parseInt(lineArray[1]);
                 }
             }
@@ -46,9 +46,6 @@ public class DatabaseController {
             }
         } catch (FileNotFoundException e) {
             e.printStackTrace();
-        }
-        for (SearchResults sr : searchResultsList){
-            System.out.println(" " + sr.toString());
         }
         return searchResultsList;
     }
@@ -90,7 +87,7 @@ public class DatabaseController {
             System.out.println();
             e.printStackTrace();
         }
-        System.out.println(sb.toString());
+//        System.out.println(sb.toString());
         return sb.toString();
     }
 

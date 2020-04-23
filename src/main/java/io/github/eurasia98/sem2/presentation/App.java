@@ -26,6 +26,7 @@ public class App extends Application {
     }
 
     public static String searchFieldString;
+    public static String selectedTitle;
 
     @Override
     public void start(Stage stage) throws IOException {
@@ -34,10 +35,6 @@ public class App extends Application {
         window.setScene(scene);
         window.show();
     }
-    //initialiserer creditsysstem. Ikke nødvendigt da vi blot initialiserer ved deklaration i stedet.
-    /*public static void injectCreditSystem(CreditSystem cs){
-        creditSystem = cs;
-    }*/
 
     static void setRoot(String fxml) throws IOException {
         scene.setRoot(loadFXML(fxml));
@@ -60,6 +57,10 @@ public class App extends Application {
     //bruges til at sende string fra frontpage searchfield til searchscreencontroller i initialize.
     public static void searchField(String searchString){
         searchFieldString = searchString;
+    }
+
+    public static void setSelectedTitle(Hyperlink selectedHyperlink){
+        selectedTitle = selectedHyperlink.getText();
     }
 
     //lukker programmet
