@@ -11,7 +11,7 @@
          <top>
             <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                <children>
-                  <Button fx:id="buttonLogin" layoutX="541.0" layoutY="14.0" mnemonicParsing="false" onAction="#buttonHandlerLogin" prefHeight="25.0" prefWidth="50.0" text="Login" />
+                  <Button fx:id="btnLogin" layoutX="541.0" layoutY="14.0" mnemonicParsing="false" onAction="#btnLoginActionHandler" prefHeight="25.0" prefWidth="50.0" text="Login" />
                   <ImageView fx:id="ivLogo" fitHeight="50.0" fitWidth="150.0" layoutX="2.0" layoutY="2.0" onMouseClicked="#ivLogoActionHandler" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@images/TV2_logo.png" />
@@ -26,8 +26,8 @@
          <center>
             <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                <children>
-                  <TextField fx:id="txtFieldSearch" prefHeight="25.0" prefWidth="224.0" promptText="Søg efter film / serie " />
-                  <ImageView fx:id="ivSearch" fitHeight="23.0" fitWidth="25.0" layoutX="198.0" layoutY="1.0" onMouseClicked="#ivSearchActionHandler" pickOnBounds="true" preserveRatio="true">
+                  <TextField fx:id="txtFieldSearch" onKeyPressed="#txtFieldSearchKeyPressHandler" prefHeight="25.0" prefWidth="224.0" promptText="Søg efter film / serie " />
+                  <ImageView fx:id="ivSearch" fitHeight="23.0" fitWidth="25.0" layoutX="198.0" layoutY="1.0" onMouseClicked="#ivSearchMouseClickHandler" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@images/Search_Icon.png" />
                      </image>

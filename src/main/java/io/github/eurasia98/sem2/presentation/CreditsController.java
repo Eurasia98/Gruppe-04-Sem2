@@ -7,6 +7,10 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyEvent;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 import java.net.URL;
@@ -18,6 +22,37 @@ public class CreditsController implements Initializable {
 
     @FXML
     private TextArea txtAreaCreditsDisplay;
+
+    @FXML
+    private TextField txtFieldSearch;
+
+    @FXML
+    private ImageView ivLogo;
+
+    @FXML
+    private ImageView ivSearch;
+
+    @FXML
+    void ivLogoActionHandler(MouseEvent event) {
+        App.switchScene("FrontPage");
+    }
+
+    @FXML
+    void ivSearchMouseClickHandler() {
+        if(!txtFieldSearch.getText().isEmpty()) {
+            App.searchField(txtFieldSearch.getText());
+            App.switchScene("searchScreen");
+        }
+        txtFieldSearch.setStyle("-fx-prompt-text-fill: red");
+    }
+
+    @FXML
+    void txtFieldSearchKeyPressHandler(KeyEvent event) {
+        if (event.getCode().toString().equals("ENTER")){
+            ivSearchMouseClickHandler();
+        }
+    }
+
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {

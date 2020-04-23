@@ -5,16 +5,14 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 
 import java.io.IOException;
 
 public class FrontPageController {
     @FXML
-    private Button buttonLogin;
-
-    @FXML
-    private Button buttonSearch;
+    private Button btnLogin;
 
     @FXML
     private ImageView ivLogo;
@@ -26,7 +24,7 @@ public class FrontPageController {
     private ImageView ivSearch;
 
     @FXML
-    private void ivSearchActionHandler(MouseEvent event) {
+    private void ivSearchMouseClickHandler() {
         if(!txtFieldSearch.getText().isEmpty()) {
             App.searchField(txtFieldSearch.getText());
             App.switchScene("searchScreen");
@@ -34,12 +32,15 @@ public class FrontPageController {
         txtFieldSearch.setStyle("-fx-prompt-text-fill: red");
     }
 
-    public TextField getTxtFieldSearch(){
-        return txtFieldSearch;
+    @FXML
+    void txtFieldSearchKeyPressHandler(KeyEvent event) {
+        if (event.getCode().toString().equals("ENTER")){
+            ivSearchMouseClickHandler();
+        }
     }
 
     @FXML
-    void buttonHandlerLogin(ActionEvent event) {
+    void btnLoginActionHandler(ActionEvent event) {
         App.switchScene("LoginScreen");
     }
 

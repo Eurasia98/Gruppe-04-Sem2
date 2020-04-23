@@ -9,6 +9,7 @@ import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
@@ -22,35 +23,46 @@ import java.util.ResourceBundle;
 public class SearchScreenController implements Initializable {
 
     @FXML
-    private Button buttonSearch;
-
-    @FXML
     private VBox vBoxSearchResults;
 
     @FXML
-    private TextField textFieldSearch;
+    private TextField txtFieldSearch;
 
     @FXML
     private ImageView ivLogo;
+
+    @FXML
+    private ImageView ivSearch;
 
     /* håndterer "søg" og "søg igen" knapperne. Sender data
      *  videre til App og videre til creditsystem, der laver
      * det om til hyperlinks.
      * */
+
     @FXML
-    void buttonHandlerSearch(ActionEvent event) throws IOException {
-        search();
+    private void ivSearchMouseClickHandler() throws IOException {
+        if(!txtFieldSearch.getText().isEmpty()) {
+            search();
+        }
+        txtFieldSearch.setStyle("-fx-prompt-text-fill: red");
     }
 
     public void ivLogoActionHandler(MouseEvent mouseEvent) {
         App.switchScene("FrontPage");
     }
 
+    @FXML
+    void txtFieldSearchKeyPressHandler(KeyEvent event) throws IOException {
+        if (event.getCode().toString().equals("ENTER")){
+            ivSearchMouseClickHandler();
+        }
+    }
+
     public void search() throws IOException {
-        if (!textFieldSearch.getText().isEmpty()) {
+        if (!txtFieldSearch.getText().isEmpty()) {
             vBoxSearchResults.setVisible(true);
             ListView listView = new ListView();
-            ArrayList<Hyperlink> hyperlinkArrayList = App.creditSystem.userSearch(textFieldSearch.getText());
+            ArrayList<Hyperlink> hyperlinkArrayList = App.creditSystem.userSearch(txtFieldSearch.getText());
             ArrayList<Hyperlink> finalList = new ArrayList<>();
             for (Hyperlink hl : hyperlinkArrayList){
                 hl.setOnAction(new EventHandler<ActionEvent>() {
@@ -66,18 +78,9 @@ public class SearchScreenController implements Initializable {
         }
     }
 
-
-    public VBox getVBoxSearchResults() {
-        return vBoxSearchResults;
-    }
-
-    public TextField getTextFieldSearch(){
-            return textFieldSearch;
-    }
-
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        textFieldSearch.setText(App.searchFieldString);
+        txtFieldSearch.setText(App.searchFieldString);
         try {
             search();
         } catch (IOException e) {

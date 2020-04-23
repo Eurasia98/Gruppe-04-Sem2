@@ -40,6 +40,7 @@ public class LoginController {
     public void ivLogoActionHandler(MouseEvent mouseEvent) {
         App.switchScene("FrontPage");
     }
+
     @FXML
     public void keyPressEventHandler(KeyEvent event){
         if (event.getCode().toString().equals("ENTER")){
