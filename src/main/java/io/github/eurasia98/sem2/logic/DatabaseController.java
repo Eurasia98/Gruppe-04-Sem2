@@ -90,7 +90,6 @@ public class DatabaseController {
             System.out.println();
             e.printStackTrace();
         }
-        System.out.println(sb.toString());
         return sb.toString();
     }
 }

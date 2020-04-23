@@ -69,11 +69,6 @@ public class SearchScreenController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        textFieldSearch.setText(App.searchFieldString);
-        try {
-            search();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+
     }
 }
