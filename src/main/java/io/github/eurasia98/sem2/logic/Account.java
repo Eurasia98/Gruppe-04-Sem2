@@ -1,19 +1,39 @@
 package io.github.eurasia98.sem2.logic;
 
+import java.io.IOException;
+
 public class Account {
 
+    private int userId;
     private String username;
     private String password;
     private String accountType;
+    private static int customUsernameCounter = 0;
+    private static String customUsername = "test";
+    private static String customPassword = "test123";
+    private static DatabaseUserManager DUM = new DatabaseUserManager();
+    private static int userIdCounter = DUM.getUserIdCounter();
 
     public Account(String username, String password, String accountType) {
         this.username = username;
         this.password = password;
         this.accountType = accountType;
+        this.userId = userIdCounter;
+        userIdCounter++;
+        try {
+            DUM.updateUserIdCounter(userIdCounter);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
-    public Account() {
-
+    public Account(String accountType) {
+        this.username = customUsername + Integer.toString(customUsernameCounter);
+        customUsernameCounter++;
+        this.password = customPassword;
+        this.accountType = accountType;
+        this.userId = userIdCounter;
+        userIdCounter++;
     }
 
     public String getUsername() {
@@ -27,4 +47,18 @@ public class Account {
     public String getAccountType() {
         return accountType;
     }
+
+    public int getUserId(){ return userId; }
+
+    public void setUsername(String username) { this.username = username; }
+
+    public void setPassword(String password) { this.password = password; }
+
+    public void setAccountType(String accountType) { this.accountType = accountType; }
+
+
+
+
+
+
 }

@@ -9,6 +9,9 @@ import javafx.scene.input.MouseEvent;
 
 public class FrontPageController {
     @FXML
+    private Button buttonOpretProducer;
+
+    @FXML
     private Button buttonLogin;
 
     @FXML
@@ -44,6 +47,11 @@ public class FrontPageController {
     @FXML
     void ivLogoActionHandler(MouseEvent event) {
         App.switchScene("FrontPage");
+    }
+
+    @FXML
+    void buttonHandlerOpretProducer(ActionEvent event){
+        App.switchScene("CreateProducerScreen");
     }
 
 }

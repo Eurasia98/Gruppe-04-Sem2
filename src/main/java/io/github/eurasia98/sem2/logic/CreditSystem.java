@@ -11,7 +11,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CreditSystem {
-    public static DatabaseController databaseController = new DatabaseController();
+    private static DatabaseController databaseController = new DatabaseController();
+    private ProducerManager producerManager = new ProducerManager();
+
+    public static DatabaseController getDatabaseController() {
+        return databaseController;
+    }
+
+    public ProducerManager getProducerManager() {
+        return producerManager;
+    }
 
     public ArrayList<Hyperlink> userSearch(String searchString){
         ArrayList<SearchResults> productionsList = databaseController.searchProductions(searchString);

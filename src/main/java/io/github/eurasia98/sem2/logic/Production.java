@@ -21,7 +21,7 @@ public class Production {
     public Production(String title, int id, int productionID, Date creationDate, ArrayList<Credit> myCreditsList) {
         this.title = title;
         this.productionID = productionID;
-        this.myCreditsList = null;
+        this.myCreditsList = myCreditsList;
     }
 
     public Production(String title, int productionID){

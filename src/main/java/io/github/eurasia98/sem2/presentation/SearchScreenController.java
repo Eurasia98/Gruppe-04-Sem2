@@ -48,41 +48,48 @@ public class SearchScreenController implements Initializable {
      * */
     @FXML
     void buttonHandlerSearch(ActionEvent event) throws IOException {
-        search();
+        search1();
     }
 
     public void ivLogoActionHandler(MouseEvent mouseEvent) {
         App.switchScene("FrontPage");
     }
 
-    public void search() throws IOException {
+    /* Sætter hyperLinks fra getHyperlinks
+    *  ind på vBox så bruger kan se dem i gui.
+    * */
+    public void search1(){
         if (!textFieldSearch.getText().isEmpty()) {
             vBoxSearchResults.getChildren().clear();
             vBoxSearchResults.setVisible(true);
-            ListView listView = new ListView();
-            ArrayList<Hyperlink> hyperlinkArrayList = App.creditSystem.userSearch(textFieldSearch.getText());
-            ArrayList<Hyperlink> finalList = new ArrayList<>();
-            for (Hyperlink hl : hyperlinkArrayList){
-                hl.setOnAction(new EventHandler<ActionEvent>() {
-                    @Override
-                    public void handle(ActionEvent actionEvent) {
-                        App.setSelectedTitle(hl);
-                        App.switchScene("DisplayCreditsFirstIteration");
-                    }
-                });
-                finalList.add(hl);
-            }
-            listView.getItems().addAll(vBoxSearchResults.getChildren().addAll(finalList));
+            vBoxSearchResults.getChildren().addAll(getHyperLinks());
         } else textFieldSearch.setStyle("-fx-prompt-text-fill: red");
+    }
+
+    /*
+         Finder alle titler der indeholder søge string
+         og returnere en ArrayList med HyperLinks der
+         linker videre til credits displayal.
+     */
+    public ArrayList<Hyperlink> getHyperLinks(){
+        ArrayList<Hyperlink> hyperlinkArrayList = App.creditSystem.userSearch(textFieldSearch.getText());
+        ArrayList<Hyperlink> finalList = new ArrayList<>();
+        for (Hyperlink hl : hyperlinkArrayList){
+            hl.setOnAction(new EventHandler<ActionEvent>() {
+                @Override
+                public void handle(ActionEvent actionEvent) {
+                    App.setSelectedTitle(hl);
+                    App.switchScene("DisplayCreditsFirstIteration");
+                }
+            });
+            finalList.add(hl);
+        }
+        return finalList;
     }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        try {
-            textFieldSearch.setText(App.searchFieldString);
-            search();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        textFieldSearch.setText(App.searchFieldString);
+        search1();
     }
 }
