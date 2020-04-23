@@ -32,14 +32,10 @@ public class CreditSystem {
 
 
     public String login (String username, String password){
-        String accountType = null;
-//      accountType = Login.loginVerify(username, password);
-
-        if (accountType.equals("Denied")){
-            return "Wrong username / password.";
-        }
-
-        return "Login successful.";
+        Login login = new Login();
+        String verification = null;
+        verification = login.loginVerify(username, password);
+        return verification;
     }
 
     // metode til at lave hyperlinks ud af de resultater der findes i en søgning.
@@ -47,14 +43,15 @@ public class CreditSystem {
         ArrayList<Hyperlink> searchResultsList = new ArrayList<>();
         for (int i = 0; i < searchResults.size(); i++){
             Hyperlink hl = new Hyperlink(searchResults.get(i).getTitle());
-            hl.setOnAction(new EventHandler<ActionEvent>() {
-                @Override
-                public void handle(ActionEvent actionEvent) {
-                    App.switchScene("DisplayCreditsFirstIteration");
-                    CreditsController creditsController = new CreditsController();
-                    creditsController.displayCredits(searchCredits(hl.getText()));
-                }
-            });
+//            hl.setOnAction(new EventHandler<ActionEvent>() {
+//                @Override
+//                public void handle(ActionEvent actionEvent) {
+//                    App.switchScene("DisplayCreditsFirstIteration");
+//                    CreditsController creditsController = new CreditsController();
+//                    creditsController.displayCredits(searchCredits(hl.getText()));
+//                }
+//            });
+
             searchResultsList.add(hl);
         }
         return searchResultsList;

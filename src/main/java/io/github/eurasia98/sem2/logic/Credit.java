@@ -1,24 +1,24 @@
 package io.github.eurasia98.sem2.logic;
 
 public class Credit {
-    private Person person;
+    private APerson person;
     private Production production;
     private String roleType;
     private String roleName;
 
 
-    public Credit(Person person, Production production, String roleType, String roleName) {
+    public Credit(APerson person, Production production, String roleType, String roleName) {
         this.person = person;
         this.production = production;
         this.roleType = roleType;
         this.roleName = roleName;
     }
 
-    public Person getPerson() {
+    public APerson getPerson() {
         return person;
     }
 
-    public void setPerson(Person person) {
+    public void setPerson(APerson person) {
         this.person = person;
     }
 

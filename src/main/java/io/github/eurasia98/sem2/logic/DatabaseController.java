@@ -8,7 +8,7 @@ public class DatabaseController {
     private File file;
     private Production production;
     private Credit credit;
-    private Person person;
+    private APerson person;
 
     private File getFile(String fileName) {
         return new File(getClass().getClassLoader().getResource(fileName).getFile());
@@ -23,7 +23,7 @@ public class DatabaseController {
                 String line = s.nextLine();
                 String[] lineArray = line.split(";");
                 if (title.equalsIgnoreCase(lineArray[0])){
-                    System.out.println(title);
+//                    System.out.println(title);
                     productionId = Integer.parseInt(lineArray[1]);
                 }
             }
@@ -46,9 +46,6 @@ public class DatabaseController {
             }
         } catch (FileNotFoundException e) {
             e.printStackTrace();
-        }
-        for (SearchResults sr : searchResultsList){
-            System.out.println(" " + sr.toString());
         }
         return searchResultsList;
     }
@@ -80,7 +77,7 @@ public class DatabaseController {
                 String line = s.nextLine();
                 String[] lineArray = line.split(";");
                 if (productionId == Integer.parseInt(lineArray[0])){
-                    person = new Person(lineArray[1], lineArray[2]);
+                    person = new APerson(lineArray[1], lineArray[2]);
                     production = new Production(searchProductionTitleFromId(productionId), productionId);
                     credit = new Credit(person, production, lineArray[3], lineArray[4]);
                     sb.append(credit.toString() + "\n");
@@ -90,6 +87,30 @@ public class DatabaseController {
             System.out.println();
             e.printStackTrace();
         }
+//        System.out.println(sb.toString());
         return sb.toString();
+    }
+
+    public List<String> verifyLogin (String username, String password){
+        file = getFile("Accounts.txt");
+        List<String> accountInfo = new ArrayList<>();
+        try {
+            Scanner s = new Scanner(file);
+            while (s.hasNextLine()) {
+                String account = s.nextLine();
+                String[] accountArray = account.split(";");
+                if (username.equals(accountArray[1]) && password.equals(accountArray[2])){
+                    String[] foundAccount = Arrays.copyOfRange(accountArray, 1, 5);
+                    return Arrays.asList(foundAccount);
+                }
+            }
+            accountInfo.add("Wrong username / password.");
+            return accountInfo;
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        accountInfo.add("System error. Try again.");
+        return accountInfo;
+
     }
 }

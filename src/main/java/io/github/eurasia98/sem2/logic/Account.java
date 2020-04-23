@@ -4,14 +4,13 @@ public class Account {
 
     private String username;
     private String password;
-    private int accountType;
+    private String accountType;
 
-    public Account(String username, String password, int typeNum) {
+    public Account(String username, String password, String accountType) {
         this.username = username;
         this.password = password;
-        this.accountType = typeNum;
+        this.accountType = accountType;
     }
-    Account acc1 = new Account("Nybruger","password123", 1);
 
     public Account() {
 
@@ -25,7 +24,7 @@ public class Account {
         return password;
     }
 
-    public int getAccountType() {
+    public String getAccountType() {
         return accountType;
     }
 }

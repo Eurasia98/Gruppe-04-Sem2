@@ -46,15 +46,23 @@ public class SearchScreenController implements Initializable {
         App.switchScene("FrontPage");
     }
 
-    /*public void setTextFieldSearch(String searchString) throws IOException {
-        textFieldSearch.setText(searchString);
-        search();
-    }*/
-
     public void search() throws IOException {
         if (!textFieldSearch.getText().isEmpty()) {
-            vBoxSearchResults.getChildren().addAll(
-                    App.creditSystem.userSearch(textFieldSearch.getText()));
+            vBoxSearchResults.setVisible(true);
+            ListView listView = new ListView();
+            ArrayList<Hyperlink> hyperlinkArrayList = App.creditSystem.userSearch(textFieldSearch.getText());
+            ArrayList<Hyperlink> finalList = new ArrayList<>();
+            for (Hyperlink hl : hyperlinkArrayList){
+                hl.setOnAction(new EventHandler<ActionEvent>() {
+                    @Override
+                    public void handle(ActionEvent actionEvent) {
+                        App.setSelectedTitle(hl);
+                        App.switchScene("DisplayCreditsFirstIteration");
+                    }
+                });
+                finalList.add(hl);
+            }
+            listView.getItems().addAll(vBoxSearchResults.getChildren().addAll(finalList));
         }
     }
 
