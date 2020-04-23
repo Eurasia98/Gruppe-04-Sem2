@@ -23,12 +23,14 @@ public class DatabaseProducerManager {
         }
         try {
             FileWriter fileWriter = new FileWriter(file, true);
+            String s = producer.toString();
             BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
-            bufferedWriter.write(producer.toString());
-            bufferedWriter.flush();
+            bufferedWriter.write(s + "\n");
+            bufferedWriter.close();
 
         } catch (IOException e) {
             e.printStackTrace();
+            System.out.println("fail");
         }
 
     }

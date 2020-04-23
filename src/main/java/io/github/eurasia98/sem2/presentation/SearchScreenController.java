@@ -3,20 +3,15 @@ package io.github.eurasia98.sem2.presentation;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
-import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
-import java.util.List;
 import java.util.ResourceBundle;
 
 public class SearchScreenController implements Initializable {
@@ -48,7 +43,7 @@ public class SearchScreenController implements Initializable {
      * */
     @FXML
     void buttonHandlerSearch(ActionEvent event) throws IOException {
-        search1();
+        search();
     }
 
     public void ivLogoActionHandler(MouseEvent mouseEvent) {
@@ -58,7 +53,7 @@ public class SearchScreenController implements Initializable {
     /* Sætter hyperLinks fra getHyperlinks
     *  ind på vBox så bruger kan se dem i gui.
     * */
-    public void search1(){
+    public void search(){
         if (!textFieldSearch.getText().isEmpty()) {
             vBoxSearchResults.getChildren().clear();
             vBoxSearchResults.setVisible(true);
@@ -90,6 +85,6 @@ public class SearchScreenController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         textFieldSearch.setText(App.searchFieldString);
-        search1();
+        search();
     }
 }
