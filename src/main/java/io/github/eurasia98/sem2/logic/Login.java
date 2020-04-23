@@ -1,18 +1,17 @@
 package io.github.eurasia98.sem2.logic;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class Login {
 
-    private DatabaseController databaseController = new DatabaseController();
+    private DatabaseProductionManager databaseProductionManager = new DatabaseProductionManager();
 
     private Account account;
 
     public String loginVerify (String username, String password) {
         List<String> accountVerified = new ArrayList<String>();
-        accountVerified.addAll(databaseController.verifyLogin(username,password));
+        accountVerified.addAll(databaseProductionManager.verifyLogin(username,password));
         if (accountVerified.get(0).equals("Wrong username / password.")){
             return "Wrong username / password.";
         }

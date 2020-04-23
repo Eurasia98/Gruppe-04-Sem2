@@ -1,24 +1,24 @@
 package io.github.eurasia98.sem2.logic;
 
-import io.github.eurasia98.sem2.presentation.App;
-import io.github.eurasia98.sem2.presentation.CreditsController;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.scene.control.Hyperlink;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
-import java.util.List;
 
 public class CreditSystem {
-    public static DatabaseController databaseController = new DatabaseController();
-    private SearchResults sResults;
+    private static DatabaseProductionManager databaseProductionManager = new DatabaseProductionManager();
+    private ProducerManager producerManager = new ProducerManager();
+    private DatabaseCreditsManager databaseCreditsManager = new DatabaseCreditsManager();
 
-    public CreditSystem(){}
+    public static DatabaseProductionManager getDatabaseProductionManager() {
+        return databaseProductionManager;
+    }
 
-    
+    public ProducerManager getProducerManager() {
+        return producerManager;
+    }
+
     public ArrayList<Hyperlink> userSearch(String searchString){
-        ArrayList<SearchResults> productionsList = databaseController.searchProductions(searchString);
+        ArrayList<SearchResults> productionsList = databaseProductionManager.searchProductions(searchString);
 
         ArrayList<Hyperlink> hyperLinksToDisplay = createHyperlinksResults(productionsList);
 
@@ -26,8 +26,8 @@ public class CreditSystem {
     }
 
     public String searchCredits(String title){
-        int id = databaseController.getProductionId(title);
-        return databaseController.searchCredits(id);
+        int id = databaseProductionManager.getProductionId(title);
+        return databaseCreditsManager.searchCredits(id);
     }
 
 

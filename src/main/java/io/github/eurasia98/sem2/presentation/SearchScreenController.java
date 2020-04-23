@@ -35,8 +35,9 @@ public class SearchScreenController implements Initializable {
     private ImageView ivSearch;
 
     /* håndterer "søg" og "søg igen" knapperne. Sender data
-     *  videre til App og videre til creditsystem, der laver
-     * det om til hyperlinks.
+     *  videre til App og videre til creditsystem, der sender
+     *  det videre til databasecontroller der sender det
+     *  retur som hyperlinks.
      * */
 
     @FXML
@@ -60,7 +61,15 @@ public class SearchScreenController implements Initializable {
 
     public void search() throws IOException {
         if (!txtFieldSearch.getText().isEmpty()) {
+    /* Sætter hyperLinks fra getHyperlinks
+    *  ind på vBox så bruger kan se dem i gui.
+    * */
+    public void search1(){
+        if (!textFieldSearch.getText().isEmpty()) {
+            vBoxSearchResults.getChildren().clear();
             vBoxSearchResults.setVisible(true);
+            vBoxSearchResults.getChildren().addAll(getHyperLinks());
+        } else textFieldSearch.setStyle("-fx-prompt-text-fill: red");
             ListView listView = new ListView();
             ArrayList<Hyperlink> hyperlinkArrayList = App.creditSystem.userSearch(txtFieldSearch.getText());
             ArrayList<Hyperlink> finalList = new ArrayList<>();
@@ -78,13 +87,30 @@ public class SearchScreenController implements Initializable {
         }
     }
 
+    /*
+         Finder alle titler der indeholder søge string
+         og returnere en ArrayList med HyperLinks der
+         linker videre til credits displayal.
+     */
+    public ArrayList<Hyperlink> getHyperLinks(){
+        ArrayList<Hyperlink> hyperlinkArrayList = App.creditSystem.userSearch(textFieldSearch.getText());
+        ArrayList<Hyperlink> finalList = new ArrayList<>();
+        for (Hyperlink hl : hyperlinkArrayList){
+            hl.setOnAction(new EventHandler<ActionEvent>() {
+                @Override
+                public void handle(ActionEvent actionEvent) {
+                    App.setSelectedTitle(hl);
+                    App.switchScene("DisplayCreditsFirstIteration");
+                }
+            });
+            finalList.add(hl);
+        }
+        return finalList;
+    }
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        txtFieldSearch.setText(App.searchFieldString);
-        try {
-            search();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        textFieldSearch.setText(App.searchFieldString);
+        search1();
     }
 }
