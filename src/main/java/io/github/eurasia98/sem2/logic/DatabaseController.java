@@ -2,6 +2,7 @@ package io.github.eurasia98.sem2.logic;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileWriter;
 import java.util.*;
 
 public class DatabaseController {
@@ -22,17 +23,32 @@ public class DatabaseController {
             while (s.hasNextLine()) {
                 String line = s.nextLine();
                 String[] productionsArray = line.split(";");
-                if (productionsArray[0].toLowerCase().contains(searchString.toLowerCase())){
+                if (productionsArray[0].toLowerCase().contains(searchString.toLowerCase())) {
                     searchResultsList.add(new SearchResults(productionsArray[0], Integer.parseInt(productionsArray[1])));
                 }
             }
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
-        for (SearchResults sr : searchResultsList){
+        for (SearchResults sr : searchResultsList) {
             System.out.println(" " + sr.toString());
         }
         return searchResultsList;
+    }
+
+    public void saveProduction(String title, int productionID, int releaseYear, Date creationDate) throws Exception {
+        //String titleFromID = searchProductionTitleFromId(productionID);
+        //if (titleFromID != null) {
+           // throw new Exception("ProductionID already in database");
+        //}
+        System.out.println("123");
+        FileWriter filew = new FileWriter(getFile("Productions.txt"), true);
+       // String data = title + ";" + productionID + ";" + releaseYear + ";" + creationDate.toString();
+        //System.out.println(data);
+        filew.write("test");
+        filew.close();
+
+
     }
 
     public String searchProductionTitleFromId(int productionId) {
@@ -43,7 +59,7 @@ public class DatabaseController {
             while (s.hasNextLine()) {
                 String line = s.nextLine();
                 String[] productionsArray = line.split(";");
-                if (Integer.parseInt(productionsArray[1]) == productionId){
+                if (Integer.parseInt(productionsArray[1]) == productionId) {
                     title = productionsArray[0];
                 }
             }
@@ -61,7 +77,7 @@ public class DatabaseController {
             while (s.hasNextLine()) {
                 String line = s.nextLine();
                 String[] lineArray = line.split(";");
-                if (productionId == Integer.parseInt(lineArray[0])){
+                if (productionId == Integer.parseInt(lineArray[0])) {
                     person = new Person(lineArray[1], lineArray[2]);
                     production = new Production(searchProductionTitleFromId(productionId), productionId);
                     credit = new Credit(person, production, lineArray[3], lineArray[4]);

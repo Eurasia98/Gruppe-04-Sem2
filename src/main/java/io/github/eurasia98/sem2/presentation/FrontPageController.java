@@ -12,6 +12,9 @@ public class FrontPageController {
     private Button buttonLogin;
 
     @FXML
+    private Button buttonProduction;
+
+    @FXML
     private Button buttonSearch;
 
     @FXML
@@ -37,5 +40,8 @@ public class FrontPageController {
     void ivLogoActionHandler(MouseEvent event) {
         App.switchToFrontPage();
     }
-
+    @FXML
+    void productionScreenActionHandler(ActionEvent event){
+        App.switchToProductionScreen();
+    }
 }

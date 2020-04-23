@@ -37,7 +37,7 @@ public class App extends Application {
         window.show();
     }
 
-    public static void injectCreditSystem(CreditSystem cs){
+    public static void injectCreditSystem(CreditSystem cs) {
         creditSystem = cs;
     }
 
@@ -50,7 +50,7 @@ public class App extends Application {
         return fxmlLoader.load();
     }
 
-    public static void switchToDisplayCreditsScreen(){
+    public static void switchToDisplayCreditsScreen() {
         try {
             scene.setRoot(loadFXML("DisplayCreditsFirstIteration"));
             window.setTitle("Credits");
@@ -60,7 +60,7 @@ public class App extends Application {
         }
     }
 
-    public static void switchToLoginScreen(){
+    public static void switchToLoginScreen() {
         try {
             scene.setRoot(loadFXML("LoginScreen"));
         } catch (IOException e) {
@@ -68,7 +68,7 @@ public class App extends Application {
         }
     }
 
-    public static void switchToSearchScreen(){
+    public static void switchToSearchScreen() {
         try {
             scene.setRoot(loadFXML("FrontPage"));
         } catch (IOException e) {
@@ -77,14 +77,22 @@ public class App extends Application {
         }
     }
 
-    public void closeSystem(){
+    public void closeSystem() {
         Stage stage = (Stage) scene.getWindow();
         stage.close();
     }
 
-    public static void switchToFrontPage(){
+    public static void switchToFrontPage() {
         try {
             scene.setRoot(loadFXML("FrontPage"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void switchToProductionScreen() {
+        try {
+            scene.setRoot(loadFXML("ProductionScreen"));
         } catch (IOException e) {
             e.printStackTrace();
         }
