@@ -12,11 +12,7 @@ import java.util.List;
 
 public class CreditSystem {
     public static DatabaseController databaseController = new DatabaseController();
-    private SearchResults sResults;
 
-    public CreditSystem(){}
-
-    
     public ArrayList<Hyperlink> userSearch(String searchString){
         ArrayList<SearchResults> productionsList = databaseController.searchProductions(searchString);
 

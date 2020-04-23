@@ -33,9 +33,18 @@ public class SearchScreenController implements Initializable {
     @FXML
     private ImageView ivLogo;
 
+    public VBox getVBoxSearchResults() {
+        return vBoxSearchResults;
+    }
+
+    public TextField getTextFieldSearch(){
+        return textFieldSearch;
+    }
+
     /* håndterer "søg" og "søg igen" knapperne. Sender data
-     *  videre til App og videre til creditsystem, der laver
-     * det om til hyperlinks.
+     *  videre til App og videre til creditsystem, der sender
+     *  det videre til databasecontroller der sender det
+     *  retur som hyperlinks.
      * */
     @FXML
     void buttonHandlerSearch(ActionEvent event) throws IOException {
@@ -48,6 +57,7 @@ public class SearchScreenController implements Initializable {
 
     public void search() throws IOException {
         if (!textFieldSearch.getText().isEmpty()) {
+            vBoxSearchResults.getChildren().clear();
             vBoxSearchResults.setVisible(true);
             ListView listView = new ListView();
             ArrayList<Hyperlink> hyperlinkArrayList = App.creditSystem.userSearch(textFieldSearch.getText());
@@ -63,20 +73,16 @@ public class SearchScreenController implements Initializable {
                 finalList.add(hl);
             }
             listView.getItems().addAll(vBoxSearchResults.getChildren().addAll(finalList));
-        }
-    }
-
-
-    public VBox getVBoxSearchResults() {
-        return vBoxSearchResults;
-    }
-
-    public TextField getTextFieldSearch(){
-            return textFieldSearch;
+        } else textFieldSearch.setStyle("-fx-prompt-text-fill: red");
     }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
+        try {
+            textFieldSearch.setText(App.searchFieldString);
+            search();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

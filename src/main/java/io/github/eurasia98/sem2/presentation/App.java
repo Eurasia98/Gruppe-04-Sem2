@@ -21,12 +21,30 @@ public class App extends Application {
     private static Stage window;
     static CreditSystem creditSystem = new CreditSystem();
 
+    public static String searchFieldString;
+    public static String selectedTitle;
+
+    //bruges til at sende string fra frontpage searchfield til searchscreencontroller i initialize.
+    public static void setSearchField(String searchString){
+        searchFieldString = searchString;
+    }
+
+    public static void setSelectedTitle(Hyperlink selectedHyperlink){
+        selectedTitle = selectedHyperlink.getText();
+    }
+
     public CreditSystem getCreditSystem() {
         return creditSystem;
     }
 
-    public static String searchFieldString;
-    public static String selectedTitle;
+    //bruges til at skifte mellem fxml filerne.
+    public static void switchScene(String sceneName){
+        try {
+            scene.setRoot(loadFXML(sceneName));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
     @Override
     public void start(Stage stage) throws IOException {
@@ -43,24 +61,6 @@ public class App extends Application {
     private static Parent loadFXML(String fxml) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource(fxml + ".fxml"));
         return fxmlLoader.load();
-    }
-
-    //bruges til at skifte mellem fxml filerne.
-    public static void switchScene(String sceneName){
-        try {
-            scene.setRoot(loadFXML(sceneName));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    //bruges til at sende string fra frontpage searchfield til searchscreencontroller i initialize.
-    public static void searchField(String searchString){
-        searchFieldString = searchString;
-    }
-
-    public static void setSelectedTitle(Hyperlink selectedHyperlink){
-        selectedTitle = selectedHyperlink.getText();
     }
 
     //lukker programmet
