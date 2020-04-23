@@ -9,15 +9,19 @@ import java.util.Scanner;
 public class DatabaseUserManager {
     File file;
 
+    private File getFile(String fileName) {
+        return new File(getClass().getClassLoader().getResource(fileName).getFile());
+    }
+
     public void updateUserIdCounter(int userIdCounter) throws IOException {
-        file = new File("UserIdCounter.txt");
+        file =  getFile("UserIdCounter.txt");
         FileWriter fw = new FileWriter(file);
         fw.write(userIdCounter);
     }
 
     public int getUserIdCounter(){
         int i = 0;
-        file = new File("UserIdCounter.txt");
+        file = getFile("UserIdCounter.txt");
         try (Scanner s = new Scanner(file)) {
             i = s.nextInt();
         } catch (FileNotFoundException e) {

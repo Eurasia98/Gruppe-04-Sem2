@@ -22,6 +22,10 @@ public class CreateProducerScreenController implements Initializable {
 
     @FXML
     void saveButtonHandler(ActionEvent event) {
+        createProducer();
+    }
+
+    public void createProducer(){
         if (!fNameField.getText().isEmpty() && !lNameField.getText().isEmpty()){
             App.creditSystem.getProducerManager().createProducer(fNameField.getText(), lNameField.getText());
         }
@@ -29,6 +33,6 @@ public class CreateProducerScreenController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
+        createProducer();
     }
 }
