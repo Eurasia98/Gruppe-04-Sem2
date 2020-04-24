@@ -1,5 +1,7 @@
 package io.github.eurasia98.sem2.logic;
 
+import io.github.eurasia98.sem2.presistence.DatabaseProducerManager;
+
 public class ProducerManager {
     DatabaseProducerManager databaseProducerManager = new DatabaseProducerManager();
 

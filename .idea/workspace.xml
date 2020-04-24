@@ -3,9 +3,15 @@
   <component name="ChangeListManager">
     <list default="true" id="0842e942-7252-4a46-994b-9e6ae5777635" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/io/github/eurasia98/sem2/logic/Credit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/github/eurasia98/sem2/logic/Credit.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/io/github/eurasia98/sem2/logic/DatabaseProducerManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/github/eurasia98/sem2/logic/DatabaseProducerManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/io/github/eurasia98/sem2/presentation/SearchScreenController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/github/eurasia98/sem2/presentation/SearchScreenController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/github/eurasia98/sem2/logic/Account.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/github/eurasia98/sem2/logic/Account.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/github/eurasia98/sem2/logic/CreditSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/github/eurasia98/sem2/logic/CreditSystem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/github/eurasia98/sem2/logic/DatabaseCreditsManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/github/eurasia98/sem2/presistence/DatabaseCreditsManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/github/eurasia98/sem2/logic/DatabaseProducerManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/github/eurasia98/sem2/presistence/DatabaseProducerManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/github/eurasia98/sem2/logic/DatabaseProductionManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/github/eurasia98/sem2/presistence/DatabaseProductionManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/github/eurasia98/sem2/logic/DatabaseUserManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/github/eurasia98/sem2/presistence/DatabaseUserManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/github/eurasia98/sem2/logic/Login.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/github/eurasia98/sem2/logic/Login.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/github/eurasia98/sem2/logic/ProducerManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/github/eurasia98/sem2/logic/ProducerManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/Accounts.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Accounts.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,6 +75,9 @@
   <component name="RecentsManager">
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="org.Logic" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\chris\Menuer\Desktop\skole\BaSoftwareTeknologi\2semester\SemesterProjekt\Gruppe-04-Sem2\src\main\resources" />
     </key>
   </component>
   <component name="RunManager" selected="Application.Main (1)">
@@ -337,7 +346,14 @@
       <option name="project" value="LOCAL" />
       <updated>1587655135866</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="Arbejdet videre med at Accounts.txt ikke opdateres med nye producere, men at den alligevel gør,&#10;da hvis man printer filen så skriver den alle oprettede ud.">
+      <created>1587673177591</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1587673177591</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -364,7 +380,8 @@
     <MESSAGE value="rettet at vbox indeholdende searchresults ikke clearer ved nyt tryk på søgknappen.&#10;Nu cleares vbox inden nyt indhold lægges i den." />
     <MESSAGE value="rettet at vbox indeholdende searchresults ikke clearer ved nyt tryk på søgknappen.&#10;Nu cleares vbox inden nyt indhold lægges i den.&#10;(tilføjelse af workspace.xml)&#10;(Kommentar til denne og forrige commit, der er merget med amilcars, der har rettet så credits bliver displayed)" />
     <MESSAGE value="Rettet search i searchScreenController til at være pænere kode. &#10;Lavet Account til super af Producer og ASystemAdministrator.&#10;Lavet gui og kode til opret producer." />
-    <option name="LAST_COMMIT_MESSAGE" value="Rettet search i searchScreenController til at være pænere kode. &#10;Lavet Account til super af Producer og ASystemAdministrator.&#10;Lavet gui og kode til opret producer." />
+    <MESSAGE value="Arbejdet videre med at Accounts.txt ikke opdateres med nye producere, men at den alligevel gør,&#10;da hvis man printer filen så skriver den alle oprettede ud." />
+    <option name="LAST_COMMIT_MESSAGE" value="Arbejdet videre med at Accounts.txt ikke opdateres med nye producere, men at den alligevel gør,&#10;da hvis man printer filen så skriver den alle oprettede ud." />
   </component>
   <component name="WindowStateProjectService">
     <state x="574" y="119" key="#com.intellij.ide.util.MemberChooser" timestamp="1587648281106">
@@ -384,10 +401,10 @@
     </state>
     <state x="421" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1536.824@0.0.1536.824" timestamp="1587650099832" />
     <state x="499" y="162" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1536.824@0.0.1536.824" timestamp="1587218656091" />
-    <state x="266" y="0" key="CommitChangelistDialog2" timestamp="1587655134593">
+    <state x="266" y="0" key="CommitChangelistDialog2" timestamp="1587673175762">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="266" y="0" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1587655134593" />
+    <state x="266" y="0" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1587673175762" />
     <state x="147" y="65" key="DiffContextDialog" timestamp="1587406925996">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -396,22 +413,22 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="549" y="170" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1587641700768" />
-    <state width="1493" height="210" key="GridCell.Tab.0.bottom" timestamp="1587672526679">
+    <state width="1493" height="210" key="GridCell.Tab.0.bottom" timestamp="1587678133620">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="210" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1587672526679" />
-    <state width="1493" height="210" key="GridCell.Tab.0.center" timestamp="1587672526679">
+    <state width="1493" height="210" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1587678133620" />
+    <state width="1493" height="210" key="GridCell.Tab.0.center" timestamp="1587678133620">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="210" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1587672526679" />
-    <state width="1493" height="210" key="GridCell.Tab.0.left" timestamp="1587672526679">
+    <state width="1493" height="210" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1587678133620" />
+    <state width="1493" height="210" key="GridCell.Tab.0.left" timestamp="1587678133620">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="210" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1587672526679" />
-    <state width="1493" height="210" key="GridCell.Tab.0.right" timestamp="1587672526679">
+    <state width="1493" height="210" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1587678133620" />
+    <state width="1493" height="210" key="GridCell.Tab.0.right" timestamp="1587678133620">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="210" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1587672526679" />
+    <state width="1493" height="210" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1587678133620" />
     <state width="746" height="261" key="GridCell.Tab.1.bottom" timestamp="1587569845097">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -444,10 +461,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="279" y="58" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1587672066654" />
-    <state x="361" y="148" key="Vcs.Push.Dialog.v2" timestamp="1587664180944">
+    <state x="361" y="148" key="Vcs.Push.Dialog.v2" timestamp="1587673185285">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="361" y="148" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1587664180944" />
+    <state x="361" y="148" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1587673185285" />
     <state x="477" y="240" key="com.intellij.ide.util.TipDialog" timestamp="1587302722959">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -464,10 +481,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="474" y="46" width="588" height="732" key="find.popup/0.0.1536.824@0.0.1536.824" timestamp="1587220430020" />
-    <state x="392" y="216" key="git4idea.merge.GitPullDialog" timestamp="1587407047316">
+    <state x="392" y="216" key="git4idea.merge.GitPullDialog" timestamp="1587721678330">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="392" y="216" key="git4idea.merge.GitPullDialog/0.0.1536.824@0.0.1536.824" timestamp="1587407047316" />
+    <state x="392" y="216" key="git4idea.merge.GitPullDialog/0.0.1536.824@0.0.1536.824" timestamp="1587721678330" />
     <state x="209" y="117" key="new project wizard" timestamp="1587641703279">
       <screen x="0" y="0" width="1536" height="824" />
     </state>

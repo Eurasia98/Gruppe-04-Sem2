@@ -1,9 +1,6 @@
-package io.github.eurasia98.sem2.logic;
+package io.github.eurasia98.sem2.presistence;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 import java.util.Scanner;
 
 public class DatabaseUserManager {
@@ -14,9 +11,13 @@ public class DatabaseUserManager {
     }
 
     public void updateUserIdCounter(int userIdCounter) throws IOException {
+        String stringIdCounter = Integer.toString(userIdCounter);
         file =  getFile("UserIdCounter.txt");
         FileWriter fw = new FileWriter(file);
-        fw.write(userIdCounter);
+        BufferedWriter bufferedWriter = new BufferedWriter(fw);
+        bufferedWriter.write(stringIdCounter);
+        bufferedWriter.close();
+        fw.close();
     }
 
     public int getUserIdCounter(){
@@ -24,6 +25,7 @@ public class DatabaseUserManager {
         file = getFile("UserIdCounter.txt");
         try (Scanner s = new Scanner(file)) {
             i = s.nextInt();
+            System.out.println(i);
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }

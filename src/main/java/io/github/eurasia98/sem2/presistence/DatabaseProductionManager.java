@@ -1,4 +1,9 @@
-package io.github.eurasia98.sem2.logic;
+package io.github.eurasia98.sem2.presistence;
+
+import io.github.eurasia98.sem2.logic.APerson;
+import io.github.eurasia98.sem2.logic.Credit;
+import io.github.eurasia98.sem2.logic.Production;
+import io.github.eurasia98.sem2.logic.SearchResults;
 
 import java.io.File;
 import java.io.FileNotFoundException;

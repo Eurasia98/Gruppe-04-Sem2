@@ -1,4 +1,6 @@
-package io.github.eurasia98.sem2.logic;
+package io.github.eurasia98.sem2.presistence;
+
+import io.github.eurasia98.sem2.logic.Producer;
 
 import java.io.*;
 import java.util.Scanner;
@@ -11,16 +13,7 @@ public class DatabaseProducerManager {
     }
 
     public void saveNewProducer(Producer producer){
-        System.out.println(producer.toString());
         file = getFile("Accounts.txt");
-        try {
-            Scanner sc = new Scanner(file);
-            while (sc.hasNextLine()){
-                System.out.println(sc.nextLine());
-            }
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
         try {
             FileWriter fileWriter = new FileWriter(file, true);
             String s = producer.toString();
@@ -30,8 +23,6 @@ public class DatabaseProducerManager {
 
         } catch (IOException e) {
             e.printStackTrace();
-            System.out.println("fail");
         }
-
     }
 }
