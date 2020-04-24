@@ -1,13 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.VBox?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: grey;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="io.github.eurasia98.sem2.presentation.CreditsController">
+<?import java.net.URL?>
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="io.github.eurasia98.sem2.presentation.CreditsController">
    <children>
-      <ListView fx:id="ListviewCredits" layoutY="1.0" prefHeight="392.0" prefWidth="600.0" />
-      <VBox fx:id="VBoxDisplayCredits" layoutX="8.0" layoutY="1.0" prefHeight="392.0" prefWidth="336.0" visible="false" />
+      <TextArea fx:id="txtAreaCreditsDisplay" editable="false" layoutX="85.0" layoutY="115.0" prefHeight="242.0" prefWidth="437.0" AnchorPane.bottomAnchor="43.0" AnchorPane.leftAnchor="85.0" AnchorPane.rightAnchor="78.0" AnchorPane.topAnchor="115.0" />
+      <ImageView fx:id="ivLogo" fitHeight="50.0" fitWidth="150.0" layoutX="2.0" layoutY="2.0" onMouseClicked="#ivLogoActionHandler" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/TV2_logo.png" />
+         </image></ImageView>
+      <TextField fx:id="txtFieldSearch" layoutX="200.0" layoutY="80.0" onKeyPressed="#txtFieldSearchKeyPressHandler" prefHeight="25.0" prefWidth="224.0" promptText="Søg efter film / serie " />
+      <ImageView fx:id="ivSearch" fitHeight="23.0" fitWidth="25.0" layoutX="400.0" layoutY="81.0" onMouseClicked="#ivSearchMouseClickHandler" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/Search_Icon.png" />
+         </image>
+      </ImageView>
    </children>
+   <stylesheets>
+      <URL value="@FrontPageCSS.css" />
+   </stylesheets>
 </AnchorPane>

@@ -2,11 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0842e942-7252-4a46-994b-9e6ae5777635" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/io/github/eurasia98/sem2/logic/CreditSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/github/eurasia98/sem2/logic/CreditSystem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/io/github/eurasia98/sem2/presentation/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/github/eurasia98/sem2/presentation/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/io/github/eurasia98/sem2/presentation/SearchScreenController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/github/eurasia98/sem2/presentation/SearchScreenController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/github/eurasia98/sem2/logic/ASystemAdministrator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/github/eurasia98/sem2/logic/ASystemAdministrator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/github/eurasia98/sem2/logic/Account.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/github/eurasia98/sem2/logic/Account.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/github/eurasia98/sem2/logic/Login.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/github/eurasia98/sem2/logic/Login.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/github/eurasia98/sem2/logic/Producer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/github/eurasia98/sem2/logic/Producer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/github/eurasia98/sem2/persistence/DatabaseUserManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/github/eurasia98/sem2/persistence/DatabaseUserManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/github/eurasia98/sem2/presistence/DatabaseUserManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/github/eurasia98/sem2/presistence/DatabaseUserManager.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,12 +23,24 @@
       <list>
         <option value="FxmlFile" />
         <option value="Interface" />
+        <option value="CSS File" />
         <option value="Class" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="PREVIOUS_COMMIT_AUTHORS">
+      <list>
+        <option value="Thomsen" />
+      </list>
+    </option>
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="ProductionBranch" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="UPDATE_TYPE" value="MERGE" />
   </component>
   <component name="MavenImportPreferences">
     <option name="importingSettings">
@@ -38,7 +52,7 @@
   <component name="ProjectCodeStyleSettingsMigration">
     <option name="version" value="1" />
   </component>
-  <component name="ProjectId" id="1aAKi9LcaWKBwh2nxa9vFsIK3ZO" />
+  <component name="ProjectId" id="1aATBKl4p1PgIkCsPmrkiKlCllx" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="1" id="Add" />
   </component>
@@ -51,11 +65,24 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/pom.xml" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resources/io/github/eurasia98/sem2/presentation" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
+    <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.javacompiler" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\chris\Menuer\Desktop\skole\BaSoftwareTeknologi\2semester\SemesterProjekt\Gruppe-04-Sem2\target\classes" />
+      <recent name="C:\Users\chris\Menuer\Desktop\skole\BaSoftwareTeknologi\2semester\SemesterProjekt\Gruppe-04-Sem2\target" />
+      <recent name="C:\Users\chris\Menuer\Desktop\skole\BaSoftwareTeknologi\2semester\SemesterProjekt\Gruppe-04-Sem2\target\classes\io" />
+    </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="org.Logic" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="io.github.eurasia98.sem2.presentation" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\mail\Documents\NetBeansProjects\Gruppe-04-Sem2\src\main\resources\io\github\eurasia98\sem2\presentation" />
     </key>
   </component>
   <component name="RunManager" selected="Application.Main (1)">
@@ -139,21 +166,22 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="0842e942-7252-4a46-994b-9e6ae5777635" name="Default Changelist" comment="" />
-      <created>1586173082249</created>
+      <changelist id="ee5fccad-6595-4165-9f51-be05e2812e13" name="Default Changelist" comment="" />
+      <created>1586177262656</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1586173082249</updated>
       <workItem from="1587137126621" duration="3000" />
       <workItem from="1587137144374" duration="7163000" />
       <workItem from="1587197528046" duration="3835000" />
+      <workItem from="1587330198884" duration="3722000" />
     </task>
-    <task id="LOCAL-00001" summary="Indsat lidt FXML docs og lidt klasser. Små commits, og der er testet at programmet stadig kører">
-      <created>1587205027592</created>
+    <task id="LOCAL-00001" summary="Account klasse">
+      <created>1587396228796</created>
       <option name="number" value="00001" />
       <option name="presentableId" value="LOCAL-00001" />
       <option name="project" value="LOCAL" />
-      <updated>1587205027592</updated>
+      <updated>1587396228797</updated>
     </task>
     <task id="LOCAL-00002" summary="Indsat flere klasser og lir, og tjekket programmet stadig kører">
       <created>1587205517780</created>
@@ -267,38 +295,81 @@
       <option name="project" value="LOCAL" />
       <updated>1587406943862</updated>
     </task>
-    <task id="LOCAL-00018" summary="merget med alle andre">
-      <created>1587408243001</created>
+    <task id="LOCAL-00018" summary="Merget med amilcar og arbejdet med search">
+      <created>1587462515012</created>
       <option name="number" value="00018" />
       <option name="presentableId" value="LOCAL-00018" />
       <option name="project" value="LOCAL" />
-      <updated>1587408243001</updated>
+      <updated>1587462515014</updated>
     </task>
-    <task id="LOCAL-00019" summary="lavvet appSearch() i App">
-      <created>1587409735478</created>
+    <task id="LOCAL-00019" summary="Arbejdet videre med at få displayCredits til vise credits på GUI">
+      <created>1587551012474</created>
       <option name="number" value="00019" />
       <option name="presentableId" value="LOCAL-00019" />
       <option name="project" value="LOCAL" />
-      <updated>1587409735478</updated>
+      <updated>1587551012474</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="Flyttet logic vedrørende omdannelsen af søgeresultater til hyperlinks fra presentation til SearchResults i logik.">
+      <created>1587559890182</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1587559890182</updated>
+    </task>
+    <task id="LOCAL-00021" summary="Flyttet logic vedrørende omdannelsen af søgeresultater til hyperlinks fra presentation til SearchResults i logik.">
+      <created>1587570416258</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1587570416258</updated>
+    </task>
+    <task id="LOCAL-00022" summary="rettet at vbox indeholdende searchresults ikke clearer ved nyt tryk på søgknappen.&#10;Nu cleares vbox inden nyt indhold lægges i den.">
+      <created>1587630070494</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1587630070494</updated>
+    </task>
+    <task id="LOCAL-00023" summary="Rettet search i searchScreenController til at være pænere kode. &#10;Lavet Account til super af Producer og ASystemAdministrator.&#10;Lavet gui og kode til opret producer.">
+      <created>1587649178693</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1587649178693</updated>
+    </task>
+    <task id="LOCAL-00024" summary="Rettet search i searchScreenController til at være pænere kode. &#10;Lavet Account til super af Producer og ASystemAdministrator.&#10;Lavet gui og kode til opret producer.">
+      <created>1587649245361</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1587649245361</updated>
+    </task>
+    <task id="LOCAL-00025" summary="Rettet search i searchScreenController til at være pænere kode. &#10;Lavet Account til super af Producer og ASystemAdministrator.&#10;Lavet gui og kode til opret producer.">
+      <created>1587655135865</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1587655135866</updated>
+    </task>
+    <task id="LOCAL-00026" summary="Nu kan man lave ny producer og gemme dem i Accounts. Ligeledes tæller userIdCounter op, men af uforklarlige årsager tæller den to op pr. gang.&#10;I færd med at lave login og rykke den til userController">
+      <created>1587729591393</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1587729591393</updated>
+    </task>
+    <task id="LOCAL-00027" summary="det driller">
+      <created>1587729790933</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1587729790933</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
-  </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State>
-              <option name="COLUMN_ORDER" />
-            </State>
-          </value>
-        </entry>
-      </map>
-    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="refactored:&#10;PrimaryController --&gt; searchScreenController&#10;primary.fxml --&gt; SearchGUI.fxml&#10;SecondaryController --&gt; CreditsController&#10;secondary.fxml --&gt; DisplayCredits.fxml&#10;&#10;Tilføjet &quot;Productions.txt&quot; i src mappen med 2 film&#10;Arbejdet på" />
@@ -315,71 +386,98 @@
     <MESSAGE value="nu virker links" />
     <MESSAGE value="arbejdet videre med search" />
     <MESSAGE value="Lavet hyperlinks søgeresultater til at gøre skifte scene" />
-    <MESSAGE value="merget med alle andre" />
-    <MESSAGE value="lavvet appSearch() i App" />
-    <option name="LAST_COMMIT_MESSAGE" value="lavvet appSearch() i App" />
+    <MESSAGE value="Merget med amilcar og arbejdet med search" />
+    <MESSAGE value="Arbejdet videre med at få displayCredits til vise credits på GUI" />
+    <MESSAGE value="Flyttet logic vedrørende omdannelsen af søgeresultater til hyperlinks fra presentation til SearchResults i logik." />
+    <MESSAGE value="rettet at vbox indeholdende searchresults ikke clearer ved nyt tryk på søgknappen.&#10;Nu cleares vbox inden nyt indhold lægges i den." />
+    <MESSAGE value="rettet at vbox indeholdende searchresults ikke clearer ved nyt tryk på søgknappen.&#10;Nu cleares vbox inden nyt indhold lægges i den.&#10;(tilføjelse af workspace.xml)&#10;(Kommentar til denne og forrige commit, der er merget med amilcars, der har rettet så credits bliver displayed)" />
+    <MESSAGE value="Rettet search i searchScreenController til at være pænere kode. &#10;Lavet Account til super af Producer og ASystemAdministrator.&#10;Lavet gui og kode til opret producer." />
+    <MESSAGE value="Nu kan man lave ny producer og gemme dem i Accounts. Ligeledes tæller userIdCounter op, men af uforklarlige årsager tæller den to op pr. gang.&#10;I færd med at lave login og rykke den til userController" />
+    <MESSAGE value="det driller" />
+    <option name="LAST_COMMIT_MESSAGE" value="det driller" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="574" y="119" key="#com.intellij.ide.util.MemberChooser" timestamp="1587311341122">
+    <state x="574" y="119" key="#com.intellij.ide.util.MemberChooser" timestamp="1587732094596">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="574" y="119" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1587311341122" />
-    <state x="571" y="304" width="393" height="220" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1587299298553">
+    <state x="574" y="119" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1587732094596" />
+    <state x="571" y="304" width="435" height="220" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1587741520933">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="571" y="304" width="393" height="220" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1536.824@0.0.1536.824" timestamp="1587299298553" />
-    <state x="421" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1587216875895">
+    <state x="571" y="304" width="435" height="220" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1536.824@0.0.1536.824" timestamp="1587741520933" />
+    <state x="799" y="266" key="#com.intellij.refactoring.move.moveInstanceMethod.MoveInstanceMethodDialog" timestamp="1587729293675">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="421" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1536.824@0.0.1536.824" timestamp="1587216875895" />
-    <state x="499" y="162" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1587218656091">
+    <state x="799" y="266" key="#com.intellij.refactoring.move.moveInstanceMethod.MoveInstanceMethodDialog/0.0.1536.824@0.0.1536.824" timestamp="1587729293675" />
+    <state x="421" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1587650099832">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
+    <state x="421" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1536.824@0.0.1536.824" timestamp="1587650099832" />
     <state x="499" y="162" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1536.824@0.0.1536.824" timestamp="1587218656091" />
-    <state x="266" y="0" key="CommitChangelistDialog2" timestamp="1587409734418">
+    <state x="206" y="0" key="CommitChangelistDialog2" timestamp="1587729789551">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="266" y="0" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1587409734418" />
+    <state x="206" y="0" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1587729789551" />
     <state x="147" y="65" key="DiffContextDialog" timestamp="1587406925996">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="147" y="65" key="DiffContextDialog/0.0.1536.824@0.0.1536.824" timestamp="1587406925996" />
-    <state x="549" y="170" key="FileChooserDialogImpl" timestamp="1587315480912">
+    <state x="549" y="170" key="FileChooserDialogImpl" timestamp="1587641700768">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="549" y="170" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1587315480912" />
-    <state width="1265" height="174" key="GridCell.Tab.0.bottom" timestamp="1587411355738">
+    <state x="549" y="170" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1587641700768" />
+    <state width="1242" height="163" key="GridCell.Tab.0.bottom" timestamp="1587741528898">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1265" height="174" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1587411355738" />
-    <state width="1265" height="174" key="GridCell.Tab.0.center" timestamp="1587411355738">
+    <state width="1242" height="163" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1587741528898" />
+    <state width="1242" height="163" key="GridCell.Tab.0.center" timestamp="1587741528898">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1265" height="174" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1587411355738" />
-    <state width="1265" height="174" key="GridCell.Tab.0.left" timestamp="1587411355738">
+    <state width="1242" height="163" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1587741528898" />
+    <state width="1242" height="163" key="GridCell.Tab.0.left" timestamp="1587741528898">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1265" height="174" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1587411355738" />
-    <state width="1265" height="174" key="GridCell.Tab.0.right" timestamp="1587411355738">
+    <state width="1242" height="163" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1587741528898" />
+    <state width="1242" height="163" key="GridCell.Tab.0.right" timestamp="1587741528898">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1265" height="174" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1587411355738" />
-    <state x="147" y="65" key="MergeDialog" timestamp="1587409829069">
+    <state width="1242" height="163" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1587741528898" />
+    <state width="1220" height="261" key="GridCell.Tab.1.bottom" timestamp="1587732285824">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="147" y="65" key="MergeDialog/0.0.1536.824@0.0.1536.824" timestamp="1587409829069" />
-    <state x="481" y="130" key="MultipleFileMergeDialog" timestamp="1587409829079">
+    <state width="1220" height="261" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1587732285824" />
+    <state width="1220" height="261" key="GridCell.Tab.1.center" timestamp="1587732285824">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="481" y="130" key="MultipleFileMergeDialog/0.0.1536.824@0.0.1536.824" timestamp="1587409829079" />
-    <state x="359" y="126" key="RollbackChangesDialog" timestamp="1587326351396">
+    <state width="1220" height="261" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1587732285824" />
+    <state width="1220" height="261" key="GridCell.Tab.1.left" timestamp="1587732285824">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="359" y="126" key="RollbackChangesDialog/0.0.1536.824@0.0.1536.824" timestamp="1587326351396" />
-    <state x="361" y="148" key="Vcs.Push.Dialog.v2" timestamp="1587409742696">
+    <state width="1220" height="261" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1587732285824" />
+    <state width="1220" height="261" key="GridCell.Tab.1.right" timestamp="1587732285824">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="361" y="148" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1587409742696" />
+    <state width="1220" height="261" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1587732285824" />
+    <state x="147" y="65" key="MergeDialog" timestamp="1587407010285">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="147" y="65" key="MergeDialog/0.0.1536.824@0.0.1536.824" timestamp="1587407010285" />
+    <state x="481" y="130" key="MultipleFileMergeDialog" timestamp="1587407020501">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="481" y="130" key="MultipleFileMergeDialog/0.0.1536.824@0.0.1536.824" timestamp="1587407020501" />
+    <state x="359" y="126" key="RollbackChangesDialog" timestamp="1587561994471">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="359" y="126" key="RollbackChangesDialog/0.0.1536.824@0.0.1536.824" timestamp="1587561994471" />
+    <state x="279" y="58" key="SettingsEditor" timestamp="1587672066654">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="279" y="58" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1587672066654" />
+    <state x="361" y="148" key="Vcs.Push.Dialog.v2" timestamp="1587729797832">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="361" y="148" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1587729797832" />
     <state x="477" y="240" key="com.intellij.ide.util.TipDialog" timestamp="1587302722959">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -396,21 +494,44 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="474" y="46" width="588" height="732" key="find.popup/0.0.1536.824@0.0.1536.824" timestamp="1587220430020" />
-    <state x="392" y="216" key="git4idea.merge.GitPullDialog" timestamp="1587409914053">
+    <state x="370" y="128" key="git4idea.branch.GitSmartOperationDialog" timestamp="1587724701730">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="392" y="216" key="git4idea.merge.GitPullDialog/0.0.1536.824@0.0.1536.824" timestamp="1587409914053" />
-    <state x="209" y="117" key="new project wizard" timestamp="1586205070594">
+    <state x="370" y="128" key="git4idea.branch.GitSmartOperationDialog/0.0.1536.824@0.0.1536.824" timestamp="1587724701730" />
+    <state x="392" y="216" key="git4idea.merge.GitPullDialog" timestamp="1587724721557">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="209" y="117" key="new project wizard/0.0.1536.824@0.0.1536.824" timestamp="1586205070594" />
+    <state x="392" y="216" key="git4idea.merge.GitPullDialog/0.0.1536.824@0.0.1536.824" timestamp="1587724721557" />
+    <state x="209" y="117" key="new project wizard" timestamp="1587641703279">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="209" y="117" key="new project wizard/0.0.1536.824@0.0.1536.824" timestamp="1587641703279" />
     <state x="425" y="187" key="run.anything.popup" timestamp="1587334501759">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="425" y="187" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1587334501759" />
-    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1587294757832">
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1587671602782">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1587294757832" />
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1587671602782" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/main/java/org/example/PrimaryController.java</url>
+          <line>8</line>
+          <properties class="org.example.PrimaryController">
+            <option name="EMULATED" value="true" />
+          </properties>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/io/github/eurasia98/sem2/logic/Account.java</url>
+          <line>30</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

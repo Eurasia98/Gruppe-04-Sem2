@@ -1,22 +1,44 @@
-package io.github.eurasia98.sem2.logic;
+package io.github.eurasia98.sem2.presistence;
+
+import io.github.eurasia98.sem2.logic.APerson;
+import io.github.eurasia98.sem2.logic.Credit;
+import io.github.eurasia98.sem2.logic.Production;
+import io.github.eurasia98.sem2.logic.SearchResults;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.*;
 
-public class DatabaseController {
+public class DatabaseProductionManager {
     private File file;
     private Production production;
     private Credit credit;
-    private Person person;
+    private APerson person;
 
     private File getFile(String fileName) {
         return new File(getClass().getClassLoader().getResource(fileName).getFile());
     }
 
-    public List<SearchResults> searchProductions(String searchString) {
+    public int getProductionId(String title){
         file = getFile("Productions.txt");
-        List<SearchResults> searchResultsList = new ArrayList<SearchResults>();
+        int productionId = 0;
+        try {
+            Scanner s = new Scanner(file);
+            while (s.hasNextLine()){
+                String line = s.nextLine();
+                String[] lineArray = line.split(";");
+                if (title.equalsIgnoreCase(lineArray[0])){
+                    productionId = Integer.parseInt(lineArray[1]);
+                }
+            }
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } return productionId;
+    }
+
+    public ArrayList<SearchResults> searchProductions(String searchString) {
+        file = getFile("Productions.txt");
+        ArrayList<SearchResults> searchResultsList = new ArrayList<SearchResults>();
         try {
             Scanner s = new Scanner(file);
             while (s.hasNextLine()) {
@@ -28,9 +50,6 @@ public class DatabaseController {
             }
         } catch (FileNotFoundException e) {
             e.printStackTrace();
-        }
-        for (SearchResults sr : searchResultsList){
-            System.out.println(" " + sr.toString());
         }
         return searchResultsList;
     }
@@ -53,24 +72,28 @@ public class DatabaseController {
         return title;
     }
 
-    public List<Credit> searchCredits(int productionId) {
-        file = new File("Credits.txt");
-        List<Credit> creditsList = new ArrayList<>();
+
+
+    public List<String> verifyLogin (String username, String password){
+        file = getFile("Accounts.txt");
+        List<String> accountInfo = new ArrayList<>();
         try {
             Scanner s = new Scanner(file);
             while (s.hasNextLine()) {
-                String line = s.nextLine();
-                String[] lineArray = line.split(";");
-                if (productionId == Integer.parseInt(lineArray[0])){
-                    person = new Person(lineArray[1], lineArray[2]);
-                    production = new Production(searchProductionTitleFromId(productionId), productionId);
-                    credit = new Credit(person, production, lineArray[3], lineArray[4]);
-                    creditsList.add(credit);
+                String account = s.nextLine();
+                String[] accountArray = account.split(";");
+                if (username.equals(accountArray[1]) && password.equals(accountArray[2])){
+                    String[] foundAccount = Arrays.copyOfRange(accountArray, 1, 5);
+                    return Arrays.asList(foundAccount);
                 }
             }
+            accountInfo.add("Wrong username / password.");
+            return accountInfo;
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
-        return creditsList;
+        accountInfo.add("System error. Try again.");
+        return accountInfo;
+
     }
 }
