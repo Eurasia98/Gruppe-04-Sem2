@@ -10,18 +10,16 @@ public class Account {
     private String username;
     private String password;
     private String accountType;
-    private static int customUsernameCounter = 0;
-    private static String customUsername = "test";
-    private static String customPassword = "test123";
-    private static DatabaseUserManager dum = new DatabaseUserManager();
-    private static int userIdCounter = dum.getUserIdCounter();
+    private String customUsername = "test";
+    private String customPassword = "test";
+    private DatabaseUserManager dum = new DatabaseUserManager();
+    private int userIdCounter = dum.getUserIdCounter();
 
     public Account(String username, String password, String accountType) {
         this.username = username;
         this.password = password;
         this.accountType = accountType;
         this.userId = userIdCounter;
-        userIdCounter++;
         try {
             dum.updateUserIdCounter(userIdCounter);
         } catch (IOException e) {
@@ -30,12 +28,15 @@ public class Account {
     }
 
     public Account(String accountType) {
-        this.username = customUsername + Integer.toString(customUsernameCounter);
-        customUsernameCounter++;
+        this.username = customUsername + Integer.toString(userIdCounter);
+        this.userId = userIdCounter;
         this.password = customPassword;
         this.accountType = accountType;
-        this.userId = userIdCounter;
-        userIdCounter++;
+        try {
+            dum.updateUserIdCounter(userIdCounter);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     public String getUsername() {

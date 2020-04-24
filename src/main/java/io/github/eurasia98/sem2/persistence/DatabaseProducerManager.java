@@ -16,24 +16,21 @@ public class DatabaseProducerManager {
         System.out.println(producer.toString());
         file = getFile("Accounts.txt");
         try {
-            Scanner sc = new Scanner(file);
-            while (sc.hasNextLine()){
-                System.out.println(sc.nextLine());
-            }
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
-        try {
             FileWriter fileWriter = new FileWriter(file, true);
             String s = producer.toString();
             BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
             bufferedWriter.write(s + "\n");
             bufferedWriter.close();
-
         } catch (IOException e) {
             e.printStackTrace();
-            System.out.println("fail");
         }
-
+        try {
+            Scanner s = new Scanner(file);
+            if (s.hasNextLine()){
+                System.out.println(s.nextLine());
+            }
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
     }
 }

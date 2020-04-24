@@ -21,9 +21,7 @@ public class CreditSystem {
 
     public ArrayList<Hyperlink> userSearch(String searchString){
         ArrayList<SearchResults> productionsList = databaseProductionManager.searchProductions(searchString);
-
         ArrayList<Hyperlink> hyperLinksToDisplay = createHyperlinksResults(productionsList);
-
         return hyperLinksToDisplay;
     }
 
@@ -45,15 +43,6 @@ public class CreditSystem {
         ArrayList<Hyperlink> searchResultsList = new ArrayList<>();
         for (int i = 0; i < searchResults.size(); i++){
             Hyperlink hl = new Hyperlink(searchResults.get(i).getTitle());
-//            hl.setOnAction(new EventHandler<ActionEvent>() {
-//                @Override
-//                public void handle(ActionEvent actionEvent) {
-//                    App.switchScene("DisplayCreditsFirstIteration");
-//                    CreditsController creditsController = new CreditsController();
-//                    creditsController.displayCredits(searchCredits(hl.getText()));
-//                }
-//            });
-
             searchResultsList.add(hl);
         }
         return searchResultsList;
@@ -62,12 +51,5 @@ public class CreditSystem {
     public static void main(String[] args) {
         System.out.println("Kebab on wheels is a go!");
     }
-
-    /*public void displaySearchResults(List<Map<String, Integer>> searchResults) {
-        List<Hyperlink> hyperlinksList = new ArrayList<>();
-        Iterator<>
-        for (Map.Entry<String, Integer> entry : {
-            Hyperlink h1 = new Hyperlink(resultMap.entrySet())
-        }*/
 
    }

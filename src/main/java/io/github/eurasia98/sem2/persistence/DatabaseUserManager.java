@@ -16,14 +16,17 @@ public class DatabaseUserManager {
     public void updateUserIdCounter(int userIdCounter) throws IOException {
         file =  getFile("UserIdCounter.txt");
         FileWriter fw = new FileWriter(file);
-        fw.write(userIdCounter);
+        fw.write(Integer.toString(userIdCounter+1));
+        fw.flush();
     }
 
     public int getUserIdCounter(){
         int i = 0;
         file = getFile("UserIdCounter.txt");
         try (Scanner s = new Scanner(file)) {
-            i = s.nextInt();
+            if (!s.hasNextLine()){
+                return i;
+            } else i = Integer.parseInt(s.next())-1;
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }

@@ -38,6 +38,8 @@ public class CreateProducerScreenController implements Initializable {
     public void createProducer(){
         if (!fNameField.getText().isEmpty() && !lNameField.getText().isEmpty()){
             App.creditSystem.getProducerManager().createProducer(fNameField.getText(), lNameField.getText());
+            fNameField.clear();
+            lNameField.clear();
         }
     }
 

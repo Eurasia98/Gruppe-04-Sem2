@@ -1,19 +1,20 @@
 package io.github.eurasia98.sem2.logic;
 
 import io.github.eurasia98.sem2.persistence.DatabaseProductionManager;
+import io.github.eurasia98.sem2.persistence.DatabaseUserManager;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class Login {
 
-    private DatabaseProductionManager databaseProductionManager = new DatabaseProductionManager();
+    private DatabaseUserManager databaseUserManager = new DatabaseUserManager();
 
     private Account account;
 
     public String loginVerify (String username, String password) {
-        List<String> accountVerified = new ArrayList<String>();
-        accountVerified.addAll(databaseProductionManager.verifyLogin(username,password));
+        List<String> accountVerified = new ArrayList<>();
+        accountVerified.addAll(databaseUserManager.verifyLogin(username,password));
         if (accountVerified.get(0).equals("Wrong username / password.")){
             return "Wrong username / password.";
         }
