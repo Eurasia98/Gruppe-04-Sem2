@@ -15,6 +15,13 @@ public class Account {
     private DatabaseUserManager dum = new DatabaseUserManager();
     private int userIdCounter = dum.getUserIdCounter();
 
+    public Account(int userId, String username, String password, String accountType) {
+        this.userId = userId;
+        this.username = username;
+        this.password = password;
+        this.accountType = accountType;
+    }
+
     public Account(String username, String password, String accountType) {
         this.username = username;
         this.password = password;

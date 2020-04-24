@@ -18,10 +18,8 @@ public class Producer extends Account{
         this.email = email;
     }
 
-    public Producer(String username, String password, String accountType, String productionCompanyName,
-                    String fName, String lName){
-        super(username, password, accountType);
-        this.productionCompanyName = productionCompanyName;
+    public Producer(String username, String password, String accountType, String fName, String lName, int userId){
+        super(userId, username, password, accountType);
         this.fName = fName;
         this.lName = lName;
     }
