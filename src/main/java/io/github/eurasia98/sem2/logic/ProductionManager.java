@@ -2,6 +2,7 @@ package io.github.eurasia98.sem2.logic;
 
 import javafx.scene.chart.PieChart;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
@@ -14,7 +15,7 @@ public class ProductionManager {
         databaseController = new DatabaseController();
     }
 
-    public Production createProduction(String title, int productionID, int releaseYear, Date creationDate, ArrayList<Credit> myCreditsList) {
+    public Production createProduction(String title, int productionID, int releaseYear, LocalDate creationDate, ArrayList<Credit> myCreditsList) {
         Production production = new Production(title, productionID, releaseYear, creationDate, myCreditsList);
         productions.put(productionID, production);
         return production;

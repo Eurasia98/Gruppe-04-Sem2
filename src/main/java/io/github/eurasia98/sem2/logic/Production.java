@@ -1,5 +1,7 @@
 package io.github.eurasia98.sem2.logic;
 
+import java.lang.reflect.Array;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -7,10 +9,10 @@ public class Production {
     private String title;
     private int productionID;
     private int releaseYear;
-    private Date creationDate;
+    private LocalDate creationDate;
     private ArrayList<Credit> myCreditsList;
 
-    public Production(String title, int productionID, int releaseYear, Date creationDate) {
+    public Production(String title, int productionID, int releaseYear, LocalDate creationDate, ArrayList<Credit> myCreditsList) {
         this.title = title;
         this.productionID = productionID;
         this.releaseYear = releaseYear;
@@ -18,16 +20,7 @@ public class Production {
         myCreditsList = null;
     }
 
-    public Production(String title, int id, int productionID, Date creationDate, ArrayList<Credit> myCreditsList) {
-        this.title = title;
-        this.productionID = productionID;
-        this.myCreditsList = null;
-    }
 
-    public Production(String title, int productionID){
-        this.title = title;
-        this.productionID = productionID;
-    }
 
     public String getTitle() {
         return title;
@@ -41,7 +34,7 @@ public class Production {
         return releaseYear;
     }
 
-    public Date getCreationDate() {
+    public LocalDate getCreationDate() {
         return creationDate;
     }
 

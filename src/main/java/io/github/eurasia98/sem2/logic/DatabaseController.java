@@ -3,6 +3,7 @@ package io.github.eurasia98.sem2.logic;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
+import java.time.LocalDate;
 import java.util.*;
 
 public class DatabaseController {
@@ -36,17 +37,20 @@ public class DatabaseController {
         return searchResultsList;
     }
 
-    public void saveProduction(String title, int productionID, int releaseYear, Date creationDate) throws Exception {
-        //String titleFromID = searchProductionTitleFromId(productionID);
-        //if (titleFromID != null) {
-           // throw new Exception("ProductionID already in database");
-        //}
-        System.out.println("123");
-        FileWriter filew = new FileWriter(getFile("Productions.txt"), true);
-       // String data = title + ";" + productionID + ";" + releaseYear + ";" + creationDate.toString();
-        //System.out.println(data);
-        filew.write("test");
-        filew.close();
+    public void saveProduction(String title, int productionID, int releaseYear, LocalDate creationDate) throws Exception {
+        String titleFromID = searchProductionTitleFromId(productionID);
+        if (titleFromID != null) {
+         throw new Exception("ProductionID already in database");
+        }
+        try {
+            FileWriter filew = new FileWriter(getFile("Productions.txt"), true);
+            String data = title + ";" + Integer.toString(productionID) + ";" + Integer.toString(releaseYear) + ";" + creationDate.toString() + "\n";
+            filew.write(data);
+            filew.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        ;
 
 
     }
@@ -79,9 +83,10 @@ public class DatabaseController {
                 String[] lineArray = line.split(";");
                 if (productionId == Integer.parseInt(lineArray[0])) {
                     person = new Person(lineArray[1], lineArray[2]);
-                    production = new Production(searchProductionTitleFromId(productionId), productionId);
+                    production = new Production(searchProductionTitleFromId(productionId), productionId,0, LocalDate.now(), null);
                     credit = new Credit(person, production, lineArray[3], lineArray[4]);
                     creditsList.add(credit);
+
                 }
             }
         } catch (FileNotFoundException e) {
