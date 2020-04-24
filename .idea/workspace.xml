@@ -2,16 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0842e942-7252-4a46-994b-9e6ae5777635" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/io/github/eurasia98/sem2/logic/Account.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/github/eurasia98/sem2/logic/Account.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/io/github/eurasia98/sem2/logic/CreditSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/github/eurasia98/sem2/logic/CreditSystem.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/io/github/eurasia98/sem2/logic/Login.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/github/eurasia98/sem2/logic/Login.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/io/github/eurasia98/sem2/persistence/DatabaseProducerManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/github/eurasia98/sem2/persistence/DatabaseProducerManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/io/github/eurasia98/sem2/persistence/DatabaseProductionManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/github/eurasia98/sem2/persistence/DatabaseProductionManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/io/github/eurasia98/sem2/persistence/DatabaseUserManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/github/eurasia98/sem2/persistence/DatabaseUserManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/io/github/eurasia98/sem2/presentation/CreateProducerScreenController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/github/eurasia98/sem2/presentation/CreateProducerScreenController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/io/github/eurasia98/sem2/presistence/DatabaseUserManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/github/eurasia98/sem2/presistence/DatabaseUserManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Accounts.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Accounts.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -349,7 +340,14 @@
       <option name="project" value="LOCAL" />
       <updated>1587655135866</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="Nu kan man lave ny producer og gemme dem i Accounts. Ligeledes tæller userIdCounter op, men af uforklarlige årsager tæller den to op pr. gang.&#10;I færd med at lave login og rykke den til userController">
+      <created>1587729591393</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1587729591393</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -376,7 +374,8 @@
     <MESSAGE value="rettet at vbox indeholdende searchresults ikke clearer ved nyt tryk på søgknappen.&#10;Nu cleares vbox inden nyt indhold lægges i den." />
     <MESSAGE value="rettet at vbox indeholdende searchresults ikke clearer ved nyt tryk på søgknappen.&#10;Nu cleares vbox inden nyt indhold lægges i den.&#10;(tilføjelse af workspace.xml)&#10;(Kommentar til denne og forrige commit, der er merget med amilcars, der har rettet så credits bliver displayed)" />
     <MESSAGE value="Rettet search i searchScreenController til at være pænere kode. &#10;Lavet Account til super af Producer og ASystemAdministrator.&#10;Lavet gui og kode til opret producer." />
-    <option name="LAST_COMMIT_MESSAGE" value="Rettet search i searchScreenController til at være pænere kode. &#10;Lavet Account til super af Producer og ASystemAdministrator.&#10;Lavet gui og kode til opret producer." />
+    <MESSAGE value="Nu kan man lave ny producer og gemme dem i Accounts. Ligeledes tæller userIdCounter op, men af uforklarlige årsager tæller den to op pr. gang.&#10;I færd med at lave login og rykke den til userController" />
+    <option name="LAST_COMMIT_MESSAGE" value="Nu kan man lave ny producer og gemme dem i Accounts. Ligeledes tæller userIdCounter op, men af uforklarlige årsager tæller den to op pr. gang.&#10;I færd med at lave login og rykke den til userController" />
   </component>
   <component name="WindowStateProjectService">
     <state x="574" y="119" key="#com.intellij.ide.util.MemberChooser" timestamp="1587648281106">
@@ -396,10 +395,10 @@
     </state>
     <state x="421" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1536.824@0.0.1536.824" timestamp="1587650099832" />
     <state x="499" y="162" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1536.824@0.0.1536.824" timestamp="1587218656091" />
-    <state x="266" y="0" key="CommitChangelistDialog2" timestamp="1587655134593">
+    <state x="266" y="0" key="CommitChangelistDialog2" timestamp="1587729590001">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="266" y="0" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1587655134593" />
+    <state x="266" y="0" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1587729590001" />
     <state x="147" y="65" key="DiffContextDialog" timestamp="1587406925996">
       <screen x="0" y="0" width="1536" height="824" />
     </state>

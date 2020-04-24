@@ -9,12 +9,13 @@ import java.util.List;
 public class Login {
 
     private DatabaseUserManager databaseUserManager = new DatabaseUserManager();
+    private DatabaseProductionManager databaseProductionManager = new DatabaseProductionManager();
 
     private Account account;
 
     public String loginVerify (String username, String password) {
         List<String> accountVerified = new ArrayList<>();
-        accountVerified.addAll(databaseUserManager.verifyLogin(username,password));
+        accountVerified.addAll(databaseUserManager);
         if (accountVerified.get(0).equals("Wrong username / password.")){
             return "Wrong username / password.";
         }
