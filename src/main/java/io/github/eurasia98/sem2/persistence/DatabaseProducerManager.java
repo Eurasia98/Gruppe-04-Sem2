@@ -1,4 +1,6 @@
-package io.github.eurasia98.sem2.logic;
+package io.github.eurasia98.sem2.persistence;
+
+import io.github.eurasia98.sem2.logic.Producer;
 
 import java.io.*;
 import java.util.Scanner;

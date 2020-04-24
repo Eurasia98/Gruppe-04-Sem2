@@ -23,6 +23,12 @@ public class App extends Application {
 
     public static String searchFieldString;
     public static String selectedTitle;
+    public static boolean loggedIn;
+
+    // Needs to do the opposite of loggedIn in the future (for logging out)
+    public static void setLoggedIn(boolean loggedIn) {
+        App.loggedIn = loggedIn;
+    }
 
     //bruges til at sende string fra frontpage searchfield til searchscreencontroller i initialize.
     public static void setSearchField(String searchString){

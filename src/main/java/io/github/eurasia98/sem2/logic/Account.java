@@ -1,5 +1,7 @@
 package io.github.eurasia98.sem2.logic;
 
+import io.github.eurasia98.sem2.persistence.DatabaseUserManager;
+
 import java.io.IOException;
 
 public class Account {
@@ -11,8 +13,8 @@ public class Account {
     private static int customUsernameCounter = 0;
     private static String customUsername = "test";
     private static String customPassword = "test123";
-    private static DatabaseUserManager DUM = new DatabaseUserManager();
-    private static int userIdCounter = DUM.getUserIdCounter();
+    private static DatabaseUserManager dum = new DatabaseUserManager();
+    private static int userIdCounter = dum.getUserIdCounter();
 
     public Account(String username, String password, String accountType) {
         this.username = username;
@@ -21,7 +23,7 @@ public class Account {
         this.userId = userIdCounter;
         userIdCounter++;
         try {
-            DUM.updateUserIdCounter(userIdCounter);
+            dum.updateUserIdCounter(userIdCounter);
         } catch (IOException e) {
             e.printStackTrace();
         }

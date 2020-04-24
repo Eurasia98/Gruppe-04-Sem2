@@ -1,5 +1,7 @@
 package io.github.eurasia98.sem2.logic;
 
+import io.github.eurasia98.sem2.persistence.DatabaseCreditsManager;
+import io.github.eurasia98.sem2.persistence.DatabaseProductionManager;
 import javafx.scene.control.Hyperlink;
 
 import java.util.ArrayList;

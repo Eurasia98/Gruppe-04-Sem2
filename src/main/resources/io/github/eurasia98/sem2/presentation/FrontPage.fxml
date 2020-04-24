@@ -20,7 +20,6 @@
                         <Image url="@images/TV2_logo.png" />
                      </image>
                   </ImageView>
-                  <Button fx:id="buttonOpretProducer" layoutX="399.0" layoutY="14.0" mnemonicParsing="false" onAction="#buttonHandlerOpretProducer" text="Opret Producer" />
                </children>
             </AnchorPane>
          </top>

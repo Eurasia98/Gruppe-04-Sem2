@@ -58,7 +58,7 @@ public class SearchScreenController implements Initializable {
     *  ind på vBox så bruger kan se dem i gui.
     * */
     public void search(){
-        if (!textFieldSearch.getText().isEmpty()) {
+        if (!txtFieldSearch.getText().isEmpty()) {
             vBoxSearchResults.getChildren().clear();
             vBoxSearchResults.setVisible(true);
             vBoxSearchResults.getChildren().addAll(getHyperLinks());
@@ -91,7 +91,7 @@ public class SearchScreenController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        textFieldSearch.setText(App.searchFieldString);
+        txtFieldSearch.setText(App.searchFieldString);
         search();
     }
 }

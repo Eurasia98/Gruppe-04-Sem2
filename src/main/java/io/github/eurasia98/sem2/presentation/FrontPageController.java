@@ -2,18 +2,19 @@ package io.github.eurasia98.sem2.presentation;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 
-public class FrontPageController {
+import java.net.URL;
+import java.util.ResourceBundle;
+
+public class FrontPageController implements Initializable {
     @FXML
     private Button btnLogin;
-    
-    @FXML
-    private Button buttonOpretProducer;
 
     @FXML
     private ImageView ivLogo;
@@ -50,9 +51,13 @@ public class FrontPageController {
         App.switchScene("FrontPage");
     }
 
-    @FXML
-    void buttonHandlerOpretProducer(ActionEvent event){
-        App.switchScene("CreateProducerScreen");
-    }
 
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        if (App.loggedIn){
+            btnLogin.setVisible(false);
+        } else {
+            btnLogin.setVisible(true);
+        }
+    }
 }

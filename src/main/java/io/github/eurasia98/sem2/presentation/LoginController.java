@@ -32,7 +32,8 @@ public class LoginController {
             txtFieldError.setText(verifyAccount);
         }
         else {
-            App.switchScene("FrontPage");
+            App.setLoggedIn(true);
+            App.switchScene("AccountScreen");
         }
     }
 
