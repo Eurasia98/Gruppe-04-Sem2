@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="io.github.eurasia98.sem2.presentation.AccountController">
+   <children>
+      <ImageView fx:id="ivLogo" fitHeight="50.0" fitWidth="150.0" layoutX="2.0" layoutY="2.0" onMousePressed="#ivLogoActionHandler" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/TV2_logo.png" />
+         </image>
+      </ImageView>
+      <TextField fx:id="txtFieldSearch" layoutX="200.0" layoutY="80.0" onKeyPressed="#txtFieldSearchKeyPressHandler" prefHeight="25.0" prefWidth="224.0" promptText="Søg efter film / serie " />
+      <ImageView fx:id="ivSearch" fitHeight="23.0" fitWidth="25.0" layoutX="400.0" layoutY="81.0" onMouseClicked="#ivSearchMouseClickHandler" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/Search_Icon.png" />
+         </image>
+      </ImageView>
+      <Button fx:id="btnCreateProducer" layoutX="15.0" layoutY="140.0" mnemonicParsing="false" onAction="#btnCreateProducerActionHandler" prefHeight="25.0" prefWidth="120.0" text="Opret Producer" textAlignment="RIGHT" />
+      <Button fx:id="btnCreateProduction" layoutX="15.0" layoutY="175.0" mnemonicParsing="false" onAction="#btnCreateProductionActionHandler" prefHeight="25.0" prefWidth="120.0" text="Opret Produktion" />
+      <Button fx:id="btnEditProduction" layoutX="15.0" layoutY="210.0" mnemonicParsing="false" onAction="#btnEditProductionActionHandler" prefHeight="25.0" prefWidth="120.0" text="Ændre Produktion" />
+   </children>
+   <stylesheets>
+      <URL value="@LoginScreenCSS.css" />
+   </stylesheets>
+</AnchorPane>

@@ -1,6 +1,6 @@
 package io.github.eurasia98.sem2.logic;
 
-import io.github.eurasia98.sem2.presistence.DatabaseUserManager;
+import io.github.eurasia98.sem2.persistence.DatabaseUserManager;
 
 import java.io.IOException;
 
@@ -10,36 +10,32 @@ public class Account {
     private String username;
     private String password;
     private String accountType;
+    private static int customUsernameCounter = 0;
     private static String customUsername = "test";
     private static String customPassword = "test123";
     private static DatabaseUserManager dum = new DatabaseUserManager();
-    private static int userCounter = dum.getUserIdCounter();
+    private static int userIdCounter = dum.getUserIdCounter();
 
     public Account(String username, String password, String accountType) {
         this.username = username;
         this.password = password;
         this.accountType = accountType;
-        this.userId = userCounter;
-        userCounter++;
+        this.userId = userIdCounter;
+        userIdCounter++;
         try {
-            dum.updateUserIdCounter(userCounter);
+            dum.updateUserIdCounter(userIdCounter);
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
     public Account(String accountType) {
-        this.username = customUsername + Integer.toString(userCounter);
-        this.userId = userCounter;
-        userCounter++;
+        this.username = customUsername + Integer.toString(customUsernameCounter);
+        customUsernameCounter++;
         this.password = customPassword;
         this.accountType = accountType;
-        try {
-            dum.updateUserIdCounter(userCounter);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
+        this.userId = userIdCounter;
+        userIdCounter++;
     }
 
     public String getUsername() {
@@ -61,5 +57,10 @@ public class Account {
     public void setPassword(String password) { this.password = password; }
 
     public void setAccountType(String accountType) { this.accountType = accountType; }
+
+
+
+
+
 
 }

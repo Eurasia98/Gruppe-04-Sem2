@@ -2,20 +2,19 @@ package io.github.eurasia98.sem2.presentation;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 
-public class FrontPageController {
-    @FXML
-    private Button buttonOpretProducer;
+import java.net.URL;
+import java.util.ResourceBundle;
 
+public class FrontPageController implements Initializable {
     @FXML
-    private Button buttonLogin;
-
-    @FXML
-    private Button buttonSearch;
+    private Button btnLogin;
 
     @FXML
     private ImageView ivLogo;
@@ -27,7 +26,7 @@ public class FrontPageController {
     private ImageView ivSearch;
 
     @FXML
-    private void ivSearchActionHandler(MouseEvent event) {
+    private void ivSearchMouseClickHandler() {
         if(!txtFieldSearch.getText().isEmpty()) {
             App.setSearchField(txtFieldSearch.getText());
             App.switchScene("searchScreen");
@@ -35,12 +34,15 @@ public class FrontPageController {
         txtFieldSearch.setStyle("-fx-prompt-text-fill: red");
     }
 
-    public TextField getTxtFieldSearch(){
-        return txtFieldSearch;
+    @FXML
+    void txtFieldSearchKeyPressHandler(KeyEvent event) {
+        if (event.getCode().toString().equals("ENTER")){
+            ivSearchMouseClickHandler();
+        }
     }
 
     @FXML
-    void buttonHandlerLogin(ActionEvent event) {
+    void btnLoginActionHandler(ActionEvent event) {
         App.switchScene("LoginScreen");
     }
 
@@ -49,9 +51,13 @@ public class FrontPageController {
         App.switchScene("FrontPage");
     }
 
-    @FXML
-    void buttonHandlerOpretProducer(ActionEvent event){
-        App.switchScene("CreateProducerScreen");
-    }
 
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        if (App.loggedIn){
+            btnLogin.setVisible(false);
+        } else {
+            btnLogin.setVisible(true);
+        }
+    }
 }

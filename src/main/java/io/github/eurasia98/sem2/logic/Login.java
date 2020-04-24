@@ -1,6 +1,6 @@
 package io.github.eurasia98.sem2.logic;
 
-import io.github.eurasia98.sem2.presistence.DatabaseProductionManager;
+import io.github.eurasia98.sem2.persistence.DatabaseProductionManager;
 
 import java.util.ArrayList;
 import java.util.List;

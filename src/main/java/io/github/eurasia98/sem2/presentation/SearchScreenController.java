@@ -6,6 +6,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 
@@ -17,48 +18,54 @@ import java.util.ResourceBundle;
 public class SearchScreenController implements Initializable {
 
     @FXML
-    private Button buttonSearch;
-
-    @FXML
     private VBox vBoxSearchResults;
 
     @FXML
-    private TextField textFieldSearch;
+    private TextField txtFieldSearch;
 
     @FXML
     private ImageView ivLogo;
 
-    public VBox getVBoxSearchResults() {
-        return vBoxSearchResults;
-    }
-
-    public TextField getTextFieldSearch(){
-        return textFieldSearch;
-    }
+    @FXML
+    private ImageView ivSearch;
 
     /* håndterer "søg" og "søg igen" knapperne. Sender data
      *  videre til App og videre til creditsystem, der sender
      *  det videre til databasecontroller der sender det
      *  retur som hyperlinks.
      * */
+
     @FXML
-    void buttonHandlerSearch(ActionEvent event) throws IOException {
-        search();
+    private void ivSearchMouseClickHandler() throws IOException {
+        if(!txtFieldSearch.getText().isEmpty()) {
+            search();
+        }
+        txtFieldSearch.setStyle("-fx-prompt-text-fill: red");
     }
 
     public void ivLogoActionHandler(MouseEvent mouseEvent) {
         App.switchScene("FrontPage");
     }
 
+    @FXML
+    void txtFieldSearchKeyPressHandler(KeyEvent event) throws IOException {
+        if (event.getCode().toString().equals("ENTER")){
+            ivSearchMouseClickHandler();
+        }
+    }
+
     /* Sætter hyperLinks fra getHyperlinks
     *  ind på vBox så bruger kan se dem i gui.
     * */
     public void search(){
-        if (!textFieldSearch.getText().isEmpty()) {
+        if (!txtFieldSearch.getText().isEmpty()) {
             vBoxSearchResults.getChildren().clear();
             vBoxSearchResults.setVisible(true);
             vBoxSearchResults.getChildren().addAll(getHyperLinks());
-        } else textFieldSearch.setStyle("-fx-prompt-text-fill: red");
+        } else {txtFieldSearch.setStyle("-fx-prompt-text-fill: red");}
+//            ListView listView = new ListView();
+
+//            listView.getItems().addAll(vBoxSearchResults.getChildren().addAll(finalList));
     }
 
     /*
@@ -67,7 +74,7 @@ public class SearchScreenController implements Initializable {
          linker videre til credits displayal.
      */
     public ArrayList<Hyperlink> getHyperLinks(){
-        ArrayList<Hyperlink> hyperlinkArrayList = App.creditSystem.userSearch(textFieldSearch.getText());
+        ArrayList<Hyperlink> hyperlinkArrayList = App.creditSystem.userSearch(txtFieldSearch.getText());
         ArrayList<Hyperlink> finalList = new ArrayList<>();
         for (Hyperlink hl : hyperlinkArrayList){
             hl.setOnAction(new EventHandler<ActionEvent>() {
@@ -84,7 +91,7 @@ public class SearchScreenController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        textFieldSearch.setText(App.searchFieldString);
+        txtFieldSearch.setText(App.searchFieldString);
         search();
     }
 }

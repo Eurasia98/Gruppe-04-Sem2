@@ -32,7 +32,8 @@ public class LoginController {
             txtFieldError.setText(verifyAccount);
         }
         else {
-            App.switchScene("FrontPage");
+            App.setLoggedIn(true);
+            App.switchScene("AccountScreen");
         }
     }
 
@@ -40,6 +41,7 @@ public class LoginController {
     public void ivLogoActionHandler(MouseEvent mouseEvent) {
         App.switchScene("FrontPage");
     }
+
     @FXML
     public void keyPressEventHandler(KeyEvent event){
         if (event.getCode().toString().equals("ENTER")){
