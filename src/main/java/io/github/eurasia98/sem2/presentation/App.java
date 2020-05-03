@@ -50,49 +50,14 @@ public class App extends Application {
         return fxmlLoader.load();
     }
 
-    public static void switchToDisplayCreditsScreen() {
-        try {
-            scene.setRoot(loadFXML("DisplayCreditsFirstIteration"));
-            window.setTitle("Credits");
-        } catch (IOException e) {
-            System.out.println("Cant change root scene. ");
-            e.printStackTrace();
-        }
-    }
-
-    public static void switchToLoginScreen() {
-        try {
-            scene.setRoot(loadFXML("LoginScreen"));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    public static void switchToSearchScreen() {
-        try {
-            scene.setRoot(loadFXML("FrontPage"));
-        } catch (IOException e) {
-            System.out.println("Can't change root scene. ");
-            e.printStackTrace();
-        }
-    }
-
     public void closeSystem() {
         Stage stage = (Stage) scene.getWindow();
         stage.close();
     }
 
-    public static void switchToFrontPage() {
+    public static void switchScene(String sceneString){
         try {
-            scene.setRoot(loadFXML("FrontPage"));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    public static void switchToProductionScreen() {
-        try {
-            scene.setRoot(loadFXML("ProductionScreen"));
+            scene.setRoot(loadFXML(sceneString));
         } catch (IOException e) {
             e.printStackTrace();
         }

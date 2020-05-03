@@ -26,7 +26,7 @@ public class CreditSystem {
     }
 
     public String searchCredits(String title){
-        int id = databaseProductionManager.getProductionId(title);
+        int id = databaseProductionManager.searchProductionIdFromTitle(title);
         return databaseCreditsManager.searchCredits(id);
     }
 

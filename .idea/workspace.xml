@@ -1,12 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="0842e942-7252-4a46-994b-9e6ae5777635" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/io/github/eurasia98/sem2/presistence/DatabaseCreditsManager.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/io/github/eurasia98/sem2/presistence/DatabaseProducerManager.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/io/github/eurasia98/sem2/presistence/DatabaseProductionManager.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/io/github/eurasia98/sem2/presistence/DatabaseUserManager.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/github/eurasia98/sem2/logic/CreditSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/github/eurasia98/sem2/logic/CreditSystem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/github/eurasia98/sem2/logic/Movie.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/github/eurasia98/sem2/logic/Movie.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/github/eurasia98/sem2/logic/Producer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/github/eurasia98/sem2/logic/Producer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/github/eurasia98/sem2/logic/Production.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/github/eurasia98/sem2/logic/Production.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/github/eurasia98/sem2/logic/ProductionManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/github/eurasia98/sem2/logic/ProductionManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/github/eurasia98/sem2/logic/SearchResults.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/github/eurasia98/sem2/logic/SearchResults.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/github/eurasia98/sem2/logic/TvProgram.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/github/eurasia98/sem2/logic/TvProgram.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/github/eurasia98/sem2/logic/TvSeries.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/github/eurasia98/sem2/logic/TvSeries.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/github/eurasia98/sem2/persistence/DatabaseProductionManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/github/eurasia98/sem2/persistence/DatabaseProductionManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/github/eurasia98/sem2/presentation/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/github/eurasia98/sem2/presentation/App.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,6 +60,7 @@
         <entry key="$PROJECT_DIR$" value="ProductionBranch" />
       </map>
     </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectCodeStyleSettingsMigration">
     <option name="version" value="1" />
@@ -46,7 +71,6 @@
   </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
-    <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
@@ -60,7 +84,7 @@
       <recent name="org.Logic" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Main (1)">
+  <component name="RunManager" selected="Application.App (1)">
     <configuration name="App (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="io.github.eurasia98.sem2.presentation.App" />
       <module name="Gruppe-04-Sem2" />
@@ -128,8 +152,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Main (1)" />
         <item itemvalue="Application.App (1)" />
+        <item itemvalue="Application.Main (1)" />
         <item itemvalue="Application.Main" />
         <item itemvalue="Application.App" />
         <item itemvalue="Application.CreditSystem" />
@@ -389,13 +413,15 @@
     <MESSAGE value="Nu kan man lave ny producer og gemme dem i Accounts. Ligeledes tæller userIdCounter op, men af uforklarlige årsager tæller den to op pr. gang.&#10;I færd med at lave login og rykke den til userController" />
     <MESSAGE value="det driller" />
     <MESSAGE value="Arbejdet videre med userCounter og rettet fejl ved nullpointer exception ved oprettelse af ny producer." />
-    <option name="LAST_COMMIT_MESSAGE" value="Arbejdet videre med userCounter og rettet fejl ved nullpointer exception ved oprettelse af ny producer." />
+    <MESSAGE value="slettet ekstra directory der lå som kopi af persistance." />
+    <option name="LAST_COMMIT_MESSAGE" value="slettet ekstra directory der lå som kopi af persistance." />
+    <option name="GROUP_MULTIFILE_MERGE_BY_DIRECTORY" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="574" y="119" key="#com.intellij.ide.util.MemberChooser" timestamp="1587732094596">
+    <state x="574" y="119" key="#com.intellij.ide.util.MemberChooser" timestamp="1588526543980">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="574" y="119" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1587732094596" />
+    <state x="574" y="119" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1588526543980" />
     <state x="571" y="304" width="435" height="220" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1587741520933">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -409,10 +435,10 @@
     </state>
     <state x="421" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1536.824@0.0.1536.824" timestamp="1587650099832" />
     <state x="499" y="162" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1536.824@0.0.1536.824" timestamp="1587218656091" />
-    <state x="206" y="0" key="CommitChangelistDialog2" timestamp="1587747410519">
+    <state x="206" y="0" key="CommitChangelistDialog2" timestamp="1588524118983">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="206" y="0" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1587747410519" />
+    <state x="206" y="0" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1588524118983" />
     <state x="147" y="65" key="DiffContextDialog" timestamp="1587406925996">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -421,22 +447,22 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="549" y="170" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1588023398966" />
-    <state width="1220" height="261" key="GridCell.Tab.0.bottom" timestamp="1587748108008">
+    <state width="1493" height="210" key="GridCell.Tab.0.bottom" timestamp="1588524131184">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1220" height="261" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1587748108008" />
-    <state width="1220" height="261" key="GridCell.Tab.0.center" timestamp="1587748108008">
+    <state width="1493" height="210" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1588524131184" />
+    <state width="1493" height="210" key="GridCell.Tab.0.center" timestamp="1588524131183">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1220" height="261" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1587748108008" />
-    <state width="1220" height="261" key="GridCell.Tab.0.left" timestamp="1587748108008">
+    <state width="1493" height="210" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1588524131183" />
+    <state width="1493" height="210" key="GridCell.Tab.0.left" timestamp="1588524131183">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1220" height="261" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1587748108008" />
-    <state width="1220" height="261" key="GridCell.Tab.0.right" timestamp="1587748108008">
+    <state width="1493" height="210" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1588524131183" />
+    <state width="1493" height="210" key="GridCell.Tab.0.right" timestamp="1588524131183">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1220" height="261" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1587748108008" />
+    <state width="1493" height="210" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1588524131183" />
     <state width="1220" height="261" key="GridCell.Tab.1.bottom" timestamp="1587748108008">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -453,14 +479,14 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1220" height="261" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1587748108008" />
-    <state x="147" y="65" key="MergeDialog" timestamp="1587407010285">
+    <state x="40" y="65" width="1486" height="694" key="MergeDialog" timestamp="1588524504992">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="147" y="65" key="MergeDialog/0.0.1536.824@0.0.1536.824" timestamp="1587407010285" />
-    <state x="481" y="130" key="MultipleFileMergeDialog" timestamp="1587407020501">
+    <state x="40" y="65" width="1486" height="694" key="MergeDialog/0.0.1536.824@0.0.1536.824" timestamp="1588524504992" />
+    <state x="481" y="130" width="882" height="580" key="MultipleFileMergeDialog" timestamp="1588524534305">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="481" y="130" key="MultipleFileMergeDialog/0.0.1536.824@0.0.1536.824" timestamp="1587407020501" />
+    <state x="481" y="130" width="882" height="580" key="MultipleFileMergeDialog/0.0.1536.824@0.0.1536.824" timestamp="1588524534305" />
     <state x="359" y="126" key="RollbackChangesDialog" timestamp="1587561994471">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -469,10 +495,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="279" y="58" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1587672066654" />
-    <state x="361" y="148" key="Vcs.Push.Dialog.v2" timestamp="1587747421443">
+    <state x="361" y="148" key="Vcs.Push.Dialog.v2" timestamp="1588524144275">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="361" y="148" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1587747421443" />
+    <state x="361" y="148" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1588524144275" />
     <state x="477" y="240" key="com.intellij.ide.util.TipDialog" timestamp="1588023341565">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -493,10 +519,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="370" y="128" key="git4idea.branch.GitSmartOperationDialog/0.0.1536.824@0.0.1536.824" timestamp="1587724701730" />
-    <state x="392" y="216" key="git4idea.merge.GitPullDialog" timestamp="1587747966847">
+    <state x="392" y="216" key="git4idea.merge.GitPullDialog" timestamp="1588524214020">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="392" y="216" key="git4idea.merge.GitPullDialog/0.0.1536.824@0.0.1536.824" timestamp="1587747966847" />
+    <state x="392" y="216" key="git4idea.merge.GitPullDialog/0.0.1536.824@0.0.1536.824" timestamp="1588524214020" />
     <state x="209" y="78" key="new project wizard" timestamp="1588023437580">
       <screen x="0" y="0" width="1536" height="824" />
     </state>

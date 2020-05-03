@@ -1,5 +1,6 @@
 package io.github.eurasia98.sem2.logic;
 
+import io.github.eurasia98.sem2.persistence.DatabaseProductionManager;
 import javafx.scene.chart.PieChart;
 
 import java.time.LocalDate;
@@ -9,10 +10,10 @@ import java.util.HashMap;
 
 public class ProductionManager {
     private HashMap<Integer, Production> productions;
-    private DatabaseController databaseController;
+    private DatabaseProductionManager databaseProductionManager;
     public ProductionManager() {
         productions = new HashMap<Integer, Production>();
-        databaseController = new DatabaseController();
+        databaseProductionManager = new DatabaseProductionManager();
     }
 
     public Production createProduction(String title, int productionID, int releaseYear, LocalDate creationDate, ArrayList<Credit> myCreditsList) {
@@ -26,7 +27,7 @@ public class ProductionManager {
     }
 
     public void saveProduction(Production production) throws Exception {
-        databaseController.saveProduction(production.getTitle(), production.getProductionID(), production.getReleaseYear(), production.getCreationDate());
+        databaseProductionManager.saveProduction(production.getTitle(), production.getProductionID(), production.getReleaseYear(), production.getCreationDate());
     }
 
     public void deleteProduction(Production production) {

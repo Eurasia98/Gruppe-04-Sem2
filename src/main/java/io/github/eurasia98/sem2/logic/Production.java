@@ -17,10 +17,13 @@ public class Production {
         this.productionID = productionID;
         this.releaseYear = releaseYear;
         this.creationDate = creationDate;
-        myCreditsList = null;
+        this.myCreditsList = myCreditsList;
     }
 
-
+    public Production(String title, int productionID) {
+        this.title = title;
+        this.productionID = productionID;
+    }
 
     public String getTitle() {
         return title;

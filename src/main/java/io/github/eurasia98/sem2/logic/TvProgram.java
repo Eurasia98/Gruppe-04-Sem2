@@ -1,6 +1,9 @@
 package io.github.eurasia98.sem2.logic;
 
-public class TvProgram {
+import java.time.LocalDate;
+import java.util.ArrayList;
+
+public class TvProgram extends Production{
 
     private String ext_id;
     private String productcode;
@@ -11,8 +14,10 @@ public class TvProgram {
     private String episode_number;
     private String distributor_episode_count;
 
-    public TvProgram(String ext_id, String productcode, String aspect_ratio, String productionYear,
-                     String productionCountry, String series_id, String episode_number, String distributor_episode_count) {
+    public TvProgram(String title, int productionID, int releaseYear, LocalDate creationDate, ArrayList<Credit> myCreditsList,
+                     String ext_id, String productcode, String aspect_ratio, String productionYear, String productionCountry,
+                     String series_id, String episode_number, String distributor_episode_count) {
+        super(title, productionID, releaseYear, creationDate, myCreditsList);
         this.ext_id = ext_id;
         this.productcode = productcode;
         this.aspect_ratio = aspect_ratio;
@@ -21,18 +26,6 @@ public class TvProgram {
         this.series_id = series_id;
         this.episode_number = episode_number;
         this.distributor_episode_count = distributor_episode_count;
-    }
-
-    public TvProgram(String ext_id, String productcode, String productionYear, String productionCountry,
-                     String series_id, String episode_number, String distributor_episode_count) {
-        this.ext_id = ext_id;
-        this.productcode = productcode;
-        this.productionYear = productionYear;
-        this.productionCountry = productionCountry;
-        this.series_id = series_id;
-        this.episode_number = episode_number;
-        this.distributor_episode_count = distributor_episode_count;
-        this.aspect_ratio = "16:9";
     }
 
     public String getExt_id() {

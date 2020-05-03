@@ -1,5 +1,6 @@
 package io.github.eurasia98.sem2.logic;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Producer extends Account{
@@ -7,7 +8,7 @@ public class Producer extends Account{
     private String fName;
     private String lName;
     private String email;
-    private List<Production> myProductions;
+    private List<Production> myProductions = new ArrayList<>();
 
     public Producer(String username, String password, String accountType, String productionCompanyName,
                     String fName, String lName, String email) {

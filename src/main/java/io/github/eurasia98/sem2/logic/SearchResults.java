@@ -12,7 +12,6 @@ import java.util.List;
 public class SearchResults {
     private String title;
     private int productionId;
-    private CreditSystem cs = new CreditSystem();
 
     public SearchResults(String title, int productionId){
         this.title = title;
