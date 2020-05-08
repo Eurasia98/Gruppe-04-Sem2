@@ -27,14 +27,14 @@ public class LoginController {
 
     @FXML
     void btnLoginActionHandler () {
-        String verifyAccount = App.creditSystem.login(txtFieldUsername.getText(), pwField.getText());
+        /*String verifyAccount = App.creditSystem.login(txtFieldUsername.getText(), pwField.getText());
         if (verifyAccount.equals("System error. Try again.") || verifyAccount.equals("Wrong username / password.")){
             txtFieldError.setText(verifyAccount);
         }
         else {
             App.setLoggedIn(true);
             App.switchScene("AccountScreen");
-        }
+        }*/
     }
 
 

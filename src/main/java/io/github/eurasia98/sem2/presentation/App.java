@@ -22,11 +22,6 @@ public class App extends Application {
     //this is a comment
     private static Scene scene;
     private static Stage window;
-    static CreditSystem creditSystem;
-
-    public CreditSystem getCreditSystem() {
-        return creditSystem;
-    }
 
     @Override
     public void start(Stage stage) throws IOException {
@@ -35,10 +30,6 @@ public class App extends Application {
         window.setScene(scene);
         window.setTitle("");
         window.show();
-    }
-
-    public static void injectCreditSystem(CreditSystem cs) {
-        creditSystem = cs;
     }
 
     static void setRoot(String fxml) throws IOException {

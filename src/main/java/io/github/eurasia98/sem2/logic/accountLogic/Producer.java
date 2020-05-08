@@ -1,43 +1,27 @@
-package io.github.eurasia98.sem2.logic;
+package io.github.eurasia98.sem2.logic.accountLogic;
+
+import io.github.eurasia98.sem2.logic.productionLogic.Production;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class Producer extends Account{
+public class Producer extends Account {
     private String productionCompanyName;
     private String fName;
     private String lName;
     private String email;
     private List<Production> myProductions = new ArrayList<>();
 
-    public Producer(String username, String password, String accountType, String productionCompanyName,
-                    String fName, String lName, String email) {
-        super(username, password, accountType);
+    public Producer(int userId, String username, String password, String accountType,
+                    String productionCompanyName, String fName, String lName, String email,
+                    List<Production> myProductions) {
+        super(userId, username, password, accountType);
         this.productionCompanyName = productionCompanyName;
         this.fName = fName;
         this.lName = lName;
         this.email = email;
+        this.myProductions = myProductions;
     }
-
-    public Producer(String username, String password, String accountType, String fName, String lName, int userId){
-        super(userId, username, password, accountType);
-        this.fName = fName;
-        this.lName = lName;
-    }
-
-    public Producer(String fName, String lName) {
-        super("Producer");
-        this.fName = fName;
-        this.lName = lName;
-    }
-
-    public Producer(String companyName, String fName, String lName) {
-        super("Producer");
-        this.fName = fName;
-        this.lName = lName;
-        this.productionCompanyName = companyName;
-    }
-
 
 //    AUser user1 = new AUser("MediaKing" ,"1234" , "User", "TV2", "Jens", "Jensen", "Jensen.tv2.dk");
 

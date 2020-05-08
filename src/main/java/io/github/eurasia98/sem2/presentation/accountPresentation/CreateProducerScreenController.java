@@ -1,5 +1,6 @@
-package io.github.eurasia98.sem2.presentation;
+package io.github.eurasia98.sem2.presentation.accountPresentation;
 
+import io.github.eurasia98.sem2.presentation.App;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -36,11 +37,7 @@ public class CreateProducerScreenController implements Initializable {
     }
 
     public void createProducer(){
-        if (!fNameField.getText().isEmpty() && !lNameField.getText().isEmpty()){
-            App.creditSystem.getProducerManager().createProducer(fNameField.getText(), lNameField.getText());
-            fNameField.clear();
-            lNameField.clear();
-        }
+
     }
 
     @Override

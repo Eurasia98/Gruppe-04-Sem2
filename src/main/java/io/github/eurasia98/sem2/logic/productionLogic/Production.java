@@ -1,9 +1,9 @@
-package io.github.eurasia98.sem2.logic;
+package io.github.eurasia98.sem2.logic.productionLogic;
 
-import java.lang.reflect.Array;
+import io.github.eurasia98.sem2.logic.creditLogic.Credit;
+
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Date;
 
 public class Production {
     private String title;

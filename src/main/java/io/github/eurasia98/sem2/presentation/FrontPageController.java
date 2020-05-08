@@ -28,7 +28,7 @@ public class FrontPageController {
 
     @FXML
     void ivSearchActionHandler(MouseEvent event) {
-        App.switchToSearchScreen();
+        //App.switchToSearchScreen();
     }
 
     @FXML
@@ -38,10 +38,10 @@ public class FrontPageController {
 
     @FXML
     void ivLogoActionHandler(MouseEvent event) {
-        App.switchToFrontPage();
+        App.switchScene("FrontPage");
     }
     @FXML
     void productionScreenActionHandler(ActionEvent event){
-        App.switchToProductionScreen();
+        //App.switchToProductionScreen();
     }
 }

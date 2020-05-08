@@ -74,7 +74,7 @@ public class SearchScreenController implements Initializable {
          linker videre til credits displayal.
      */
     public ArrayList<Hyperlink> getHyperLinks(){
-        ArrayList<Hyperlink> hyperlinkArrayList = App.creditSystem.userSearch(txtFieldSearch.getText());
+        /*ArrayList<Hyperlink> hyperlinkArrayList = App.creditSystem.userSearch(txtFieldSearch.getText());
         ArrayList<Hyperlink> finalList = new ArrayList<>();
         for (Hyperlink hl : hyperlinkArrayList){
             hl.setOnAction(new EventHandler<ActionEvent>() {
@@ -86,12 +86,13 @@ public class SearchScreenController implements Initializable {
             });
             finalList.add(hl);
         }
-        return finalList;
+        return finalList;*/
+        return null;
     }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        txtFieldSearch.setText(App.searchFieldString);
-        search();
+        /*txtFieldSearch.setText(App.searchFieldString);
+        search();*/
     }
 }
