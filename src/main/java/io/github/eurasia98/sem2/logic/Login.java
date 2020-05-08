@@ -10,7 +10,7 @@ import java.util.List;
 
 public class Login {
 
-    private DatabaseUserManager databaseUserManager = new DatabaseUserManager();
+    /*private DatabaseUserManager databaseUserManager = new DatabaseUserManager();
 
     private Account account;
 
@@ -46,7 +46,7 @@ public class Login {
             }
         }
         //account = new Account (accountArray.get(1), accountArray.get(2), accountArray.get(4));
-    }
+    }*/
 
 
 

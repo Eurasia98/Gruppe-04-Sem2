@@ -21,8 +21,22 @@
   <component name="ChangeListManager">
     <list default="true" id="ee5fccad-6595-4165-9f51-be05e2812e13" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/io/github/eurasia98/sem2/presentation/accountPresentation/createPersonScreenController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/github/eurasia98/sem2/presentation/accountPresentation/createPersonScreenController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/io/github/eurasia98/sem2/presentation/createPersonScreen.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/io/github/eurasia98/sem2/presentation/createPersonScreen.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/github/eurasia98/sem2/logic/CreditSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/github/eurasia98/sem2/logic/CreditSystem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/github/eurasia98/sem2/logic/Login.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/github/eurasia98/sem2/logic/Login.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/github/eurasia98/sem2/logic/accountLogic/Producer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/github/eurasia98/sem2/logic/accountLogic/Producer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/github/eurasia98/sem2/logic/accountLogic/ProducerManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/github/eurasia98/sem2/logic/accountLogic/ProducerManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/github/eurasia98/sem2/logic/productionLogic/Movie.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/github/eurasia98/sem2/logic/productionLogic/Movie.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/github/eurasia98/sem2/logic/productionLogic/MovieManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/github/eurasia98/sem2/logic/productionLogic/MovieManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/github/eurasia98/sem2/logic/productionLogic/Production.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/github/eurasia98/sem2/logic/productionLogic/Production.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/github/eurasia98/sem2/logic/productionLogic/ProductionManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/github/eurasia98/sem2/logic/productionLogic/ProductionManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/github/eurasia98/sem2/logic/productionLogic/TvProgram.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/github/eurasia98/sem2/logic/productionLogic/TvProgram.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/github/eurasia98/sem2/logic/productionLogic/TvSeries.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/github/eurasia98/sem2/logic/productionLogic/TvSeries.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/github/eurasia98/sem2/persistence/accountPersistence/DatabaseProducerManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/github/eurasia98/sem2/persistence/accountPersistence/DatabaseProducerManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/github/eurasia98/sem2/persistence/accountPersistence/DatabaseUserManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/github/eurasia98/sem2/persistence/accountPersistence/DatabaseUserManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/github/eurasia98/sem2/presentation/FrontPageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/github/eurasia98/sem2/presentation/FrontPageController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/io/github/eurasia98/sem2/presentation/FrontPage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/io/github/eurasia98/sem2/presentation/FrontPage.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/module-info.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/module-info.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,8 +50,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="FxmlFile" />
-        <option value="Interface" />
         <option value="CSS File" />
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -82,7 +96,7 @@
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.0" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
   </component>
   <component name="RecentsManager">
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
@@ -122,6 +136,19 @@
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="org.Logic.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Main (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="io.github.eurasia98.sem2.presentation.Main" />
+      <module name="Gruppe-04-Sem2" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="io.github.eurasia98.sem2.presentation.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -174,7 +201,6 @@
         <item itemvalue="Application.Main" />
         <item itemvalue="Application.Main" />
         <item itemvalue="Application.CreditSystem" />
-        <item itemvalue="Application.App (1)" />
       </list>
     </recent_temporary>
   </component>
@@ -193,7 +219,8 @@
       <workItem from="1587197528046" duration="3835000" />
       <workItem from="1587330198884" duration="3722000" />
       <workItem from="1588523388240" duration="500000" />
-      <workItem from="1588829198714" duration="19511000" />
+      <workItem from="1588829198714" duration="20911000" />
+      <workItem from="1588938849339" duration="7824000" />
     </task>
     <task id="LOCAL-00001" summary="Indsat lidt FXML docs og lidt klasser. Små commits, og der er testet at programmet stadig kører">
       <created>1587205027592</created>
@@ -405,7 +432,14 @@
       <option name="project" value="LOCAL" />
       <updated>1588935757345</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="lavet lidt mere. Comitter fordi jeg skal merge med production branch">
+      <created>1588937435019</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1588937435019</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -424,7 +458,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Indsat lidt FXML docs og lidt klasser. Små commits, og der er testet at programmet stadig kører" />
     <MESSAGE value="Indsat flere klasser og lir, og tjekket programmet stadig kører" />
     <MESSAGE value="Arbejdet med search funktionen" />
     <MESSAGE value="Pulled fra ProductionBranch&#10;Lavet org.Data package og DatabaseController klasse i den" />
@@ -449,7 +482,8 @@
     <MESSAGE value="slettet ekstra directory der lå som kopi af persistance." />
     <MESSAGE value="slettet test fra branches" />
     <MESSAGE value="Refactored og lavet nye pakker under de tre lag der indeholder opdelt funktionalitet pr. objekt type." />
-    <option name="LAST_COMMIT_MESSAGE" value="Refactored og lavet nye pakker under de tre lag der indeholder opdelt funktionalitet pr. objekt type." />
+    <MESSAGE value="lavet lidt mere. Comitter fordi jeg skal merge med production branch" />
+    <option name="LAST_COMMIT_MESSAGE" value="lavet lidt mere. Comitter fordi jeg skal merge med production branch" />
     <option name="GROUP_MULTIFILE_MERGE_BY_DIRECTORY" value="true" />
   </component>
   <component name="WindowStateProjectService">
@@ -457,10 +491,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="223" y="67" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824@0.0.1536.824" timestamp="1588924970164" />
-    <state x="574" y="119" key="#com.intellij.ide.util.MemberChooser" timestamp="1588933750064">
+    <state x="574" y="119" key="#com.intellij.ide.util.MemberChooser" timestamp="1588944524086">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="574" y="119" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1588933750064" />
+    <state x="574" y="119" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1588944524086" />
     <state x="571" y="304" width="435" height="220" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1587741520933">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -474,10 +508,10 @@
     </state>
     <state x="421" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1536.824@0.0.1536.824" timestamp="1587650099832" />
     <state x="499" y="162" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1536.824@0.0.1536.824" timestamp="1587218656091" />
-    <state x="206" y="0" key="CommitChangelistDialog2" timestamp="1588935755352">
+    <state x="206" y="0" key="CommitChangelistDialog2" timestamp="1588937433925">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="206" y="0" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1588935755352" />
+    <state x="206" y="0" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1588937433925" />
     <state x="147" y="65" key="DiffContextDialog" timestamp="1587406925996">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -486,22 +520,22 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="549" y="170" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1588838391202" />
-    <state width="1342" height="195" key="GridCell.Tab.0.bottom" timestamp="1588926387870">
+    <state width="1493" height="210" key="GridCell.Tab.0.bottom" timestamp="1588944735032">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1342" height="195" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1588926387870" />
-    <state width="1342" height="195" key="GridCell.Tab.0.center" timestamp="1588926387869">
+    <state width="1493" height="210" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1588944735032" />
+    <state width="1493" height="210" key="GridCell.Tab.0.center" timestamp="1588944735031">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1342" height="195" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1588926387869" />
-    <state width="1342" height="195" key="GridCell.Tab.0.left" timestamp="1588926387869">
+    <state width="1493" height="210" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1588944735031" />
+    <state width="1493" height="210" key="GridCell.Tab.0.left" timestamp="1588944735031">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1342" height="195" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1588926387869" />
-    <state width="1342" height="195" key="GridCell.Tab.0.right" timestamp="1588926387869">
+    <state width="1493" height="210" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1588944735031" />
+    <state width="1493" height="210" key="GridCell.Tab.0.right" timestamp="1588944735032">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1342" height="195" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1588926387869" />
+    <state width="1493" height="210" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1588944735032" />
     <state width="1220" height="261" key="GridCell.Tab.1.bottom" timestamp="1587732285824">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -537,22 +571,26 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="359" y="126" key="RollbackChangesDialog/0.0.1536.824@0.0.1536.824" timestamp="1587561994471" />
-    <state x="279" y="0" key="SettingsEditor" timestamp="1588838399648">
+    <state x="279" y="0" key="SettingsEditor" timestamp="1588944057812">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="279" y="0" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1588838399648" />
-    <state x="361" y="148" key="Vcs.Push.Dialog.v2" timestamp="1588935768267">
+    <state x="279" y="0" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1588944057812" />
+    <state x="361" y="148" key="Vcs.Push.Dialog.v2" timestamp="1588937443660">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="361" y="148" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1588935768267" />
+    <state x="361" y="148" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1588937443660" />
+    <state x="639" y="300" width="312" height="243" key="com.intellij.database.actions.DdlActions$DeleteProvider2$1" timestamp="1588941255889">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="639" y="300" width="312" height="243" key="com.intellij.database.actions.DdlActions$DeleteProvider2$1/0.0.1536.824@0.0.1536.824" timestamp="1588941255889" />
     <state x="566" y="78" key="com.intellij.database.dbimport.ImportDialog" timestamp="1588839667566">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="566" y="78" key="com.intellij.database.dbimport.ImportDialog/0.0.1536.824@0.0.1536.824" timestamp="1588839667566" />
-    <state x="705" y="122" width="577" height="663" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog" timestamp="1588929991029">
+    <state x="771" y="113" width="577" height="663" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog" timestamp="1588943111035">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="705" y="122" width="577" height="663" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog/0.0.1536.824@0.0.1536.824" timestamp="1588929991029" />
+    <state x="771" y="113" width="577" height="663" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog/0.0.1536.824@0.0.1536.824" timestamp="1588943111035" />
     <state x="477" y="240" key="com.intellij.ide.util.TipDialog" timestamp="1588023341565">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -581,6 +619,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="209" y="78" key="new project wizard/0.0.1536.824@0.0.1536.824" timestamp="1588023437580" />
+    <state x="475" y="160" key="refactoring.ChangeSignatureDialog" timestamp="1588937954620">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="475" y="160" key="refactoring.ChangeSignatureDialog/0.0.1536.824@0.0.1536.824" timestamp="1588937954620" />
     <state x="425" y="187" key="run.anything.popup" timestamp="1587334501759">
       <screen x="0" y="0" width="1536" height="824" />
     </state>

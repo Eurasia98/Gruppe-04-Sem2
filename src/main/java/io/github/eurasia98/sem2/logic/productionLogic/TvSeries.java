@@ -15,11 +15,11 @@ public class TvSeries extends Production {
     private String extendedcast;
     private String editor;
 
-
-    public TvSeries(String title, int productionID, int releaseYear, LocalDate creationDate, ArrayList<Credit> myCreditsList,
-                    int season, int episode, String episode_title, String format_audio, String description,
-                    String extendedcast, String editor) {
-        super(title, productionID, releaseYear, creationDate, myCreditsList);
+    public TvSeries(String title, String productionID, int id, String productionType,
+                    int releaseYear, LocalDate creationDate, ArrayList<Credit> myCreditsList,
+                    int season, int episode, String episode_title, String format_audio,
+                    String description, String extendedcast, String editor) {
+        super(title, productionID, id, productionType, releaseYear, creationDate, myCreditsList);
         this.season = season;
         this.episode = episode;
         this.episode_title = episode_title;

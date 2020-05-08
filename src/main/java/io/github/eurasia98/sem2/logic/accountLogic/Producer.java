@@ -23,7 +23,15 @@ public class Producer extends Account {
         this.myProductions = myProductions;
     }
 
-//    AUser user1 = new AUser("MediaKing" ,"1234" , "User", "TV2", "Jens", "Jensen", "Jensen.tv2.dk");
+    public Producer(String username, String password, String fName, String lName, String email) {
+        super(username, password);
+        this.fName = fName;
+        this.lName = lName;
+        this.email = email;
+        super.setAccountType("Producer");
+    }
+
+    //    AUser user1 = new AUser("MediaKing" ,"1234" , "User", "TV2", "Jens", "Jensen", "Jensen.tv2.dk");
 
     public String getProductionCompanyName() {
         return productionCompanyName;

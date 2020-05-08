@@ -9,7 +9,7 @@ import javafx.scene.control.Hyperlink;
 import java.util.ArrayList;
 
 public class CreditSystem {
-    private static DatabaseProductionManager databaseProductionManager = new DatabaseProductionManager();
+    /*private static DatabaseProductionManager databaseProductionManager = new DatabaseProductionManager();
     private ProducerManager producerManager = new ProducerManager();
     private DatabaseCreditsManager databaseCreditsManager = new DatabaseCreditsManager();
 
@@ -52,6 +52,6 @@ public class CreditSystem {
 
     public static void main(String[] args) {
         System.out.println("Kebab on wheels is a go!");
-    }
+    }*/
 
    }
