@@ -1,11 +1,13 @@
 package io.github.eurasia98.sem2.presentation.accountPresentation;
 
 import io.github.eurasia98.sem2.logic.accountLogic.AccountManager;
+import io.github.eurasia98.sem2.logic.accountLogic.PersonManager;
 import io.github.eurasia98.sem2.presentation.App;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -55,6 +57,9 @@ public class createPersonScreenController implements Initializable {
     private Button btnAddEmail;
 
     @FXML
+    private TextArea txtArea;
+
+    @FXML
     void IVLogoHandler(MouseEvent event) {
         App.switchScene("FrontPage");
     }
@@ -63,23 +68,26 @@ public class createPersonScreenController implements Initializable {
     void btnAvailableUsernameHandler(ActionEvent event) {
         AccountManager accountManager = new AccountManager();
         if (accountManager.checkUsernameAvailability(txtFieldUsername.getText()) == true){
-
+            txtArea.clear();
+            txtArea.setText("Username: " + txtFieldUsername.getText() + " is available. ");
+        } else {
+            txtArea.clear();
+            txtArea.setText("Username: " + txtFieldUsername + " is not available. ");
         }
     }
 
     @FXML
     void btnAddCreditHandler(ActionEvent event) {
-
-    }
-
-    @FXML
-    void btnAddEmailHandler(ActionEvent event) {
-
+        txtFieldProductionId.setVisible(true);
+        txtFieldRole.setVisible(true);
+        txtFieldRoleName.setVisible(true);
     }
 
     @FXML
     void btnSavePersonHandler(ActionEvent event) {
+        if (txtFieldEmail.getText() == null || txtFieldEmail.getText().trim().isEmpty()){
 
+        }
     }
 
     @Override

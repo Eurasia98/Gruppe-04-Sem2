@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -19,12 +20,12 @@
       <TextField fx:id="txtFieldPassword" layoutX="208.0" layoutY="131.0" promptText="Ønsket password" />
       <TextField fx:id="txtFieldFirstName" layoutX="208.0" layoutY="167.0" promptText="Fornavn" />
       <TextField fx:id="txtFieldLastName" layoutX="208.0" layoutY="200.0" promptText="Efternavn" />
-      <TextField fx:id="txtFieldEmail" layoutX="208.0" layoutY="233.0" promptText="Email" visible="false" />
+      <TextField fx:id="txtFieldEmail" layoutX="208.0" layoutY="233.0" promptText="Email" />
       <Button fx:id="btnAddCredit" layoutX="230.0" layoutY="266.0" mnemonicParsing="false" onAction="#btnAddCreditHandler" text="Tilføj kreditering" />
       <Button fx:id="btnSavePerson" layoutX="234.0" layoutY="348.0" mnemonicParsing="false" onAction="#btnSavePersonHandler" text="Gem ny person" />
       <TextField fx:id="txtFieldProductionId" layoutX="14.0" layoutY="298.0" prefHeight="26.0" prefWidth="135.0" promptText="Produktions Id" visible="false" />
       <TextField fx:id="txtFieldRole" layoutX="208.0" layoutY="299.0" promptText="Rolle" visible="false" />
       <TextField fx:id="txtFieldRoleName" layoutX="422.0" layoutY="299.0" promptText="Eventuelt rollenavn" visible="false" />
-      <Button fx:id="btnAddEmail" layoutX="97.0" layoutY="233.0" mnemonicParsing="false" onAction="#btnAddEmailHandler" text="Tilføj email" />
+      <TextArea fx:id="txtArea" layoutX="396.0" layoutY="92.0" prefHeight="200.0" prefWidth="200.0" />
    </children>
 </AnchorPane>
