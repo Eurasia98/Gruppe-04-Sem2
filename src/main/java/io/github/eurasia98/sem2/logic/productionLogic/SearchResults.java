@@ -1,4 +1,4 @@
-package io.github.eurasia98.sem2.logic;
+package io.github.eurasia98.sem2.logic.productionLogic;
 
 import io.github.eurasia98.sem2.presentation.App;
 import io.github.eurasia98.sem2.presentation.CreditsController;
@@ -12,7 +12,6 @@ import java.util.List;
 public class SearchResults {
     private String title;
     private int productionId;
-    private CreditSystem cs = new CreditSystem();
 
     public SearchResults(String title, int productionId){
         this.title = title;

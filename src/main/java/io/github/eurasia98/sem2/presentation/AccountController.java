@@ -1,5 +1,6 @@
 package io.github.eurasia98.sem2.presentation;
 
+import io.github.eurasia98.sem2.presentation.App;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -44,11 +45,11 @@ public class AccountController {
 
     @FXML
     public void ivSearchMouseClickHandler() {
-        if(!txtFieldSearch.getText().isEmpty()) {
+        /*if(!txtFieldSearch.getText().isEmpty()) {
             App.setSearchField(txtFieldSearch.getText());
             App.switchScene("searchScreen");
         } else
-            txtFieldSearch.setStyle("-fx-prompt-text-fill: red");
+            txtFieldSearch.setStyle("-fx-prompt-text-fill: red");*/
     }
 
     @FXML

@@ -1,39 +1,56 @@
 package io.github.eurasia98.sem2.persistence;
 
-import io.github.eurasia98.sem2.logic.Producer;
+import io.github.eurasia98.sem2.logic.accountLogic.Account;
+import io.github.eurasia98.sem2.logic.accountLogic.Person;
+import io.github.eurasia98.sem2.logic.accountLogic.Producer;
 
 import java.io.*;
+import java.sql.*;
 import java.util.Scanner;
 
-public class DatabaseProducerManager {
-    private File file;
+public class DatabaseProducerManager{
+    static Connection connection = null;
 
-    private File getFile(String fileName) {
-        return new File(getClass().getClassLoader().getResource(fileName).getFile());
+    // laver forbindelse til database.
+    private Connection getConnection(){
+        try {
+            DriverManager.registerDriver(new org.postgresql.Driver());
+            connection = DriverManager.getConnection(
+                    "jdbc:postgresql://localhost:5432/Krediteringssystem",
+                    "postgres",
+                    "kebabonwheels");
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return connection;
     }
 
-    public void saveNewProducer(Producer producer){
-        System.out.println(producer.toString());
-        file = getFile("Accounts.txt");
+    public Boolean saveProducer(Producer producer){
         try {
-            Scanner sc = new Scanner(file);
-            while (sc.hasNextLine()){
-                System.out.println(sc.nextLine());
-            }
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
-        try {
-            FileWriter fileWriter = new FileWriter(file, true);
-            String s = producer.toString();
-            BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
-            bufferedWriter.write(s + "\n");
-            bufferedWriter.close();
+            connection = getConnection();
 
-        } catch (IOException e) {
-            e.printStackTrace();
-            System.out.println("fail");
-        }
+            PreparedStatement insertAccountStatement = connection.prepareStatement(
+                    "INSERT INTO accounts(username, password, accounttype) VALUES(?,?,?)");
+            insertAccountStatement.setString(1, producer.getUsername());
+            insertAccountStatement.setString(2, producer.getPassword());
+            insertAccountStatement.setString(3, producer.getAccountType());
+
+            PreparedStatement getId = connection.prepareStatement(
+                    "SELECT id FROM accounts WHERE username = ?");
+            getId.setString(1, producer.getUsername());
+            ResultSet rs = getId.executeQuery();
+
+            PreparedStatement insertPersonStatement = connection.prepareStatement(
+                    "INSERT INTO producers(first_name, last_name, email, account_id) VALUES(?,?,?,?)");
+            insertPersonStatement.setString(1, producer.getFName());
+            insertPersonStatement.setString( 2, producer.getLName());
+            insertPersonStatement.setString(3, producer.getEmail());
+            insertPersonStatement.setInt(4, rs.getInt(0));
+
+            return true;
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        } return false;
 
     }
 }

@@ -17,6 +17,12 @@ public class FrontPageController implements Initializable {
     private Button btnLogin;
 
     @FXML
+    private Button buttonProduction;
+
+    @FXML
+    private Button buttonSearch;
+
+    @FXML
     private ImageView ivLogo;
 
     @FXML
@@ -26,24 +32,21 @@ public class FrontPageController implements Initializable {
     private ImageView ivSearch;
 
     @FXML
-    private void ivSearchMouseClickHandler() {
-        if(!txtFieldSearch.getText().isEmpty()) {
-            App.setSearchField(txtFieldSearch.getText());
-            App.switchScene("searchScreen");
-        } else
-        txtFieldSearch.setStyle("-fx-prompt-text-fill: red");
+    private Button btnAddPerson;
+
+    @FXML
+    void ivSearchActionHandler(MouseEvent event) {
+        //App.switchToSearchScreen();
     }
 
     @FXML
-    void txtFieldSearchKeyPressHandler(KeyEvent event) {
-        if (event.getCode().toString().equals("ENTER")){
-            ivSearchMouseClickHandler();
-        }
+    void buttonHandlerLogin(ActionEvent event) {
+
     }
 
     @FXML
-    void btnLoginActionHandler(ActionEvent event) {
-        App.switchScene("LoginScreen");
+    void btnAddPersonHandler(ActionEvent event) {
+        App.switchScene("CreatePersonScreen");
     }
 
     @FXML
@@ -51,13 +54,13 @@ public class FrontPageController implements Initializable {
         App.switchScene("FrontPage");
     }
 
+    @FXML
+    void productionScreenActionHandler(ActionEvent event){
+        App.switchScene("CreateMovieScreen");
+    }
 
     @Override
-    public void initialize(URL location, ResourceBundle resources) {
-        if (App.loggedIn){
-            btnLogin.setVisible(false);
-        } else {
-            btnLogin.setVisible(true);
-        }
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        txtFieldSearch.clear();
     }
 }
