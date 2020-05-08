@@ -1,6 +1,6 @@
 package io.github.eurasia98.sem2.logic.productionLogic;
 
-import io.github.eurasia98.sem2.persistence.productionPersistence.DatabaseMovieHandler;
+import io.github.eurasia98.sem2.persistence.DatabaseMovieHandler;
 
 public class MovieManager {
     public MovieManager(){}

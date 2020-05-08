@@ -1,10 +1,9 @@
 package io.github.eurasia98.sem2.logic.accountLogic;
 
 import io.github.eurasia98.sem2.logic.creditLogic.Credit;
-import io.github.eurasia98.sem2.persistence.accountPersistence.DatabasePersonHandler;
+import io.github.eurasia98.sem2.persistence.DatabasePersonHandler;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class PersonManager {
     public PersonManager(){}

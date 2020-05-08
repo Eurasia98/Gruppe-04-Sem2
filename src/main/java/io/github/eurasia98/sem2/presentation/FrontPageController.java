@@ -31,6 +31,9 @@ public class FrontPageController implements Initializable {
     private ImageView ivSearch;
 
     @FXML
+    private Button btnAddPerson;
+
+    @FXML
     void ivSearchActionHandler(MouseEvent event) {
         //App.switchToSearchScreen();
     }
@@ -41,16 +44,22 @@ public class FrontPageController implements Initializable {
     }
 
     @FXML
+    void btnAddPersonHandler(ActionEvent event) {
+        App.switchScene("CreatePersonScreen");
+    }
+
+    @FXML
     void ivLogoActionHandler(MouseEvent event) {
         App.switchScene("FrontPage");
     }
+
     @FXML
     void productionScreenActionHandler(ActionEvent event){
-        App.switchScene("CreateMovieScene");
+        App.switchScene("CreateMovieScreen");
     }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
+        txtFieldSearch.clear();
     }
 }

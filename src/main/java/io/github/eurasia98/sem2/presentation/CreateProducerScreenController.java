@@ -1,4 +1,4 @@
-package io.github.eurasia98.sem2.presentation.accountPresentation;
+package io.github.eurasia98.sem2.presentation;
 
 import io.github.eurasia98.sem2.presentation.App;
 import javafx.event.ActionEvent;

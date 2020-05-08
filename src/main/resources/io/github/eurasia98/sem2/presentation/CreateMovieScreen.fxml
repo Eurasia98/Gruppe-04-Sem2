@@ -7,7 +7,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0"
             prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="io.github.eurasia98.sem2.presentation.productionPresentation.CreateMovieScreenHandler">
+            fx:controller="io.github.eurasia98.sem2.presentation.CreateMovieScreenHandler">
    <children>
       <TextField fx:id="txtFieldTitel" layoutX="219.0" layoutY="53.0" promptText="Indtast Titel" />
       <TextField fx:id="txtFieldProductionid" layoutX="219.0" layoutY="86.0" promptText="Indtast Produktions Id" />

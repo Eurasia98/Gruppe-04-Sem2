@@ -1,13 +1,5 @@
 package io.github.eurasia98.sem2.logic;
 
-import io.github.eurasia98.sem2.logic.accountLogic.ASystemAdministrator;
-import io.github.eurasia98.sem2.logic.accountLogic.Account;
-import io.github.eurasia98.sem2.logic.accountLogic.Producer;
-import io.github.eurasia98.sem2.persistence.accountPersistence.DatabaseUserManager;
-
-import java.util.ArrayList;
-import java.util.List;
-
 public class Login {
 
     /*private DatabaseUserManager databaseUserManager = new DatabaseUserManager();

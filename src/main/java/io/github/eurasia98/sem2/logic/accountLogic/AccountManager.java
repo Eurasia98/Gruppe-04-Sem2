@@ -1,6 +1,6 @@
 package io.github.eurasia98.sem2.logic.accountLogic;
 
-import io.github.eurasia98.sem2.persistence.accountPersistence.DatabaseAccountHandler;
+import io.github.eurasia98.sem2.persistence.DatabaseAccountHandler;
 
 public class AccountManager {
     public AccountManager(){}
