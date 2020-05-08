@@ -1,9 +1,4 @@
-package io.github.eurasia98.sem2.logic.productionLogic;
-
-import io.github.eurasia98.sem2.logic.creditLogic.Credit;
-
-import java.time.LocalDate;
-import java.util.ArrayList;
+package io.github.eurasia98.sem2.logic;
 
 public class Movie extends Production {
 

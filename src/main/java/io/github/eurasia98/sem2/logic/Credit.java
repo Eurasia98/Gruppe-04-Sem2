@@ -1,7 +1,4 @@
-package io.github.eurasia98.sem2.logic.creditLogic;
-
-import io.github.eurasia98.sem2.logic.productionLogic.Production;
-import io.github.eurasia98.sem2.logic.accountLogic.Person;
+package io.github.eurasia98.sem2.logic;
 
 public class Credit {
     private Person person;

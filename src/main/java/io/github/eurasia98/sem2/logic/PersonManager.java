@@ -1,6 +1,5 @@
-package io.github.eurasia98.sem2.logic.accountLogic;
+package io.github.eurasia98.sem2.logic;
 
-import io.github.eurasia98.sem2.logic.creditLogic.Credit;
 import io.github.eurasia98.sem2.persistence.DatabasePersonHandler;
 
 import java.util.ArrayList;

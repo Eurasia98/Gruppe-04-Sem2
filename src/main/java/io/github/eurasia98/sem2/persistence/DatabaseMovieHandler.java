@@ -1,7 +1,6 @@
 package io.github.eurasia98.sem2.persistence;
 
-import io.github.eurasia98.sem2.logic.accountLogic.Producer;
-import io.github.eurasia98.sem2.logic.productionLogic.Movie;
+import io.github.eurasia98.sem2.logic.Movie;
 
 import java.sql.*;
 
@@ -26,7 +25,7 @@ public class DatabaseMovieHandler {
 
     public Boolean saveMovie(Movie movie){
         try {
-            connection = getConnection();
+            this.connection = getConnection();
 
             PreparedStatement insertProductionStatement = connection.prepareStatement(
                     "INSERT INTO productions(title, productionId, productiontype) VALUES(?,?,?)");

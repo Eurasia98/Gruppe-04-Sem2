@@ -1,6 +1,4 @@
-package io.github.eurasia98.sem2.logic.accountLogic;
-
-import io.github.eurasia98.sem2.logic.productionLogic.Production;
+package io.github.eurasia98.sem2.logic;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,8 +1,5 @@
 package io.github.eurasia98.sem2.presentation;
 
-import io.github.eurasia98.sem2.logic.accountLogic.AccountManager;
-import io.github.eurasia98.sem2.logic.accountLogic.PersonManager;
-import io.github.eurasia98.sem2.presentation.App;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;

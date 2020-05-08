@@ -19,8 +19,8 @@ public class DatabaseAccountHandler {
     }
 
     public Boolean checkUsernameAvailability(String username){
-        getConnection();
         try {
+            this.connection = getConnection();
             PreparedStatement checkUsernameStatement = connection.prepareStatement(
                     "SELECT username FROM accounts WHERE username = ?");
             checkUsernameStatement.setString(1, username);

@@ -1,9 +1,5 @@
 package io.github.eurasia98.sem2.logic;
 
-import io.github.eurasia98.sem2.logic.accountLogic.AccountManager;
-import io.github.eurasia98.sem2.logic.accountLogic.Person;
-import io.github.eurasia98.sem2.logic.accountLogic.PersonManager;
-
 public class CreditSystem {
    public Boolean availableUsername(String username){
       AccountManager accountManager = new AccountManager();
@@ -13,5 +9,10 @@ public class CreditSystem {
    public Boolean createNewPerson(String username, String password, String firstName, String lastName){
       PersonManager personManager = new PersonManager();
       return personManager.saveNewPerson(new Person(username, password, firstName, lastName));
+   }
+
+   public Boolean createNewMovie(String title, String productionId){
+      MovieManager movieManager = new MovieManager();
+      return movieManager.saveMovie(movieManager.createMovie(title, productionId));
    }
 }

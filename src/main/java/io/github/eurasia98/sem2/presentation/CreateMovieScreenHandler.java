@@ -1,6 +1,6 @@
 package io.github.eurasia98.sem2.presentation;
 
-import io.github.eurasia98.sem2.logic.productionLogic.MovieManager;
+import io.github.eurasia98.sem2.logic.MovieManager;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;

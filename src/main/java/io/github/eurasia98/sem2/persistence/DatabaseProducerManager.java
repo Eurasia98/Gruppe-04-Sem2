@@ -1,12 +1,8 @@
 package io.github.eurasia98.sem2.persistence;
 
-import io.github.eurasia98.sem2.logic.accountLogic.Account;
-import io.github.eurasia98.sem2.logic.accountLogic.Person;
-import io.github.eurasia98.sem2.logic.accountLogic.Producer;
+import io.github.eurasia98.sem2.logic.Producer;
 
-import java.io.*;
 import java.sql.*;
-import java.util.Scanner;
 
 public class DatabaseProducerManager{
     static Connection connection = null;
