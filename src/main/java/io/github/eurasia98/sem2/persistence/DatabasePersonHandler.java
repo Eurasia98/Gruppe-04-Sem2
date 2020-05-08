@@ -1,5 +1,6 @@
 package io.github.eurasia98.sem2.persistence;
 
+import io.github.eurasia98.sem2.logic.Account;
 import io.github.eurasia98.sem2.logic.Person;
 
 import java.sql.*;
@@ -7,46 +8,35 @@ import java.sql.*;
 public class DatabasePersonHandler {
     static Connection connection = null;
 
-    // laver forbindelse til database.
-    private Connection getConnection(){
+    public Boolean insertPerson(Person person){
         try {
-            DriverManager.registerDriver(new org.postgresql.Driver());
-            connection = DriverManager.getConnection(
-                    "jdbc:postgresql://localhost:5432/Krediteringssystem",
-                    "postgres",
-                    "kebabonwheels");
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
-        }
-        return connection;
-    }
+            this.connection = DatabaseAccesHandler.getConnection();
 
-    public Boolean savePerson(Person person){
-        try {
-            this.connection = getConnection();
-
-            PreparedStatement insertAccountStatement = connection.prepareStatement(
-                    "INSERT INTO accounts(username, password, accounttype) VALUES(?,?,?)");
-            insertAccountStatement.setString(1, person.getUsername());
-            insertAccountStatement.setString(2, person.getPassword());
-            insertAccountStatement.setString(3, person.getAccountType());
-
-            insertAccountStatement.execute();
-
-            PreparedStatement getId = connection.prepareStatement("SELECT id FROM accounts WHERE username = ?");
-            getId.setString(1, person.getUsername());
-            ResultSet rs = getId.executeQuery();
-            while (rs.next()){
-                PreparedStatement insertPersonStatement = connection.prepareStatement(
-                        "INSERT INTO persons(first_name, last_name, email, account_id) VALUES(?,?,?,?)");
-                insertPersonStatement.setString(1, person.getFirstName());
-                insertPersonStatement.setString( 2, person.getLastName());
-                insertPersonStatement.setString(3, person.getEmail());
-                insertPersonStatement.setInt(4, rs.getInt(1));
-                insertPersonStatement.execute();
-            } return true;
+            DatabaseAccountHandler databaseAccountHandler = new DatabaseAccountHandler();
+            databaseAccountHandler.insertAccount(person);
+            PreparedStatement insertPersonStatement = connection.prepareStatement(
+                    "INSERT INTO persons(first_name, last_name, email, account_id) VALUES(?,?,?,?)");
+            insertPersonStatement.setString(1, person.getFirstName());
+            insertPersonStatement.setString( 2, person.getLastName());
+            insertPersonStatement.setString(3, person.getEmail());
+            insertPersonStatement.setInt(4, getId(person.getUsername()));
+            insertPersonStatement.execute();
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         } return false;
+    }
+
+    public int getId(String username){
+        try {
+            this.connection = DatabaseAccesHandler.getConnection();
+            PreparedStatement searchIdStatement = connection.prepareStatement("SELECT id FROM accounts WHERE username = ?");
+            searchIdStatement.setString(1, username);
+            ResultSet rs = searchIdStatement.executeQuery();
+            if (rs.next()){
+                return rs.getInt(1);
+            } else return 0;
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        } return 0;
     }
 }

@@ -20,7 +20,7 @@
                         <Image url="@images/TV2_logo.png" />
                      </image>
                   </ImageView>
-                  <Button fx:id="buttonProduction" layoutX="424.0" layoutY="14.0" mnemonicParsing="false" onAction="#productionScreenActionHandler" text="Add Production" />
+                  <Button fx:id="btnAddMovie" layoutX="424.0" layoutY="14.0" mnemonicParsing="false" onAction="#btnAddMovieHandler" text="Tilføj film" />
                   <Button fx:id="btnAddPerson" layoutX="312.0" layoutY="14.0" mnemonicParsing="false" onAction="#btnAddPersonHandler" text="Add person" />
                </children>
             </AnchorPane>

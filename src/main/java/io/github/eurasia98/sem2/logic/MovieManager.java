@@ -12,6 +12,6 @@ public class MovieManager {
 
     public Boolean saveMovie(Movie movie){
         DatabaseMovieHandler databaseMovieHandler = new DatabaseMovieHandler();
-        return databaseMovieHandler.saveMovie(movie);
+        return databaseMovieHandler.insertMovie(movie);
     }
 }

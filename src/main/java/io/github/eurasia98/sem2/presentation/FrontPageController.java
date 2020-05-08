@@ -16,7 +16,7 @@ public class FrontPageController implements Initializable {
     private Button buttonLogin;
 
     @FXML
-    private Button buttonProduction;
+    private Button btnAddMovie;
 
     @FXML
     private Button buttonSearch;
@@ -54,7 +54,7 @@ public class FrontPageController implements Initializable {
     }
 
     @FXML
-    void productionScreenActionHandler(ActionEvent event){
+    void btnAddMovieHandler(ActionEvent event){
         App.switchScene("CreateMovieScreen");
     }
 

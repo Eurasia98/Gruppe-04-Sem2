@@ -7,23 +7,9 @@ import java.sql.*;
 public class DatabaseProducerManager{
     static Connection connection = null;
 
-    // laver forbindelse til database.
-    private Connection getConnection(){
-        try {
-            DriverManager.registerDriver(new org.postgresql.Driver());
-            connection = DriverManager.getConnection(
-                    "jdbc:postgresql://localhost:5432/Krediteringssystem",
-                    "postgres",
-                    "kebabonwheels");
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
-        }
-        return connection;
-    }
-
     public Boolean saveProducer(Producer producer){
         try {
-            connection = getConnection();
+            connection = DatabaseAccesHandler.getConnection();
 
             PreparedStatement insertAccountStatement = connection.prepareStatement(
                     "INSERT INTO accounts(username, password, accounttype) VALUES(?,?,?)");
