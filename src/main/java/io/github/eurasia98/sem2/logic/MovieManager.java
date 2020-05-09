@@ -10,7 +10,7 @@ public class MovieManager {
         return movie;
     }
 
-    public Boolean saveMovie(Movie movie){
+    public Boolean insertMovie(Movie movie){
         DatabaseMovieHandler databaseMovieHandler = new DatabaseMovieHandler();
         return databaseMovieHandler.insertMovie(movie);
     }

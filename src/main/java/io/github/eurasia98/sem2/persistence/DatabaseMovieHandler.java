@@ -5,7 +5,6 @@ import io.github.eurasia98.sem2.logic.Movie;
 import java.sql.*;
 
 public class DatabaseMovieHandler {
-    public DatabaseMovieHandler(){}
 
     static Connection connection = null;
 

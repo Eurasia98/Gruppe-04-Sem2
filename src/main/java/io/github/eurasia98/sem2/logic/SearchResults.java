@@ -1,28 +1,19 @@
 package io.github.eurasia98.sem2.logic;
 
-import io.github.eurasia98.sem2.presentation.App;
-import io.github.eurasia98.sem2.presentation.CreditsController;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
-import javafx.scene.control.Hyperlink;
-
-import java.util.ArrayList;
-import java.util.List;
-
 public class SearchResults {
     private String title;
-    private int productionId;
+    private String production_id;
 
-    public SearchResults(String title, int productionId){
+    public SearchResults(String title, String production_id){
         this.title = title;
-        this.productionId = productionId;
+        this.production_id = production_id;
     }
 
     public String getTitle() {
         return title;
     }
 
-    public int getProductionId(){return productionId; }
+    public String getProductionId(){return production_id; }
 
     @Override
     public String toString(){

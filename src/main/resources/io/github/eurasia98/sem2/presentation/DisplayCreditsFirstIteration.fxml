@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 
 <?import java.net.URL?>
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="io.github.eurasia98.sem2.presentation.CreditsController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="io.github.eurasia98.sem2.presentation.DisplayCreditsController">
    <children>
       <TextArea fx:id="txtAreaCreditsDisplay" editable="false" layoutX="85.0" layoutY="115.0" prefHeight="242.0" prefWidth="437.0" AnchorPane.bottomAnchor="43.0" AnchorPane.leftAnchor="85.0" AnchorPane.rightAnchor="78.0" AnchorPane.topAnchor="115.0" />
       <ImageView fx:id="ivLogo" fitHeight="50.0" fitWidth="150.0" layoutX="2.0" layoutY="2.0" onMouseClicked="#ivLogoActionHandler" pickOnBounds="true" preserveRatio="true">

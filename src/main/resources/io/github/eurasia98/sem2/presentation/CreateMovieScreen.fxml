@@ -3,15 +3,20 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0"
-            prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="io.github.eurasia98.sem2.presentation.CreateMovieScreenHandler">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="io.github.eurasia98.sem2.presentation.CreateMovieScreenHandler">
    <children>
-      <TextField fx:id="txtFieldTitel" layoutX="219.0" layoutY="53.0" promptText="Indtast Titel" />
-      <TextField fx:id="txtFieldProductionid" layoutX="219.0" layoutY="86.0" promptText="Indtast Produktions Id" />
-      <Button fx:id="btnSave" layoutX="272.0" layoutY="125.0" mnemonicParsing="false" onAction="#btnSaveHandler" text="Gem" />
+      <TextField fx:id="txtFieldTitel" layoutX="48.0" layoutY="163.0" promptText="Indtast Titel" />
+      <TextField fx:id="txtFieldProductionid" layoutX="48.0" layoutY="200.0" promptText="Indtast Produktions Id" />
+      <Button fx:id="btnSave" layoutX="102.0" layoutY="243.0" mnemonicParsing="false" onAction="#btnSaveHandler" text="Gem" />
       <TextArea fx:id="txtAreaMessage" layoutX="368.0" layoutY="125.0" prefHeight="200.0" prefWidth="200.0" />
+      <ImageView fx:id="IVLogo" fitHeight="150.0" fitWidth="200.0" layoutX="2.0" onMouseClicked="#IVLogoHandler" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/TV2_logo.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

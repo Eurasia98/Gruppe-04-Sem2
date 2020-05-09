@@ -30,7 +30,7 @@ public class PersonManager {
         return person;
     }
 
-    public Boolean saveNewPerson(Person person){
+    public Boolean insertPerson(Person person){
         DatabasePersonHandler databasePersonHandler = new DatabasePersonHandler();
         return databasePersonHandler.insertPerson(person);
     }

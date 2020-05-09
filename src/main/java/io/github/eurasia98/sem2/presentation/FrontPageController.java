@@ -12,17 +12,18 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class FrontPageController implements Initializable {
+
     @FXML
-    private Button buttonLogin;
+    private Button btnLogin;
+
+    @FXML
+    private ImageView ivLogo;
 
     @FXML
     private Button btnAddMovie;
 
     @FXML
-    private Button buttonSearch;
-
-    @FXML
-    private ImageView ivLogo;
+    private Button btnAddPerson;
 
     @FXML
     private TextField txtFieldSearch;
@@ -31,16 +32,8 @@ public class FrontPageController implements Initializable {
     private ImageView ivSearch;
 
     @FXML
-    private Button btnAddPerson;
-
-    @FXML
-    void ivSearchActionHandler(MouseEvent event) {
-        //App.switchToSearchScreen();
-    }
-
-    @FXML
-    void buttonHandlerLogin(ActionEvent event) {
-
+    void btnAddMovieHandler(ActionEvent event) {
+        App.switchScene("CreateMovieScreen");
     }
 
     @FXML
@@ -49,17 +42,23 @@ public class FrontPageController implements Initializable {
     }
 
     @FXML
+    void btnLoginHandler(ActionEvent event) {
+
+    }
+
+    @FXML
     void ivLogoActionHandler(MouseEvent event) {
         App.switchScene("FrontPage");
     }
 
     @FXML
-    void btnAddMovieHandler(ActionEvent event){
-        App.switchScene("CreateMovieScreen");
+    void ivSearchMouseClickHandler(MouseEvent event) {
+        App.setSearchString(txtFieldSearch.getText());
+        App.switchScene("SearchScreen");
     }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        txtFieldSearch.clear();
+
     }
 }

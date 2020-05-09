@@ -1,33 +1,35 @@
 package io.github.eurasia98.sem2.logic;
 
+import io.github.eurasia98.sem2.persistence.DatabasePersonHandler;
+import io.github.eurasia98.sem2.persistence.DatabaseProductionManager;
+
 public class Credit {
-    private Person person;
-    private Production production;
+    private int account_id;
+    private String production_id;
     private String roleType;
     private String roleName;
 
-
-    public Credit(Person person, Production production, String roleType, String roleName) {
-        this.person = person;
-        this.production = production;
+    public Credit(int account_id, String production_id, String roleType, String roleName) {
+        this.account_id = account_id;
+        this.production_id = production_id;
         this.roleType = roleType;
         this.roleName = roleName;
     }
 
-    public Person getPerson() {
-        return person;
+    public int getAccount_id() {
+        return account_id;
     }
 
-    public void setPerson(Person person) {
-        this.person = person;
+    public void setAccount_id(int account_id) {
+        this.account_id = account_id;
     }
 
-    public Production getProduction() {
-        return production;
+    public String getProduction_id() {
+        return production_id;
     }
 
-    public void setProduction(Production production) {
-        this.production = production;
+    public void setProduction_id(String production_id) {
+        this.production_id = production_id;
     }
 
     public String getRoleType() {
@@ -46,9 +48,11 @@ public class Credit {
         this.roleName = roleName;
     }
 
-    @Override
-    public String toString() {
-        //return person.getFirstName() + " " + person.getLastName() + "\t" + roleType + "\t" + roleName;
-        return String.format("%s" + " " + "%s" + "%30s" + "%30s", person.getFirstName(), person.getLastName(), roleType, roleName);
+    public String toString(){
+        DatabasePersonHandler databasePersonHandler = new DatabasePersonHandler();
+        Person person = databasePersonHandler.getPerson(getAccount_id());
+        DatabaseProductionManager databaseProductionManager = new DatabaseProductionManager();
+        Production production = databaseProductionManager.getProduction(getProduction_id());
+        return person.getFirstName() + " " + person.getLastName() + "\t" + getRoleType() + "\t" + getRoleName();
     }
 }

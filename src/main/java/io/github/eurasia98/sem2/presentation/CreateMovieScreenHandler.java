@@ -8,7 +8,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
-import org.w3c.dom.events.MouseEvent;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -31,14 +30,14 @@ public class CreateMovieScreenHandler implements Initializable {
     private ImageView IVLogo;
 
     @FXML
-    void IVLogoHandler(MouseEvent event){
+    void IVLogoHandler(javafx.scene.input.MouseEvent mouseEvent) {
         App.switchScene("FrontPage");
     }
 
     @FXML
     void btnSaveHandler(ActionEvent event) {
         MovieManager movieManager = new MovieManager();
-        if (movieManager.saveMovie(movieManager.createMovie(txtFieldTitel.getText(), txtFieldProductionid.getText())) == true){
+        if (movieManager.insertMovie(movieManager.createMovie(txtFieldTitel.getText(), txtFieldProductionid.getText())) == false){
             updateSucces();
         } else {
             updateFail();
