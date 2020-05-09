@@ -1,9 +1,6 @@
-package io.github.eurasia98.sem2.logic.accountLogic;
-
-import io.github.eurasia98.sem2.logic.creditLogic.Credit;
+package io.github.eurasia98.sem2.logic;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class Person extends Account {
 
@@ -45,6 +42,8 @@ public class Person extends Account {
         this.lastName = lastName;
         super.setAccountType("Person");
     }
+
+
 
     public String getFirstName() {
         return firstName;

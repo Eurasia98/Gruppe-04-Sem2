@@ -1,4 +1,4 @@
-package io.github.eurasia98.sem2.logic.productionLogic;
+package io.github.eurasia98.sem2.logic;
 
 import io.github.eurasia98.sem2.persistence.DatabaseMovieHandler;
 
@@ -10,8 +10,8 @@ public class MovieManager {
         return movie;
     }
 
-    public Boolean saveMovie(Movie movie){
+    public Boolean insertMovie(Movie movie){
         DatabaseMovieHandler databaseMovieHandler = new DatabaseMovieHandler();
-        return databaseMovieHandler.saveMovie(movie);
+        return databaseMovieHandler.insertMovie(movie);
     }
 }

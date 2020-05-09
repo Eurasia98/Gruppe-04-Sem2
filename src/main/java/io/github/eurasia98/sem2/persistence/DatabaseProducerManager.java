@@ -1,33 +1,15 @@
 package io.github.eurasia98.sem2.persistence;
 
-import io.github.eurasia98.sem2.logic.accountLogic.Account;
-import io.github.eurasia98.sem2.logic.accountLogic.Person;
-import io.github.eurasia98.sem2.logic.accountLogic.Producer;
+import io.github.eurasia98.sem2.logic.Producer;
 
-import java.io.*;
 import java.sql.*;
-import java.util.Scanner;
 
 public class DatabaseProducerManager{
     static Connection connection = null;
 
-    // laver forbindelse til database.
-    private Connection getConnection(){
-        try {
-            DriverManager.registerDriver(new org.postgresql.Driver());
-            connection = DriverManager.getConnection(
-                    "jdbc:postgresql://localhost:5432/Krediteringssystem",
-                    "postgres",
-                    "kebabonwheels");
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
-        }
-        return connection;
-    }
-
     public Boolean saveProducer(Producer producer){
         try {
-            connection = getConnection();
+            connection = DatabaseAccesHandler.getConnection();
 
             PreparedStatement insertAccountStatement = connection.prepareStatement(
                     "INSERT INTO accounts(username, password, accounttype) VALUES(?,?,?)");

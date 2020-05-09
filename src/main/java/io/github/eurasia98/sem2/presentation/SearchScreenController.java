@@ -1,5 +1,6 @@
 package io.github.eurasia98.sem2.presentation;
 
+import io.github.eurasia98.sem2.logic.SearchResults;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -62,10 +63,9 @@ public class SearchScreenController implements Initializable {
             vBoxSearchResults.getChildren().clear();
             vBoxSearchResults.setVisible(true);
             vBoxSearchResults.getChildren().addAll(getHyperLinks());
-        } else {txtFieldSearch.setStyle("-fx-prompt-text-fill: red");}
-//            ListView listView = new ListView();
-
-//            listView.getItems().addAll(vBoxSearchResults.getChildren().addAll(finalList));
+        } else {
+            txtFieldSearch.setStyle("-fx-prompt-text-fill: red");
+        }
     }
 
     /*
@@ -74,25 +74,26 @@ public class SearchScreenController implements Initializable {
          linker videre til credits displayal.
      */
     public ArrayList<Hyperlink> getHyperLinks(){
-        /*ArrayList<Hyperlink> hyperlinkArrayList = App.creditSystem.userSearch(txtFieldSearch.getText());
-        ArrayList<Hyperlink> finalList = new ArrayList<>();
-        for (Hyperlink hl : hyperlinkArrayList){
-            hl.setOnAction(new EventHandler<ActionEvent>() {
+        ArrayList<Hyperlink> hyperlinkArrayList = new ArrayList<>();
+        ArrayList<SearchResults> searchResultsArrayList = App.getCreditSystem().search(txtFieldSearch.getText());
+        for (SearchResults sr : searchResultsArrayList){
+            Hyperlink hyperlink = new Hyperlink();
+            hyperlink.setText(sr.getTitle());
+            hyperlink.setOnAction(new EventHandler<ActionEvent>() {
                 @Override
                 public void handle(ActionEvent actionEvent) {
-                    App.setSelectedTitle(hl);
+                    App.getCreditSystem().setCreditsToDisplay(App.getCreditSystem().findCredits(sr));
                     App.switchScene("DisplayCreditsFirstIteration");
                 }
             });
-            finalList.add(hl);
+            hyperlinkArrayList.add(hyperlink);
         }
-        return finalList;*/
-        return null;
+        return hyperlinkArrayList;
     }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        /*txtFieldSearch.setText(App.searchFieldString);
-        search();*/
+        txtFieldSearch.setText(App.getSearchString());
+        search();
     }
 }

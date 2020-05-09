@@ -1,6 +1,5 @@
-package io.github.eurasia98.sem2.logic.accountLogic;
+package io.github.eurasia98.sem2.logic;
 
-import io.github.eurasia98.sem2.logic.creditLogic.Credit;
 import io.github.eurasia98.sem2.persistence.DatabasePersonHandler;
 
 import java.util.ArrayList;
@@ -31,8 +30,8 @@ public class PersonManager {
         return person;
     }
 
-    public Boolean saveNewPerson(Person person){
+    public Boolean insertPerson(Person person){
         DatabasePersonHandler databasePersonHandler = new DatabasePersonHandler();
-        return databasePersonHandler.savePerson(person);
+        return databasePersonHandler.insertPerson(person);
     }
 }

@@ -1,42 +1,27 @@
 package io.github.eurasia98.sem2.persistence;
 
-import io.github.eurasia98.sem2.logic.accountLogic.Producer;
-import io.github.eurasia98.sem2.logic.productionLogic.Movie;
+import io.github.eurasia98.sem2.logic.Movie;
 
 import java.sql.*;
 
 public class DatabaseMovieHandler {
-    public DatabaseMovieHandler(){}
 
     static Connection connection = null;
 
-    // laver forbindelse til database.
-    private Connection getConnection(){
+    public Boolean insertMovie(Movie movie){
         try {
-            DriverManager.registerDriver(new org.postgresql.Driver());
-            connection = DriverManager.getConnection(
-                    "jdbc:postgresql://localhost:5432/Krediteringssystem",
-                    "postgres",
-                    "kebabonwheels");
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
-        }
-        return connection;
-    }
+            this.connection = DatabaseAccesHandler.getConnection();
+            DatabaseProductionManager databaseProductionManager = new DatabaseProductionManager();
+            databaseProductionManager.insertProduction(movie);
 
-    public Boolean saveMovie(Movie movie){
-        try {
-            connection = getConnection();
+            PreparedStatement insertPersonStatement = connection.prepareStatement(
+                    "INSERT INTO movies(production_id, movie_title) VALUES(?,?)");
+            insertPersonStatement.setString(1, movie.getProductionID());
+            insertPersonStatement.setString(2, movie.getTitle());
 
-            PreparedStatement insertProductionStatement = connection.prepareStatement(
-                    "INSERT INTO productions(title, productionId, productiontype) VALUES(?,?,?)");
-            insertProductionStatement.setString(1, movie.getTitle());
-            insertProductionStatement.setString(2, movie.getProductionID());
-            insertProductionStatement.setString(3, movie.getProductionType());
-            return insertProductionStatement.execute();
+            insertPersonStatement.execute();
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         } return false;
-
     }
 }

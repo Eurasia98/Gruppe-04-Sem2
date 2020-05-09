@@ -26,6 +26,16 @@ public class App extends Application{
     private static Scene scene;
     private static Stage window;
     private static CreditSystem creditSystem = new CreditSystem();
+    private static String searchString;
+
+
+    public static String getSearchString() {
+        return searchString;
+    }
+
+    public static void setSearchString(String searchString) {
+        searchString = searchString;
+    }
 
     public static CreditSystem getCreditSystem() {
         return creditSystem;

@@ -1,6 +1,6 @@
-package io.github.eurasia98.sem2.logic.productionLogic;
+package io.github.eurasia98.sem2.logic;
 
-import io.github.eurasia98.sem2.logic.creditLogic.Credit;
+import io.github.eurasia98.sem2.logic.Credit;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
