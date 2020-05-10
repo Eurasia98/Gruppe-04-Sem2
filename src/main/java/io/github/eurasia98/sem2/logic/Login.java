@@ -29,23 +29,23 @@ public class Login {
 
     public void loginVerified(List<String> accountArray){
 
-            String accountType = accountArray.get(2);
-            switch (accountType){
-                case "Producer": {
-                    // Test Producer
-                    account = new Producer(Integer.parseInt(accountArray.get(0)), accountArray.get(1), accountArray.get(2), "Hans", "Hansen", "");
-                }
-                    // Test SysAdmin
-                case "SystemAdministrator": {
-                    account = new SystemAdministrator(Integer.parseInt(accountArray.get(0)), accountArray.get(1), accountArray.get(2), accountArray.get(3));
-                }
-                case "Person": {
-                    System.out.println("not implemented yet");
-                }
-                default: {
-                    System.out.println("Not implemented yet");
-                }
+        String accountType = accountArray.get(2);
+        switch (accountType){
+            case "Producer": {
+                // Test Producer
+                account = new Producer(Integer.parseInt(accountArray.get(0)), accountArray.get(1), accountArray.get(2), "Hans", "Hansen", "");
+            }
+            // Test SysAdmin
+            case "SystemAdministrator": {
+                account = new SystemAdministrator(Integer.parseInt(accountArray.get(0)), accountArray.get(1), accountArray.get(2), accountArray.get(3));
+            }
+            case "Person": {
+                System.out.println("not implemented yet");
+            }
+            default: {
+                System.out.println("Not implemented yet");
             }
         }
+    }
         //account = new Account (accountArray.get(1), accountArray.get(2), accountArray.get(4));
 }

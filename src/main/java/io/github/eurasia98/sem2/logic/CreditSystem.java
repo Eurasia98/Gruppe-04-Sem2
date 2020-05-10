@@ -19,43 +19,41 @@ public class CreditSystem {
       creditsToDisplay = databaseCreditsManager.searchCredits(production_id);
    }
 
-   public Boolean availableUsername(String username){
+   public Boolean availableUsername(String username) {
       AccountManager accountManager = new AccountManager();
       return accountManager.checkUsernameAvailability(username) == true;
    }
 
-   public Boolean createNewPerson(String username, String password, String firstName, String lastName){
+   public Boolean createNewPerson(String username, String password, String firstName, String lastName) {
       PersonManager personManager = new PersonManager();
       return personManager.insertPerson(personManager.createPerson(username, password, firstName, lastName));
    }
 
-   public Boolean createNewMovie(String title, String productionId){
+   public Boolean createNewMovie(String title, String productionId) {
       MovieManager movieManager = new MovieManager();
       return movieManager.insertMovie(movieManager.createMovie(title, productionId));
    }
 
-   public ArrayList<SearchResults> search(String searchString){
+   public ArrayList<SearchResults> search(String searchString) {
       DatabaseSearchController databaseSearchController = new DatabaseSearchController();
       ArrayList<SearchResults> searchResultsArrayList = databaseSearchController.search(searchString);
       return searchResultsArrayList;
    }
 
-   public ArrayList<Credit> findCredits(SearchResults searchResults){
+   public ArrayList<Credit> findCredits(SearchResults searchResults) {
       DatabaseSearchController databaseSearchController = new DatabaseSearchController();
       ArrayList<Credit> credits = databaseSearchController.searchCredits(searchResults);
       return credits;
    }
 
-   public List<String> login (String username, String password){
+   public List<String> login(String username, String password) {
       Login login = new Login();
       return login.loginVerify(username, password);
    }
-
-   public void displayCredits(){
 
    public ArrayList<Production> showMyProductions(int account_id){
       DatabaseProductionManager databaseProductionManager = new DatabaseProductionManager();
       ArrayList<Production> myProductions = databaseProductionManager.getMyProductions(account_id);
       return myProductions;
+      }
    }
-}
