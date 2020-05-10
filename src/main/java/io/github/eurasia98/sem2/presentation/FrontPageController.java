@@ -1,13 +1,18 @@
 package io.github.eurasia98.sem2.presentation;
 
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.Hyperlink;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.VBox;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -32,33 +37,66 @@ public class FrontPageController implements Initializable {
     private ImageView ivSearch;
 
     @FXML
-    void btnAddMovieHandler(ActionEvent event) {
+    private TextField txtFieldAccount;
+
+    @FXML
+    private VBox vBoxAccount;
+
+    // Move to account control
+    @FXML
+    private void btnAddMovieHandler(ActionEvent event) {
         App.switchScene("CreateMovieScreen");
     }
 
+    // Move to account control
     @FXML
-    void btnAddPersonHandler(ActionEvent event) {
+    private void btnAddPersonHandler(ActionEvent event) {
         App.switchScene("CreatePersonScreen");
     }
 
+    // Switches to login screen
     @FXML
-    void btnLoginHandler(ActionEvent event) {
-
+    private void btnLoginHandler(ActionEvent event) {
+        App.switchScene("LoginScreen");
     }
 
+    // Returns to front page
     @FXML
-    void ivLogoActionHandler(MouseEvent event) {
+    private void ivLogoActionHandler(MouseEvent event) {
         App.switchScene("FrontPage");
     }
 
+    // Stores content of txtFieldSearch as a static variable in App
     @FXML
-    void ivSearchMouseClickHandler(MouseEvent event) {
+    void ivSearchMouseClickHandler(MouseEvent e) {
+    private void ivSearchMouseClickHandler() {
         App.setSearchField(txtFieldSearch.getText());
         App.switchScene("SearchScreen");
     }
 
+    // Enables search by pressing return key
+    @FXML
+    private void txtFieldSearchKeyPressHandler(KeyEvent event) throws IOException {
+        if (event.getCode().toString().equals("ENTER")){
+            ivSearchMouseClickHandler();
+        }
+    }
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        if (!App.getUserInfo().isEmpty()){
+            btnLogin.setVisible(false);
+            vBoxAccount.setVisible(true);
+            txtFieldAccount.setText(App.getUserInfo().get(0));
+            Hyperlink myPage = new Hyperlink("Min side");
+            myPage.setOnAction(new EventHandler<ActionEvent>() {
+                @Override
+                public void handle(ActionEvent event) {
+                    App.switchScene("AccountScreen");
+                }
+            });
+            vBoxAccount.getChildren().add(1, myPage);
+        }
 
     }
 }

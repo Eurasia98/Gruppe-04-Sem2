@@ -5,6 +5,7 @@ import io.github.eurasia98.sem2.persistence.DatabaseProductionManager;
 import io.github.eurasia98.sem2.persistence.DatabaseSearchController;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class CreditSystem {
    private static String creditsToDisplay;
@@ -44,6 +45,13 @@ public class CreditSystem {
       ArrayList<Credit> credits = databaseSearchController.searchCredits(searchResults);
       return credits;
    }
+
+   public List<String> login (String username, String password){
+      Login login = new Login();
+      return login.loginVerify(username, password);
+   }
+
+   public void displayCredits(){
 
    public ArrayList<Production> showMyProductions(int account_id){
       DatabaseProductionManager databaseProductionManager = new DatabaseProductionManager();

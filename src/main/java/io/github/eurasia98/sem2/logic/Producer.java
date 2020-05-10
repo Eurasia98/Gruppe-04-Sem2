@@ -21,12 +21,19 @@ public class Producer extends Account {
         this.myProductions = myProductions;
     }
 
-    public Producer(String username, String password, String fName, String lName, String email) {
-        super(username, password);
+    public Producer(int userId, String username, String password, String fName, String lName, String email) {
+        super(userId, username, password);
         this.fName = fName;
         this.lName = lName;
         this.email = email;
         super.setAccountType("Producer");
+    }
+
+    public Producer(int userId, String username, String password, String fName, String lName, String email, String accountType){
+        super(userId, username, password, accountType);
+        this.fName = fName;
+        this.lName = lName;
+        this.email = email;
     }
 
     //    AUser user1 = new AUser("MediaKing" ,"1234" , "User", "TV2", "Jens", "Jensen", "Jensen.tv2.dk");

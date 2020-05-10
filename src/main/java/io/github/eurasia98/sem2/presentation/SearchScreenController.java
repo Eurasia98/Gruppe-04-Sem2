@@ -34,14 +34,18 @@ public class SearchScreenController implements Initializable {
         App.switchScene("FrontPage");
     }
 
+    // Returns to front page
     @FXML
-    void ivSearchMouseClickHandler(MouseEvent event) {
-        search();
+    public void ivLogoActionHandler(MouseEvent mouseEvent) {
+        App.switchScene("FrontPage");
     }
 
+    // Enables search by pressing return key
     @FXML
-    void txtFieldSearchKeyPressHandler(KeyEvent event) {
-
+    private void txtFieldSearchKeyPressHandler(KeyEvent event) throws IOException {
+        if (event.getCode().toString().equals("ENTER")){
+            ivSearchMouseClickHandler();
+        }
     }
 
 

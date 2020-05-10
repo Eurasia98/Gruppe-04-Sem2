@@ -26,13 +26,15 @@ public class DisplayCreditsController implements Initializable {
     @FXML
     private ImageView ivSearch;
 
+    // Returns to front page
     @FXML
-    void ivLogoActionHandler(MouseEvent event) {
+    private void ivLogoActionHandler(MouseEvent event) {
         App.switchScene("FrontPage");
     }
 
+    // Stores content of txtFieldSearch as a static variable in App
     @FXML
-    void ivSearchMouseClickHandler() {
+    private void ivSearchMouseClickHandler() {
         if(!txtFieldSearch.getText().isEmpty()) {
             App.setSearchField(txtFieldSearch.getText());
             App.switchScene("searchScreen");
@@ -40,8 +42,9 @@ public class DisplayCreditsController implements Initializable {
         txtFieldSearch.setStyle("-fx-prompt-text-fill: red");
     }
 
+    // Enables search by pressing return key
     @FXML
-    void txtFieldSearchKeyPressHandler(KeyEvent event) {
+    private void txtFieldSearchKeyPressHandler(KeyEvent event) {
         if (event.getCode().toString().equals("ENTER")){
             ivSearchMouseClickHandler();
         }

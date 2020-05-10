@@ -1,46 +1,51 @@
 package io.github.eurasia98.sem2.logic;
 
+import io.github.eurasia98.sem2.persistence.DatabaseAccountHandler;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
 public class Login {
 
-    /*private DatabaseUserManager databaseUserManager = new DatabaseUserManager();
+    private DatabaseAccountHandler databaseAccountHandler = new DatabaseAccountHandler();
 
     private Account account;
 
-    public String loginVerify (String username, String password) {
+    public List<String> loginVerify (String username, String password) {
         List<String> accountVerified = new ArrayList<>();
-        accountVerified.addAll(databaseUserManager.verifyLogin(username, password));
-        if (accountVerified.get(0).equals("Wrong username / password.")){
-            return "Wrong username / password.";
+        accountVerified.addAll(databaseAccountHandler.verifyLogin(username, password));
+        if (accountVerified.isEmpty()){
+            return Collections.emptyList();
         }
-        else if (accountVerified.get(0).equals("System error. Try again.")){
-            return "System error. Try again.";
-        }
+        List<String> accountLoggedIn = new ArrayList<>();
+        accountLoggedIn.add(accountVerified.get(1));
+        accountLoggedIn.add(accountVerified.get(3));
         loginVerified(accountVerified);
-        return accountVerified.get(3);
+        return accountLoggedIn;
     }
+
+    // Return account object? Make account in login static? What if people log out?
 
     public void loginVerified(List<String> accountArray){
 
-        if (databaseUserManager.checkAccountType(accountArray.get(5))){
-            System.out.println(accountArray.get(5));
-            String s = accountArray.get(5);
-            switch (s){
+            String accountType = accountArray.get(2);
+            switch (accountType){
                 case "Producer": {
-                    account = new Producer(accountArray.get(1), accountArray.get(2), accountArray.get(5),
-                            accountArray.get(3), accountArray.get(4), Integer.parseInt(accountArray.get(0)));
+                    // Test Producer
+                    account = new Producer(Integer.parseInt(accountArray.get(0)), accountArray.get(1), accountArray.get(2), "Hans", "Hansen", "");
                 }
+                    // Test SysAdmin
                 case "SystemAdministrator": {
-                    account = new ASystemAdministrator();
+                    account = new SystemAdministrator(Integer.parseInt(accountArray.get(0)), accountArray.get(1), accountArray.get(2), accountArray.get(3));
                 }
                 case "Person": {
                     System.out.println("not implemented yet");
                 }
+                default: {
+                    System.out.println("Not implemented yet");
+                }
             }
         }
         //account = new Account (accountArray.get(1), accountArray.get(2), accountArray.get(4));
-    }*/
-
-
-
-
 }

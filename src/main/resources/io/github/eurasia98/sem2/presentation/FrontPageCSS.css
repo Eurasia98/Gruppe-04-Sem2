@@ -12,3 +12,8 @@
 #ivSearch:hover {
     -fx-cursor: hand;
 }
+
+#txtFieldAccount{
+    -fx-text-box-border: transparent;
+    -fx-background-color: transparent;
+}

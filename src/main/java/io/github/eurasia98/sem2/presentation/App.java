@@ -6,18 +6,19 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import io.github.eurasia98.sem2.logic.CreditSystem;
-
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * JavaFX App
  */
 public class App extends Application{
 
-    //this is a comment
     private static Scene scene;
     private static Stage window;
     private static CreditSystem creditSystem = new CreditSystem();
+    private static List<String> userInfo = new ArrayList<>();
     private static String searchField;
 
 
@@ -31,6 +32,14 @@ public class App extends Application{
 
     public static CreditSystem getCreditSystem() {
         return creditSystem;
+    }
+
+    public static List<String> getUserInfo() {
+        return userInfo;
+    }
+
+    public static void setUserInfo(List<String> userInfo) {
+        App.userInfo = userInfo;
     }
 
     @Override

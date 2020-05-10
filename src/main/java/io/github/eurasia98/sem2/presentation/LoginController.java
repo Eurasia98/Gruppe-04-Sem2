@@ -9,6 +9,8 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 
+import java.util.List;
+
 public class LoginController {
     @FXML
     private TextField txtFieldUsername;
@@ -26,24 +28,28 @@ public class LoginController {
     private TextField txtFieldError;
 
     @FXML
-    void btnLoginActionHandler () {
-        /*String verifyAccount = App.creditSystem.login(txtFieldUsername.getText(), pwField.getText());
-        if (verifyAccount.equals("System error. Try again.") || verifyAccount.equals("Wrong username / password.")){
-            txtFieldError.setText(verifyAccount);
+    private void btnLoginActionHandler () {
+        List<String> verifyAccount = App.getCreditSystem().login(txtFieldUsername.getText(), pwField.getText());
+        System.out.println("Hej");
+        System.out.println(verifyAccount);
+        if (verifyAccount.isEmpty()){
+            txtFieldError.setText("Forkert brugernavn / password");
         }
         else {
-            App.setLoggedIn(true);
+            App.setUserInfo(verifyAccount);
             App.switchScene("AccountScreen");
-        }*/
+        }
     }
 
-
-    public void ivLogoActionHandler(MouseEvent mouseEvent) {
+    // Returns to front page
+    @FXML
+    private void ivLogoActionHandler(MouseEvent mouseEvent) {
         App.switchScene("FrontPage");
     }
 
+    // Enables login by pressing return key
     @FXML
-    public void keyPressEventHandler(KeyEvent event){
+    private void keyPressEventHandler(KeyEvent event){
         if (event.getCode().toString().equals("ENTER")){
             btnLoginActionHandler();
         }
