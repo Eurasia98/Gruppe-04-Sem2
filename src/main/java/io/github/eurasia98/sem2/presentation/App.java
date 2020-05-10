@@ -19,6 +19,7 @@ public class App extends Application{
     private static Stage window;
     private static CreditSystem creditSystem = new CreditSystem();
     private static String searchField;
+    public String testString;
 
 
     public static String getSearchField() {
