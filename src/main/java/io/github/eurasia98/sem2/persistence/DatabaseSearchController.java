@@ -19,7 +19,7 @@ public class DatabaseSearchController {
         ArrayList<SearchResults> searchResultsArrayList = new ArrayList<>();
 
         try {
-            PreparedStatement searchStatement = connection.prepareStatement("SELECT * FROM productions WHERE title = ?");
+            PreparedStatement searchStatement = connection.prepareStatement("SELECT * FROM productions WHERE title LIKE ?");
             searchStatement.setString(1, searchString);
             ResultSet rs = searchStatement.executeQuery();
 

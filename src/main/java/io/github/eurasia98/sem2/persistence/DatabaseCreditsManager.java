@@ -8,6 +8,7 @@ import io.github.eurasia98.sem2.logic.Production;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class DatabaseCreditsManager {
@@ -30,5 +31,27 @@ public class DatabaseCreditsManager {
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         } return false;
+    }
+
+    public String searchCredits(String productionId) {
+        connection = DatabaseAccesHandler.getConnection();
+        StringBuilder sb = new StringBuilder();
+
+        try {
+            PreparedStatement getCreditsStatement = connection.prepareStatement("SELECT * FROM credits WHERE production_id = ?");
+            getCreditsStatement.setString(1, productionId);
+
+            ResultSet rs = getCreditsStatement.executeQuery();
+
+            while (rs.next()) {
+                Credit credit = new Credit(rs.getInt("account_id"), rs.getString("production_id"),
+                        rs.getString("role_type"), rs.getString("role_name"));
+                sb.append(credit.toString() + "\n");
+            }
+            String returnString = sb.toString();
+            return returnString;
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        } return null;
     }
 }

@@ -1,18 +1,20 @@
 package io.github.eurasia98.sem2.logic;
 
+import io.github.eurasia98.sem2.persistence.DatabaseCreditsManager;
 import io.github.eurasia98.sem2.persistence.DatabaseSearchController;
 
 import java.util.ArrayList;
 
 public class CreditSystem {
-   private ArrayList<Credit> creditsToDisplay;
+   private static String creditsToDisplay;
 
-   public ArrayList<Credit> getCreditsToDisplay() {
+   public static String getCreditsToDisplay() {
       return creditsToDisplay;
    }
 
-   public void setCreditsToDisplay(ArrayList<Credit> creditsToDisplay) {
-      this.creditsToDisplay = creditsToDisplay;
+   public static void setCreditsToDisplay(String production_id) {
+      DatabaseCreditsManager databaseCreditsManager = new DatabaseCreditsManager();
+      creditsToDisplay = databaseCreditsManager.searchCredits(production_id);
    }
 
    public Boolean availableUsername(String username){
@@ -41,9 +43,4 @@ public class CreditSystem {
       ArrayList<Credit> credits = databaseSearchController.searchCredits(searchResults);
       return credits;
    }
-
-   public void displayCredits(){
-
-   }
-
 }

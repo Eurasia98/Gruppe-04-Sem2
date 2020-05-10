@@ -53,7 +53,7 @@ public class FrontPageController implements Initializable {
 
     @FXML
     void ivSearchMouseClickHandler(MouseEvent event) {
-        App.setSearchString(txtFieldSearch.getText());
+        App.setSearchField(txtFieldSearch.getText());
         App.switchScene("SearchScreen");
     }
 
