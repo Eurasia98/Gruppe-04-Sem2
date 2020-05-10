@@ -51,7 +51,8 @@ public class CreditSystem {
       return login.loginVerify(username, password);
    }
 
-   public void displayCredits(){
+   public void displayCredits() {
+   }
 
    public ArrayList<Production> showMyProductions(int account_id){
       DatabaseProductionManager databaseProductionManager = new DatabaseProductionManager();
