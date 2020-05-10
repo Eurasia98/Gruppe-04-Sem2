@@ -1,6 +1,7 @@
 package io.github.eurasia98.sem2.logic;
 
 import io.github.eurasia98.sem2.persistence.DatabaseCreditsManager;
+import io.github.eurasia98.sem2.persistence.DatabaseProductionManager;
 import io.github.eurasia98.sem2.persistence.DatabaseSearchController;
 
 import java.util.ArrayList;
@@ -42,5 +43,11 @@ public class CreditSystem {
       DatabaseSearchController databaseSearchController = new DatabaseSearchController();
       ArrayList<Credit> credits = databaseSearchController.searchCredits(searchResults);
       return credits;
+   }
+
+   public ArrayList<Production> showMyProductions(int account_id){
+      DatabaseProductionManager databaseProductionManager = new DatabaseProductionManager();
+      ArrayList<Production> myProductions = databaseProductionManager.getMyProductions(account_id);
+      return myProductions;
    }
 }

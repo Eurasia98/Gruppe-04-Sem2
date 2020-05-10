@@ -37,6 +37,7 @@ public class DatabaseAccountHandler {
         } return false;
     }
 
+    // resetter idCounter
     /*public Boolean resetIdCount(){
         connection = DatabaseAccesHandler.getConnection();
 

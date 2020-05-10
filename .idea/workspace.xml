@@ -20,9 +20,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ee5fccad-6595-4165-9f51-be05e2812e13" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/io/github/eurasia98/sem2/presentation/CreateProductionScreenController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/io/github/eurasia98/sem2/presentation/MyProductionsScreenController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/io/github/eurasia98/sem2/presentation/ProducerScreenController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/io/github/eurasia98/sem2/presentation/CreateProductionScreen.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/io/github/eurasia98/sem2/presentation/ProducerScreen.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/github/eurasia98/sem2/logic/CreditSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/github/eurasia98/sem2/logic/CreditSystem.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/io/github/eurasia98/sem2/persistence/DatabaseAccountHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/github/eurasia98/sem2/persistence/DatabaseAccountHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/io/github/eurasia98/sem2/persistence/DatabasePersonHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/github/eurasia98/sem2/persistence/DatabasePersonHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/github/eurasia98/sem2/persistence/DatabaseProductionManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/github/eurasia98/sem2/persistence/DatabaseProductionManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/io/github/eurasia98/sem2/presentation/FrontPage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/io/github/eurasia98/sem2/presentation/FrontPage.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -224,7 +232,7 @@
       <workItem from="1588829198714" duration="20911000" />
       <workItem from="1588938849339" duration="24853000" />
       <workItem from="1588970527859" duration="1306000" />
-      <workItem from="1589011315803" duration="28281000" />
+      <workItem from="1589011315803" duration="33753000" />
     </task>
     <task id="LOCAL-00001" summary="Indsat lidt FXML docs og lidt klasser. Små commits, og der er testet at programmet stadig kører">
       <created>1587205027592</created>
@@ -513,7 +521,14 @@
       <option name="project" value="LOCAL" />
       <updated>1589097206737</updated>
     </task>
-    <option name="localTasksCounter" value="42" />
+    <task id="LOCAL-00042" summary="Lavet rettelse i opret person der var blevet påvirket af arbejdet med search. Det virker nu igen. Resetted id counter på account og person så den nu starter med 1. Lavet metoder til løbende at opdatere counteren så den altid tæller fra en højere end højeste værdi. Dette var meningen at være smart hvis man sletter rows, men de er udkommenteret da jeg ikke tror det er smart alligevel, fordi man alligevel ikke umiddelbart kan refactor alle andre rows i table til at være en løbende talserie uden huller hvis man sletter undervejs.">
+      <created>1589101827222</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1589101827222</updated>
+    </task>
+    <option name="localTasksCounter" value="43" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -532,7 +547,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="nu virker links" />
     <MESSAGE value="arbejdet videre med search" />
     <MESSAGE value="Lavet hyperlinks søgeresultater til at gøre skifte scene" />
     <MESSAGE value="Merget med amilcar og arbejdet med search" />
@@ -557,7 +571,8 @@
     <MESSAGE value="Lavet search så den næsten virker. Får nulpointer ved search() linje 62 i SearchScreenController&#10;og nulpointer i initiliaze i samme klasse." />
     <MESSAGE value="Search virker sådan lidt. Nu skal man søge efter hele titlen, og den skelner mellem store og små bogstaver. &#10;titanic giver ikke noget resultat&#10;Titanic giver resultat" />
     <MESSAGE value="Nu virker search" />
-    <option name="LAST_COMMIT_MESSAGE" value="Nu virker search" />
+    <MESSAGE value="Lavet rettelse i opret person der var blevet påvirket af arbejdet med search. Det virker nu igen. Resetted id counter på account og person så den nu starter med 1. Lavet metoder til løbende at opdatere counteren så den altid tæller fra en højere end højeste værdi. Dette var meningen at være smart hvis man sletter rows, men de er udkommenteret da jeg ikke tror det er smart alligevel, fordi man alligevel ikke umiddelbart kan refactor alle andre rows i table til at være en løbende talserie uden huller hvis man sletter undervejs." />
+    <option name="LAST_COMMIT_MESSAGE" value="Lavet rettelse i opret person der var blevet påvirket af arbejdet med search. Det virker nu igen. Resetted id counter på account og person så den nu starter med 1. Lavet metoder til løbende at opdatere counteren så den altid tæller fra en højere end højeste værdi. Dette var meningen at være smart hvis man sletter rows, men de er udkommenteret da jeg ikke tror det er smart alligevel, fordi man alligevel ikke umiddelbart kan refactor alle andre rows i table til at være en løbende talserie uden huller hvis man sletter undervejs." />
     <option name="GROUP_MULTIFILE_MERGE_BY_DIRECTORY" value="true" />
   </component>
   <component name="WindowStateProjectService">
@@ -590,10 +605,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="499" y="159" key="#com.intellij.refactoring.typeMigration.ui.FailedConversionsDialog/0.0.1536.824@0.0.1536.824" timestamp="1589029306933" />
-    <state x="295" y="0" key="CommitChangelistDialog2" timestamp="1589097205373">
+    <state x="295" y="0" key="CommitChangelistDialog2" timestamp="1589101825781">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="295" y="0" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1589097205373" />
+    <state x="295" y="0" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1589101825781" />
     <state x="147" y="65" key="DiffContextDialog" timestamp="1587406925996">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -602,22 +617,22 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="549" y="170" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1588838391202" />
-    <state width="1493" height="210" key="GridCell.Tab.0.bottom" timestamp="1589101281849">
+    <state width="1493" height="210" key="GridCell.Tab.0.bottom" timestamp="1589119976666">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="210" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1589101281849" />
-    <state width="1493" height="210" key="GridCell.Tab.0.center" timestamp="1589101281849">
+    <state width="1493" height="210" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1589119976666" />
+    <state width="1493" height="210" key="GridCell.Tab.0.center" timestamp="1589119976666">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="210" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1589101281849" />
-    <state width="1493" height="210" key="GridCell.Tab.0.left" timestamp="1589101281849">
+    <state width="1493" height="210" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1589119976666" />
+    <state width="1493" height="210" key="GridCell.Tab.0.left" timestamp="1589119976665">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="210" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1589101281849" />
-    <state width="1493" height="210" key="GridCell.Tab.0.right" timestamp="1589101281849">
+    <state width="1493" height="210" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1589119976665" />
+    <state width="1493" height="210" key="GridCell.Tab.0.right" timestamp="1589119976666">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="210" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1589101281849" />
+    <state width="1493" height="210" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1589119976666" />
     <state width="1220" height="261" key="GridCell.Tab.1.bottom" timestamp="1587732285824">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -658,10 +673,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="279" y="0" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1589015909493" />
-    <state x="361" y="148" key="Vcs.Push.Dialog.v2" timestamp="1589097213393">
+    <state x="361" y="148" key="Vcs.Push.Dialog.v2" timestamp="1589101835697">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="361" y="148" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1589097213393" />
+    <state x="361" y="148" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1589101835697" />
     <state x="639" y="300" width="312" height="243" key="com.intellij.database.actions.DdlActions$DeleteProvider2$1" timestamp="1588941255889">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -670,10 +685,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="566" y="78" key="com.intellij.database.dbimport.ImportDialog/0.0.1536.824@0.0.1536.824" timestamp="1588839667566" />
-    <state x="787" y="91" width="577" height="663" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog" timestamp="1589101252072">
+    <state x="734" y="99" width="577" height="663" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog" timestamp="1589120992998">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="787" y="91" width="577" height="663" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog/0.0.1536.824@0.0.1536.824" timestamp="1589101252072" />
+    <state x="734" y="99" width="577" height="663" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog/0.0.1536.824@0.0.1536.824" timestamp="1589120992998" />
     <state x="477" y="240" key="com.intellij.ide.util.TipDialog" timestamp="1588023341565">
       <screen x="0" y="0" width="1536" height="824" />
     </state>

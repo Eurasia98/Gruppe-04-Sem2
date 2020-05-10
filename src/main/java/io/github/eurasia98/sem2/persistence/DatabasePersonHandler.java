@@ -83,7 +83,8 @@ public class DatabasePersonHandler {
         } return null;
     }
 
-    public Boolean resetIdCount(){
+    // Resetter personIdCounter
+    /*public Boolean resetIdCount(){
         connection = DatabaseAccesHandler.getConnection();
 
         try {
@@ -99,5 +100,5 @@ public class DatabasePersonHandler {
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         } return false;
-    }
+    }*/
 }
