@@ -25,7 +25,7 @@ public class CreditSystem {
 
    public Boolean createNewPerson(String username, String password, String firstName, String lastName){
       PersonManager personManager = new PersonManager();
-      return personManager.insertPerson(new Person(username, password, firstName, lastName));
+      return personManager.insertPerson(personManager.createPerson(username, password, firstName, lastName));
    }
 
    public Boolean createNewMovie(String title, String productionId){

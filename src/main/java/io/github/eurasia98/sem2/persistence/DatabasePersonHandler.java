@@ -24,6 +24,7 @@ public class DatabasePersonHandler {
             insertPersonStatement.setString(4, person.getFirstName());
             insertPersonStatement.setString(5, person.getLastName());
             insertPersonStatement.execute();
+            return true;
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         } return false;
