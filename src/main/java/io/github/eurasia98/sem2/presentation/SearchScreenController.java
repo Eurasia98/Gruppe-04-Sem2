@@ -44,12 +44,15 @@ public class SearchScreenController implements Initializable {
         txtFieldSearch.setStyle("-fx-prompt-text-fill: red");
     }
 
+    // Returns to front page
+    @FXML
     public void ivLogoActionHandler(MouseEvent mouseEvent) {
         App.switchScene("FrontPage");
     }
 
+    // Enables search by pressing return key
     @FXML
-    void txtFieldSearchKeyPressHandler(KeyEvent event) throws IOException {
+    private void txtFieldSearchKeyPressHandler(KeyEvent event) throws IOException {
         if (event.getCode().toString().equals("ENTER")){
             ivSearchMouseClickHandler();
         }

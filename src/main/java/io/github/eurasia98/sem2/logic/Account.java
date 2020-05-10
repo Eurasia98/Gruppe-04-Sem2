@@ -14,7 +14,14 @@ public class Account {
         this.accountType = accountType;
     }
 
-    public Account(String username, String password) {
+    public Account(int userId, String username, String password) {
+        this.userId = userId;
+        this.username = username;
+        this.password = password;
+    }
+
+    // Too many different ways to make the different accounts. Fix before finish.
+    public Account (String username, String password){
         this.username = username;
         this.password = password;
     }

@@ -1,44 +1,45 @@
 package io.github.eurasia98.sem2.presentation;
 
 import javafx.application.Application;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Hyperlink;
 import javafx.stage.Stage;
 import io.github.eurasia98.sem2.logic.CreditSystem;
-
 import java.io.IOException;
-import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.ResourceBundle;
 
 /**
  * JavaFX App
  */
 public class App extends Application{
 
-    //this is a comment
     private static Scene scene;
     private static Stage window;
     private static CreditSystem creditSystem = new CreditSystem();
     private static String searchString;
+    private static List<String> userInfo = new ArrayList<>();
 
 
     public static String getSearchString() {
         return searchString;
     }
 
-    public static void setSearchString(String searchString) {
-        searchString = searchString;
+    public static void setSearchString(String searchStringSent) {
+        searchString = searchStringSent;
     }
 
     public static CreditSystem getCreditSystem() {
         return creditSystem;
+    }
+
+    public static List<String> getUserInfo() {
+        return userInfo;
+    }
+
+    public static void setUserInfo(List<String> userInfo) {
+        App.userInfo = userInfo;
     }
 
     @Override

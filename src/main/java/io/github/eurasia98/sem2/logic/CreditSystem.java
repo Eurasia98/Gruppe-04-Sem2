@@ -3,6 +3,7 @@ package io.github.eurasia98.sem2.logic;
 import io.github.eurasia98.sem2.persistence.DatabaseSearchController;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class CreditSystem {
    private ArrayList<Credit> creditsToDisplay;
@@ -40,6 +41,11 @@ public class CreditSystem {
       DatabaseSearchController databaseSearchController = new DatabaseSearchController();
       ArrayList<Credit> credits = databaseSearchController.searchCredits(searchResults);
       return credits;
+   }
+
+   public List<String> login (String username, String password){
+      Login login = new Login();
+      return login.loginVerify(username, password);
    }
 
    public void displayCredits(){

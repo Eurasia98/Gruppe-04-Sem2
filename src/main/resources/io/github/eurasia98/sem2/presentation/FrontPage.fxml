@@ -7,23 +7,27 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0"
-            xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="io.github.eurasia98.sem2.presentation.FrontPageController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="io.github.eurasia98.sem2.presentation.FrontPageController">
    <children>
       <BorderPane prefHeight="400.0" prefWidth="600.0">
          <top>
             <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                <children>
-                  <Button fx:id="btnLogin" layoutX="541.0" layoutY="14.0" mnemonicParsing="false" onAction="#btnLoginHandler" prefHeight="25.0" prefWidth="50.0" text="Login" />
+                  <Button fx:id="btnLogin" layoutX="535.0" layoutY="15.0" mnemonicParsing="false" onAction="#btnLoginHandler" prefHeight="25.0" prefWidth="50.0" text="Login" />
                   <ImageView fx:id="ivLogo" fitHeight="50.0" fitWidth="150.0" layoutX="2.0" layoutY="2.0" onMouseClicked="#ivLogoActionHandler" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@images/TV2_logo.png" />
                      </image>
                   </ImageView>
-                  <Button fx:id="btnAddMovie" layoutX="438.0" layoutY="14.0" mnemonicParsing="false" onAction="#btnAddMovieHandler" text="Tilføj film" />
-                  <Button fx:id="btnAddPerson" layoutX="302.0" layoutY="14.0" mnemonicParsing="false" onAction="#btnAddPersonHandler" text="Tilføj person" />
+                  <Button fx:id="btnAddMovie" layoutX="345.0" layoutY="14.0" mnemonicParsing="false" onAction="#btnAddMovieHandler" text="Tilføj film" />
+                  <Button fx:id="btnAddPerson" layoutX="211.0" layoutY="14.0" mnemonicParsing="false" onAction="#btnAddPersonHandler" text="Tilføj person" />
+                  <VBox fx:id="vBoxAccount" layoutX="490.0" layoutY="10.0" prefHeight="46.0" prefWidth="100.0" visible="false">
+                     <children>
+                        <TextField fx:id="txtFieldAccount" />
+                     </children>
+                  </VBox>
                </children>
             </AnchorPane>
          </top>
@@ -33,7 +37,7 @@
          <center>
             <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                <children>
-                  <TextField fx:id="txtFieldSearch" prefHeight="25.0" prefWidth="224.0" promptText="Søg efter film / serie " />
+                  <TextField fx:id="txtFieldSearch" onKeyPressed="#txtFieldSearchKeyPressHandler" prefHeight="25.0" prefWidth="224.0" promptText="Søg efter film / serie " />
                   <ImageView fx:id="ivSearch" fitHeight="23.0" fitWidth="25.0" layoutX="198.0" layoutY="1.0" onMouseClicked="#ivSearchMouseClickHandler" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@images/Search_Icon.png" />
