@@ -1,6 +1,5 @@
 package io.github.eurasia98.sem2.presentation;
 
-import io.github.eurasia98.sem2.logic.Credit;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TextArea;
@@ -10,7 +9,6 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 
@@ -38,7 +36,7 @@ public class DisplayCreditsController implements Initializable {
     @FXML
     private void ivSearchMouseClickHandler() {
         if(!txtFieldSearch.getText().isEmpty()) {
-            App.setSearchString(txtFieldSearch.getText());
+            App.setSearchField(txtFieldSearch.getText());
             App.switchScene("searchScreen");
         }
         txtFieldSearch.setStyle("-fx-prompt-text-fill: red");
@@ -59,9 +57,6 @@ public class DisplayCreditsController implements Initializable {
     }
 
     public void displayCredits(){
-        ArrayList<Credit> creditArrayList = App.getCreditSystem().getCreditsToDisplay();
-        for (Credit credit : creditArrayList){
-            txtAreaCreditsDisplay.appendText(credit.toString() + "\n");
-        }
+        txtAreaCreditsDisplay.appendText(App.getCreditSystem().getCreditsToDisplay());
     }
 }

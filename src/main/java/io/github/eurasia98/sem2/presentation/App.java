@@ -18,16 +18,16 @@ public class App extends Application{
     private static Scene scene;
     private static Stage window;
     private static CreditSystem creditSystem = new CreditSystem();
-    private static String searchString;
     private static List<String> userInfo = new ArrayList<>();
+    private static String searchField;
 
 
-    public static String getSearchString() {
-        return searchString;
+    public static String getSearchField() {
+        return searchField;
     }
 
-    public static void setSearchString(String searchStringSent) {
-        searchString = searchStringSent;
+    public static void setSearchField(String searchString) {
+        searchField = searchString;
     }
 
     public static CreditSystem getCreditSystem() {

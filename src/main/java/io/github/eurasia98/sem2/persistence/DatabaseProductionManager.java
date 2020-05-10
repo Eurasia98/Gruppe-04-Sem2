@@ -7,6 +7,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 public class DatabaseProductionManager {
     static Connection connection = null;
@@ -31,6 +32,7 @@ public class DatabaseProductionManager {
     public Production getProduction(String production_id){
         connection = DatabaseAccesHandler.getConnection();
 
+
         try {
             PreparedStatement getProductionStatement = connection.prepareStatement("SELECT * FROM productions WHERE production_id = ?");
             getProductionStatement.setString(1, production_id);
@@ -43,6 +45,26 @@ public class DatabaseProductionManager {
                 Production production = productionManager.createProduction(rs.getString("title"), rs.getString("production_id"));
                 return production;
             }
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        } return null;
+    }
+
+    public ArrayList<Production> getMyProductions(int account_id){
+        connection = DatabaseAccesHandler.getConnection();
+        ArrayList<Production> myProductions = new ArrayList<>();
+        ProductionManager productionManager = new ProductionManager();
+
+        try {
+            PreparedStatement getMyProductionsStatement = connection.prepareStatement(
+                    "SELECT * FROM productions WHERE owner = ?");
+            getMyProductionsStatement.setInt(1, account_id);
+            ResultSet rs = getMyProductionsStatement.executeQuery();
+            while (rs.next()){
+                Production production = productionManager.createProduction(rs.getString("title"), rs.getString("production_id"));
+                myProductions.add(production);
+            }
+            return myProductions;
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         } return null;

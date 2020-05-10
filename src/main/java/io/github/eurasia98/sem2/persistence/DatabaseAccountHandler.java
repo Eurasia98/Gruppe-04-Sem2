@@ -27,7 +27,7 @@ public class DatabaseAccountHandler {
             this.connection = DatabaseAccesHandler.getConnection();
 
             PreparedStatement insertAccountStatement = connection.prepareStatement(
-                    "INSERT INTO accounts(username, password, accounttype) VALUES(?,?,?)");
+                    "INSERT INTO accounts(username, password, account_type) VALUES(?,?,?)");
             insertAccountStatement.setString(1, account.getUsername());
             insertAccountStatement.setString(2, account.getPassword());
             insertAccountStatement.setString(3, account.getAccountType());
@@ -37,6 +37,25 @@ public class DatabaseAccountHandler {
             throwables.printStackTrace();
         } return false;
     }
+
+    // resetter idCounter
+    /*public Boolean resetIdCount(){
+        connection = DatabaseAccesHandler.getConnection();
+
+        try {
+            PreparedStatement resetIdCounterStatement = connection.prepareStatement(
+                    "SELECT MAX(id) FROM accounts ");
+            ResultSet currentId = resetIdCounterStatement.executeQuery();
+            while (currentId.next()){
+                PreparedStatement restIdStatement = connection.prepareStatement("ALTER TABLE accounts AUTO_INCREMENT = ?");
+                restIdStatement.setInt(1, currentId.getInt(0)+1);
+                restIdStatement.execute();
+                return true;
+            } return false;
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        } return false;
+    }*/
 
     public List<String> verifyLogin (String username, String password){
         this.connection = DatabaseAccesHandler.getConnection();

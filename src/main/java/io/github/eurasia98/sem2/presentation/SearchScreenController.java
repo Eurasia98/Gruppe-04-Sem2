@@ -11,12 +11,14 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 
-import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class SearchScreenController implements Initializable {
+
+    @FXML
+    private ImageView ivLogo;
 
     @FXML
     private VBox vBoxSearchResults;
@@ -25,23 +27,11 @@ public class SearchScreenController implements Initializable {
     private TextField txtFieldSearch;
 
     @FXML
-    private ImageView ivLogo;
-
-    @FXML
     private ImageView ivSearch;
 
-    /* håndterer "søg" og "søg igen" knapperne. Sender data
-     *  videre til App og videre til creditsystem, der sender
-     *  det videre til databasecontroller der sender det
-     *  retur som hyperlinks.
-     * */
-
     @FXML
-    private void ivSearchMouseClickHandler() throws IOException {
-        if(!txtFieldSearch.getText().isEmpty()) {
-            search();
-        }
-        txtFieldSearch.setStyle("-fx-prompt-text-fill: red");
+    void ivLogoActionHandler(MouseEvent event) {
+        App.switchScene("FrontPage");
     }
 
     // Returns to front page
@@ -58,16 +48,16 @@ public class SearchScreenController implements Initializable {
         }
     }
 
-    /* Sætter hyperLinks fra getHyperlinks
-    *  ind på vBox så bruger kan se dem i gui.
-    * */
+
     public void search(){
         if (!txtFieldSearch.getText().isEmpty()) {
             vBoxSearchResults.getChildren().clear();
             vBoxSearchResults.setVisible(true);
-            vBoxSearchResults.getChildren().addAll(getHyperLinks());
+            ArrayList<Hyperlink> hyperlinkArrayList = getHyperLinks(txtFieldSearch.getText());
+            vBoxSearchResults.getChildren().addAll(hyperlinkArrayList);
+            txtFieldSearch.clear();
         } else {
-            txtFieldSearch.setStyle("-fx-prompt-text-fill: red");
+            txtFieldSearch.setStyle("-fx-prompt-text-fill: #ef0707");
         }
     }
 
@@ -76,16 +66,16 @@ public class SearchScreenController implements Initializable {
          og returnere en ArrayList med HyperLinks der
          linker videre til credits displayal.
      */
-    public ArrayList<Hyperlink> getHyperLinks(){
+    public ArrayList<Hyperlink> getHyperLinks(String searchString){
         ArrayList<Hyperlink> hyperlinkArrayList = new ArrayList<>();
-        ArrayList<SearchResults> searchResultsArrayList = App.getCreditSystem().search(txtFieldSearch.getText());
+        ArrayList<SearchResults> searchResultsArrayList = App.getCreditSystem().search(searchString);
         for (SearchResults sr : searchResultsArrayList){
             Hyperlink hyperlink = new Hyperlink();
             hyperlink.setText(sr.getTitle());
             hyperlink.setOnAction(new EventHandler<ActionEvent>() {
                 @Override
                 public void handle(ActionEvent actionEvent) {
-                    App.getCreditSystem().setCreditsToDisplay(App.getCreditSystem().findCredits(sr));
+                    App.getCreditSystem().setCreditsToDisplay(sr.getProductionId());
                     App.switchScene("DisplayCreditsFirstIteration");
                 }
             });
@@ -96,7 +86,7 @@ public class SearchScreenController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        txtFieldSearch.setText(App.getSearchString());
+        txtFieldSearch.setText(App.getSearchField());
         search();
     }
 }
