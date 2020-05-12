@@ -17,3 +17,13 @@
     -fx-text-box-border: transparent;
     -fx-background-color: transparent;
 }
+
+#txtFieldEPG{
+    -fx-text-box-border: transparent;
+    -fx-background-color: transparent;
+}
+
+#txtFieldPopular{
+    -fx-text-box-border: transparent;
+    -fx-background-color: transparent;
+}

@@ -25,12 +25,6 @@ public class FrontPageController implements Initializable {
     private ImageView ivLogo;
 
     @FXML
-    private Button btnAddMovie;
-
-    @FXML
-    private Button btnAddPerson;
-
-    @FXML
     private TextField txtFieldSearch;
 
     @FXML
@@ -42,17 +36,6 @@ public class FrontPageController implements Initializable {
     @FXML
     private VBox vBoxAccount;
 
-    // Move to account control
-    @FXML
-    private void btnAddMovieHandler(ActionEvent event) {
-        App.switchScene("CreateMovieScreen");
-    }
-
-    // Move to account control
-    @FXML
-    private void btnAddPersonHandler(ActionEvent event) {
-        App.switchScene("CreatePersonScreen");
-    }
 
     // Switches to login screen
     @FXML
@@ -81,6 +64,7 @@ public class FrontPageController implements Initializable {
         }
     }
 
+    // Checks App.getUserInfo to see if there is an account stored there. Hides/Shows Login button and "Min side" hyperlink
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         if (!App.getUserInfo().isEmpty()){
@@ -95,6 +79,15 @@ public class FrontPageController implements Initializable {
                 }
             });
             vBoxAccount.getChildren().add(1, myPage);
+        }
+
+        else {
+            btnLogin.setVisible(true);
+            vBoxAccount.setVisible(false);
+            txtFieldAccount.clear();
+            if (vBoxAccount.getChildren().size() == 2){
+                vBoxAccount.getChildren().remove(1);
+            }
         }
 
     }
