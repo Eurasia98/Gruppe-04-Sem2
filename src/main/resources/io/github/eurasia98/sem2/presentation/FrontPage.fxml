@@ -28,6 +28,7 @@
                         <TextField fx:id="txtFieldAccount" />
                      </children>
                   </VBox>
+                  <Button fx:id="btnMyCredits" layoutX="123.0" layoutY="100.0" mnemonicParsing="false" onAction="#btnMyCreditsHandler" text="Mine krediteringer" />
                </children>
             </AnchorPane>
          </top>

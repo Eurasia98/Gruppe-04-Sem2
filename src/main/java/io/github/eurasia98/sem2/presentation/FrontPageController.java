@@ -42,6 +42,9 @@ public class FrontPageController implements Initializable {
     @FXML
     private VBox vBoxAccount;
 
+    @FXML
+    private Button btnMyCredits;
+
     // Move to account control
     @FXML
     private void btnAddMovieHandler(ActionEvent event) {
@@ -79,6 +82,11 @@ public class FrontPageController implements Initializable {
         if (event.getCode().toString().equals("ENTER")){
             ivSearchMouseClickHandler();
         }
+    }
+
+    @FXML
+    void btnMyCreditsHandler(ActionEvent event) {
+        App.switchScene("MyCreditsScene");
     }
 
     @Override
