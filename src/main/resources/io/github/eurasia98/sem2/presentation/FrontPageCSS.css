@@ -1,0 +1,14 @@
+.text-field {
+    -fx-prompt-text-fill: gray;
+}
+.text-field:focused {
+    -fx-prompt-text-fill: gray;
+}
+
+#ivLogo:hover {
+    -fx-cursor: hand;
+}
+
+#ivSearch:hover {
+    -fx-cursor: hand;
+}

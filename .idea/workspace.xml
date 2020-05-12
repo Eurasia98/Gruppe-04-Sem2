@@ -1,18 +1,51 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="ee5fccad-6595-4165-9f51-be05e2812e13" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/io/github/eurasia98/sem2/presentation/CreateProductionScreenController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/io/github/eurasia98/sem2/presentation/MyProductionsScreenController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/io/github/eurasia98/sem2/presentation/ProducerScreenController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/io/github/eurasia98/sem2/presentation/CreateProductionScreen.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/io/github/eurasia98/sem2/presentation/ProducerScreen.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/github/eurasia98/sem2/logic/CreditSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/github/eurasia98/sem2/logic/CreditSystem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/github/eurasia98/sem2/persistence/DatabaseAccountHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/github/eurasia98/sem2/persistence/DatabaseAccountHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/github/eurasia98/sem2/persistence/DatabasePersonHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/github/eurasia98/sem2/persistence/DatabasePersonHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/github/eurasia98/sem2/persistence/DatabaseProductionManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/github/eurasia98/sem2/persistence/DatabaseProductionManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/io/github/eurasia98/sem2/presentation/FrontPage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/io/github/eurasia98/sem2/presentation/FrontPage.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="CodeStyleSettingsInfer">
+    <option name="done" value="true" />
+  </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="FxmlFile" />
+        <option value="CSS File" />
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -25,32 +58,161 @@
     </option>
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="ProductionBranch" />
+        <entry key="$PROJECT_DIR$" value="master" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-    <option name="UPDATE_TYPE" value="MERGE" />
   </component>
-  <component name="MavenImportPreferences">
-    <option name="importingSettings">
-      <MavenImportingSettings>
-        <option name="importAutomatically" value="true" />
-      </MavenImportingSettings>
-    </option>
+  <component name="ProjectCodeStyleSettingsMigration">
+    <option name="version" value="1" />
   </component>
-  <component name="ProjectId" id="1aATBKl4p1PgIkCsPmrkiKlCllx" />
+  <component name="ProjectId" id="1aAKi9LcaWKBwh2nxa9vFsIK3ZO" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
-    <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="DatabaseDriversLRU" value="postgresql" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/bin/postgresql-42.2.12.jar!/" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Modules" />
-    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.0" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="io.github.eurasia98.sem2.presentation" />
+      <recent name="org.Logic" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.Main (1)">
+    <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.Presentation.App" />
+      <module name="Gruppe-04-Sem2" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.Logic.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="io.github.eurasia98.sem2.presentation.App" />
+      <module name="Gruppe-04-Sem2" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="io.github.eurasia98.sem2.presentation.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="io.github.eurasia98.sem2.presentation.App" />
+      <module name="Gruppe-04-Sem2" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="io.github.eurasia98.sem2.presentation.accountPresentation.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CreditSystem" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.Logic.CreditSystem" />
+      <module name="Gruppe-04-Sem2" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.Logic.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.Presentation.Main" />
+      <module name="Gruppe-04-Sem2" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.Presentation.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="io.github.eurasia98.sem2.presentation.Main" />
+      <module name="Gruppe-04-Sem2" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="io.github.eurasia98.sem2.presentation.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="io.github.eurasia98.sem2.presentation.Main" />
+      <module name="Gruppe-04-Sem2" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="io.github.eurasia98.sem2.presentation.accountPresentation.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="io.github.eurasia98.sem2.presentation.Main" />
+      <module name="Gruppe-04-Sem2" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="io.github.eurasia98.sem2.presentation.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main (1)" />
+        <item itemvalue="Application.Main" />
+        <item itemvalue="Application.CreditSystem" />
+        <item itemvalue="Application.App (1)" />
+        <item itemvalue="Application.App" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -61,83 +223,512 @@
       <created>1586177262656</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1586177262656</updated>
-      <workItem from="1586178201755" duration="249000" />
-      <workItem from="1587288349260" duration="953000" />
+      <updated>1586173082249</updated>
+      <workItem from="1587137126621" duration="3000" />
+      <workItem from="1587137144374" duration="7163000" />
+      <workItem from="1587197528046" duration="3835000" />
+      <workItem from="1587330198884" duration="3722000" />
+      <workItem from="1588523388240" duration="500000" />
+      <workItem from="1588829198714" duration="20911000" />
+      <workItem from="1588938849339" duration="24853000" />
+      <workItem from="1588970527859" duration="1306000" />
+      <workItem from="1589011315803" duration="33753000" />
     </task>
-    <task id="LOCAL-00001" summary="Account klasse">
-      <created>1587396228796</created>
+    <task id="LOCAL-00001" summary="Indsat lidt FXML docs og lidt klasser. Små commits, og der er testet at programmet stadig kører">
+      <created>1587205027592</created>
       <option name="number" value="00001" />
       <option name="presentableId" value="LOCAL-00001" />
       <option name="project" value="LOCAL" />
-      <updated>1587396228797</updated>
+      <updated>1587205027592</updated>
     </task>
-    <task id="LOCAL-00002" summary="Account klasse">
-      <created>1587398056497</created>
+    <task id="LOCAL-00002" summary="Indsat flere klasser og lir, og tjekket programmet stadig kører">
+      <created>1587205517780</created>
       <option name="number" value="00002" />
       <option name="presentableId" value="LOCAL-00002" />
       <option name="project" value="LOCAL" />
-      <updated>1587398056497</updated>
+      <updated>1587205517780</updated>
     </task>
-    <task id="LOCAL-00003" summary="Account klasse">
-      <created>1587406553826</created>
+    <task id="LOCAL-00003" summary="Arbejdet med search funktionen">
+      <created>1587210077404</created>
       <option name="number" value="00003" />
       <option name="presentableId" value="LOCAL-00003" />
       <option name="project" value="LOCAL" />
-      <updated>1587406553829</updated>
+      <updated>1587210077404</updated>
     </task>
-    <task id="LOCAL-00004" summary="Account klasse og User klasse">
-      <created>1587407443869</created>
+    <task id="LOCAL-00004" summary="Pulled fra ProductionBranch&#10;Lavet org.Data package og DatabaseController klasse i den">
+      <created>1587290794021</created>
       <option name="number" value="00004" />
       <option name="presentableId" value="LOCAL-00004" />
       <option name="project" value="LOCAL" />
-      <updated>1587407443869</updated>
+      <updated>1587290794021</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Rykket DatabaseController til LogikLag. Lavet to tekstfiler til Data lag.">
+      <created>1587294334325</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1587294334326</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Arbejdet videre med search">
+      <created>1587300669546</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1587300669546</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Arbejdet videre med search">
+      <created>1587308842860</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1587308842860</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Arbejdet videre med search">
+      <created>1587309857337</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1587309857337</updated>
+    </task>
+    <task id="LOCAL-00009" summary="fixet Ron's navn i Credits.txt&#10;lavet metode til at returnere credits objekter til CreditSystem som skal displayes.">
+      <created>1587313490132</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1587313490132</updated>
+    </task>
+    <task id="LOCAL-00010" summary="lidt mere">
+      <created>1587316179733</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1587316179734</updated>
+    </task>
+    <task id="LOCAL-00011" summary="rykket rundt på pakker og lavet mere search">
+      <created>1587326400183</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1587326400183</updated>
+    </task>
+    <task id="LOCAL-00012" summary="rykket rundt på pakker og lavet mere search">
+      <created>1587327241699</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1587327241699</updated>
+    </task>
+    <task id="LOCAL-00013" summary="pillet ved searchGUI">
+      <created>1587328766703</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1587328766703</updated>
+    </task>
+    <task id="LOCAL-00014" summary="nu virker links">
+      <created>1587329946561</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1587329946561</updated>
+    </task>
+    <task id="LOCAL-00015" summary="arbejdet videre med search">
+      <created>1587335212645</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1587335212645</updated>
+    </task>
+    <task id="LOCAL-00016" summary="Lavet hyperlinks søgeresultater til at gøre skifte scene">
+      <created>1587405290637</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1587405290637</updated>
+    </task>
+    <task id="LOCAL-00017" summary="Lavet hyperlinks søgeresultater til at gøre skifte scene">
+      <created>1587406943862</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1587406943862</updated>
+    </task>
+    <task id="LOCAL-00018" summary="Merget med amilcar og arbejdet med search">
+      <created>1587462515012</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1587462515014</updated>
+    </task>
+    <task id="LOCAL-00019" summary="Arbejdet videre med at få displayCredits til vise credits på GUI">
+      <created>1587551012474</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1587551012474</updated>
+    </task>
+    <task id="LOCAL-00020" summary="Flyttet logic vedrørende omdannelsen af søgeresultater til hyperlinks fra presentation til SearchResults i logik.">
+      <created>1587559890182</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1587559890182</updated>
+    </task>
+    <task id="LOCAL-00021" summary="Flyttet logic vedrørende omdannelsen af søgeresultater til hyperlinks fra presentation til SearchResults i logik.">
+      <created>1587570416258</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1587570416258</updated>
+    </task>
+    <task id="LOCAL-00022" summary="rettet at vbox indeholdende searchresults ikke clearer ved nyt tryk på søgknappen.&#10;Nu cleares vbox inden nyt indhold lægges i den.">
+      <created>1587630070494</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1587630070494</updated>
+    </task>
+    <task id="LOCAL-00023" summary="Rettet search i searchScreenController til at være pænere kode. &#10;Lavet Account til super af Producer og ASystemAdministrator.&#10;Lavet gui og kode til opret producer.">
+      <created>1587649178693</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1587649178693</updated>
+    </task>
+    <task id="LOCAL-00024" summary="Rettet search i searchScreenController til at være pænere kode. &#10;Lavet Account til super af Producer og ASystemAdministrator.&#10;Lavet gui og kode til opret producer.">
+      <created>1587649245361</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1587649245361</updated>
+    </task>
+    <task id="LOCAL-00025" summary="Rettet search i searchScreenController til at være pænere kode. &#10;Lavet Account til super af Producer og ASystemAdministrator.&#10;Lavet gui og kode til opret producer.">
+      <created>1587655135865</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1587655135866</updated>
+    </task>
+    <task id="LOCAL-00026" summary="Nu kan man lave ny producer og gemme dem i Accounts. Ligeledes tæller userIdCounter op, men af uforklarlige årsager tæller den to op pr. gang.&#10;I færd med at lave login og rykke den til userController">
+      <created>1587729591393</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1587729591393</updated>
+    </task>
+    <task id="LOCAL-00027" summary="det driller">
+      <created>1587729790933</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1587729790933</updated>
+    </task>
+    <task id="LOCAL-00028" summary="Arbejdet videre med userCounter og rettet fejl ved nullpointer exception ved oprettelse af ny producer.">
+      <created>1587747412027</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1587747412027</updated>
+    </task>
+    <task id="LOCAL-00029" summary="slettet test fra branches">
+      <created>1588824948814</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1588824948814</updated>
+    </task>
+    <task id="LOCAL-00030" summary="Refactored og lavet nye pakker under de tre lag der indeholder opdelt funktionalitet pr. objekt type.">
+      <created>1588935757345</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1588935757345</updated>
+    </task>
+    <task id="LOCAL-00031" summary="lavet lidt mere. Comitter fordi jeg skal merge med production branch">
+      <created>1588937435019</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1588937435019</updated>
+    </task>
+    <task id="LOCAL-00032" summary="Arbejdet på at få det hele til at virke. Arbejdet på accounts og productions og gui til det">
+      <created>1588947763338</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1588947763338</updated>
+    </task>
+    <task id="LOCAL-00033" summary="Disse kom ikke med">
+      <created>1588947800765</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1588947800765</updated>
+    </task>
+    <task id="LOCAL-00034" summary="Lavet creaste person så den virker fra gui og gemmer i database.&#10;Kan tage username, password, fornavn, efternavn.">
+      <created>1588960057815</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1588960057815</updated>
+    </task>
+    <task id="LOCAL-00035" summary="Nu kan man lave personer og det bliver gemt i både account table og persons table">
+      <created>1588962714223</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1588962714223</updated>
+    </task>
+    <task id="LOCAL-00036" summary="blev ikke comitted før">
+      <created>1588962732404</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1588962732404</updated>
+    </task>
+    <task id="LOCAL-00037" summary="til at pushe til master">
+      <created>1588970634370</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1588970634370</updated>
+    </task>
+    <task id="LOCAL-00038" summary="til at pushe til master">
+      <created>1588971355488</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1588971355488</updated>
+    </task>
+    <task id="LOCAL-00039" summary="Lavet search så den næsten virker. Får nulpointer ved search() linje 62 i SearchScreenController&#10;og nulpointer i initiliaze i samme klasse.">
+      <created>1589028182660</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1589028182661</updated>
+    </task>
+    <task id="LOCAL-00040" summary="Search virker sådan lidt. Nu skal man søge efter hele titlen, og den skelner mellem store og små bogstaver. &#10;titanic giver ikke noget resultat&#10;Titanic giver resultat">
+      <created>1589094744793</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1589094744793</updated>
+    </task>
+    <task id="LOCAL-00041" summary="Nu virker search">
+      <created>1589097206737</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1589097206737</updated>
+    </task>
+    <task id="LOCAL-00042" summary="Lavet rettelse i opret person der var blevet påvirket af arbejdet med search. Det virker nu igen. Resetted id counter på account og person så den nu starter med 1. Lavet metoder til løbende at opdatere counteren så den altid tæller fra en højere end højeste værdi. Dette var meningen at være smart hvis man sletter rows, men de er udkommenteret da jeg ikke tror det er smart alligevel, fordi man alligevel ikke umiddelbart kan refactor alle andre rows i table til at være en løbende talserie uden huller hvis man sletter undervejs.">
+      <created>1589101827222</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1589101827222</updated>
+    </task>
+    <option name="localTasksCounter" value="43" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="1" />
+    <option name="version" value="2" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Account klasse" />
-    <MESSAGE value="Account klasse og User klasse" />
-    <option name="LAST_COMMIT_MESSAGE" value="Account klasse og User klasse" />
+    <MESSAGE value="arbejdet videre med search" />
+    <MESSAGE value="Lavet hyperlinks søgeresultater til at gøre skifte scene" />
+    <MESSAGE value="Merget med amilcar og arbejdet med search" />
+    <MESSAGE value="Arbejdet videre med at få displayCredits til vise credits på GUI" />
+    <MESSAGE value="Flyttet logic vedrørende omdannelsen af søgeresultater til hyperlinks fra presentation til SearchResults i logik." />
+    <MESSAGE value="rettet at vbox indeholdende searchresults ikke clearer ved nyt tryk på søgknappen.&#10;Nu cleares vbox inden nyt indhold lægges i den." />
+    <MESSAGE value="rettet at vbox indeholdende searchresults ikke clearer ved nyt tryk på søgknappen.&#10;Nu cleares vbox inden nyt indhold lægges i den.&#10;(tilføjelse af workspace.xml)&#10;(Kommentar til denne og forrige commit, der er merget med amilcars, der har rettet så credits bliver displayed)" />
+    <MESSAGE value="Rettet search i searchScreenController til at være pænere kode. &#10;Lavet Account til super af Producer og ASystemAdministrator.&#10;Lavet gui og kode til opret producer." />
+    <MESSAGE value="Nu kan man lave ny producer og gemme dem i Accounts. Ligeledes tæller userIdCounter op, men af uforklarlige årsager tæller den to op pr. gang.&#10;I færd med at lave login og rykke den til userController" />
+    <MESSAGE value="det driller" />
+    <MESSAGE value="Arbejdet videre med userCounter og rettet fejl ved nullpointer exception ved oprettelse af ny producer." />
+    <MESSAGE value="slettet ekstra directory der lå som kopi af persistance." />
+    <MESSAGE value="slettet test fra branches" />
+    <MESSAGE value="Refactored og lavet nye pakker under de tre lag der indeholder opdelt funktionalitet pr. objekt type." />
+    <MESSAGE value="lavet lidt mere. Comitter fordi jeg skal merge med production branch" />
+    <MESSAGE value="Arbejdet på at få det hele til at virke. Arbejdet på accounts og productions og gui til det" />
+    <MESSAGE value="Disse kom ikke med" />
+    <MESSAGE value="Lavet creaste person så den virker fra gui og gemmer i database.&#10;Kan tage username, password, fornavn, efternavn." />
+    <MESSAGE value="Nu kan man lave personer og det bliver gemt i både account table og persons table" />
+    <MESSAGE value="blev ikke comitted før" />
+    <MESSAGE value="til at pushe til master" />
+    <MESSAGE value="Lavet search så den næsten virker. Får nulpointer ved search() linje 62 i SearchScreenController&#10;og nulpointer i initiliaze i samme klasse." />
+    <MESSAGE value="Search virker sådan lidt. Nu skal man søge efter hele titlen, og den skelner mellem store og små bogstaver. &#10;titanic giver ikke noget resultat&#10;Titanic giver resultat" />
+    <MESSAGE value="Nu virker search" />
+    <MESSAGE value="Lavet rettelse i opret person der var blevet påvirket af arbejdet med search. Det virker nu igen. Resetted id counter på account og person så den nu starter med 1. Lavet metoder til løbende at opdatere counteren så den altid tæller fra en højere end højeste værdi. Dette var meningen at være smart hvis man sletter rows, men de er udkommenteret da jeg ikke tror det er smart alligevel, fordi man alligevel ikke umiddelbart kan refactor alle andre rows i table til at være en løbende talserie uden huller hvis man sletter undervejs." />
+    <option name="LAST_COMMIT_MESSAGE" value="Lavet rettelse i opret person der var blevet påvirket af arbejdet med search. Det virker nu igen. Resetted id counter på account og person så den nu starter med 1. Lavet metoder til løbende at opdatere counteren så den altid tæller fra en højere end højeste værdi. Dette var meningen at være smart hvis man sletter rows, men de er udkommenteret da jeg ikke tror det er smart alligevel, fordi man alligevel ikke umiddelbart kan refactor alle andre rows i table til at være en løbende talserie uden huller hvis man sletter undervejs." />
+    <option name="GROUP_MULTIFILE_MERGE_BY_DIRECTORY" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="240" y="65" key="#Project_Structure" timestamp="1586177768196">
-      <screen x="0" y="0" width="1280" height="800" />
-    </state>
-    <state x="240" y="65" key="#Project_Structure/0.0.1280.800@0.0.1280.800" timestamp="1586177768196" />
-    <state x="223" y="67" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1587406624167">
+    <state x="654" y="275" key="#Notifications" timestamp="1588970697147">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="223" y="67" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824@0.0.1536.824" timestamp="1587406624167" />
-    <state x="530" y="0" width="1006" height="824" key="CommitChangelistDialog2" timestamp="1587407437792">
+    <state x="654" y="275" key="#Notifications/0.0.1536.824@0.0.1536.824" timestamp="1588970697147" />
+    <state x="223" y="67" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1588924970164">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="530" y="0" width="1006" height="824" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1587407437792" />
-    <state x="-19" y="91" key="DiffContextDialog" timestamp="1587407415762">
+    <state x="223" y="67" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824@0.0.1536.824" timestamp="1588924970164" />
+    <state x="574" y="119" key="#com.intellij.ide.util.MemberChooser" timestamp="1589025121453">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="-19" y="91" key="DiffContextDialog/0.0.1536.824@0.0.1536.824" timestamp="1587407415762" />
-    <state x="361" y="145" key="Vcs.Push.Dialog.v2" timestamp="1587407453655">
+    <state x="574" y="119" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1589025121453" />
+    <state x="571" y="304" width="608" height="220" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1588958117677">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1587407453655" />
-    <state x="583" y="167" key="com.intellij.ide.util.TipDialog" timestamp="1587288352080">
+    <state x="571" y="304" width="608" height="220" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1536.824@0.0.1536.824" timestamp="1588958117677" />
+    <state x="799" y="266" key="#com.intellij.refactoring.move.moveInstanceMethod.MoveInstanceMethodDialog" timestamp="1587729293675">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="486" y="162" key="com.intellij.ide.util.TipDialog/0.0.1280.800@0.0.1280.800" timestamp="1586177576722" />
-    <state x="583" y="167" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1587288352080" />
-    <state x="578" y="329" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1587406504163">
+    <state x="799" y="266" key="#com.intellij.refactoring.move.moveInstanceMethod.MoveInstanceMethodDialog/0.0.1536.824@0.0.1536.824" timestamp="1587729293675" />
+    <state x="412" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1589013370325">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="578" y="329" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.824@0.0.1536.824" timestamp="1587406504163" />
-    <state x="809" y="190" key="run.anything.popup" timestamp="1587395698442">
+    <state x="412" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1536.824@0.0.1536.824" timestamp="1589013370325" />
+    <state x="499" y="162" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1536.824@0.0.1536.824" timestamp="1587218656091" />
+    <state x="499" y="159" key="#com.intellij.refactoring.typeMigration.ui.FailedConversionsDialog" timestamp="1589029306933">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="809" y="190" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1587395698442" />
+    <state x="499" y="159" key="#com.intellij.refactoring.typeMigration.ui.FailedConversionsDialog/0.0.1536.824@0.0.1536.824" timestamp="1589029306933" />
+    <state x="295" y="0" key="CommitChangelistDialog2" timestamp="1589101825781">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="295" y="0" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1589101825781" />
+    <state x="147" y="65" key="DiffContextDialog" timestamp="1587406925996">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="147" y="65" key="DiffContextDialog/0.0.1536.824@0.0.1536.824" timestamp="1587406925996" />
+    <state x="549" y="170" key="FileChooserDialogImpl" timestamp="1588838391202">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="549" y="170" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1588838391202" />
+    <state width="1493" height="210" key="GridCell.Tab.0.bottom" timestamp="1589119976666">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="210" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1589119976666" />
+    <state width="1493" height="210" key="GridCell.Tab.0.center" timestamp="1589119976666">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="210" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1589119976666" />
+    <state width="1493" height="210" key="GridCell.Tab.0.left" timestamp="1589119976665">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="210" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1589119976665" />
+    <state width="1493" height="210" key="GridCell.Tab.0.right" timestamp="1589119976666">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="210" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1589119976666" />
+    <state width="1220" height="261" key="GridCell.Tab.1.bottom" timestamp="1587732285824">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1220" height="261" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1587732285824" />
+    <state width="1220" height="261" key="GridCell.Tab.1.center" timestamp="1587732285824">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1220" height="261" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1587748108008" />
+    <state width="1220" height="261" key="GridCell.Tab.1.left" timestamp="1587748108008">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1220" height="261" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1587748108008" />
+    <state width="1220" height="261" key="GridCell.Tab.1.right" timestamp="1587748108008">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1220" height="261" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1587748108008" />
+    <state width="189" height="457" key="HiddenNamespacesPopup" timestamp="1588674089034">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="189" height="457" key="HiddenNamespacesPopup/0.0.1536.824@0.0.1536.824" timestamp="1588674089034" />
+    <state x="299" y="67" key="Maven.ArtifactSearchDialog" timestamp="1588837856822">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="299" y="67" key="Maven.ArtifactSearchDialog/0.0.1536.824@0.0.1536.824" timestamp="1588837856822" />
+    <state x="40" y="65" width="1486" height="694" key="MergeDialog" timestamp="1588524504992">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="40" y="65" width="1486" height="694" key="MergeDialog/0.0.1536.824@0.0.1536.824" timestamp="1588524504992" />
+    <state x="481" y="130" width="882" height="580" key="MultipleFileMergeDialog" timestamp="1588971399269">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="481" y="130" key="MultipleFileMergeDialog/0.0.1536.824@0.0.1536.824" timestamp="1588971399269" />
+    <state x="359" y="126" key="RollbackChangesDialog" timestamp="1587326351396">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="359" y="126" key="RollbackChangesDialog/0.0.1536.824@0.0.1536.824" timestamp="1587561994471" />
+    <state x="279" y="0" key="SettingsEditor" timestamp="1589015909493">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="279" y="0" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1589015909493" />
+    <state x="361" y="148" key="Vcs.Push.Dialog.v2" timestamp="1589101835697">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="361" y="148" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1589101835697" />
+    <state x="639" y="300" width="312" height="243" key="com.intellij.database.actions.DdlActions$DeleteProvider2$1" timestamp="1588941255889">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="639" y="300" width="312" height="243" key="com.intellij.database.actions.DdlActions$DeleteProvider2$1/0.0.1536.824@0.0.1536.824" timestamp="1588941255889" />
+    <state x="566" y="78" key="com.intellij.database.dbimport.ImportDialog" timestamp="1588839667566">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="566" y="78" key="com.intellij.database.dbimport.ImportDialog/0.0.1536.824@0.0.1536.824" timestamp="1588839667566" />
+    <state x="734" y="99" width="577" height="663" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog" timestamp="1589120992998">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="734" y="99" width="577" height="663" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog/0.0.1536.824@0.0.1536.824" timestamp="1589120992998" />
+    <state x="477" y="240" key="com.intellij.ide.util.TipDialog" timestamp="1588023341565">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="477" y="240" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1588023341565" />
+    <state x="414" y="30" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1587220443604">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="414" y="30" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1536.824@0.0.1536.824" timestamp="1587220443604" />
+    <state x="580" y="331" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1587215798689">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="580" y="331" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.824@0.0.1536.824" timestamp="1587215798689" />
+    <state x="474" y="46" width="588" height="732" key="find.popup" timestamp="1588829689455">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="474" y="46" width="588" height="732" key="find.popup/0.0.1536.824@0.0.1536.824" timestamp="1588829689455" />
+    <state x="370" y="128" key="git4idea.branch.GitSmartOperationDialog" timestamp="1587724701730">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="370" y="128" key="git4idea.branch.GitSmartOperationDialog/0.0.1536.824@0.0.1536.824" timestamp="1587724701730" />
+    <state x="392" y="216" key="git4idea.merge.GitPullDialog" timestamp="1588971394038">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="392" y="216" key="git4idea.merge.GitPullDialog/0.0.1536.824@0.0.1536.824" timestamp="1588971394038" />
+    <state x="209" y="78" key="new project wizard" timestamp="1588023437580">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="209" y="78" key="new project wizard/0.0.1536.824@0.0.1536.824" timestamp="1588023437580" />
+    <state x="475" y="160" key="refactoring.ChangeSignatureDialog" timestamp="1588937954620">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="475" y="160" key="refactoring.ChangeSignatureDialog/0.0.1536.824@0.0.1536.824" timestamp="1588937954620" />
+    <state x="425" y="187" key="run.anything.popup" timestamp="1588949366129">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="425" y="187" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1588949366129" />
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1587671602782">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1587671602782" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -152,5 +743,13 @@
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/Gruppe_04_Sem2$Main__1_.ic" NAME="Main (1) Coverage Results" MODIFIED="1588828354836" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>io.github.eurasia98.sem2.presentation.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/Gruppe_04_Sem2$Main.ic" NAME="Main Coverage Results" MODIFIED="1588828741293" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>io.github.eurasia98.sem2.presentation.*</FILTER>
+    </SUITE>
   </component>
 </project>

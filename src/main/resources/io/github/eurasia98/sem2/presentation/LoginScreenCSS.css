@@ -1,0 +1,16 @@
+.text-field {
+    -fx-prompt-text-fill: gray;
+}
+.text-field:focused {
+    -fx-prompt-text-fill: gray;
+}
+
+#ivLogo:hover {
+    -fx-cursor: hand;
+}
+
+#txtFieldError{
+    -fx-text-box-border: transparent;
+    -fx-background-color: transparent;
+    -fx-text-inner-color: red;
+}

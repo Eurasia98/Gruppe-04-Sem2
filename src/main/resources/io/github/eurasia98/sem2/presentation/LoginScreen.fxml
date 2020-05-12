@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="io.github.eurasia98.sem2.presentation.LoginController">
+   <children>
+      <TextField fx:id="txtFieldUsername" layoutX="226.0" layoutY="102.0" promptText="Brugernavn" />
+      <PasswordField fx:id="pwField" layoutX="226.0" layoutY="165.0" onKeyPressed="#keyPressEventHandler" promptText="Password" />
+      <Button fx:id="btnLogin" layoutX="274.0" layoutY="215.0" mnemonicParsing="false" onAction="#btnLoginActionHandler" text="Login" />
+      <ImageView fx:id="ivLogo" fitHeight="50.0" fitWidth="150.0" layoutX="2.0" layoutY="2.0" onMousePressed="#ivLogoActionHandler" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/TV2_logo.png" />
+         </image>
+      </ImageView>
+      <TextField fx:id="txtFieldError" alignment="CENTER" disable="true" editable="false" layoutX="197.0" layoutY="248.0" prefHeight="25.0" prefWidth="200.0" />
+   </children>
+   <stylesheets>
+      <URL value="@LoginScreenCSS.css" />
+   </stylesheets>
+</AnchorPane>
