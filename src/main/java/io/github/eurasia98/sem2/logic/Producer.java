@@ -28,6 +28,12 @@ public class Producer extends Account {
         this.email = email;
         super.setAccountType("Producer");
     }
+    public Producer(String username, String password, String fName, String lName) {
+        super(username, password);
+        this.fName = fName;
+        this.lName = lName;
+        super.setAccountType("Producer");
+    }
 
     //    AUser user1 = new AUser("MediaKing" ,"1234" , "User", "TV2", "Jens", "Jensen", "Jensen.tv2.dk");
 

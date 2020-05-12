@@ -26,6 +26,9 @@ public class FrontPageController implements Initializable {
     private Button btnAddPerson;
 
     @FXML
+    private Button btnAddProducer;
+
+    @FXML
     private TextField txtFieldSearch;
 
     @FXML
@@ -39,6 +42,11 @@ public class FrontPageController implements Initializable {
     @FXML
     void btnAddPersonHandler(ActionEvent event) {
         App.switchScene("CreatePersonScreen");
+    }
+
+    @FXML
+    void btnAddProducerHandler(ActionEvent event) {
+        App.switchScene("CreateProducerScene");
     }
 
     @FXML

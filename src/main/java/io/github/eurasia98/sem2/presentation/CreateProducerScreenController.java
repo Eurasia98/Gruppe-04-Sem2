@@ -5,6 +5,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -13,6 +14,9 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class CreateProducerScreenController implements Initializable {
+
+    @FXML
+    private TextField productionCompanyNameField;
 
     @FXML
     private TextField fNameField;
@@ -24,10 +28,13 @@ public class CreateProducerScreenController implements Initializable {
     private TextField lNameField;
 
     @FXML
+    private TextField emailField;
+
+    @FXML
     private ImageView ivLogo;
 
     @FXML
-    void ivLogoActionHandler(MouseEvent event) {
+    void IVLogoHandler(MouseEvent event) {
         App.switchScene("FrontPage");
     }
 
