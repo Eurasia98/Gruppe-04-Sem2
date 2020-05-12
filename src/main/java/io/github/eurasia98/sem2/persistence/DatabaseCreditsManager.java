@@ -2,14 +2,12 @@ package io.github.eurasia98.sem2.persistence;
 
 
 import io.github.eurasia98.sem2.logic.Credit;
-import io.github.eurasia98.sem2.logic.Movie;
-import io.github.eurasia98.sem2.logic.Person;
-import io.github.eurasia98.sem2.logic.Production;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 public class DatabaseCreditsManager {
     private static Connection connection = null;
@@ -33,9 +31,10 @@ public class DatabaseCreditsManager {
         } return false;
     }
 
-    public String searchCredits(String productionId) {
+    public ArrayList<String[]> searchCredits(String productionId) {
         connection = DatabaseAccesHandler.getConnection();
-        StringBuilder sb = new StringBuilder();
+        ArrayList<String[]> creditsList = new ArrayList<>();
+        String[] creditsArray;
 
         try {
             PreparedStatement getCreditsStatement = connection.prepareStatement("SELECT * FROM credits WHERE production_id = ?");
@@ -44,12 +43,12 @@ public class DatabaseCreditsManager {
             ResultSet rs = getCreditsStatement.executeQuery();
 
             while (rs.next()) {
-                Credit credit = new Credit(rs.getInt("account_id"), rs.getString("production_id"),
-                        rs.getString("role_type"), rs.getString("role_name"));
-                sb.append(credit.toString() + "\n");
+                creditsArray = new String[]{rs.getString(1), rs.getString(2),rs.getString(3),
+                rs.getString(4), rs.getString(5), rs.getString(6), rs.getString(7)};
+                creditsList.add(creditsArray);
             }
-            String returnString = sb.toString();
-            return returnString;
+
+            return creditsList;
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         } return null;

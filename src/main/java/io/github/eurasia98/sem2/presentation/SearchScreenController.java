@@ -14,6 +14,8 @@ import javafx.scene.layout.VBox;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.ResourceBundle;
 
 public class SearchScreenController implements Initializable {
@@ -71,14 +73,14 @@ public class SearchScreenController implements Initializable {
      */
     public ArrayList<Hyperlink> getHyperLinks(String searchString){
         ArrayList<Hyperlink> hyperlinkArrayList = new ArrayList<>();
-        ArrayList<SearchResults> searchResultsArrayList = App.getCreditSystem().search(searchString);
-        for (SearchResults sr : searchResultsArrayList){
+        HashMap<String, String> creditsMap = App.getCreditSystem().search(searchString);
+        for (Map.Entry<String, String> hashMap : creditsMap.entrySet()){
             Hyperlink hyperlink = new Hyperlink();
-            hyperlink.setText(sr.getTitle());
+            hyperlink.setText(hashMap.getKey());
             hyperlink.setOnAction(new EventHandler<ActionEvent>() {
                 @Override
                 public void handle(ActionEvent actionEvent) {
-                    App.getCreditSystem().setCreditsToDisplay(sr.getProductionId());
+                    App.getCreditSystem().setCreditsToDisplay(hashMap.getValue());
                     App.switchScene("DisplayCreditsFirstIteration");
                 }
             });

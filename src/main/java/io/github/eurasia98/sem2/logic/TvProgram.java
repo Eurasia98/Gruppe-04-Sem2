@@ -14,12 +14,11 @@ public class TvProgram extends Production {
     private String episode_number;
     private String distributor_episode_count;
 
-    public TvProgram(String title, String productionID, int id, String productionType,
-                     int releaseYear, LocalDate creationDate, ArrayList<Credit> myCreditsList,
-                     String ext_id, String productcode, String aspect_ratio, String productionYear,
-                     String productionCountry, String series_id, String episode_number,
-                     String distributor_episode_count) {
-        super(title, productionID, id, productionType, releaseYear, creationDate, myCreditsList);
+    public TvProgram(String productionID, int id, String title, String productionType, Account owner,
+                     String description, int releaseYear, String ext_id, String productcode,
+                     String aspect_ratio, String productionYear, String productionCountry, String series_id,
+                     String episode_number, String distributor_episode_count) {
+        super(productionID, id, title, productionType, owner, description, releaseYear);
         this.ext_id = ext_id;
         this.productcode = productcode;
         this.aspect_ratio = aspect_ratio;

@@ -6,22 +6,26 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 
 public class Production {
-    private String title;
     private String productionID;
     private int id;
+    private String title;
     private String productionType;
+    private Account owner;
+    private String description;
     private int releaseYear;
     private LocalDate creationDate;
     private ArrayList<Credit> myCreditsList;
 
-    public Production(String title, String productionID, int id, String productionType, int releaseYear, LocalDate creationDate, ArrayList<Credit> myCreditsList) {
-        this.title = title;
+    public Production(String productionID, int id, String title, String productionType, Account owner,
+                      String description, int releaseYear) {
         this.productionID = productionID;
         this.id = id;
+        this.title = title;
         this.productionType = productionType;
+        this.owner = owner;
+        this.description = description;
         this.releaseYear = releaseYear;
-        this.creationDate = creationDate;
-        this.myCreditsList = myCreditsList;
+        myCreditsList = new ArrayList<>();
     }
 
     public Production(String title, String productionID) {

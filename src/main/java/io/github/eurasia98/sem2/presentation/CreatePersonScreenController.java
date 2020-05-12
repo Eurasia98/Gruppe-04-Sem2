@@ -62,10 +62,10 @@ public class CreatePersonScreenController implements Initializable {
     void btnAvailableUsernameHandler(ActionEvent event) {
         if (App.getCreditSystem().availableUsername(txtFieldUsername.getText())){
             txtArea.clear();
-            txtArea.setText("Username:"  + txtFieldUsername.getText() + " is available. ");
+            txtArea.setText("Brugernavnet: "  + txtFieldUsername.getText() + " er ledigt. ");
         } else {
             txtArea.clear();
-            txtArea.setText("The username: " + txtFieldUsername + " is not available. ");
+            txtArea.setText("Brugernavnet: " + txtFieldUsername.getText() + " er ikke ledigt. ");
         }
     }
 
@@ -75,7 +75,7 @@ public class CreatePersonScreenController implements Initializable {
     @FXML
     void btnSavePersonHandler(ActionEvent event) {
             if (App.getCreditSystem().createNewPerson(txtFieldUsername.getText(),
-                txtFieldPassword.getText(), txtFieldFirstName.getText(), txtFieldLastName.getText()) == false){
+                txtFieldPassword.getText(), txtFieldFirstName.getText(), txtFieldLastName.getText()) == true){
                 updateSuccesfullCreation();
             } else updateUnsuccesfullCreation();
     }
@@ -89,7 +89,7 @@ public class CreatePersonScreenController implements Initializable {
         txtFieldProductionId.clear();
         txtFieldRole.clear();
         txtFieldRoleName.clear();
-        txtArea.setText("Person has been created");
+        txtArea.setText("Personen er blevet oprettet i systemet. ");
     }
 
     public void updateUnsuccesfullCreation(){
@@ -101,7 +101,7 @@ public class CreatePersonScreenController implements Initializable {
         txtFieldProductionId.clear();
         txtFieldRole.clear();
         txtFieldRoleName.clear();
-        txtArea.setText("Person has not been created - something went wrong. ");
+        txtArea.setText("Personen er ikke blevet oprettet i systemet - der gik noget galt. ");
     }
 
     @Override

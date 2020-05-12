@@ -36,12 +36,16 @@ public class CreateMovieScreenHandler implements Initializable {
 
     @FXML
     void btnSaveHandler(ActionEvent event) {
-        MovieManager movieManager = new MovieManager();
+        if (App.getCreditSystem().createNewMovie(txtFieldTitel.getText(), txtFieldProductionid.getText()) == true){
+            updateSucces();
+        } else updateFail();
+
+        /*MovieManager movieManager = new MovieManager();
         if (movieManager.insertMovie(movieManager.createMovie(txtFieldTitel.getText(), txtFieldProductionid.getText())) == false){
             updateSucces();
         } else {
             updateFail();
-        }
+        }*/
     }
 
     private void updateSucces(){

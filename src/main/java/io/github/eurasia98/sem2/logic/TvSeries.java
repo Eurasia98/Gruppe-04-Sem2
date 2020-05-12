@@ -12,16 +12,15 @@ public class TvSeries extends Production {
     private String extendedcast;
     private String editor;
 
-    public TvSeries(String title, String productionID, int id, String productionType,
-                    int releaseYear, LocalDate creationDate, ArrayList<Credit> myCreditsList,
-                    int season, int episode, String episode_title, String format_audio,
-                    String description, String extendedcast, String editor) {
-        super(title, productionID, id, productionType, releaseYear, creationDate, myCreditsList);
+    public TvSeries(String productionID, int id, String title, String productionType, Account owner,
+                    String description, int releaseYear, int season, int episode, String episode_title,
+                    String format_audio, String description1, String extendedcast, String editor) {
+        super(productionID, id, title, productionType, owner, description, releaseYear);
         this.season = season;
         this.episode = episode;
         this.episode_title = episode_title;
         this.format_audio = format_audio;
-        this.description = description;
+        this.description = description1;
         this.extendedcast = extendedcast;
         this.editor = editor;
     }

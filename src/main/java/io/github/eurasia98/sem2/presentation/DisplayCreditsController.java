@@ -9,6 +9,7 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 
@@ -57,6 +58,9 @@ public class DisplayCreditsController implements Initializable {
     }
 
     public void displayCredits(){
-        txtAreaCreditsDisplay.appendText(App.getCreditSystem().getCreditsToDisplay());
+        ArrayList<String> creditsToDisplay = App.getCreditSystem().getCreditsToDisplay();
+        for (String credit : creditsToDisplay){
+            txtAreaCreditsDisplay.appendText(credit + "\n");
+        }
     }
 }

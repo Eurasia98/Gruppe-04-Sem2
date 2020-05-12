@@ -53,6 +53,6 @@ public class Producer extends Account {
 
     @Override
     public String toString(){
-        return String.format("%s;%s;%s;%s;%s;%s;", super.getUserId(), super.getUsername(), super.getPassword(), fName, lName, super.getAccountType());
+        return String.format("%s;%s;%s;%s;%s;%s;", super.getId(), super.getUsername(), super.getPassword(), fName, lName, super.getAccountType());
     }
 }
