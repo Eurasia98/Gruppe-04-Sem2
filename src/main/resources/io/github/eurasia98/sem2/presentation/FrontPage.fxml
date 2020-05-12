@@ -31,7 +31,7 @@
          <center>
             <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                <children>
-                  <TextField fx:id="txtFieldSearch" prefHeight="25.0" prefWidth="224.0" promptText="Søg efter film / serie " />
+                  <TextField fx:id="txtFieldSearch" onKeyPressed="#txtFieldSearchKeyPressHandler" prefHeight="25.0" prefWidth="224.0" promptText="Søg efter film / serie " />
                   <ImageView fx:id="ivSearch" fitHeight="23.0" fitWidth="25.0" layoutX="198.0" layoutY="1.0" onMouseClicked="#ivSearchMouseClickHandler" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@images/Search_Icon.png" />

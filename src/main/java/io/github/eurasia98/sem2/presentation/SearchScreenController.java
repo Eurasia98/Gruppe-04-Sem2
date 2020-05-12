@@ -39,9 +39,13 @@ public class SearchScreenController implements Initializable {
         search();
     }
 
+    //Kode taken from https://stackoverflow.com/questions/13880638/how-do-i-pick-up-the-enter-key-being-pressed-in-javafx2
     @FXML
     void txtFieldSearchKeyPressHandler(KeyEvent event) {
-
+            if (event.getCode().toString().equals("ENTER"))
+            {
+                search();
+            }
     }
 
 

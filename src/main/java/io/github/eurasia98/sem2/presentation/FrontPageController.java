@@ -6,6 +6,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 
 import java.net.URL;
@@ -56,6 +57,17 @@ public class FrontPageController implements Initializable {
         App.setSearchField(txtFieldSearch.getText());
         App.switchScene("SearchScreen");
     }
+
+    //Kode taken from https://stackoverflow.com/questions/13880638/how-do-i-pick-up-the-enter-key-being-pressed-in-javafx2
+    @FXML
+    void txtFieldSearchKeyPressHandler(KeyEvent event) {
+        if (event.getCode().toString().equals("ENTER"))
+        {
+            App.setSearchField(txtFieldSearch.getText());
+            App.switchScene("SearchScreen");
+        }
+    }
+
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
