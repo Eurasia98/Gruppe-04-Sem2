@@ -23,16 +23,17 @@
       </ImageView>
       <VBox fx:id="vBoxAccount" layoutX="490.0" layoutY="10.0" prefHeight="50.0" prefWidth="100.0">
          <children>
-            <TextField fx:id="txtFieldAccount" />
+            <TextField fx:id="txtFieldAccount" editable="false" />
          </children>
       </VBox>
       <VBox layoutX="34.0" layoutY="138.0" prefHeight="200.0" prefWidth="120.0" spacing="5.0">
          <children>
-            <Button fx:id="btnCreateProducer" mnemonicParsing="false" onAction="#btnCreateProducerActionHandler" prefHeight="25.0" prefWidth="120.0" text="Opret Producer" textAlignment="RIGHT" />
-            <Button fx:id="btnCreateProduction" mnemonicParsing="false" onAction="#btnCreateProductionActionHandler" prefHeight="25.0" prefWidth="120.0" text="Opret Produktion" />
-            <Button fx:id="btnEditProduction" mnemonicParsing="false" onAction="#btnEditProductionActionHandler" prefHeight="25.0" prefWidth="120.0" text="Ændre Produktion" />
-            <Button fx:id="btnAddPerson" mnemonicParsing="false" onAction="#btnAddPersonHandler" prefHeight="25.0" prefWidth="129.0" text="Tilføj person" />
-            <Button fx:id="btnAddMovie" mnemonicParsing="false" onAction="#btnAddMovieHandler" prefHeight="25.0" prefWidth="150.0" text="Tilføj film" />
+            <Button fx:id="btnCreateProducer" managed="false" mnemonicParsing="false" onAction="#btnCreateProducerActionHandler" prefHeight="25.0" prefWidth="120.0" text="Opret Producer" textAlignment="RIGHT" visible="false" />
+            <Button fx:id="btnCreateProduction" managed="false" mnemonicParsing="false" onAction="#btnCreateProductionActionHandler" prefHeight="25.0" prefWidth="120.0" text="Opret Produktion" visible="false" />
+            <Button fx:id="btnEditProduction" managed="false" mnemonicParsing="false" onAction="#btnEditProductionActionHandler" prefHeight="25.0" prefWidth="120.0" text="Ændre Produktion" visible="false" />
+            <Button fx:id="btnAddPerson" managed="false" mnemonicParsing="false" onAction="#btnAddPersonActionHandler" prefHeight="25.0" prefWidth="129.0" text="Tilføj person" visible="false" />
+            <Button fx:id="btnAddMovie" managed="false" mnemonicParsing="false" onAction="#btnAddMovieActionHandler" prefHeight="25.0" prefWidth="150.0" text="Tilføj film" visible="false" />
+            <Button fx:id="btnMyCredits" managed="false" mnemonicParsing="false" onAction="#btnMyCreditsActionHandler" prefHeight="25.0" prefWidth="195.0" text="Mine krediteringer" visible="false" />
             <Button fx:id="btnLogOut" mnemonicParsing="false" onAction="#btnLogOutActionHandler" prefHeight="25.0" prefWidth="144.0" text="Log ud" />
          </children>
       </VBox>

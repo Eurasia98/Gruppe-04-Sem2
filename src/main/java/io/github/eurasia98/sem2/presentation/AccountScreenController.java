@@ -55,19 +55,22 @@ public class AccountScreenController implements Initializable {
     private Button btnLogOut;
 
     @FXML
-    public void ivLogoActionHandler(MouseEvent mouseEvent) {
+    private Button btnMyCredits;
+
+    @FXML
+    private void ivLogoActionHandler(MouseEvent mouseEvent) {
         App.switchScene("FrontPage");
     }
 
     @FXML
-    public void txtFieldSearchKeyPressHandler(KeyEvent event) {
+    private void txtFieldSearchKeyPressHandler(KeyEvent event) {
         if (event.getCode().toString().equals("ENTER")){
             ivSearchMouseClickHandler();
         }
     }
 
     @FXML
-    public void ivSearchMouseClickHandler() {
+    private void ivSearchMouseClickHandler() {
         if(!txtFieldSearch.getText().isEmpty()) {
             App.setSearchField(txtFieldSearch.getText());
             App.switchScene("searchScreen");
@@ -76,17 +79,17 @@ public class AccountScreenController implements Initializable {
     }
 
     @FXML
-    public void btnCreateProducerActionHandler(ActionEvent actionEvent) {
+    private void btnCreateProducerActionHandler(ActionEvent actionEvent) {
         App.switchScene("CreateProducerScreen");
     }
 
     @FXML
-    void btnCreateProductionActionHandler(ActionEvent event) {
+    private void btnCreateProductionActionHandler(ActionEvent event) {
         App.switchScene("CreateProductionScreen");
     }
 
     @FXML
-    void btnEditProductionActionHandler(ActionEvent event) {
+    private void btnEditProductionActionHandler(ActionEvent event) {
 
     }
 
@@ -99,13 +102,18 @@ public class AccountScreenController implements Initializable {
     }
 
     @FXML
-    private void btnAddMovieHandler(ActionEvent event) {
+    private void btnAddMovieActionHandler(ActionEvent event) {
         App.switchScene("CreateMovieScreen");
     }
 
     @FXML
-    private void btnAddPersonHandler(ActionEvent event) {
+    private void btnAddPersonActionHandler(ActionEvent event) {
         App.switchScene("CreatePersonScreen");
+    }
+
+    @FXML
+    private void btnMyCreditsActionHandler(ActionEvent event){
+//        App.switchScene("MyCreditsScreen");
     }
 
     @Override
@@ -119,5 +127,30 @@ public class AccountScreenController implements Initializable {
             }
         });
         vBoxAccount.getChildren().add(1, myPage);
+
+        switch (App.getUserInfo().get(1)){
+            case "System Administrator": {
+                btnCreateProducer.setManaged(true);
+                btnCreateProducer.setVisible(true);
+            }
+            case "Producer": {
+                btnEditProduction.setManaged(true);
+                btnEditProduction.setVisible(true);
+                btnCreateProduction.setManaged(true);
+                btnCreateProduction.setVisible(true);
+                btnAddPerson.setManaged(true);
+                btnAddPerson.setVisible(true);
+                btnAddMovie.setManaged(true);
+                btnAddMovie.setVisible(true);
+            }
+            case "Person": {
+                btnMyCredits.setManaged(true);
+                btnMyCredits.setVisible(true);
+            }
+            default: {
+                break;
+            }
+
+        }
     }
 }

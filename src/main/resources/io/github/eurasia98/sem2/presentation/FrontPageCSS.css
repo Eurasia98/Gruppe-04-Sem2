@@ -27,3 +27,8 @@
     -fx-text-box-border: transparent;
     -fx-background-color: transparent;
 }
+
+#txtFieldExport{
+    -fx-text-box-border: transparent;
+    -fx-background-color: transparent;
+}

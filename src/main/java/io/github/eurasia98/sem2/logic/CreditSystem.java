@@ -59,4 +59,11 @@ public class CreditSystem {
       ArrayList<Production> myProductions = databaseProductionManager.getMyProductions(account_id);
       return myProductions;
    }
+
+   public boolean exportData(){
+      if(ExportData.printFile(getCreditsToDisplay())){
+         return true;
+      }
+      return false;
+   }
 }
