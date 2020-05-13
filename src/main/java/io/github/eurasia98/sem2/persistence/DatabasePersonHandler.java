@@ -18,12 +18,14 @@ public class DatabasePersonHandler {
             databaseAccountHandler.insertAccount(personInfo); // gemmer data på en account i databasen
 
             PreparedStatement insertPersonStatement = connection.prepareStatement(
-                    "INSERT INTO persons(account_id, account_username, account_password, first_name, last_name) VALUES(?,?,?,?,?)");
+                    "INSERT INTO persons(account_id, account_username, account_password, " +
+                            "first_name, last_name, created_by) VALUES(?,?,?,?,?,?)");
             insertPersonStatement.setInt(1, getId(personInfo.get(0)));
             insertPersonStatement.setString( 2, personInfo.get(0));
             insertPersonStatement.setString(3, personInfo.get(1));
             insertPersonStatement.setString(4, personInfo.get(2));
             insertPersonStatement.setString(5, personInfo.get(3));
+            insertPersonStatement.setString(6, personInfo.get(4));
             insertPersonStatement.execute();
 
         } catch (SQLException throwables) {
@@ -87,7 +89,7 @@ public class DatabasePersonHandler {
     }
 
     // opretter et person objekt ud fra database info på account_id.
-    public ArrayList<String> getPerson(int account_id){
+    public ArrayList<String> getPersonInfo(int account_id){
         connection = DatabaseAccesHandler.getConnection();
         ArrayList<String> personInfoList = new ArrayList<>();
         try {
@@ -103,6 +105,7 @@ public class DatabasePersonHandler {
                 personInfoList.add(rs.getString(4));
                 personInfoList.add(rs.getString(5));
                 personInfoList.add(rs.getString(6));
+                personInfoList.add(rs.getString(7));
             }
 
             return personInfoList;
@@ -139,4 +142,45 @@ public class DatabasePersonHandler {
             throwables.printStackTrace();
         } return false;
     }*/
+
+    public ArrayList<String[]> getMyPersons(String username, int account_id){
+        connection = DatabaseAccesHandler.getConnection();
+        String[] personInfoArray;
+        ArrayList<String[]> personsInfo = new ArrayList<>();
+
+        try {
+            PreparedStatement getMyPersonsStatement = connection.prepareStatement(
+                    "SELECT * FROM persons WHERE created_by = ?");
+            getMyPersonsStatement.setString(1, username);
+            ResultSet rs = getMyPersonsStatement.executeQuery();
+
+            while (rs.next()){
+                personInfoArray = new String[]{rs.getString(2), rs.getString(5),
+                        rs.getString(6), getAmountOfCredits(account_id)};
+                personsInfo.add(personInfoArray);
+            }
+            return personsInfo;
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        } return null;
+    }
+
+    public String getAmountOfCredits(int account_id){
+        PreparedStatement getPersonsCreditsStatement = null;
+        try {
+            getPersonsCreditsStatement = connection.prepareStatement(
+                    "SELECT * FROM credits WHERE account_id = ?");
+            getPersonsCreditsStatement.setInt(1, account_id);
+
+            int amountOfCredits = 0;
+            ResultSet rs = getPersonsCreditsStatement.executeQuery();
+            while (rs.next()){
+                amountOfCredits++;
+            }
+
+            return Integer.toString(amountOfCredits);
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        } return null;
+    }
 }

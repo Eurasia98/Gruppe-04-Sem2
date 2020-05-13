@@ -34,6 +34,7 @@ public class CreditSystem {
       personInfo.add(password);
       personInfo.add(firstName);
       personInfo.add(lastName);
+      personInfo.add(account.getUsername());
       personManager.insertPerson(personInfo);
 
       DatabasePersonHandler databasePersonHandler = new DatabasePersonHandler();
@@ -48,6 +49,16 @@ public class CreditSystem {
 
       DatabaseMovieHandler databaseMovieHandler = new DatabaseMovieHandler();
       if (databaseMovieHandler.getTitle(productionId) != null){
+         return true;
+      } else return false;
+   }
+
+   public Boolean createNewTv_series(String title, String productionId, String series_id,String description) {
+      TvSeriesManager tvSeriesManager = new TvSeriesManager();
+      tvSeriesManager.insertTvSeries(new TvSeries(title, productionId, series_id, getAccount_id(),description));
+
+      DatabaseTvSeriesHandler databaseTvSeriesHandler = new DatabaseTvSeriesHandler();
+      if (databaseTvSeriesHandler.getTitle(productionId) != null){
          return true;
       } else return false;
    }
@@ -85,9 +96,14 @@ public class CreditSystem {
       return login.loginVerify(username, password);
    }
 
-   public ArrayList<String[]> showMyProductions(int account_id){
+   public ArrayList<String[]> showMyProductions(){
       ProductionManager productionManager = new ProductionManager();
-      return productionManager.getMyProductions(account_id);
+      return productionManager.getMyProductions(account.getId());
+   }
+
+   public ArrayList<String[]> showMyPersons(){
+      PersonManager personManager = new PersonManager();
+      return personManager.getMyPersons(account.getUsername(), account.getId());
    }
 
    public Boolean createNewCredit(int account_id, String production_id, String roleType, String roleName){

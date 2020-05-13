@@ -37,10 +37,11 @@ public class MyProductionsScreenController implements Initializable {
     void IVLogoHandler() {
         App.switchScene("FrontPage");
     }
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         ObservableList<ModelTableMyProductions> observableList = FXCollections.observableArrayList();
-        ArrayList<String[]> myproductions = App.getCreditSystem().showMyProductions(App.getCreditSystem().getAccount_id());
+        ArrayList<String[]> myproductions = App.getCreditSystem().showMyProductions();
         for (String[] s : myproductions){
             observableList.add(new ModelTableMyProductions(s[0], s[2], s[3]));
         }

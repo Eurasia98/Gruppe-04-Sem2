@@ -1,7 +1,6 @@
 package io.github.eurasia98.sem2.logic;
 
 import io.github.eurasia98.sem2.persistence.DatabasePersonHandler;
-import io.github.eurasia98.sem2.persistence.DatabaseProductionManager;
 
 import java.util.ArrayList;
 
@@ -61,8 +60,9 @@ public class Credit {
 
     public String toString(){
         DatabasePersonHandler databasePersonHandler = new DatabasePersonHandler();
-        ArrayList<String> personInfo = databasePersonHandler.getPerson(getAccount_id());
-        Person person = new Person(personInfo.get(2), personInfo.get(3), personInfo.get(4), personInfo.get(5));
+        ArrayList<String> personInfo = databasePersonHandler.getPersonInfo(getAccount_id());
+        Person person = new Person(personInfo.get(2), personInfo.get(3), personInfo.get(4),
+                personInfo.get(5), personInfo.get(7));
         return person.getFirstName() + " " + person.getLastName() + "\t" + getRoleType() + "\t" + getRoleName();
     }
 }

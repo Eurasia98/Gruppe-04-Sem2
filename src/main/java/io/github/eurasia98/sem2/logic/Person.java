@@ -8,15 +8,17 @@ public class Person extends Account {
     private String lastName;
     private String email;
     private ArrayList<Credit> myCreditsList;
+    private String created_by;
 
     public Person(String username, String password, String firstName, String lastName,
-                  String email, ArrayList<Credit> myCreditsList) {
+                  String email, ArrayList<Credit> myCreditsList, String created_by) {
         super(username, password);
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
         this.myCreditsList = myCreditsList;
         super.setAccountType("Person");
+        this.created_by = created_by;
     }
 
     public Person(String username, String password, String firstName, String lastName,
@@ -28,19 +30,12 @@ public class Person extends Account {
         super.setAccountType("Person");
     }
 
-    public Person(String username, String password, String firstName, String lastName, String email) {
-        super(username, password);
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.email = email;
-        super.setAccountType("Person");
-    }
-
-    public Person(String username, String password, String firstName, String lastName) {
+    public Person(String username, String password, String firstName, String lastName, String created_by) {
         super(username, password);
         this.firstName = firstName;
         this.lastName = lastName;
         super.setAccountType("Person");
+        this.created_by = created_by;
     }
 
 

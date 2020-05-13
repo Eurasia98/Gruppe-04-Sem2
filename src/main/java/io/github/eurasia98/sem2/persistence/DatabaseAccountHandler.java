@@ -30,7 +30,7 @@ public class DatabaseAccountHandler {
                     "INSERT INTO accounts(username, password, account_type) VALUES(?,?,?)");
             insertAccountStatement.setString(1, accountInfo.get(0));
             insertAccountStatement.setString(2, accountInfo.get(1));
-            insertAccountStatement.setString(3, accountInfo.get(4));
+            insertAccountStatement.setString(3, accountInfo.get(5));
             insertAccountStatement.execute();
 
         } catch (SQLException throwables) {
