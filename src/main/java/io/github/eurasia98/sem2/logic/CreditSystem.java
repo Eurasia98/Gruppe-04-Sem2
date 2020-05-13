@@ -73,4 +73,10 @@ public class CreditSystem {
       ProductionManager productionManager = new ProductionManager();
       return productionManager.getMyProductions(account_id);
    }
+
+   public Boolean createNewCredit(int account_id, String production_id, String roleType, String roleName){
+      CreditManager creditManager = new CreditManager();
+      creditManager.insertCredit(new Credit(account_id, production_id, roleType, roleName));
+      return true;
+   }
 }

@@ -31,7 +31,8 @@ public class DatabasePersonHandler {
         }
     }
 
-    // gemmer data på en person i databasen.
+    // gemmer data på en person i databasen. Er udkommenteret fordi den bryder 3-lags-arkitekter ved at modtage et
+    // objekt fra logik i persistence.
     /*public Boolean insertPerson(Person person){
         try {
             this.connection = DatabaseAccesHandler.getConnection();
@@ -106,6 +107,7 @@ public class DatabasePersonHandler {
 
             return personInfoList;
 
+            // Dette er udkommenteret fordi det bryder 3-lags-arkitektur ved at oprette objekter fra logik i persistence.
             /*PersonManager personManager = new PersonManager();
 
             while (rs.next()){
@@ -118,7 +120,8 @@ public class DatabasePersonHandler {
         } return null;
     }
 
-    // Resetter personIdCounter
+    // resetter personIdCounter. Lavet til at resette counter ved sletning af row i database, men er udkommenteret
+    // fordi at den kun vil have effekt hvis det er den seneste oprettede der bliver slettet.
     /*public Boolean resetIdCount(){
         connection = DatabaseAccesHandler.getConnection();
 

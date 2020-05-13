@@ -12,7 +12,25 @@ import java.util.ArrayList;
 public class DatabaseCreditsManager {
     private static Connection connection = null;
 
-    public Boolean insertCredit(Credit credit){
+    public void insertCredit(ArrayList<String> creditsInfo){
+        try {
+            this.connection = DatabaseAccesHandler.getConnection();
+
+            PreparedStatement insertCreditStatement = connection.prepareStatement("INSERT INTO credits(account_id, " +
+                    "production_id, role_type, role_name) VALUES(?,?,?,?) ");
+            insertCreditStatement.setInt(1, Integer.parseInt(creditsInfo.get(0)));
+            insertCreditStatement.setString(2, creditsInfo.get(1));
+            insertCreditStatement.setString(3, creditsInfo.get(2));
+            insertCreditStatement.setString(4, creditsInfo.get(3));
+
+            insertCreditStatement.execute();
+
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+    }
+
+    /*public Boolean insertCredit(Credit credit){
         try {
             this.connection = DatabaseAccesHandler.getConnection();
 
@@ -29,7 +47,7 @@ public class DatabaseCreditsManager {
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         } return false;
-    }
+    }*/
 
     public ArrayList<String[]> searchCredits(String productionId) {
         connection = DatabaseAccesHandler.getConnection();

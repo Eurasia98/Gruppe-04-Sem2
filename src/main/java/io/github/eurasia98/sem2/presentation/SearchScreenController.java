@@ -69,7 +69,7 @@ public class SearchScreenController implements Initializable {
     /*
          Finder alle titler der indeholder søge string
          og returnere en ArrayList med HyperLinks der
-         linker videre til credits displayal.
+         linker videre til visning af credits.
      */
     public ArrayList<Hyperlink> getHyperLinks(String searchString){
         ArrayList<Hyperlink> hyperlinkArrayList = new ArrayList<>();
