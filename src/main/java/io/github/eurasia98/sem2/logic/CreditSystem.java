@@ -77,8 +77,10 @@ public class CreditSystem {
       Login login = new Login();
 
       DatabaseAccountHandler databaseAccountHandler = new DatabaseAccountHandler();
-      ArrayList<String> accountInfo = databaseAccountHandler.getAccount(username);
-      account = new Account(Integer.parseInt(accountInfo.get(0)), accountInfo.get(1), accountInfo.get(2), accountInfo.get(3));
+      if (databaseAccountHandler.getAccount(username) != null ){
+         ArrayList<String> accountInfo = databaseAccountHandler.getAccount(username);
+         account = new Account(Integer.parseInt(accountInfo.get(0)), accountInfo.get(1), accountInfo.get(2), accountInfo.get(3));
+      }
 
       return login.loginVerify(username, password);
    }

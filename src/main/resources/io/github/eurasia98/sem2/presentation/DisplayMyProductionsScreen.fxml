@@ -15,8 +15,8 @@
       </ImageView>
       <TableView fx:id="TVMyProductions" layoutY="200.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="100.0">
         <columns>
-          <TableColumn fx:id="TVCTitle" prefWidth="194.4000244140625" text="Titel" />
-          <TableColumn fx:id="TVCProductionId" minWidth="0.0" prefWidth="181.5999755859375" text="produktions id" />
+          <TableColumn fx:id="TVCProduction_id" prefWidth="194.4000244140625" text="Produktions id" />
+          <TableColumn fx:id="TVCTitle" minWidth="0.0" prefWidth="181.5999755859375" text="Titel" />
             <TableColumn fx:id="TVCProductionType" prefWidth="221.5999755859375" text="Produktions type" />
         </columns>
       </TableView>

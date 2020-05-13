@@ -1,22 +1,14 @@
 package io.github.eurasia98.sem2.presentation;
 
 public class ModelTableMyProductions {
-    private String title;
     private String production_id;
+    private String title;
     private String production_type;
 
-    public ModelTableMyProductions(String title, String production_id, String production_type) {
-        this.title = title;
+    public ModelTableMyProductions(String production_id, String title, String production_type) {
         this.production_id = production_id;
-        this.production_type = production_type;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
         this.title = title;
+        this.production_type = production_type;
     }
 
     public String getProduction_id() {
@@ -25,6 +17,14 @@ public class ModelTableMyProductions {
 
     public void setProduction_id(String production_id) {
         this.production_id = production_id;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
     }
 
     public String getProduction_type() {

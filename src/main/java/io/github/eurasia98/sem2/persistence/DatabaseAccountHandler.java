@@ -85,17 +85,27 @@ public class DatabaseAccountHandler {
             verifyLoginStatement.setString(2, password);
             ResultSet rs = verifyLoginStatement.executeQuery();
 
-            if (!rs.next()){
+            while(rs.next()){
+                accountInfo.add(rs.getString(1));
+                accountInfo.add(rs.getString(2));
+                accountInfo.add(rs.getString(3));
+                accountInfo.add(rs.getString(4));
+            }
+
+            // har ændret nedenstående til ovenstående i et forsøg på at løse en login ting.
+            /*if (!rs.next()){
 //                accountInfo.add("Wrong username / password.");
 //                return accountInfo;
                 return Collections.emptyList();
             }
-            accountInfo = Arrays.asList(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4));
+            accountInfo = Arrays.asList(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4));*/
+
             return accountInfo;
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
-        return null;
+        // return null;
+        return Collections.emptyList();
 
     }
 

@@ -17,6 +17,7 @@ import java.util.ResourceBundle;
 public class MyProductionsScreenController implements Initializable {
 
 
+
     @FXML
     private ImageView IVLogo;
 
@@ -24,10 +25,10 @@ public class MyProductionsScreenController implements Initializable {
     private TableView<ModelTableMyProductions> TVMyProductions;
 
     @FXML
-    private TableColumn<ModelTableMyProductions, String> TVCTitle;
+    private TableColumn<ModelTableMyProductions, String> TVCProduction_id;
 
     @FXML
-    private TableColumn<ModelTableMyProductions, String> TVCProductionId;
+    private TableColumn<ModelTableMyProductions, String> TVCTitle;
 
     @FXML
     private TableColumn<ModelTableMyProductions, String> TVCProductionType;
@@ -36,9 +37,6 @@ public class MyProductionsScreenController implements Initializable {
     void IVLogoHandler() {
         App.switchScene("FrontPage");
     }
-
-
-
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         ObservableList<ModelTableMyProductions> observableList = FXCollections.observableArrayList();
@@ -47,8 +45,8 @@ public class MyProductionsScreenController implements Initializable {
             observableList.add(new ModelTableMyProductions(s[0], s[2], s[3]));
         }
 
+        TVCProduction_id.setCellValueFactory(new PropertyValueFactory<>("production_id"));
         TVCTitle.setCellValueFactory(new PropertyValueFactory<>("title"));
-        TVCProductionId.setCellValueFactory(new PropertyValueFactory<>("production_id"));
         TVCProductionType.setCellValueFactory(new PropertyValueFactory<>("production_type"));
 
         TVMyProductions.setItems(observableList);
