@@ -13,11 +13,6 @@ public class CreditSystem {
       return creditsToDisplay;
    }
 
-   public static void setCreditsToDisplay(String production_id) {
-      CreditManager creditManager = new CreditManager();
-      creditsToDisplay = creditManager.searchCredits(production_id);
-   }
-
    public Boolean availableUsername(String username) {
       AccountManager accountManager = new AccountManager();
       return accountManager.checkUsernameAvailability(username) == true;
@@ -56,6 +51,11 @@ public class CreditSystem {
          searchResultsMap.put(searchResult.getTitle(), searchResult.getProductionId());
       }
       return searchResultsMap;
+   }
+
+   public static void setCreditsToDisplay(String production_id) {
+      CreditManager creditManager = new CreditManager();
+      creditsToDisplay = creditManager.searchCredits(production_id);
    }
 
    public ArrayList<Credit> findCredits(SearchResults searchResults) {

@@ -96,12 +96,12 @@ public class DatabasePersonHandler {
             ResultSet rs = getPersonStatement.executeQuery();
 
             while (rs.next()){
-                personInfoList.add(rs.getString(0));
                 personInfoList.add(rs.getString(1));
                 personInfoList.add(rs.getString(2));
                 personInfoList.add(rs.getString(3));
                 personInfoList.add(rs.getString(4));
                 personInfoList.add(rs.getString(5));
+                personInfoList.add(rs.getString(6));
             }
 
             return personInfoList;
