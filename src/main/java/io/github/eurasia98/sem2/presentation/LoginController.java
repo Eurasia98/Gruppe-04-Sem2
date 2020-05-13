@@ -30,8 +30,6 @@ public class LoginController {
     @FXML
     private void btnLoginActionHandler () {
         List<String> verifyAccount = App.getCreditSystem().login(txtFieldUsername.getText(), pwField.getText());
-        System.out.println("Hej");
-        System.out.println(verifyAccount);
         if (verifyAccount.isEmpty()){
             txtFieldError.setText("Forkert brugernavn / password");
         }

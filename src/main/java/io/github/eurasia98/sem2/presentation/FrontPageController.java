@@ -71,9 +71,9 @@ public class FrontPageController implements Initializable {
 
     // Stores content of txtFieldSearch as a static variable in App
     @FXML
-    void ivSearchMouseClickHandler() {
-            App.setSearchField(txtFieldSearch.getText());
-            App.switchScene("SearchScreen");
+    private void ivSearchMouseClickHandler() {
+        App.setSearchField(txtFieldSearch.getText());
+        App.switchScene("SearchScreen");
     }
 
     // Enables search by pressing return key
@@ -89,6 +89,7 @@ public class FrontPageController implements Initializable {
         App.switchScene("MyCreditsScene");
     }
 
+    // Checks App.getUserInfo to see if there is an account stored there. Hides/Shows Login button and "Min side" hyperlink
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         if (!App.getUserInfo().isEmpty()){
@@ -103,6 +104,15 @@ public class FrontPageController implements Initializable {
                 }
             });
             vBoxAccount.getChildren().add(1, myPage);
+        }
+
+        else {
+            btnLogin.setVisible(true);
+            vBoxAccount.setVisible(false);
+            txtFieldAccount.clear();
+            if (vBoxAccount.getChildren().size() == 2){
+                vBoxAccount.getChildren().remove(1);
+            }
         }
 
     }

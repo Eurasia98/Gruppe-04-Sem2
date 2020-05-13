@@ -79,4 +79,11 @@ public class CreditSystem {
       creditManager.insertCredit(new Credit(account_id, production_id, roleType, roleName));
       return true;
    }
+
+   public boolean exportData(){
+      if(ExportData.printFile(getCreditsToDisplay())){
+         return true;
+      }
+      return false;
+   }
 }
