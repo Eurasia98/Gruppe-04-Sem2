@@ -12,6 +12,8 @@ public class MovieManager {
         ArrayList<String> movieInfo = new ArrayList<>();
         movieInfo.add(movie.getProductionID());
         movieInfo.add(movie.getTitle());
+        movieInfo.add(movie.getProductionType());
+        movieInfo.add(Integer.toString(movie.getOwner()));
         databaseMovieHandler.insertMovie(movieInfo);
     }
 }

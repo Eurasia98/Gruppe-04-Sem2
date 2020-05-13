@@ -1,8 +1,5 @@
 package io.github.eurasia98.sem2.logic;
 
-import java.time.LocalDate;
-import java.util.ArrayList;
-
 public class TvProgram extends Production {
 
     private String ext_id;
@@ -14,7 +11,7 @@ public class TvProgram extends Production {
     private String episode_number;
     private String distributor_episode_count;
 
-    public TvProgram(String productionID, int id, String title, String productionType, Account owner,
+    public TvProgram(String productionID, int id, String title, String productionType, int owner,
                      String description, int releaseYear, String ext_id, String productcode,
                      String aspect_ratio, String productionYear, String productionCountry, String series_id,
                      String episode_number, String distributor_episode_count) {

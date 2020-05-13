@@ -17,11 +17,12 @@ public class DatabaseProductionManager {
 
         try {
             PreparedStatement insertProductionStatement = connection.prepareStatement(
-                    "INSERT INTO productions(production_id, title, production_type) VALUES(?,?,?)");
+                    "INSERT INTO productions(production_id, title, production_type, owner_id) VALUES(?,?,?,?)");
 
             insertProductionStatement.setString(1, productionInfo.get(0));
             insertProductionStatement.setString(2, productionInfo.get(1));
             insertProductionStatement.setString(3, productionInfo.get(2));
+            insertProductionStatement.setInt(4, Integer.parseInt(productionInfo.get(3)));
 
             return insertProductionStatement.execute();
         } catch (SQLException throwables) {
@@ -81,12 +82,12 @@ public class DatabaseProductionManager {
 
         try {
             PreparedStatement getMyProductionsStatement = connection.prepareStatement(
-                    "SELECT * FROM productions WHERE owner = ?");
+                    "SELECT * FROM productions WHERE owner_id = ?");
             getMyProductionsStatement.setInt(1, account_id);
             ResultSet rs = getMyProductionsStatement.executeQuery();
             while (rs.next()){
-                productionInfoArray = new String[]{rs.getString(0), rs.getString(1),
-                rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5)};
+                productionInfoArray = new String[]{rs.getString(1), rs.getString(2),
+                        rs.getString(3), rs.getString(4), rs.getString(5)};
                 productionsInfo.add(productionInfoArray);
             }
             return productionsInfo;

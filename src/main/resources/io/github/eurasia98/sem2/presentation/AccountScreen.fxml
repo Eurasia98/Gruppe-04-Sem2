@@ -35,6 +35,7 @@
             <Button fx:id="btnAddMovie" managed="false" mnemonicParsing="false" onAction="#btnAddMovieActionHandler" prefHeight="25.0" prefWidth="150.0" text="Tilføj film" visible="false" />
             <Button fx:id="btnMyCredits" managed="false" mnemonicParsing="false" onAction="#btnMyCreditsActionHandler" prefHeight="25.0" prefWidth="195.0" text="Mine krediteringer" visible="false" />
             <Button fx:id="btnLogOut" mnemonicParsing="false" onAction="#btnLogOutActionHandler" prefHeight="25.0" prefWidth="144.0" text="Log ud" />
+            <Button fx:id="btnMyProductions" mnemonicParsing="false" onAction="#btnMyProductionsHandler" text="Mine produktioner" visible="false" />
          </children>
       </VBox>
    </children>

@@ -105,8 +105,32 @@ public class DatabaseAccountHandler {
 
         try {
             PreparedStatement getAccountStatement = connection.prepareStatement(
-                    "SELECT * FROM accounts WHERE account_id = ?");
+                    "SELECT * FROM accounts WHERE id = ?");
             getAccountStatement.setInt(1, account_id);
+
+            ResultSet rs = getAccountStatement.executeQuery();
+
+            while (rs.next()){
+                accountInfo.add(rs.getString(1));
+                accountInfo.add(rs.getString(2));
+                accountInfo.add(rs.getString(3));
+                accountInfo.add(rs.getString(4));
+            }
+
+            return accountInfo;
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        } return null;
+    }
+
+    public ArrayList<String> getAccount(String username){
+        connection = DatabaseAccesHandler.getConnection();
+        ArrayList<String> accountInfo = new ArrayList<>();
+
+        try {
+            PreparedStatement getAccountStatement = connection.prepareStatement(
+                    "SELECT * FROM accounts WHERE username = ?");
+            getAccountStatement.setString(1, username);
 
             ResultSet rs = getAccountStatement.executeQuery();
 

@@ -89,10 +89,6 @@ public class DisplayCreditsController implements Initializable {
         }
     }
 
-    private void displayCredits(){
-        txtAreaCreditsDisplay.appendText(App.getCreditSystem().getCreditsToDisplay());
-    }
-
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         displayCredits();
@@ -124,11 +120,13 @@ public class DisplayCreditsController implements Initializable {
                 vBoxAccount.getChildren().remove(1);
             }
         }
-    public void displayCredits(){
+    }
+
+    // Indsætter credits på scenen.
+    public void displayCredits() {
         ArrayList<String> creditsToDisplay = App.getCreditSystem().getCreditsToDisplay();
-        for (String credit : creditsToDisplay){
+        for (String credit : creditsToDisplay) {
             txtAreaCreditsDisplay.appendText(credit + "\n");
         }
     }
-
 }

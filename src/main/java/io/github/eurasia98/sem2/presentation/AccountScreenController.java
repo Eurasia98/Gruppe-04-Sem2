@@ -15,6 +15,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.ResourceBundle;
 
@@ -56,6 +57,9 @@ public class AccountScreenController implements Initializable {
 
     @FXML
     private Button btnMyCredits;
+
+    @FXML
+    private Button btnMyProductions;
 
     @FXML
     private void ivLogoActionHandler(MouseEvent mouseEvent) {
@@ -116,6 +120,11 @@ public class AccountScreenController implements Initializable {
 //        App.switchScene("MyCreditsScreen");
     }
 
+    @FXML
+    void btnMyProductionsHandler(ActionEvent event) {
+        App.switchScene("DisplayMyProductionsScreen");
+    }
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         txtFieldAccount.setText(App.getUserInfo().get(0));
@@ -132,6 +141,7 @@ public class AccountScreenController implements Initializable {
             case "System Administrator": {
                 btnCreateProducer.setManaged(true);
                 btnCreateProducer.setVisible(true);
+                break;
             }
             case "Producer": {
                 btnEditProduction.setManaged(true);
@@ -142,10 +152,14 @@ public class AccountScreenController implements Initializable {
                 btnAddPerson.setVisible(true);
                 btnAddMovie.setManaged(true);
                 btnAddMovie.setVisible(true);
+                btnMyProductions.setManaged(true);
+                btnMyProductions.setVisible(true);
+                break;
             }
             case "Person": {
                 btnMyCredits.setManaged(true);
                 btnMyCredits.setVisible(true);
+                break;
             }
             default: {
                 break;

@@ -12,7 +12,8 @@ public class ProductionManager {
         ArrayList<String> myProductionsList = new ArrayList<>();
 
         for (String[] s : myProductionsInfo){
-            myProductionsList.add(createMyProductions(s).toString());
+            Production production = createMyProductions(s);
+            myProductionsList.add(production.toString());
         }
 
         return myProductionsList;
@@ -21,8 +22,7 @@ public class ProductionManager {
     public Production createMyProductions(String[] productionInfo){
         AccountManager accountManager = new AccountManager();
         Production production = new Production(productionInfo[0], Integer.parseInt(productionInfo[1]), productionInfo[2],
-                productionInfo[3], accountManager.getAccount(Integer.parseInt(productionInfo[4])),
-                productionInfo[5], Integer.parseInt(productionInfo[6]));
+                productionInfo[3], accountManager.getAccount_id(Integer.parseInt(productionInfo[4])));
         return production;
     }
 }

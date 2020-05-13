@@ -8,9 +8,18 @@ import java.util.List;
 
 public class CreditSystem {
    private static ArrayList<String> creditsToDisplay;
+   private static Account account;
 
    public static ArrayList<String> getCreditsToDisplay() {
       return creditsToDisplay;
+   }
+
+   public static Account getAccount() {
+      return account;
+   }
+
+   public static int getAccount_id(){
+      return account.getId();
    }
 
    public Boolean availableUsername(String username) {
@@ -35,7 +44,7 @@ public class CreditSystem {
 
    public Boolean createNewMovie(String title, String productionId) {
       MovieManager movieManager = new MovieManager();
-      movieManager.insertMovie(new Movie(title, productionId));
+      movieManager.insertMovie(new Movie(title, productionId, getAccount_id()));
 
       DatabaseMovieHandler databaseMovieHandler = new DatabaseMovieHandler();
       if (databaseMovieHandler.getTitle(productionId) != null){
@@ -66,6 +75,11 @@ public class CreditSystem {
 
    public List<String> login(String username, String password) {
       Login login = new Login();
+
+      DatabaseAccountHandler databaseAccountHandler = new DatabaseAccountHandler();
+      ArrayList<String> accountInfo = databaseAccountHandler.getAccount(username);
+      account = new Account(Integer.parseInt(accountInfo.get(0)), accountInfo.get(1), accountInfo.get(2), accountInfo.get(3));
+
       return login.loginVerify(username, password);
    }
 

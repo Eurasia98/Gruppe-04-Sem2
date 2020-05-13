@@ -1,7 +1,5 @@
 package io.github.eurasia98.sem2.logic;
 
-import io.github.eurasia98.sem2.logic.Credit;
-
 import java.time.LocalDate;
 import java.util.ArrayList;
 
@@ -10,13 +8,13 @@ public class Production {
     private int id;
     private String title;
     private String productionType;
-    private Account owner;
+    private int owner;
     private String description;
     private int releaseYear;
     private LocalDate creationDate;
     private ArrayList<Credit> myCreditsList;
 
-    public Production(String productionID, int id, String title, String productionType, Account owner,
+    public Production(String productionID, int id, String title, String productionType, int owner,
                       String description, int releaseYear) {
         this.productionID = productionID;
         this.id = id;
@@ -31,6 +29,14 @@ public class Production {
     public Production(String title, String productionID) {
         this.title = title;
         this.productionID = productionID;
+    }
+
+    public Production(String productionID, int id, String title, String productionType, int owner) {
+        this.productionID = productionID;
+        this.id = id;
+        this.title = title;
+        this.productionType = productionType;
+        this.owner = owner;
     }
 
     public String getTitle() {
@@ -63,6 +69,22 @@ public class Production {
 
     public void setProductionType(String productionType) {
         this.productionType = productionType;
+    }
+
+    public int getOwner() {
+        return owner;
+    }
+
+    public void setOwner(int owner) {
+        this.owner = owner;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public int getReleaseYear() {
