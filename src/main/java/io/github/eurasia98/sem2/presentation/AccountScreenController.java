@@ -102,7 +102,7 @@ public class AccountScreenController implements Initializable {
     @FXML
     private void btnLogOutActionHandler(ActionEvent event){
         App.setUserInfo(Collections.emptyList());
-        App.getCreditSystem().login("", "");
+        // App.getCreditSystem().login("", "");
         App.switchScene("FrontPage");
     }
 

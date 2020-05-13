@@ -3,6 +3,7 @@ package io.github.eurasia98.sem2.persistence;
 import io.github.eurasia98.sem2.logic.Producer;
 
 import java.sql.*;
+import java.util.ArrayList;
 
 public class DatabaseProducerManager{
     static Connection connection = null;
@@ -33,6 +34,31 @@ public class DatabaseProducerManager{
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         } return false;
+    }
 
+    public ArrayList<String> getProducer(int account_id){
+        connection = DatabaseAccesHandler.getConnection();
+        ArrayList<String> producerInfo = new ArrayList<>();
+
+        try {
+            PreparedStatement getProducerStatement = connection.prepareStatement(
+                    "SELECT * FROM producers WHERE account_id = ?");
+            getProducerStatement.setInt(1, account_id);
+
+            ResultSet rs = getProducerStatement.executeQuery();
+
+            while (rs.next()){
+                producerInfo.add(rs.getString(1));
+                producerInfo.add(rs.getString(2));
+                producerInfo.add(rs.getString(3));
+                producerInfo.add(rs.getString(4));
+                producerInfo.add(rs.getString(5));
+                producerInfo.add(rs.getString(6));
+            }
+
+            return producerInfo;
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        } return null;
     }
 }
