@@ -83,7 +83,7 @@ public class CreditSystem {
       return login.loginVerify(username, password);
    }
 
-   public ArrayList<String> showMyProductions(int account_id){
+   public ArrayList<String[]> showMyProductions(int account_id){
       ProductionManager productionManager = new ProductionManager();
       return productionManager.getMyProductions(account_id);
    }

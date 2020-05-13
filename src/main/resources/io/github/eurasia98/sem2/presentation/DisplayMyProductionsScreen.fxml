@@ -1,17 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="io.github.eurasia98.sem2.presentation.MyProductionsScreenController">
    <children>
-      <TextArea fx:id="txtAreaDisplayMyProductions" layoutY="100.0" prefHeight="298.0" prefWidth="600.0" />
       <ImageView fx:id="IVLogo" fitHeight="150.0" fitWidth="200.0" layoutX="176.0" onMouseClicked="#IVLogoHandler" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@images/TV2_logo.png" />
          </image>
       </ImageView>
+      <TableView fx:id="TVMyProductions" layoutY="200.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="100.0">
+        <columns>
+          <TableColumn fx:id="TVCTitle" prefWidth="194.4000244140625" text="Titel" />
+          <TableColumn fx:id="TVCProductionId" minWidth="0.0" prefWidth="181.5999755859375" text="produktions id" />
+            <TableColumn fx:id="TVCProductionType" prefWidth="221.5999755859375" text="Produktions type" />
+        </columns>
+      </TableView>
    </children>
 </AnchorPane>
