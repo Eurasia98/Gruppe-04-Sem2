@@ -123,7 +123,7 @@ public class AccountScreenController implements Initializable {
 
     @FXML
     void btnMyProductionsHandler(ActionEvent event) {
-        App.switchScene("DisplayMyProductionsScreen");
+        App.switchScene("MyProductionsScreen");
     }
 
     @Override
@@ -142,7 +142,6 @@ public class AccountScreenController implements Initializable {
             case "System Administrator": {
                 btnCreateProducer.setManaged(true);
                 btnCreateProducer.setVisible(true);
-                break;
             }
             case "Producer": {
                 btnEditProduction.setManaged(true);
@@ -155,12 +154,10 @@ public class AccountScreenController implements Initializable {
                 btnMyPersons.setVisible(true);
                 btnMyProductions.setManaged(true);
                 btnMyProductions.setVisible(true);
-                break;
             }
             case "Person": {
                 btnMyCredits.setManaged(true);
                 btnMyCredits.setVisible(true);
-                break;
             }
             default: {
                 break;

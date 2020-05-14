@@ -58,6 +58,11 @@ public class Login {
 
         String accountType = accountArray.get(3);
         switch (accountType){
+            // Test SysAdmin
+            case "SystemAdministrator": {
+                account = new SystemAdministrator(Integer.parseInt(accountArray.get(0)), accountArray.get(1), accountArray.get(2), accountArray.get(3));
+                break;
+            }
             case "Producer": {
                 DatabaseProducerManager databaseProducerManager = new DatabaseProducerManager();
                 ArrayList<String> producerInfo = databaseProducerManager.getProducer(Integer.parseInt(accountArray.get(0)));
@@ -65,11 +70,6 @@ public class Login {
                         producerInfo.get(3), producerInfo.get(4), producerInfo.get(5));
 
                 account = producer;
-                break;
-            }
-            // Test SysAdmin
-            case "SystemAdministrator": {
-                account = new SystemAdministrator(Integer.parseInt(accountArray.get(0)), accountArray.get(1), accountArray.get(2), accountArray.get(3));
                 break;
             }
             case "Person": {

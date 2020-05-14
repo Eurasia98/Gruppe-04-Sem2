@@ -2,11 +2,10 @@ package io.github.eurasia98.sem2.presentation;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextArea;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
 
@@ -34,12 +33,95 @@ public class MyProductionsScreenController implements Initializable {
     private TableColumn<ModelTableMyProductions, String> TVCProductionType;
 
     @FXML
+    private Button btnEditProductionId;
+
+    @FXML
+    private Button btnEditTitle;
+
+    @FXML
+    private Button btnEditCredits;
+
+    @FXML
+    private Button btnMyPage;
+
+    @FXML
+    private TextField txtFieldCurrentProductionId;
+
+    @FXML
+    private TextField txtFieldNewId;
+
+    @FXML
+    private TextField txtFieldCurrentTitle;
+
+    @FXML
+    private TextField txtFieldNewTitle;
+
+    @FXML
+    private Button btnSaveChanges;
+
+    @FXML
+    private TextArea txtAreaDisplayInfo;
+
+    @FXML
     void IVLogoHandler() {
         App.switchScene("FrontPage");
     }
 
+    @FXML
+    void btnEditCreditsHandler(ActionEvent event) {
+        resetFields();
+    }
+
+    @FXML
+    void btnEditProductionIdHandler(ActionEvent event) {
+        resetFields();
+        // Object selectedItems = TVMyProductions.getSelectionModel().getSelectedItems().get(0);
+
+        txtFieldCurrentProductionId.setManaged(true);
+        txtFieldCurrentProductionId.setVisible(true);
+        txtFieldCurrentProductionId.setText(TVMyProductions.getSelectionModel().getSelectedItems().get(0).getProduction_id());
+
+        txtFieldNewId.setManaged(true);
+        txtFieldNewId.setVisible(true);
+
+
+    }
+
+    @FXML
+    void btnEditTitleHandler(ActionEvent event) {
+        resetFields();
+
+        txtFieldCurrentTitle.setManaged(true);
+        txtFieldCurrentTitle.setVisible(true);
+        txtFieldCurrentTitle.setText(TVMyProductions.getSelectionModel().getSelectedItems().get(0).getTitle());
+
+        txtFieldNewTitle.setManaged(true);
+        txtFieldNewTitle.setVisible(true);
+    }
+
+    @FXML
+    void btnMyPageHandler(ActionEvent event) {
+        resetFields();
+        App.switchScene("AccountScreen");
+    }
+
+    @FXML
+    void btnSaveChangesHandler(ActionEvent event) {
+        if (!txtFieldNewId.getText().isEmpty()){
+            if (App.getCreditSystem().editProductionId(txtFieldCurrentProductionId.getText(), txtFieldNewId.getText()) == true){
+                txtAreaDisplayInfo.appendText("Ændringen er blevet gemt. ");
+            } else txtAreaDisplayInfo.appendText("Ændringen blev ikke gemt, der skete desværre en fejl. ");
+        } else if (!txtFieldNewTitle.getText().isEmpty()){
+
+        }
+
+        resetFields();
+    }
+
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        resetFields();
         ObservableList<ModelTableMyProductions> observableList = FXCollections.observableArrayList();
         ArrayList<String[]> myproductions = App.getCreditSystem().showMyProductions();
         for (String[] s : myproductions){
@@ -51,5 +133,16 @@ public class MyProductionsScreenController implements Initializable {
         TVCProductionType.setCellValueFactory(new PropertyValueFactory<>("production_type"));
 
         TVMyProductions.setItems(observableList);
+    }
+
+    private void resetFields(){
+        txtFieldCurrentProductionId.clear();
+        txtFieldCurrentProductionId.setVisible(false);
+        txtFieldNewId.clear();
+        txtFieldNewId.setVisible(false);
+        txtFieldCurrentTitle.clear();
+        txtFieldCurrentTitle.setVisible(false);
+        txtFieldNewTitle.clear();
+        txtFieldNewTitle.setVisible(false);
     }
 }

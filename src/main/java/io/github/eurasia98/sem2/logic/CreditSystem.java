@@ -112,6 +112,16 @@ public class CreditSystem {
       return true;
    }
 
+   public Boolean editProductionId(String oldProductionId, String newProductionId){
+      DatabaseProductionManager databaseProductionManager = new DatabaseProductionManager();
+      ArrayList<String> productionInfo = databaseProductionManager.getProduction(oldProductionId);
+
+      if (account.getId() == Integer.parseInt(productionInfo.get(4))){
+         return databaseProductionManager.editProductionId(oldProductionId, newProductionId);
+      }
+      return false;
+   }
+
    public boolean exportData(){
       if(ExportData.printFile(getCreditsToDisplay())){
          return true;
