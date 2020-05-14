@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="io.github.eurasia98.sem2.presentation.EditMyCreditsScreenController">
+   <children>
+      <ImageView fx:id="IVLogo" fitHeight="63.0" fitWidth="200.0" onDragDetected="#IVLogoHandler" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/TV2_logo.png" />
+         </image>
+      </ImageView>
+      <Button fx:id="btnMyPage" layoutX="517.0" layoutY="14.0" mnemonicParsing="false" onAction="#btnMyPageHandler" text="Min side" />
+      <Button fx:id="btnAddCredit" layoutX="8.0" layoutY="316.0" mnemonicParsing="false" onAction="#btnAddCreditHandler" text="Tilføj kreditering" />
+      <Button fx:id="btnSaveChanges" layoutX="493.0" layoutY="316.0" mnemonicParsing="false" onAction="#btnSaveChangesHandler" text="Gem ændringer" />
+      <TableView fx:id="TVMyCredits" layoutY="70.0" prefHeight="246.0" prefWidth="600.0">
+        <columns>
+          <TableColumn fx:id="TVCFirstname" prefWidth="75.0" text="Fornavn" />
+          <TableColumn fx:id="TVCLastname" prefWidth="58.4000244140625" text="Efternavn" />
+            <TableColumn fx:id="TVCUserId" prefWidth="61.5999755859375" text="Bruger id" />
+            <TableColumn fx:id="TVCTitle" prefWidth="124.79998779296875" text="Produktions Titel" />
+            <TableColumn fx:id="TVCProductionType" prefWidth="107.20001220703125" text="Produktionstype" />
+            <TableColumn fx:id="TVCRoleType" prefWidth="77.60003662109375" text="Rolle" />
+            <TableColumn fx:id="TVCRoleName" prefWidth="112.79998779296875" text="Rollenavn" />
+        </columns>
+      </TableView>
+      <HBox layoutX="7.0" layoutY="366.0" prefHeight="26.0" prefWidth="586.0">
+         <children>
+            <TextField fx:id="txtFieldCurrentFirstname" promptText="Nuværende Fornavn" visible="false" />
+            <TextField fx:id="txtFieldNewFirstname" promptText="Nyt fornavn" visible="false" />
+            <TextField fx:id="txtFieldCurrentLastname" promptText="Nuværende efternavn" visible="false" />
+            <TextField fx:id="txtFieldNewLastname" promptText="Nyt efternavn" visible="false" />
+            <TextField fx:id="txtFieldCurrentUserId" promptText="Nuværende bruger id" visible="false" />
+            <TextField fx:id="txtFieldNewUserId" promptText="Nyt bruger id" visible="false" />
+            <TextField fx:id="txtFieldCurrentTitle" promptText="Nuværende produktions titel" visible="false" />
+            <TextField fx:id="txtFieldNewTitle" promptText="Ny produktions titel" visible="false" />
+            <TextField fx:id="txtFieldCurrentRoleType" promptText="Nuværende rolle" visible="false" />
+            <TextField fx:id="txtFieldNewRole" promptText="Ny rolle" visible="false" />
+            <TextField fx:id="txtFieldCurrentRolename" promptText="Nuværende rollenavn" visible="false" />
+            <TextField fx:id="txtFieldNewRolename" promptText="Nyt rollenavn" visible="false" />
+            <TextField fx:id="txtFieldCreateFirstname" promptText="Indsæt fornavn" visible="false" />
+            <TextField fx:id="txtFieldCreateLastname" promptText="Indsæt efternavn" visible="false" />
+            <TextField fx:id="txtFieldCreateAccountId" promptText="Indsæt eksisterende bruger id" visible="false" />
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>
