@@ -122,11 +122,15 @@ public class CreditSystem {
       return false;
    }
 
+   public Boolean editTitle(String newTitle, String production_id){
+      DatabaseProductionManager databaseProductionManager = new DatabaseProductionManager();
+      return databaseProductionManager.editProductionTitle(newTitle, production_id);
+   }
+
    public boolean exportData(){
       if(ExportData.printFile(getCreditsToDisplay())){
          return true;
       }
       return false;
    }
-
 }

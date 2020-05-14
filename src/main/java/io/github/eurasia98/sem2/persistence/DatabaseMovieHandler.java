@@ -151,4 +151,20 @@ public class DatabaseMovieHandler {
             throwables.printStackTrace();
         }
     }
+
+    public Boolean editTitle(String newTitle, String production_id){
+        connection = DatabaseAccesHandler.getConnection();
+
+        try {
+            PreparedStatement editTitleStatement = connection.prepareStatement(
+                    "UPDATE movies SET movie_title = ? WHERE production_id = ?");
+            editTitleStatement.setString(1, newTitle);
+            editTitleStatement.setString(2, production_id);
+
+            editTitleStatement.execute();
+            return true;
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        } return false;
+    }
 }

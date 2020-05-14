@@ -1,6 +1,7 @@
 package io.github.eurasia98.sem2.persistence;
 
 import javafx.scene.chart.PieChart;
+import javafx.scene.chart.XYChart;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -130,7 +131,35 @@ public class DatabaseProductionManager {
                         throwables.printStackTrace();
                     }
                 }
+            break;
+            case "TvSeries":
+                break;
+            case "TvProgram":
+                break;
         } return false;
+    }
+
+    public Boolean editProductionTitle(String newTitle, String production_id){
+        connection = DatabaseAccesHandler.getConnection();
+        String productionType = getProductionType(production_id);
+
+        switch (productionType){
+            case "Movie":
+                DatabaseMovieHandler databaseMovieHandler = new DatabaseMovieHandler();
+                if (databaseMovieHandler.editTitle(newTitle, production_id) == true ){
+                    try {
+                        PreparedStatement editProductionTitle = connection.prepareStatement(
+                                "UPDATE productions SET title = ? WHERE production_id = ?");
+                        editProductionTitle.setString(1, newTitle);
+                        editProductionTitle.setString(2, production_id);
+                        editProductionTitle.execute();
+                        return true;
+                    } catch (SQLException throwables) {
+                        throwables.printStackTrace();
+                    }
+                }
+        }
+        return false;
     }
 
     private String getProductionType(String production_id){
