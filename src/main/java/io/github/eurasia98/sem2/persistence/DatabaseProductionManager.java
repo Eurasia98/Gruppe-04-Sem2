@@ -43,10 +43,11 @@ public class DatabaseProductionManager {
 
             while (rs.next()){
                 productionInfo.add(rs.getString(1));
-                productionInfo.add(rs.getString(2));
+                productionInfo.add(Integer.toString(rs.getInt(2)));
                 productionInfo.add(rs.getString(3));
                 productionInfo.add(rs.getString(4));
-                productionInfo.add(rs.getString(5));
+                productionInfo.add(Integer.toString(rs.getInt(5)));
+                productionInfo.add(rs.getString(6));
             }
 
             return productionInfo;

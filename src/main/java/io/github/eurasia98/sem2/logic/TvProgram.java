@@ -9,6 +9,6 @@ public class TvProgram extends Production {
     private String distributor_episode_count;
 
     public TvProgram(String productionID, int id, String title, String productionType, int owner, String description, int releaseYear) {
-        super(productionID, id, title, productionType, owner, description, releaseYear);
+        super(productionID, id, title, productionType, owner, description);
     }
 }

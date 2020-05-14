@@ -127,6 +127,29 @@ public class CreditSystem {
       return databaseProductionManager.editProductionTitle(newTitle, production_id);
    }
 
+   public ArrayList<String> getProductionInfo(String productionId){
+      DatabaseProductionManager databaseProductionManager = new DatabaseProductionManager();
+      return databaseProductionManager.getProduction(productionId);
+   }
+
+   public ArrayList<String[]> getCreditsInfo(String productionId){
+      DatabaseCreditsManager databaseCreditsManager = new DatabaseCreditsManager();
+      DatabasePersonHandler databasePersonHandler = new DatabasePersonHandler();
+      DatabaseProductionManager databaseProductionManager = new DatabaseProductionManager();
+
+      ArrayList<String> productionInfo = databaseProductionManager.getProduction(productionId);
+      ArrayList<String[]> finalInfoList = new ArrayList<>();
+      ArrayList<String[]> creditsInfo = databaseCreditsManager.getCreditsInfo(productionId);
+      for (String[] s : creditsInfo){
+         ArrayList<String> getPersonInfo = databasePersonHandler.getPersonToEditMyCredits(Integer.parseInt(s[0]));
+         finalInfoList.add(new String[]{getPersonInfo.get(1), getPersonInfo.get(2),
+                 getPersonInfo.get(0), productionInfo.get(2), productionInfo.get(3),
+                 s[1], s[2]});
+      }
+
+      return finalInfoList;
+   }
+
    public boolean exportData(){
       if(ExportData.printFile(getCreditsToDisplay())){
          return true;

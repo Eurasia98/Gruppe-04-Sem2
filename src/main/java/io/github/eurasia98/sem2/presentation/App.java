@@ -20,7 +20,15 @@ public class App extends Application{
     private static CreditSystem creditSystem = new CreditSystem();
     private static List<String> userInfo = new ArrayList<>();
     private static String searchField;
+    private static String selectedCreditToEdit;
 
+    public static String getSelectedCreditToEdit() {
+        return selectedCreditToEdit;
+    }
+
+    public static void setSelectedCreditToEdit(String selectedCreditToEdit) {
+        App.selectedCreditToEdit = selectedCreditToEdit;
+    }
 
     public static String getSearchField() {
         return searchField;

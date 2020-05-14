@@ -70,6 +70,8 @@ public class MyProductionsScreenController implements Initializable {
     @FXML
     void btnEditCreditsHandler(ActionEvent event) {
         resetFields();
+        App.setSelectedCreditToEdit(TVMyProductions.getSelectionModel().getSelectedItems().get(0).getProduction_id());
+        App.switchScene("EditMyCreditsScreen");
     }
 
     @FXML
@@ -125,8 +127,8 @@ public class MyProductionsScreenController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         resetFields();
         ObservableList<ModelTableMyProductions> observableList = FXCollections.observableArrayList();
-        ArrayList<String[]> myproductions = App.getCreditSystem().showMyProductions();
-        for (String[] s : myproductions){
+        ArrayList<String[]> myProductions = App.getCreditSystem().showMyProductions();
+        for (String[] s : myProductions){
             observableList.add(new ModelTableMyProductions(s[0], s[2], s[3]));
         }
 

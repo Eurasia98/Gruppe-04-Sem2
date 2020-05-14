@@ -143,7 +143,7 @@ public class DatabasePersonHandler {
         } return false;
     }*/
 
-    public ArrayList<String[]> getMyPersons(String username, int account_id){
+    public ArrayList<String[]> getMyPersons(String ownerUsername, int personAccountId){
         connection = DatabaseAccesHandler.getConnection();
         String[] personInfoArray;
         ArrayList<String[]> personsInfo = new ArrayList<>();
@@ -151,12 +151,12 @@ public class DatabasePersonHandler {
         try {
             PreparedStatement getMyPersonsStatement = connection.prepareStatement(
                     "SELECT * FROM persons WHERE created_by = ?");
-            getMyPersonsStatement.setString(1, username);
+            getMyPersonsStatement.setString(1, ownerUsername);
             ResultSet rs = getMyPersonsStatement.executeQuery();
 
             while (rs.next()){
                 personInfoArray = new String[]{rs.getString(2), rs.getString(5),
-                        rs.getString(6), getAmountOfCredits(account_id)};
+                        rs.getString(6), getAmountOfCredits(personAccountId)};
                 personsInfo.add(personInfoArray);
             }
             return personsInfo;
@@ -179,6 +179,28 @@ public class DatabasePersonHandler {
             }
 
             return Integer.toString(amountOfCredits);
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        } return null;
+    }
+
+    // Returnere ArrayList<String[]> hver hvert StringArray indeholder firstname, lastname og accountid.
+    public ArrayList<String> getPersonToEditMyCredits(int accountId) {
+        connection = DatabaseAccesHandler.getConnection();
+        ArrayList<String> personsToEditList = new ArrayList<>();
+
+        try {
+            PreparedStatement getPersonsStatement = connection.prepareStatement(
+                    "SELECT first_name, last_name FROM persons WHERE account_id = ?");
+            getPersonsStatement.setInt(1, accountId);
+            ResultSet getPersonsResults = getPersonsStatement.executeQuery();
+
+            while (getPersonsResults.next()){
+                personsToEditList.add(Integer.toString(accountId));
+                personsToEditList.add(getPersonsResults.getString(1));
+                personsToEditList.add(getPersonsResults.getString(2));
+            }
+            return personsToEditList;
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         } return null;

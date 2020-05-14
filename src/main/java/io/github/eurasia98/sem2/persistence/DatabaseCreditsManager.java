@@ -71,4 +71,24 @@ public class DatabaseCreditsManager {
             throwables.printStackTrace();
         } return null;
     }
+
+    public ArrayList<String[]> getCreditsInfo(String productionId) {
+        connection = DatabaseAccesHandler.getConnection();
+        ArrayList<String[]> creditsInfoList = new ArrayList<>();
+        try {
+            PreparedStatement getCreditsInfo = connection.prepareStatement(
+                    "SELECT account_id, role_type, role_name FROM credits WHERE production_id = ?");
+            getCreditsInfo.setString(1, productionId);
+
+            ResultSet creditsResultSet = getCreditsInfo.executeQuery();
+            while (creditsResultSet.next()){
+                creditsInfoList.add(new String[]{Integer.toString(creditsResultSet.getInt(1)),
+                        creditsResultSet.getString(2), creditsResultSet.getString(3)});
+            }
+
+            return creditsInfoList;
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        } return null;
+    }
 }
