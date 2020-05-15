@@ -22,7 +22,23 @@ public class DatabaseAccountHandler {
         } return false;
     }
 
-    public Boolean insertAccount(Account account){
+    public void insertAccount(ArrayList<String> accountInfo){
+        try {
+            this.connection = DatabaseAccesHandler.getConnection();
+
+            PreparedStatement insertAccountStatement = connection.prepareStatement(
+                    "INSERT INTO accounts(username, password, account_type) VALUES(?,?,?)");
+            insertAccountStatement.setString(1, accountInfo.get(0));
+            insertAccountStatement.setString(2, accountInfo.get(1));
+            insertAccountStatement.setString(3, accountInfo.get(5));
+            insertAccountStatement.execute();
+
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+    }
+
+    /*public Boolean insertAccount(Account account){
         try {
             this.connection = DatabaseAccesHandler.getConnection();
 
@@ -36,7 +52,7 @@ public class DatabaseAccountHandler {
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         } return false;
-    }
+    }*/
 
     // resetter idCounter
     /*public Boolean resetIdCount(){
@@ -69,17 +85,75 @@ public class DatabaseAccountHandler {
             verifyLoginStatement.setString(2, password);
             ResultSet rs = verifyLoginStatement.executeQuery();
 
-            if (!rs.next()){
+            while(rs.next()){
+                accountInfo.add(rs.getString(1));
+                accountInfo.add(rs.getString(2));
+                accountInfo.add(rs.getString(3));
+                accountInfo.add(rs.getString(4));
+            }
+
+            // har ændret nedenstående til ovenstående i et forsøg på at løse en login ting.
+            /*if (!rs.next()){
 //                accountInfo.add("Wrong username / password.");
 //                return accountInfo;
                 return Collections.emptyList();
             }
-            accountInfo = Arrays.asList(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4));
+            accountInfo = Arrays.asList(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4));*/
+
             return accountInfo;
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
-        return null;
+        // return null;
+        return Collections.emptyList();
 
+    }
+
+    public ArrayList<String> getAccount(int account_id){
+        connection = DatabaseAccesHandler.getConnection();
+        ArrayList<String> accountInfo = new ArrayList<>();
+
+        try {
+            PreparedStatement getAccountStatement = connection.prepareStatement(
+                    "SELECT * FROM accounts WHERE id = ?");
+            getAccountStatement.setInt(1, account_id);
+
+            ResultSet rs = getAccountStatement.executeQuery();
+
+            while (rs.next()){
+                accountInfo.add(rs.getString(1));
+                accountInfo.add(rs.getString(2));
+                accountInfo.add(rs.getString(3));
+                accountInfo.add(rs.getString(4));
+            }
+
+            return accountInfo;
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        } return null;
+    }
+
+    public ArrayList<String> getAccount(String username){
+        connection = DatabaseAccesHandler.getConnection();
+        ArrayList<String> accountInfo = new ArrayList<>();
+
+        try {
+            PreparedStatement getAccountStatement = connection.prepareStatement(
+                    "SELECT * FROM accounts WHERE username = ?");
+            getAccountStatement.setString(1, username);
+
+            ResultSet rs = getAccountStatement.executeQuery();
+
+            while (rs.next()){
+                accountInfo.add(rs.getString(1));
+                accountInfo.add(rs.getString(2));
+                accountInfo.add(rs.getString(3));
+                accountInfo.add(rs.getString(4));
+            }
+
+            return accountInfo;
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        } return null;
     }
 }

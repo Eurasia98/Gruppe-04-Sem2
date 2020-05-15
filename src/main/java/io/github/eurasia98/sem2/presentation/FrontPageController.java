@@ -25,6 +25,12 @@ public class FrontPageController implements Initializable {
     private ImageView ivLogo;
 
     @FXML
+    private Button btnAddMovie;
+
+    @FXML
+    private Button btnAddPerson;
+
+    @FXML
     private TextField txtFieldSearch;
 
     @FXML
@@ -36,6 +42,20 @@ public class FrontPageController implements Initializable {
     @FXML
     private VBox vBoxAccount;
 
+    @FXML
+    private Button btnMyCredits;
+
+    // Move to account control
+    @FXML
+    private void btnAddMovieHandler(ActionEvent event) {
+        App.switchScene("CreateMovieScreen");
+    }
+
+    // Move to account control
+    @FXML
+    private void btnAddPersonHandler(ActionEvent event) {
+        App.switchScene("CreatePersonScreen");
+    }
 
     // Switches to login screen
     @FXML
@@ -62,6 +82,11 @@ public class FrontPageController implements Initializable {
         if (event.getCode().toString().equals("ENTER")){
             ivSearchMouseClickHandler();
         }
+    }
+
+    @FXML
+    void btnMyCreditsHandler(ActionEvent event) {
+        App.switchScene("MyCreditsScene");
     }
 
     // Checks App.getUserInfo to see if there is an account stored there. Hides/Shows Login button and "Min side" hyperlink

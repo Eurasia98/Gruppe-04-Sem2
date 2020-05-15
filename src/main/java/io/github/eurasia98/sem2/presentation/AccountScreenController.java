@@ -15,6 +15,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.ResourceBundle;
 
@@ -39,8 +40,6 @@ public class AccountScreenController implements Initializable {
     @FXML
     private Button btnEditProduction;
 
-    @FXML
-    private Button btnAddMovie;
 
     @FXML
     private Button btnAddPerson;
@@ -56,6 +55,12 @@ public class AccountScreenController implements Initializable {
 
     @FXML
     private Button btnMyCredits;
+
+    @FXML
+    private Button btnMyProductions;
+
+    @FXML
+    private Button btnMyPersons;
 
     @FXML
     private void ivLogoActionHandler(MouseEvent mouseEvent) {
@@ -97,13 +102,8 @@ public class AccountScreenController implements Initializable {
     @FXML
     private void btnLogOutActionHandler(ActionEvent event){
         App.setUserInfo(Collections.emptyList());
-        App.getCreditSystem().login("", "");
+        // App.getCreditSystem().login("", "");
         App.switchScene("FrontPage");
-    }
-
-    @FXML
-    private void btnAddMovieActionHandler(ActionEvent event) {
-        App.switchScene("CreateMovieScreen");
     }
 
     @FXML
@@ -114,6 +114,16 @@ public class AccountScreenController implements Initializable {
     @FXML
     private void btnMyCreditsActionHandler(ActionEvent event){
 //        App.switchScene("MyCreditsScreen");
+    }
+
+    @FXML
+    void btnMyPersonsHandler(ActionEvent event) {
+        App.switchScene("MyPersonsScreen");
+    }
+
+    @FXML
+    void btnMyProductionsHandler(ActionEvent event) {
+        App.switchScene("MyProductionsScreen");
     }
 
     @Override
@@ -140,8 +150,10 @@ public class AccountScreenController implements Initializable {
                 btnCreateProduction.setVisible(true);
                 btnAddPerson.setManaged(true);
                 btnAddPerson.setVisible(true);
-                btnAddMovie.setManaged(true);
-                btnAddMovie.setVisible(true);
+                btnMyPersons.setManaged(true);
+                btnMyPersons.setVisible(true);
+                btnMyProductions.setManaged(true);
+                btnMyProductions.setVisible(true);
             }
             case "Person": {
                 btnMyCredits.setManaged(true);

@@ -2,20 +2,20 @@ package io.github.eurasia98.sem2.logic;
 
 public class Account {
 
-    private int userId;
+    private int id;
     private String username;
     private String password;
     private String accountType;
 
-    public Account(int userId, String username, String password, String accountType) {
-        this.userId = userId;
+    public Account(int id, String username, String password, String accountType) {
+        this.id = id;
         this.username = username;
         this.password = password;
         this.accountType = accountType;
     }
 
-    public Account(int userId, String username, String password) {
-        this.userId = userId;
+    public Account(int id, String username, String password) {
+        this.id = id;
         this.username = username;
         this.password = password;
     }
@@ -38,7 +38,7 @@ public class Account {
         return accountType;
     }
 
-    public int getUserId(){ return userId; }
+    public int getId(){ return id; }
 
     public void setUsername(String username) { this.username = username; }
 

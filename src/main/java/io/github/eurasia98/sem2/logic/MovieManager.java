@@ -2,16 +2,18 @@ package io.github.eurasia98.sem2.logic;
 
 import io.github.eurasia98.sem2.persistence.DatabaseMovieHandler;
 
+import java.util.ArrayList;
+
 public class MovieManager {
     public MovieManager(){}
 
-    public Movie createMovie(String title, String productionId){
-        Movie movie = new Movie(title, productionId);
-        return movie;
-    }
-
-    public Boolean insertMovie(Movie movie){
+    public void insertMovie(Movie movie){
         DatabaseMovieHandler databaseMovieHandler = new DatabaseMovieHandler();
-        return databaseMovieHandler.insertMovie(movie);
+        ArrayList<String> movieInfo = new ArrayList<>();
+        movieInfo.add(movie.getProductionID());
+        movieInfo.add(movie.getTitle());
+        movieInfo.add(movie.getProductionType());
+        movieInfo.add(Integer.toString(movie.getOwner()));
+        databaseMovieHandler.insertMovie(movieInfo);
     }
 }

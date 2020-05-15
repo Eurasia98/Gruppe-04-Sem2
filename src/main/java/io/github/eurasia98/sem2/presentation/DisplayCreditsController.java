@@ -14,6 +14,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 
@@ -88,10 +89,6 @@ public class DisplayCreditsController implements Initializable {
         }
     }
 
-    private void displayCredits(){
-        txtAreaCreditsDisplay.appendText(App.getCreditSystem().getCreditsToDisplay());
-    }
-
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         displayCredits();
@@ -125,4 +122,11 @@ public class DisplayCreditsController implements Initializable {
         }
     }
 
+    // Indsætter credits på scenen.
+    public void displayCredits() {
+        ArrayList<String> creditsToDisplay = App.getCreditSystem().getCreditsToDisplay();
+        for (String credit : creditsToDisplay) {
+            txtAreaCreditsDisplay.appendText(credit + "\n");
+        }
+    }
 }

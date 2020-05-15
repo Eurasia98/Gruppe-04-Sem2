@@ -4,9 +4,10 @@ public class Movie extends Production {
     private String production_fk_id;
     private int movie_id;
 
-    public Movie(String title, String productionID){
+    public Movie(String title, String productionID, int owner_id){
         super(title, productionID);
         super.setProductionType("Movie");
+        super.setOwner(owner_id);
     }
 
     public String getProduction_fk_id() {

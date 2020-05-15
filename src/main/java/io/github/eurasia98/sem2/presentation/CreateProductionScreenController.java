@@ -3,6 +3,7 @@ package io.github.eurasia98.sem2.presentation;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.image.ImageView;
 
 public class CreateProductionScreenController {
     @FXML
@@ -13,6 +14,14 @@ public class CreateProductionScreenController {
 
     @FXML
     private Button btnCreateTvShow;
+
+    @FXML
+    private ImageView IVLogo;
+
+    @FXML
+    void IVLogoHandler() {
+        App.switchScene("FrontPage");
+    }
 
     @FXML
     void btnCreateMovieHandler(ActionEvent event) {
@@ -26,6 +35,6 @@ public class CreateProductionScreenController {
 
     @FXML
     void btnCreateTvShowHandler(ActionEvent event) {
-        App.switchScene("CreateTvShowScreen");
+        App.switchScene("CreateTvSeriesScreen");
     }
 }

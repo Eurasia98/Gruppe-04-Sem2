@@ -1,15 +1,25 @@
 package io.github.eurasia98.sem2.logic;
 
 import io.github.eurasia98.sem2.persistence.DatabasePersonHandler;
-import io.github.eurasia98.sem2.persistence.DatabaseProductionManager;
+
+import java.util.ArrayList;
 
 public class Credit {
+    private int id;
     private int account_id;
     private String production_id;
     private String roleType;
     private String roleName;
 
     public Credit(int account_id, String production_id, String roleType, String roleName) {
+        this.account_id = account_id;
+        this.production_id = production_id;
+        this.roleType = roleType;
+        this.roleName = roleName;
+    }
+
+    public Credit(int id, int account_id, String production_id, String roleType, String roleName) {
+        this.id = id;
         this.account_id = account_id;
         this.production_id = production_id;
         this.roleType = roleType;
@@ -50,9 +60,9 @@ public class Credit {
 
     public String toString(){
         DatabasePersonHandler databasePersonHandler = new DatabasePersonHandler();
-        Person person = databasePersonHandler.getPerson(getAccount_id());
-        DatabaseProductionManager databaseProductionManager = new DatabaseProductionManager();
-        Production production = databaseProductionManager.getProduction(getProduction_id());
+        ArrayList<String> personInfo = databasePersonHandler.getPersonInfo(getAccount_id());
+        Person person = new Person(Integer.parseInt(personInfo.get(0)), Integer.parseInt(personInfo.get(1)),
+                personInfo.get(2), personInfo.get(3), personInfo.get(4), personInfo.get(5), personInfo.get(6));
         return person.getFirstName() + " " + person.getLastName() + "\t" + getRoleType() + "\t" + getRoleName();
     }
 }

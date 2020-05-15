@@ -2,14 +2,13 @@ package io.github.eurasia98.sem2.logic;
 
 import io.github.eurasia98.sem2.persistence.DatabaseProductionManager;
 
-public class ProductionManager {
-    public Production createProduction(String title, String production_id){
-        Production production = new Production(title, production_id);
-        return production;
-    }
+import java.util.ArrayList;
 
-    public Boolean insertProduction(Production production){
+public class ProductionManager {
+
+    public ArrayList<String[]> getMyProductions(int account_id){
         DatabaseProductionManager databaseProductionManager = new DatabaseProductionManager();
-        return databaseProductionManager.insertProduction(production);
+        ArrayList<String[]> myProductionsInfo = databaseProductionManager.getMyProductions(account_id);
+        return myProductionsInfo;
     }
 }

@@ -2,19 +2,35 @@ package io.github.eurasia98.sem2.persistence;
 
 
 import io.github.eurasia98.sem2.logic.Credit;
-import io.github.eurasia98.sem2.logic.Movie;
-import io.github.eurasia98.sem2.logic.Person;
-import io.github.eurasia98.sem2.logic.Production;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 public class DatabaseCreditsManager {
     private static Connection connection = null;
 
-    public Boolean insertCredit(Credit credit){
+    public void insertCredit(ArrayList<String> creditsInfo){
+        try {
+            this.connection = DatabaseAccesHandler.getConnection();
+
+            PreparedStatement insertCreditStatement = connection.prepareStatement("INSERT INTO credits(account_id, " +
+                    "production_id, role_type, role_name) VALUES(?,?,?,?) ");
+            insertCreditStatement.setInt(1, Integer.parseInt(creditsInfo.get(0)));
+            insertCreditStatement.setString(2, creditsInfo.get(1));
+            insertCreditStatement.setString(3, creditsInfo.get(2));
+            insertCreditStatement.setString(4, creditsInfo.get(3));
+
+            insertCreditStatement.execute();
+
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+    }
+
+    /*public Boolean insertCredit(Credit credit){
         try {
             this.connection = DatabaseAccesHandler.getConnection();
 
@@ -31,11 +47,12 @@ public class DatabaseCreditsManager {
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         } return false;
-    }
+    }*/
 
-    public String searchCredits(String productionId) {
+    public ArrayList<String[]> searchCredits(String productionId) {
         connection = DatabaseAccesHandler.getConnection();
-        StringBuilder sb = new StringBuilder();
+        ArrayList<String[]> creditsList = new ArrayList<>();
+        String[] creditsArray;
 
         try {
             PreparedStatement getCreditsStatement = connection.prepareStatement("SELECT * FROM credits WHERE production_id = ?");
@@ -44,12 +61,32 @@ public class DatabaseCreditsManager {
             ResultSet rs = getCreditsStatement.executeQuery();
 
             while (rs.next()) {
-                Credit credit = new Credit(rs.getInt("account_id"), rs.getString("production_id"),
-                        rs.getString("role_type"), rs.getString("role_name"));
-                sb.append(credit.toString() + "\n");
+                creditsArray = new String[]{rs.getString(1), rs.getString(2),rs.getString(3),
+                rs.getString(4), rs.getString(5)};
+                creditsList.add(creditsArray);
             }
-            String returnString = sb.toString();
-            return returnString;
+
+            return creditsList;
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        } return null;
+    }
+
+    public ArrayList<String[]> getCreditsInfo(String productionId) {
+        connection = DatabaseAccesHandler.getConnection();
+        ArrayList<String[]> creditsInfoList = new ArrayList<>();
+        try {
+            PreparedStatement getCreditsInfo = connection.prepareStatement(
+                    "SELECT account_id, role_type, role_name FROM credits WHERE production_id = ?");
+            getCreditsInfo.setString(1, productionId);
+
+            ResultSet creditsResultSet = getCreditsInfo.executeQuery();
+            while (creditsResultSet.next()){
+                creditsInfoList.add(new String[]{Integer.toString(creditsResultSet.getInt(1)),
+                        creditsResultSet.getString(2), creditsResultSet.getString(3)});
+            }
+
+            return creditsInfoList;
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         } return null;
