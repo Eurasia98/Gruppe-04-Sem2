@@ -11,7 +11,7 @@ public class DatabaseTvSeriesHandler {
 
     public void insertTvSeries(ArrayList<String> tvSeriesInfo){
         try {
-            this.connection = DatabaseAccesHandler.getConnection();
+            this.connection = DatabaseAccessHandler.getConnection();
             DatabaseProductionManager databaseProductionManager = new DatabaseProductionManager();
             databaseProductionManager.insertProduction(tvSeriesInfo);
 
@@ -29,7 +29,7 @@ public class DatabaseTvSeriesHandler {
     }
 
     public String getTitle(String production_id){
-        connection = DatabaseAccesHandler.getConnection();
+        connection = DatabaseAccessHandler.getConnection();
 
         try {
             PreparedStatement getTitleStatement = connection.prepareStatement(

@@ -1,8 +1,5 @@
 package io.github.eurasia98.sem2.persistence;
 
-import javafx.scene.chart.PieChart;
-import javafx.scene.chart.XYChart;
-
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -13,8 +10,8 @@ public class DatabaseProductionManager {
     static Connection connection = null;
     private ArrayList<String> backupProductions;
 
-    public Boolean insertProduction(ArrayList<String> productionInfo){
-        this.connection = DatabaseAccesHandler.getConnection();
+    public Boolean insertProduction(ArrayList<String> productionInfo) {
+        this.connection = DatabaseAccessHandler.getConnection();
 
         try {
             PreparedStatement insertProductionStatement = connection.prepareStatement(
@@ -28,11 +25,12 @@ public class DatabaseProductionManager {
             return insertProductionStatement.execute();
         } catch (SQLException throwables) {
             throwables.printStackTrace();
-        } return false;
+        }
+        return false;
     }
 
-    public ArrayList<String> getProduction(String production_id){
-        connection = DatabaseAccesHandler.getConnection();
+    public ArrayList<String> getProduction(String production_id) {
+        connection = DatabaseAccessHandler.getConnection();
         ArrayList<String> productionInfo = new ArrayList<>();
 
         try {
@@ -41,7 +39,7 @@ public class DatabaseProductionManager {
 
             ResultSet rs = getProductionStatement.executeQuery();
 
-            while (rs.next()){
+            while (rs.next()) {
                 productionInfo.add(rs.getString(1));
                 productionInfo.add(Integer.toString(rs.getInt(2)));
                 productionInfo.add(rs.getString(3));
@@ -53,7 +51,8 @@ public class DatabaseProductionManager {
             return productionInfo;
         } catch (SQLException throwables) {
             throwables.printStackTrace();
-        } return null;
+        }
+        return null;
     }
 
 /*    public Production getProduction(String production_id){
@@ -77,8 +76,8 @@ public class DatabaseProductionManager {
         } return null;
     }*/
 
-    public ArrayList<String[]> getMyProductions(int account_id){
-        connection = DatabaseAccesHandler.getConnection();
+    public ArrayList<String[]> getMyProductions(int account_id) {
+        connection = DatabaseAccessHandler.getConnection();
         String[] productionInfoArray;
         ArrayList<String[]> productionsInfo = new ArrayList<>();
 
@@ -87,7 +86,7 @@ public class DatabaseProductionManager {
                     "SELECT * FROM productions WHERE owner_id = ?");
             getMyProductionsStatement.setInt(1, account_id);
             ResultSet rs = getMyProductionsStatement.executeQuery();
-            while (rs.next()){
+            while (rs.next()) {
                 productionInfoArray = new String[]{rs.getString(1), rs.getString(2),
                         rs.getString(3), rs.getString(4), rs.getString(5)};
                 productionsInfo.add(productionInfoArray);
@@ -95,11 +94,12 @@ public class DatabaseProductionManager {
             return productionsInfo;
         } catch (SQLException throwables) {
             throwables.printStackTrace();
-        } return null;
+        }
+        return null;
     }
 
     public Boolean editProductionId(String oldProductionId, String newProductionId) {
-        connection = DatabaseAccesHandler.getConnection();
+        connection = DatabaseAccessHandler.getConnection();
         String productionType = getProductionType(oldProductionId);
 
 
@@ -108,46 +108,129 @@ public class DatabaseProductionManager {
                 DatabaseMovieHandler databaseMovieHandler = new DatabaseMovieHandler();
                 databaseMovieHandler.insertBackupMovies(oldProductionId);
                 if (databaseMovieHandler.checkBackupMovies(oldProductionId) == true) {
-                    try {
-                        PreparedStatement deleteMovieRowStatement = connection.prepareStatement(
-                                "DELETE FROM movies WHERE production_id = ?");
-                        deleteMovieRowStatement.setString(1, oldProductionId);
-                        deleteMovieRowStatement.execute();
-                        if (databaseMovieHandler.checkifMovieIsDeleted(oldProductionId) == true) {
-                            insertBackupProductions(oldProductionId);
-                            if (checkBackupProductions(oldProductionId) == true){
-                                PreparedStatement deleteProductionRowStatement = connection.prepareStatement(
-                                        "DELETE FROM productions WHERE production_id = ?");
-                                deleteProductionRowStatement.setString(1, oldProductionId);
-                                deleteProductionRowStatement.execute();
-                                if (checkIfProductionIsDeleted(oldProductionId) == true){
+                    System.out.println("First true");
+                    insertBackupProductions(oldProductionId);
+                    if (checkBackupProductions(oldProductionId) == true) {
+                        System.out.println("Second true");
+                        DatabaseCreditsManager databaseCreditsManager = new DatabaseCreditsManager();
+                        ArrayList<Integer> personsInCreditsAccountId = databaseCreditsManager.getAllPersonsFromCreditsAccountId(oldProductionId);
+                        databaseCreditsManager.insertBackupCredits(oldProductionId);
+                        if (databaseCreditsManager.checkBackupCredits(oldProductionId) == true) {
+                            System.out.println("Third true");
+                            DatabasePersonHandler databasePersonHandler = new DatabasePersonHandler();
+                            databasePersonHandler.insertBackupPersons(personsInCreditsAccountId);
+                            if (databasePersonHandler.checkBackupPersons() == true) {
+                                System.out.println("Fourth true");
+                                DatabaseAccountHandler databaseAccountHandler = new DatabaseAccountHandler();
+                                databaseAccountHandler.insertBackupAccounts(personsInCreditsAccountId);
+                                if (databaseAccountHandler.checkBackupAccounts() == true) {
+                                    System.out.println("Fifth true");
+                                    try {
+                                        connection.setAutoCommit(false);
+                                        PreparedStatement deleteMovieRowStatement = connection.prepareStatement(
+                                                "DELETE FROM movies WHERE production_id = ?");
+                                        deleteMovieRowStatement.setString(1, oldProductionId);
+                                        deleteMovieRowStatement.execute();
+
+                                        PreparedStatement deleteCreditsRowsStatement = connection.prepareStatement(
+                                                "DELETE FROM credits WHERE production_id = ?");
+                                        deleteCreditsRowsStatement.setString(1, oldProductionId);
+                                        deleteCreditsRowsStatement.execute();
+
+                                        PreparedStatement deletePersonsRowStatement = connection.prepareStatement(
+                                                "DELETE FROM persons WHERE account_id = ?");
+
+                                        for (int accountId : personsInCreditsAccountId) {
+                                            deletePersonsRowStatement.setInt(1, accountId);
+                                            deletePersonsRowStatement.addBatch();
+                                        }
+
+                                        deletePersonsRowStatement.executeBatch();
+
+                                        PreparedStatement deleteAccountsRowStatement = connection.prepareStatement(
+                                                "DELETE FROM accounts WHERE id = ?");
+
+                                        for (int accountId : personsInCreditsAccountId) {
+                                            deleteAccountsRowStatement.setInt(1, accountId);
+                                            deleteAccountsRowStatement.addBatch();
+                                        }
+
+                                        deleteAccountsRowStatement.executeBatch();
+
+                                        PreparedStatement deleteProductionRowStatement = connection.prepareStatement(
+                                                "DELETE FROM productions WHERE production_id = ?");
+                                        deleteProductionRowStatement.setString(1, oldProductionId);
+                                        deleteProductionRowStatement.execute();
+
+                                        connection.commit();
+                                        connection.close();
+
+                                    } catch (SQLException throwables) {
+                                        throwables.printStackTrace();
+                                    }
+
                                     ArrayList<String> productionInfo = getBackupProductions(oldProductionId, newProductionId);
+                                    ArrayList<String[]> accountsInfo = databaseAccountHandler.getBackupAccounts();
+                                    ArrayList<String> movieInfo = databaseMovieHandler.getBackupMovieInfo(oldProductionId, newProductionId);
+                                    ArrayList<String[]> personsInfo = databasePersonHandler.getBackupPersons();
+                                    ArrayList<String[]> creditsInfo = databaseCreditsManager.getBackupCreditsInfo(newProductionId);
+
+                                    databaseAccountHandler.editInsertAccounts(accountsInfo);
+                                    databasePersonHandler.editInsertPersons(personsInfo);
                                     editInsertProduction(productionInfo);
-                                    databaseMovieHandler.insertBackupMovieToMovie(databaseMovieHandler.getBackupMovieInfo(oldProductionId, newProductionId));
+                                    databaseMovieHandler.editInsertMovies(movieInfo);
+                                    databaseCreditsManager.editInsertCredits(creditsInfo);
+
+                                    resetBackupTables();
+
                                     return true;
                                 }
+
+
                             }
+
+
                         }
-                    } catch (SQLException throwables) {
-                        throwables.printStackTrace();
                     }
                 }
-            break;
-            case "TvSeries":
-                break;
-            case "TvProgram":
-                break;
-        } return false;
+        }
+        return false;
     }
 
-    public Boolean editProductionTitle(String newTitle, String production_id){
-        connection = DatabaseAccesHandler.getConnection();
+    private void resetBackupTables() {
+        try {
+            PreparedStatement deleteBackupMoviesStatement = connection.prepareStatement(
+                    "DELETE FROM backup_movies");
+            deleteBackupMoviesStatement.execute();
+
+            PreparedStatement deleteBackupProductions = connection.prepareStatement(
+                    "DELETE FROM backup_productions");
+            deleteBackupProductions.execute();
+
+            PreparedStatement deleteBackupPersons = connection.prepareStatement(
+                    "DELETE FROM backup_persons");
+            deleteBackupPersons.execute();
+
+            PreparedStatement deleteBackupCredits = connection.prepareStatement(
+                    "DELETE FROM backup_credits");
+            deleteBackupCredits.execute();
+
+            PreparedStatement deleteBackupAccounts = connection.prepareStatement(
+                    "DELETE FROM backup_accounts");
+            deleteBackupAccounts.execute();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+    }
+
+    public Boolean editProductionTitle(String newTitle, String production_id) {
+        connection = DatabaseAccessHandler.getConnection();
         String productionType = getProductionType(production_id);
 
-        switch (productionType){
+        switch (productionType) {
             case "Movie":
                 DatabaseMovieHandler databaseMovieHandler = new DatabaseMovieHandler();
-                if (databaseMovieHandler.editTitle(newTitle, production_id) == true ){
+                if (databaseMovieHandler.editTitle(newTitle, production_id) == true) {
                     try {
                         PreparedStatement editProductionTitle = connection.prepareStatement(
                                 "UPDATE productions SET title = ? WHERE production_id = ?");
@@ -163,7 +246,7 @@ public class DatabaseProductionManager {
         return false;
     }
 
-    private String getProductionType(String production_id){
+    private String getProductionType(String production_id) {
         try {
             PreparedStatement getProductionType = connection.prepareStatement(
                     "SELECT production_type FROM productions WHERE production_id = ?");
@@ -172,18 +255,19 @@ public class DatabaseProductionManager {
             ResultSet productionTypeResultSet = getProductionType.executeQuery();
             ArrayList<String> productionType = new ArrayList<>();
 
-            while (productionTypeResultSet.next()){
+            while (productionTypeResultSet.next()) {
                 productionType.add(productionTypeResultSet.getString(1));
             }
             return productionType.get(0);
 
         } catch (SQLException throwables) {
             throwables.printStackTrace();
-        } return null;
+        }
+        return null;
     }
 
-    private void insertBackupProductions(String oldProductionId){
-        connection = DatabaseAccesHandler.getConnection();
+    private void insertBackupProductions(String oldProductionId) {
+        connection = DatabaseAccessHandler.getConnection();
 
         try {
             PreparedStatement backupProductionsStatement = connection.prepareStatement(
@@ -194,14 +278,13 @@ public class DatabaseProductionManager {
 
             ArrayList<String> productionInfo = new ArrayList<>();
 
-            while (backupProductionResultSet.next()){
+            while (backupProductionResultSet.next()) {
                 productionInfo.add(backupProductionResultSet.getString(1));
                 productionInfo.add(backupProductionResultSet.getString(2));
                 productionInfo.add(backupProductionResultSet.getString(3));
                 productionInfo.add(backupProductionResultSet.getString(4));
                 productionInfo.add(backupProductionResultSet.getString(5));
                 productionInfo.add(backupProductionResultSet.getString(6));
-                productionInfo.add(backupProductionResultSet.getString(7));
             }
 
             PreparedStatement insertBackupProductions = connection.prepareStatement(
@@ -222,8 +305,8 @@ public class DatabaseProductionManager {
         }
     }
 
-    private Boolean checkBackupProductions(String oldProductionId){
-        connection = DatabaseAccesHandler.getConnection();
+    private Boolean checkBackupProductions(String oldProductionId) {
+        connection = DatabaseAccessHandler.getConnection();
 
         try {
             PreparedStatement checkUpdateStatement = connection.prepareStatement(
@@ -232,7 +315,7 @@ public class DatabaseProductionManager {
 
             ResultSet checkUpdateResultset = checkUpdateStatement.executeQuery();
 
-            if (checkUpdateResultset.next()){
+            if (checkUpdateResultset.next()) {
                 return true;
             }
         } catch (SQLException throwables) {
@@ -241,8 +324,8 @@ public class DatabaseProductionManager {
         return false;
     }
 
-    private Boolean checkIfProductionIsDeleted(String oldProductionId){
-        connection = DatabaseAccesHandler.getConnection();
+    private Boolean checkIfProductionIsDeleted(String oldProductionId) {
+        connection = DatabaseAccessHandler.getConnection();
 
         try {
             PreparedStatement productionStatement = connection.prepareStatement(
@@ -251,16 +334,17 @@ public class DatabaseProductionManager {
 
             ResultSet productionsResultset = productionStatement.executeQuery();
 
-            if (productionsResultset.next()){
+            if (productionsResultset.next()) {
                 return false;
             }
         } catch (SQLException throwables) {
             throwables.printStackTrace();
-        } return true;
+        }
+        return true;
     }
 
-    private void editInsertProduction(ArrayList<String> productionInfo){
-        connection = DatabaseAccesHandler.getConnection();
+    private void editInsertProduction(ArrayList<String> productionInfo) {
+        connection = DatabaseAccessHandler.getConnection();
 
         try {
             PreparedStatement insertProductionStatement = connection.prepareStatement(
@@ -279,8 +363,8 @@ public class DatabaseProductionManager {
         }
     }
 
-    private ArrayList<String> getBackupProductions(String oldProductionId, String newProductionId){
-        connection = DatabaseAccesHandler.getConnection();
+    private ArrayList<String> getBackupProductions(String oldProductionId, String newProductionId) {
+        connection = DatabaseAccessHandler.getConnection();
         ArrayList<String> productionsInfo = new ArrayList<>();
 
         try {
@@ -289,7 +373,7 @@ public class DatabaseProductionManager {
             getProductionStatement.setString(1, oldProductionId);
             ResultSet productionsResultSet = getProductionStatement.executeQuery();
 
-            while (productionsResultSet.next()){
+            while (productionsResultSet.next()) {
                 productionsInfo.add(newProductionId);
                 productionsInfo.add(productionsResultSet.getString(2));
                 productionsInfo.add(productionsResultSet.getString(3));
@@ -300,7 +384,8 @@ public class DatabaseProductionManager {
             return productionsInfo;
         } catch (SQLException throwables) {
             throwables.printStackTrace();
-        } return null;
+        }
+        return null;
     }
 
 /*    public ArrayList<Production> getMyProductions(int account_id){

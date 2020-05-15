@@ -1,9 +1,5 @@
 package io.github.eurasia98.sem2.persistence;
 
-import io.github.eurasia98.sem2.logic.Account;
-import io.github.eurasia98.sem2.logic.Person;
-import io.github.eurasia98.sem2.logic.PersonManager;
-
 import java.sql.*;
 import java.util.ArrayList;
 
@@ -12,7 +8,7 @@ public class DatabasePersonHandler {
 
     public void insertPerson(ArrayList<String> personInfo){
         try {
-            this.connection = DatabaseAccesHandler.getConnection();
+            this.connection = DatabaseAccessHandler.getConnection();
 
             DatabaseAccountHandler databaseAccountHandler = new DatabaseAccountHandler();
             databaseAccountHandler.insertAccount(personInfo); // gemmer data på en account i databasen
@@ -57,7 +53,7 @@ public class DatabasePersonHandler {
 
     // Slet er person i databasen.
     public Boolean deletePerson(String username){
-        connection = DatabaseAccesHandler.getConnection();
+        connection = DatabaseAccessHandler.getConnection();
 
         try {
             PreparedStatement deletePersonStatement = connection.prepareStatement("DELETE FROM persons WHERE account_username = ?");
@@ -76,7 +72,7 @@ public class DatabasePersonHandler {
 
     public int getId(String username){
         try {
-            connection = DatabaseAccesHandler.getConnection();
+            connection = DatabaseAccessHandler.getConnection();
             PreparedStatement searchIdStatement = connection.prepareStatement("SELECT id FROM accounts WHERE username = ?");
             searchIdStatement.setString(1, username);
             ResultSet rs = searchIdStatement.executeQuery();
@@ -90,22 +86,22 @@ public class DatabasePersonHandler {
 
     // opretter et person objekt ud fra database info på account_id.
     public ArrayList<String> getPersonInfo(int account_id){
-        connection = DatabaseAccesHandler.getConnection();
+        connection = DatabaseAccessHandler.getConnection();
         ArrayList<String> personInfoList = new ArrayList<>();
         try {
             PreparedStatement getPersonStatement = connection.prepareStatement("SELECT * FROM persons WHERE account_id = ?");
             getPersonStatement.setInt(1, account_id);
 
-            ResultSet rs = getPersonStatement.executeQuery();
+            ResultSet personsResultSet = getPersonStatement.executeQuery();
 
-            while (rs.next()){
-                personInfoList.add(rs.getString(1));
-                personInfoList.add(rs.getString(2));
-                personInfoList.add(rs.getString(3));
-                personInfoList.add(rs.getString(4));
-                personInfoList.add(rs.getString(5));
-                personInfoList.add(rs.getString(6));
-                personInfoList.add(rs.getString(7));
+            while (personsResultSet.next()){
+                personInfoList.add(Integer.toString(personsResultSet.getInt(1)));
+                personInfoList.add(Integer.toString(personsResultSet.getInt(2)));
+                personInfoList.add(personsResultSet.getString(3));
+                personInfoList.add(personsResultSet.getString(4));
+                personInfoList.add(personsResultSet.getString(5));
+                personInfoList.add(personsResultSet.getString(6));
+                personInfoList.add(personsResultSet.getString(7));
             }
 
             return personInfoList;
@@ -144,7 +140,7 @@ public class DatabasePersonHandler {
     }*/
 
     public ArrayList<String[]> getMyPersons(String ownerUsername, int personAccountId){
-        connection = DatabaseAccesHandler.getConnection();
+        connection = DatabaseAccessHandler.getConnection();
         String[] personInfoArray;
         ArrayList<String[]> personsInfo = new ArrayList<>();
 
@@ -186,7 +182,7 @@ public class DatabasePersonHandler {
 
     // Returnere ArrayList<String[]> hver hvert StringArray indeholder firstname, lastname og accountid.
     public ArrayList<String> getPersonToEditMyCredits(int accountId) {
-        connection = DatabaseAccesHandler.getConnection();
+        connection = DatabaseAccessHandler.getConnection();
         ArrayList<String> personsToEditList = new ArrayList<>();
 
         try {
@@ -204,5 +200,100 @@ public class DatabasePersonHandler {
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         } return null;
+    }
+
+    public void insertBackupPersons(ArrayList<Integer> personInfo) {
+        connection = DatabaseAccessHandler.getConnection();
+
+        try {
+            PreparedStatement insertBackupPersonsStatement = connection.prepareStatement(
+                    "INSERT INTO backup_persons(id, account_id, account_username, account_password, " +
+                            "first_name, last_name, created_by) VALUES(?,?,?,?,?,?,?)");
+
+
+            for (int account_id : personInfo){
+                ArrayList<String> personInfoArray = getPersonInfo(account_id);
+                insertBackupPersonsStatement.setInt(1, Integer.parseInt(personInfoArray.get(0)));
+                insertBackupPersonsStatement.setInt(2, Integer.parseInt(personInfoArray.get(1)));
+                insertBackupPersonsStatement.setString(3, personInfoArray.get(2));
+                insertBackupPersonsStatement.setString(4, personInfoArray.get(3));
+                insertBackupPersonsStatement.setString(5, personInfoArray.get(4));
+                insertBackupPersonsStatement.setString(6, personInfoArray.get(5));
+                insertBackupPersonsStatement.setString(7, personInfoArray.get(6));
+
+                insertBackupPersonsStatement.addBatch();
+            }
+            insertBackupPersonsStatement.executeBatch();
+
+
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+
+    }
+
+    public boolean checkBackupPersons() {
+        connection = DatabaseAccessHandler.getConnection();
+
+        try {
+            PreparedStatement checkBackupStatement = connection.prepareStatement(
+                    "SELECT * FROM backup_persons");
+            ResultSet backupResultSet = checkBackupStatement.executeQuery();
+
+            if (backupResultSet.next()){
+                return true;
+            }
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        } return false;
+    }
+
+    public ArrayList<String[]> getBackupPersons() {
+        connection = DatabaseAccessHandler.getConnection();
+        ArrayList<String[]> personsInfo = new ArrayList<>();
+
+        try {
+            PreparedStatement getPersonsStatement = connection.prepareStatement(
+                    "SELECT * FROM backup_persons");
+            ResultSet personsResultSet = getPersonsStatement.executeQuery();
+
+            while (personsResultSet.next()){
+                personsInfo.add(new String[]{Integer.toString(personsResultSet.getInt(1)),
+                        Integer.toString(personsResultSet.getInt(2)),personsResultSet.getString(3),
+                        personsResultSet.getString(4), personsResultSet.getString(5),
+                personsResultSet.getString(6), personsResultSet.getString(7)});
+            }
+
+            return personsInfo;
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        } return null;
+    }
+
+    public void editInsertPersons(ArrayList<String[]> personsInfo) {
+        connection = DatabaseAccessHandler.getConnection();
+
+        try {
+            PreparedStatement insertPersonsStatement = connection.prepareStatement(
+                    "INSERT INTO persons(id, account_id, account_username, account_password, " +
+                            "first_name, last_name, created_by) VALUES(?,?,?,?,?,?,?)");
+
+            for (String[] personInfo : personsInfo){
+                insertPersonsStatement.setInt(1, Integer.parseInt(personInfo[0]));
+                insertPersonsStatement.setInt(2, Integer.parseInt(personInfo[1]));
+                insertPersonsStatement.setString(3, personInfo[2]);
+                insertPersonsStatement.setString(4, personInfo[3]);
+                insertPersonsStatement.setString(5, personInfo[4]);
+                insertPersonsStatement.setString(6, personInfo[5]);
+                insertPersonsStatement.setString(7, personInfo[6]);
+
+                insertPersonsStatement.addBatch();
+            }
+
+            insertPersonsStatement.executeBatch();
+
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
     }
 }

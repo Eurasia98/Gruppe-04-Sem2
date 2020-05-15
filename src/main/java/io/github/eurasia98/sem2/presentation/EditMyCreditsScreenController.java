@@ -118,9 +118,9 @@ public class EditMyCreditsScreenController implements Initializable {
 
     }
 
-    @FXML
+/*    @FXML
     void btnSaveChangesHandler(ActionEvent event) {
-        if (App.getCreditSystem().availableUsername(txtFieldUsername.getText()) == true){
+        App.getCreditSystem().availableUsername(txtFieldUsername.getText());
             App.getCreditSystem().createNewPerson(txtFieldUsername.getText(), "test123",
                     txtFieldFirstName.getText(), txtFieldLastName.getText());
             ArrayList<String> personsInfo = App.getCreditSystem().getPersonInfo(txtFieldUsername.getText());
@@ -132,7 +132,26 @@ public class EditMyCreditsScreenController implements Initializable {
                 txtAreaInfo.appendText("Personen er blevet oprettet. \n Krediteringen er blevet oprettet. ");
 
             }
-        }
+        }*/
+
+    @FXML
+    void btnSaveChangesHandler(ActionEvent event) {
+        if (App.getCreditSystem().availableUsername(txtFieldUsername.getText()) == true){
+            System.out.println("First true");
+            App.getCreditSystem().createNewPerson(txtFieldUsername.getText(), "test123",
+                    txtFieldFirstName.getText(), txtFieldLastName.getText());
+            ArrayList<String> personsInfo = App.getCreditSystem().getPersonInfo(txtFieldUsername.getText());
+            String production_id = App.getSelectedProductionToEdit();
+            if (App.getCreditSystem().createNewCredit(Integer.parseInt(personsInfo.get(1)), production_id,
+                    txtFieldRoleType.getText(), txtFieldRoleName.getText()) == true){
+                resetFields();
+                txtAreaInfo.setVisible(true);
+                txtAreaInfo.appendText("Personen er blevet oprettet. \n Krediteringen er blevet oprettet. ");
+
+            } else {
+                txtAreaInfo.appendText("Der skete desværre en fejl 2. ");
+            }
+        } else txtAreaInfo.appendText("Der skete desværre en fejl 1. ");
     }
 
     @FXML

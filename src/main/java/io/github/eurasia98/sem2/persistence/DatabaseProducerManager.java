@@ -10,7 +10,7 @@ public class DatabaseProducerManager{
 
     public Boolean saveProducer(Producer producer){
         try {
-            connection = DatabaseAccesHandler.getConnection();
+            connection = DatabaseAccessHandler.getConnection();
 
             PreparedStatement insertAccountStatement = connection.prepareStatement(
                     "INSERT INTO accounts(username, password, accounttype) VALUES(?,?,?)");
@@ -37,7 +37,7 @@ public class DatabaseProducerManager{
     }
 
     public ArrayList<String> getProducer(int account_id){
-        connection = DatabaseAccesHandler.getConnection();
+        connection = DatabaseAccessHandler.getConnection();
         ArrayList<String> producerInfo = new ArrayList<>();
 
         try {

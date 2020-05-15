@@ -1,7 +1,5 @@
 package io.github.eurasia98.sem2.persistence;
 
-import io.github.eurasia98.sem2.logic.Movie;
-
 import java.sql.*;
 import java.util.ArrayList;
 
@@ -11,7 +9,7 @@ public class DatabaseMovieHandler {
 
     public void insertMovie(ArrayList<String> movieInfo){
         try {
-            this.connection = DatabaseAccesHandler.getConnection();
+            this.connection = DatabaseAccessHandler.getConnection();
             DatabaseProductionManager databaseProductionManager = new DatabaseProductionManager();
             databaseProductionManager.insertProduction(movieInfo);
 
@@ -27,7 +25,7 @@ public class DatabaseMovieHandler {
     }
 
     public String getTitle(String production_id){
-        connection = DatabaseAccesHandler.getConnection();
+        connection = DatabaseAccessHandler.getConnection();
 
         try {
             PreparedStatement getTitleStatement = connection.prepareStatement(
@@ -44,7 +42,7 @@ public class DatabaseMovieHandler {
     }
 
     public void insertBackupMovies(String oldProductionId){
-        connection = DatabaseAccesHandler.getConnection();
+        connection = DatabaseAccessHandler.getConnection();
 
         try {
             PreparedStatement backupMoviesStatement = connection.prepareStatement(
@@ -76,7 +74,7 @@ public class DatabaseMovieHandler {
     }
 
     public Boolean checkBackupMovies(String oldProductionId){
-        connection = DatabaseAccesHandler.getConnection();
+        connection = DatabaseAccessHandler.getConnection();
 
         try {
             PreparedStatement checkUpdateStatement = connection.prepareStatement(
@@ -95,7 +93,7 @@ public class DatabaseMovieHandler {
     }
 
     public Boolean checkifMovieIsDeleted(String oldProductionId){
-        connection = DatabaseAccesHandler.getConnection();
+        connection = DatabaseAccessHandler.getConnection();
 
         try {
             PreparedStatement checkMoviesStatement = connection.prepareStatement(
@@ -113,7 +111,7 @@ public class DatabaseMovieHandler {
     }
 
     public ArrayList<String> getBackupMovieInfo(String oldProductionId, String newProductionId){
-        connection = DatabaseAccesHandler.getConnection();
+        connection = DatabaseAccessHandler.getConnection();
         ArrayList<String> movieInfo = new ArrayList<>();
 
         try {
@@ -135,8 +133,8 @@ public class DatabaseMovieHandler {
         } return null;
     }
 
-    public void insertBackupMovieToMovie(ArrayList<String> movieInfo){
-        connection = DatabaseAccesHandler.getConnection();
+    public void editInsertMovies(ArrayList<String> movieInfo){
+        connection = DatabaseAccessHandler.getConnection();
 
         try {
             PreparedStatement insertBackupMovieStatement = connection.prepareStatement(
@@ -153,7 +151,7 @@ public class DatabaseMovieHandler {
     }
 
     public Boolean editTitle(String newTitle, String production_id){
-        connection = DatabaseAccesHandler.getConnection();
+        connection = DatabaseAccessHandler.getConnection();
 
         try {
             PreparedStatement editTitleStatement = connection.prepareStatement(

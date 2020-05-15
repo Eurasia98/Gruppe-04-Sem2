@@ -112,11 +112,12 @@ public class MyProductionsScreenController implements Initializable {
         if (!txtFieldNewId.getText().isEmpty()){
             if (App.getCreditSystem().editProductionId(txtFieldCurrentProductionId.getText(), txtFieldNewId.getText()) == true){
                 txtAreaDisplayInfo.appendText("Ændringen er blevet gemt. ");
+                resetFields();
             } else txtAreaDisplayInfo.appendText("Ændringen blev ikke gemt, der skete desværre en fejl. ");
         } else if (!txtFieldNewTitle.getText().isEmpty()){
             if (App.getCreditSystem().editTitle(txtFieldNewTitle.getText(), TVMyProductions.getSelectionModel().getSelectedItems().get(0).getProduction_id()) == true){
                 txtAreaDisplayInfo.appendText("Ændringen er blevet gemt. ");
-            } else txtAreaDisplayInfo.appendText("Ændringen er ikke blevet gemt, der skete desværre en fejl. ");
+            } else txtAreaDisplayInfo.appendText("Ændringen er ikke blevet gemt, der skete desværre 2 fejl. ");
         }
 
         resetFields();
