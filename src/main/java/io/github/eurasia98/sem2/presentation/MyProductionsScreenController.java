@@ -70,8 +70,8 @@ public class MyProductionsScreenController implements Initializable {
     @FXML
     void btnEditCreditsHandler(ActionEvent event) {
         resetFields();
-        App.setSelectedCreditToEdit(TVMyProductions.getSelectionModel().getSelectedItems().get(0).getProduction_id());
-        App.switchScene("EditMyCreditsScreen");
+        App.setSelectedProductionToEdit(TVMyProductions.getSelectionModel().getSelectedItems().get(0).getProduction_id());
+        App.switchScene("EditCreditsScreen");
     }
 
     @FXML

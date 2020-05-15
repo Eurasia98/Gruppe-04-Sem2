@@ -5,10 +5,7 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
 
@@ -30,6 +27,9 @@ public class EditMyCreditsScreenController implements Initializable {
     private Button btnSaveChanges;
 
     @FXML
+    private Button btnDeleteCredit;
+
+    @FXML
     private TableView<ModelTableEditMyCredits> TVMyCredits;
 
     @FXML
@@ -48,55 +48,43 @@ public class EditMyCreditsScreenController implements Initializable {
     private TableColumn<ModelTableEditMyCredits, String> TVCProductionType;
 
     @FXML
-    private TableColumn<ModelTableEditMyCredits, String> TVCRoleType;
-
-    @FXML
     private TableColumn<ModelTableEditMyCredits, String> TVCRoleName;
 
     @FXML
-    private TextField txtFieldCurrentFirstname;
+    private TableColumn<ModelTableEditMyCredits, String> TVCRoleType;
 
     @FXML
-    private TextField txtFieldNewFirstname;
+    private TextArea txtAreaInfo;
 
     @FXML
-    private TextField txtFieldCurrentLastname;
+    private TextField txtFieldFirstName;
 
     @FXML
-    private TextField txtFieldNewLastname;
+    private TextField txtFieldLastName;
 
     @FXML
-    private TextField txtFieldCurrentUserId;
+    private TextField txtFieldUsername;
 
     @FXML
-    private TextField txtFieldNewUserId;
+    private TextField txtFieldRoleType;
 
     @FXML
-    private TextField txtFieldCurrentTitle;
+    private TextField txtFieldRoleName;
 
     @FXML
-    private TextField txtFieldNewTitle;
+    private TableView<ModelTablePersonsInMyCredits> TVSearchPersons;
 
     @FXML
-    private TextField txtFieldCurrentRoleType;
+    private TableColumn<ModelTablePersonsInMyCredits, String> TVCSearchPersonsFirstName;
 
     @FXML
-    private TextField txtFieldNewRoleType;
+    private TableColumn<ModelTablePersonsInMyCredits, String> TVCSearchPersonsLastName;
 
     @FXML
-    private TextField txtFieldCurrentRolename;
+    private TableColumn<ModelTablePersonsInMyCredits, String> TVCSearchPersonsUsername;
 
     @FXML
-    private TextField txtFieldNewRolename;
-
-    @FXML
-    private TextField txtFieldCreateFirstname;
-
-    @FXML
-    private TextField txtFieldCreateLastname;
-
-    @FXML
-    private TextField txtFieldCreateAccountId;
+    private Button btnSearchPersons;
 
     @FXML
     void IVLogoHandler() {
@@ -105,7 +93,19 @@ public class EditMyCreditsScreenController implements Initializable {
 
     @FXML
     void btnAddCreditHandler(ActionEvent event) {
+        resetFields();
+        txtFieldFirstName.setVisible(true);
+        txtFieldLastName.setVisible(true);
+        txtFieldUsername.setVisible(true);
+        txtFieldRoleType.setVisible(true);
+        txtFieldRoleName.setVisible(true);
+        btnSaveChanges.setVisible(true);
+        txtAreaInfo.setVisible(true);
 
+        txtAreaInfo.appendText("Udfyld venligst felterne markeret med stjerne. \n" +
+                " Hvis personen der skal krediteres allerede har et account id kan du indtaste det. \n" +
+                "Hvis ikke vil systemet præsentere en liste for dig med mulige eksisterende personer. \n" +
+                "Du kan også oprette personen som ny person ved ikke at indtaste noget eksisterende id. ");
     }
 
     @FXML
@@ -114,14 +114,72 @@ public class EditMyCreditsScreenController implements Initializable {
     }
 
     @FXML
+    void btnDeleteCreditHandler(ActionEvent event) {
+
+    }
+
+    @FXML
     void btnSaveChangesHandler(ActionEvent event) {
+        if (App.getCreditSystem().availableUsername(txtFieldUsername.getText()) == true){
+            App.getCreditSystem().createNewPerson(txtFieldUsername.getText(), "test123",
+                    txtFieldFirstName.getText(), txtFieldLastName.getText());
+            ArrayList<String> personsInfo = App.getCreditSystem().getPersonInfo(txtFieldUsername.getText());
+            String production_id = App.getSelectedProductionToEdit();
+            if (App.getCreditSystem().createNewCredit(Integer.parseInt(personsInfo.get(1)), production_id,
+                    txtFieldRoleType.getText(), txtFieldRoleName.getText()) == true){
+                resetFields();
+                txtAreaInfo.setVisible(true);
+                txtAreaInfo.appendText("Personen er blevet oprettet. \n Krediteringen er blevet oprettet. ");
+
+            }
+        }
+    }
+
+    @FXML
+    void btnSearchPersonsHandler(ActionEvent event) {
 
     }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         resetFields();
-        String productionId = App.getSelectedCreditToEdit();
+/*        String productionId = App.getSelectedProductionToEdit();
+        ObservableList<ModelTableEditMyCredits> observableList = FXCollections.observableArrayList();
+        ArrayList<String[]> myCredits = App.getCreditSystem().getCreditsInfo(productionId);
+
+        for (String[] s : myCredits){
+            observableList.add(new ModelTableEditMyCredits(s[0], s[1], s[2], s[3], s[4], s[5], s[6]));
+        }
+
+        TVCFirstname.setCellValueFactory(new PropertyValueFactory<>("firstName"));
+        TVCLastname.setCellValueFactory(new PropertyValueFactory<>("lastName"));
+        TVCUserId.setCellValueFactory(new PropertyValueFactory<>("account_id"));
+        TVCTitle.setCellValueFactory(new PropertyValueFactory<>("title"));
+        TVCProductionType.setCellValueFactory(new PropertyValueFactory<>("productionType"));
+        TVCRoleType.setCellValueFactory(new PropertyValueFactory<>("roleType"));
+        TVCRoleName.setCellValueFactory(new PropertyValueFactory<>("roleName"));
+
+
+        TVMyCredits.setItems(observableList);*/
+    }
+
+    private void resetFields(){
+
+        txtFieldFirstName.clear();
+        txtFieldFirstName.setVisible(false);
+        txtFieldLastName.clear();
+        txtFieldLastName.setVisible(false);
+        txtFieldUsername.clear();
+        txtFieldUsername.setVisible(false);
+        txtFieldRoleType.clear();
+        txtFieldRoleType.setVisible(false);
+        txtFieldRoleName.clear();
+        txtFieldRoleName.setVisible(false);
+        txtAreaInfo.clear();
+        txtAreaInfo.setVisible(false);
+        TVSearchPersons.setVisible(false);
+
+        String productionId = App.getSelectedProductionToEdit();
         ObservableList<ModelTableEditMyCredits> observableList = FXCollections.observableArrayList();
         ArrayList<String[]> myCredits = App.getCreditSystem().getCreditsInfo(productionId);
 
@@ -139,24 +197,5 @@ public class EditMyCreditsScreenController implements Initializable {
 
 
         TVMyCredits.setItems(observableList);
-    }
-
-    private void resetFields(){
-        txtFieldCurrentFirstname.clear();
-        txtFieldCurrentFirstname.setVisible(false);
-        txtFieldNewFirstname.clear();
-        txtFieldNewFirstname.setVisible(false);
-        txtFieldCurrentLastname.clear();
-        txtFieldCurrentLastname.setVisible(false);
-        txtFieldNewLastname.clear();
-        txtFieldNewLastname.setVisible(false);
-        txtFieldCurrentUserId.clear();
-        txtFieldCurrentUserId.setVisible(false);
-        txtFieldNewUserId.clear();
-        txtFieldNewUserId.setVisible(false);
-        txtFieldCurrentRoleType.clear();
-        txtFieldCurrentRoleType.setVisible(false);
-        txtFieldNewRolename.clear();
-        txtFieldNewRolename.setVisible(false);
     }
 }

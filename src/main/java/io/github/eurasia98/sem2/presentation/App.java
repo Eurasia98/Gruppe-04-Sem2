@@ -20,14 +20,14 @@ public class App extends Application{
     private static CreditSystem creditSystem = new CreditSystem();
     private static List<String> userInfo = new ArrayList<>();
     private static String searchField;
-    private static String selectedCreditToEdit;
+    private static String selectedProductionToEdit;
 
-    public static String getSelectedCreditToEdit() {
-        return selectedCreditToEdit;
+    public static String getSelectedProductionToEdit() {
+        return selectedProductionToEdit;
     }
 
-    public static void setSelectedCreditToEdit(String selectedCreditToEdit) {
-        App.selectedCreditToEdit = selectedCreditToEdit;
+    public static void setSelectedProductionToEdit(String selectedProductionToEdit) {
+        App.selectedProductionToEdit = selectedProductionToEdit;
     }
 
     public static String getSearchField() {
@@ -53,6 +53,7 @@ public class App extends Application{
     @Override
     public void start(Stage stage) throws IOException {
         window = stage;
+        window.setTitle("KrediteringsSystem");
         scene = new Scene(loadFXML("FrontPage"));
         window.setScene(scene);
         window.setTitle("");

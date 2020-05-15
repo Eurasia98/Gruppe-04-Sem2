@@ -24,7 +24,7 @@ public class CreditSystem {
 
    public Boolean availableUsername(String username) {
       AccountManager accountManager = new AccountManager();
-      return accountManager.checkUsernameAvailability(username) == true;
+      return accountManager.checkUsernameAvailability(username);
    }
 
    public Boolean createNewPerson(String username, String password, String firstName, String lastName) {
@@ -155,5 +155,13 @@ public class CreditSystem {
          return true;
       }
       return false;
+   }
+
+   public ArrayList<String> getPersonInfo(String username) {
+      DatabasePersonHandler databasePersonHandler = new DatabasePersonHandler();
+      int account_id = databasePersonHandler.getId(username);
+      ArrayList<String> personInfo = databasePersonHandler.getPersonInfo(account_id);
+
+      return personInfo;
    }
 }

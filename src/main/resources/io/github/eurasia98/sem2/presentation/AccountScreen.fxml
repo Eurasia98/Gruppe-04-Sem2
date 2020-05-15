@@ -8,15 +8,15 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="437.0" prefWidth="541.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="io.github.eurasia98.sem2.presentation.AccountScreenController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="io.github.eurasia98.sem2.presentation.AccountScreenController">
    <children>
-      <ImageView fx:id="ivLogo" fitHeight="73.0" fitWidth="316.0" layoutY="10.0" onMousePressed="#ivLogoActionHandler" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="ivLogo" fitHeight="190.0" fitWidth="470.0" layoutX="181.0" onMousePressed="#ivLogoActionHandler" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@images/TV2_logo.png" />
          </image>
       </ImageView>
-      <TextField fx:id="txtFieldSearch" layoutX="109.0" layoutY="93.0" onKeyPressed="#txtFieldSearchKeyPressHandler" prefHeight="34.0" prefWidth="322.0" promptText="Søg efter film / serie " />
-      <VBox fx:id="vBoxAccount" layoutX="490.0" layoutY="10.0" prefHeight="50.0" prefWidth="100.0">
+      <TextField fx:id="txtFieldSearch" layoutX="218.0" layoutY="283.0" onKeyPressed="#txtFieldSearchKeyPressHandler" prefHeight="34.0" prefWidth="322.0" promptText="Søg efter film / serie " />
+      <VBox fx:id="vBoxAccount" layoutX="686.0" layoutY="14.0" prefHeight="50.0" prefWidth="100.0">
          <children>
             <TextField fx:id="txtFieldAccount" editable="false" />
          </children>
@@ -30,14 +30,14 @@
             <Button fx:id="btnMyPersons" mnemonicParsing="false" onAction="#btnMyPersonsHandler" text="Personer oprettet af mig" visible="false" />
             <Button fx:id="btnMyCredits" managed="false" mnemonicParsing="false" onAction="#btnMyCreditsActionHandler" prefHeight="25.0" prefWidth="195.0" text="Mine krediteringer" visible="false" />
             <Button fx:id="btnMyProductions" mnemonicParsing="false" onAction="#btnMyProductionsHandler" text="Mine produktioner" visible="false" />
-            <Button fx:id="btnLogOut" mnemonicParsing="false" onAction="#btnLogOutActionHandler" prefHeight="25.0" prefWidth="144.0" text="Log ud" />
          </children>
       </VBox>
-      <ImageView fx:id="ivSearch" fitHeight="26.0" fitWidth="227.0" layoutX="405.0" layoutY="97.0" onMouseClicked="#ivSearchMouseClickHandler" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="ivSearch" fitHeight="26.0" fitWidth="227.0" layoutX="514.0" layoutY="287.0" onMouseClicked="#ivSearchMouseClickHandler" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@images/Search_Icon.png" />
          </image>
       </ImageView>
+      <Button fx:id="btnLogOut" layoutX="648.0" layoutY="95.0" mnemonicParsing="false" onAction="#btnLogOutActionHandler" prefHeight="25.0" prefWidth="144.0" text="Log ud" />
    </children>
    <stylesheets>
       <URL value="@LoginScreenCSS.css" />
