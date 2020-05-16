@@ -19,15 +19,15 @@
       <Button fx:id="btnMyPage" layoutX="724.0" layoutY="19.0" mnemonicParsing="false" onAction="#btnMyPageHandler" text="Min side" />
       <Button fx:id="btnAddCredit" layoutX="7.0" layoutY="316.0" mnemonicParsing="false" onAction="#btnAddCreditHandler" text="Tilføj kreditering" />
       <Button fx:id="btnSaveChanges" layoutX="9.0" layoutY="566.0" mnemonicParsing="false" onAction="#btnSaveChangesHandler" text="Gem ændringer" />
-      <TableView fx:id="TVMyCredits" layoutY="70.0" prefHeight="246.0" prefWidth="800.0">
+      <TableView fx:id="tvMyCredits" layoutY="70.0" prefHeight="246.0" prefWidth="800.0">
         <columns>
-          <TableColumn fx:id="TVCFirstname" prefWidth="75.0" text="Fornavn" />
-          <TableColumn fx:id="TVCLastname" prefWidth="58.4000244140625" text="Efternavn" />
-            <TableColumn fx:id="TVCUserId" prefWidth="62.39996337890625" text="Bruger id" />
-            <TableColumn fx:id="TVCTitle" prefWidth="154.4000244140625" text="Titel" />
-            <TableColumn fx:id="TVCProductionType" prefWidth="97.60003662109375" text="Type" />
-            <TableColumn fx:id="TVCRoleName" prefWidth="188.79998779296875" text="Rollenavn" />
-            <TableColumn fx:id="TVCRoleType" prefWidth="163.20001220703125" text="Rolle" />
+          <TableColumn fx:id="tvcFirstname" prefWidth="75.0" text="Fornavn" />
+          <TableColumn fx:id="tvcLastname" prefWidth="58.4000244140625" text="Efternavn" />
+            <TableColumn fx:id="tvcUserId" prefWidth="62.39996337890625" text="Bruger id" />
+            <TableColumn fx:id="tvcTitle" prefWidth="154.4000244140625" text="Titel" />
+            <TableColumn fx:id="tvcProductionType" prefWidth="97.60003662109375" text="Type" />
+            <TableColumn fx:id="tvcRoleName" prefWidth="188.79998779296875" text="Rollenavn" />
+            <TableColumn fx:id="tvcRoleType" prefWidth="163.20001220703125" text="Rolle" />
         </columns>
       </TableView>
       <TextArea fx:id="txtAreaInfo" layoutX="261.0" layoutY="313.0" prefHeight="279.0" prefWidth="532.0" visible="false" />
@@ -37,11 +37,11 @@
       <TextField fx:id="txtFieldRoleType" layoutX="7.0" layoutY="447.0" promptText="Rolle" />
       <TextField fx:id="txtFieldRoleName" layoutX="7.0" layoutY="480.0" promptText="Rolle navn" />
       <TextField fx:id="txtFieldUsername" layoutX="7.0" layoutY="415.0" promptText="Brugernavn" />
-      <TableView fx:id="TVSearchPersons" layoutX="261.0" layoutY="316.0" prefHeight="287.0" prefWidth="540.0">
+      <TableView fx:id="tvSearchPersons" layoutX="261.0" layoutY="316.0" prefHeight="287.0" prefWidth="540.0">
         <columns>
-          <TableColumn fx:id="TVCSearchPersonsFirstName" prefWidth="160.0" text="Fornavn" />
-          <TableColumn fx:id="TVCSearchPersonsLastName" prefWidth="180.0" text="Efternavn" />
-            <TableColumn fx:id="TVCSearchPersonsUsername" prefWidth="200.0" text="Brugernavn" />
+          <TableColumn fx:id="tvcSearchPersonsFirstName" prefWidth="160.0" text="Fornavn" />
+          <TableColumn fx:id="tvcSearchPersonsLastName" prefWidth="180.0" text="Efternavn" />
+            <TableColumn fx:id="tvcSearchPersonsUsername" prefWidth="200.0" text="Brugernavn" />
         </columns>
       </TableView>
       <Button fx:id="btnSearchPersons" layoutX="163.0" layoutY="383.0" mnemonicParsing="false" onAction="#btnSearchPersonsHandler" text="Søg på navn" />

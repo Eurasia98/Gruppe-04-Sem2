@@ -10,6 +10,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class CreatePersonScreenController implements Initializable {
@@ -60,9 +61,9 @@ public class CreatePersonScreenController implements Initializable {
 
     @FXML
     void btnAvailableUsernameHandler(ActionEvent event) {
-        if (App.getCreditSystem().availableUsername(txtFieldUsername.getText())){
+        if (App.getCreditSystem().availableUsername(txtFieldUsername.getText())) {
             txtArea.clear();
-            txtArea.setText("Brugernavnet: "  + txtFieldUsername.getText() + " er ledigt. ");
+            txtArea.setText("Brugernavnet: " + txtFieldUsername.getText() + " er ledigt. ");
         } else {
             txtArea.clear();
             txtArea.setText("Brugernavnet: " + txtFieldUsername.getText() + " er ikke ledigt. ");
@@ -74,13 +75,53 @@ public class CreatePersonScreenController implements Initializable {
     // og skriver en besked til brugeren om succes eller ej.
     @FXML
     void btnSavePersonHandler(ActionEvent event) {
-            if (App.getCreditSystem().createNewPerson(txtFieldUsername.getText(),
-                txtFieldPassword.getText(), txtFieldFirstName.getText(), txtFieldLastName.getText()) == true){
-                updateSuccesfullCreation();
-            } else updateUnsuccesfullCreation();
+        if (App.getCreditSystem().availableUsername(txtFieldUsername.getText())) {
+            if (!txtFieldUsername.getText().isEmpty() && !txtFieldPassword.getText().isEmpty() &&
+                    !txtFieldFirstName.getText().isEmpty() && !txtFieldLastName.getText().isEmpty() &&
+                    !txtFieldEmail.getText().isEmpty() && !txtFieldProductionId.getText().isEmpty() &&
+                    !txtFieldRole.getText().isEmpty() && !txtFieldRoleName.getText().isEmpty()) {
+                if (App.getCreditSystem().createNewPerson(txtFieldUsername.getText(), txtFieldPassword.getText(),
+                        txtFieldFirstName.getText(), txtFieldLastName.getText(), txtFieldEmail.getText()) == true) {
+
+                    ArrayList<String> personInfo = App.getCreditSystem().getPersonInfo(txtFieldUsername.getText());
+                    if (App.getCreditSystem().createNewCredit(Integer.parseInt(personInfo.get(1)),
+                            txtFieldProductionId.getText(), txtFieldRole.getText(), txtFieldRoleName.getText()) == true) {
+                        updateSuccesfullCreation();
+                    }
+                } else {
+                    updateUnsuccesfullCreation();
+                }
+            } else if (!txtFieldUsername.getText().isEmpty() && !txtFieldPassword.getText().isEmpty() &&
+                    !txtFieldFirstName.getText().isEmpty() && !txtFieldLastName.getText().isEmpty() &&
+                    !txtFieldEmail.getText().isEmpty() && txtFieldProductionId.getText().isEmpty() &&
+                    txtFieldRole.getText().isEmpty() && txtFieldRoleName.getText().isEmpty()) {
+                if (App.getCreditSystem().createNewPerson(txtFieldUsername.getText(), txtFieldPassword.getText(),
+                        txtFieldFirstName.getText(), txtFieldLastName.getText(), txtFieldEmail.getText()) == true){
+                    updateSuccesfullCreation();
+                } else {
+                    updateUnsuccesfullCreation();
+                }
+            } else if (!txtFieldUsername.getText().isEmpty() && !txtFieldPassword.getText().isEmpty() &&
+                    !txtFieldFirstName.getText().isEmpty() && !txtFieldLastName.getText().isEmpty() &&
+                    txtFieldEmail.getText().isEmpty() && txtFieldProductionId.getText().isEmpty() &&
+                    txtFieldRole.getText().isEmpty() && txtFieldRoleName.getText().isEmpty()) {
+                if (App.getCreditSystem().createNewPerson(txtFieldUsername.getText(),
+                        txtFieldPassword.getText(), txtFieldFirstName.getText(), txtFieldLastName.getText()) == true) {
+                    updateSuccesfullCreation();
+                } else {
+                    updateUnsuccesfullCreation();
+                }
+            } else {
+                updateUnsuccesfullCreation();
+            }
+        } else {
+            txtArea.clear();
+            txtArea.setText("Brugernavnet: " + txtFieldUsername.getText() + " er ikke ledigt. ");
+        }
     }
 
-    public void updateSuccesfullCreation(){
+
+    public void updateSuccesfullCreation() {
         txtFieldUsername.clear();
         txtFieldPassword.clear();
         txtFieldFirstName.clear();
@@ -92,7 +133,7 @@ public class CreatePersonScreenController implements Initializable {
         txtArea.setText("Personen er blevet oprettet i systemet. ");
     }
 
-    public void updateUnsuccesfullCreation(){
+    public void updateUnsuccesfullCreation() {
         txtFieldUsername.clear();
         txtFieldPassword.clear();
         txtFieldFirstName.clear();
@@ -101,7 +142,8 @@ public class CreatePersonScreenController implements Initializable {
         txtFieldProductionId.clear();
         txtFieldRole.clear();
         txtFieldRoleName.clear();
-        txtArea.setText("Personen er ikke blevet oprettet i systemet - der gik noget galt. ");
+        txtArea.setText("Personen er ikke blevet oprettet i systemet - Udfyld venligst alle relevante felter. \n " +
+                "Alle felter omkring en kreditering skal fyldes hvis en kreditering skal oprettes. ");
     }
 
     @Override

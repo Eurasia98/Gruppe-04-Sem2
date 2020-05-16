@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="io.github.eurasia98.sem2.presentation.PersonMyCreditsScreenController">
+   <children>
+      <TableView fx:id="tvMyCredits" layoutY="42.0" prefHeight="556.0" prefWidth="800.0">
+        <columns>
+          <TableColumn fx:id="tvcTitle" prefWidth="184.0" text="Titel" />
+          <TableColumn fx:id="tvcProductionType" prefWidth="192.0" text="Type" />
+            <TableColumn fx:id="tvcRoleType" prefWidth="193.60003662109375" text="Rolle" />
+            <TableColumn fx:id="tvcRoleName" prefWidth="232.800048828125" text="Rollenavn" />
+        </columns>
+      </TableView>
+      <Button fx:id="btnMyPage" layoutY="1.0" mnemonicParsing="false" onAction="#btnMyPageHandler" text="Min side" />
+   </children>
+</AnchorPane>

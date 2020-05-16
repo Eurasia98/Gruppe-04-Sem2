@@ -10,7 +10,7 @@ import java.util.ArrayList;
 public class DatabaseCreditsManager {
     private static Connection connection = null;
 
-    public void insertCredit(ArrayList<String> creditsInfo){
+    public Boolean insertCredit(ArrayList<String> creditsInfo){
         try {
             this.connection = DatabaseAccessHandler.getConnection();
 
@@ -23,9 +23,11 @@ public class DatabaseCreditsManager {
 
             insertCreditStatement.execute();
 
+            return true;
+
         } catch (SQLException throwables) {
             throwables.printStackTrace();
-        }
+        } return false;
     }
 
     /*public Boolean insertCredit(Credit credit){
@@ -214,5 +216,51 @@ public class DatabaseCreditsManager {
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
+    }
+
+    public ArrayList<String[]> getLoggedInPersonsCredits(int account_id) {
+        connection = DatabaseAccessHandler.getConnection();
+        ArrayList<String> productionIds = new ArrayList<>();
+        ArrayList<String> role_types = new ArrayList<>();
+        ArrayList<String> role_names = new ArrayList<>();
+        ArrayList<String> productionTitles = new ArrayList<>();
+        ArrayList<String> productionTypes = new ArrayList<>();
+        ArrayList<String[]> finalList = new ArrayList<>();
+
+        try {
+            PreparedStatement getCreditsStatement = connection.prepareStatement(
+                    "SELECT production_id, role_type, role_name FROM credits WHERE account_id = ?");
+            getCreditsStatement.setInt(1, account_id);
+
+            ResultSet creditsResultSet = getCreditsStatement.executeQuery();
+
+            while (creditsResultSet.next()){
+                productionIds.add(creditsResultSet.getString(1));
+                role_types.add(creditsResultSet.getString(2));
+                role_names.add(creditsResultSet.getString(3));
+            }
+
+            for (String s : productionIds){
+                PreparedStatement getProductionInfoStatement = connection.prepareStatement(
+                        "SELECT title, production_type FROM productions WHERE production_id = ?");
+                getProductionInfoStatement.setString(1, s);
+                ResultSet productionInfoResultSet = getProductionInfoStatement.executeQuery();
+                while (productionInfoResultSet.next()){
+                    productionTitles.add(productionInfoResultSet.getString(1));
+                    productionTypes.add(productionInfoResultSet.getString(2));
+                }
+                getProductionInfoStatement.close();
+                productionInfoResultSet.close();
+            }
+
+            for (int i = 0; i < productionTitles.size(); i++){
+                finalList.add(new String[]{productionTitles.get(i), role_types.get(i),
+                        role_types.get(i), role_names.get(i)});
+            }
+            return finalList;
+
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        } return null;
     }
 }

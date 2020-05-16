@@ -21,16 +21,16 @@ public class MyProductionsScreenController implements Initializable {
     private ImageView IVLogo;
 
     @FXML
-    private TableView<ModelTableMyProductions> TVMyProductions;
+    private TableView<ModelTableMyProductions> tvMyProductions;
 
     @FXML
-    private TableColumn<ModelTableMyProductions, String> TVCProduction_id;
+    private TableColumn<ModelTableMyProductions, String> tvCProduction_id;
 
     @FXML
-    private TableColumn<ModelTableMyProductions, String> TVCTitle;
+    private TableColumn<ModelTableMyProductions, String> tvCTitle;
 
     @FXML
-    private TableColumn<ModelTableMyProductions, String> TVCProductionType;
+    private TableColumn<ModelTableMyProductions, String> tvcProductionType;
 
     @FXML
     private Button btnEditProductionId;
@@ -70,7 +70,7 @@ public class MyProductionsScreenController implements Initializable {
     @FXML
     void btnEditCreditsHandler(ActionEvent event) {
         resetFields();
-        App.setSelectedProductionToEdit(TVMyProductions.getSelectionModel().getSelectedItems().get(0).getProduction_id());
+        App.setSelectedProductionToEdit(tvMyProductions.getSelectionModel().getSelectedItems().get(0).getProduction_id());
         App.switchScene("EditCreditsScreen");
     }
 
@@ -81,12 +81,10 @@ public class MyProductionsScreenController implements Initializable {
 
         txtFieldCurrentProductionId.setManaged(true);
         txtFieldCurrentProductionId.setVisible(true);
-        txtFieldCurrentProductionId.setText(TVMyProductions.getSelectionModel().getSelectedItems().get(0).getProduction_id());
+        txtFieldCurrentProductionId.setText(tvMyProductions.getSelectionModel().getSelectedItem().getProduction_id());
 
         txtFieldNewId.setManaged(true);
         txtFieldNewId.setVisible(true);
-
-
     }
 
     @FXML
@@ -95,7 +93,7 @@ public class MyProductionsScreenController implements Initializable {
 
         txtFieldCurrentTitle.setManaged(true);
         txtFieldCurrentTitle.setVisible(true);
-        txtFieldCurrentTitle.setText(TVMyProductions.getSelectionModel().getSelectedItems().get(0).getTitle());
+        txtFieldCurrentTitle.setText(tvMyProductions.getSelectionModel().getSelectedItem().getTitle());
 
         txtFieldNewTitle.setManaged(true);
         txtFieldNewTitle.setVisible(true);
@@ -112,32 +110,23 @@ public class MyProductionsScreenController implements Initializable {
         if (!txtFieldNewId.getText().isEmpty()){
             if (App.getCreditSystem().editProductionId(txtFieldCurrentProductionId.getText(), txtFieldNewId.getText()) == true){
                 txtAreaDisplayInfo.appendText("Ændringen er blevet gemt. ");
-                resetFields();
-            } else txtAreaDisplayInfo.appendText("Ændringen blev ikke gemt, der skete desværre en fejl. ");
+                update();
+            } else {
+                txtAreaDisplayInfo.appendText("Ændringen blev ikke gemt, der skete desværre en fejl. ");
+            }
         } else if (!txtFieldNewTitle.getText().isEmpty()){
-            if (App.getCreditSystem().editTitle(txtFieldNewTitle.getText(), TVMyProductions.getSelectionModel().getSelectedItems().get(0).getProduction_id()) == true){
+            if (App.getCreditSystem().editTitle(txtFieldNewTitle.getText(), tvMyProductions.getSelectionModel().getSelectedItems().get(0).getProduction_id()) == true){
                 txtAreaDisplayInfo.appendText("Ændringen er blevet gemt. ");
-            } else txtAreaDisplayInfo.appendText("Ændringen er ikke blevet gemt, der skete desværre 2 fejl. ");
+                update();
+            } else txtAreaDisplayInfo.appendText("Ændringen er ikke blevet gemt, der skete desværre en fejl. ");
         }
-
-        resetFields();
+        update();
     }
 
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        resetFields();
-        ObservableList<ModelTableMyProductions> observableList = FXCollections.observableArrayList();
-        ArrayList<String[]> myProductions = App.getCreditSystem().showMyProductions();
-        for (String[] s : myProductions){
-            observableList.add(new ModelTableMyProductions(s[0], s[2], s[3]));
-        }
-
-        TVCProduction_id.setCellValueFactory(new PropertyValueFactory<>("production_id"));
-        TVCTitle.setCellValueFactory(new PropertyValueFactory<>("title"));
-        TVCProductionType.setCellValueFactory(new PropertyValueFactory<>("production_type"));
-
-        TVMyProductions.setItems(observableList);
+        update();
     }
 
     private void resetFields(){
@@ -149,5 +138,24 @@ public class MyProductionsScreenController implements Initializable {
         txtFieldCurrentTitle.setVisible(false);
         txtFieldNewTitle.clear();
         txtFieldNewTitle.setVisible(false);
+
     }
+
+    public void update(){
+        resetFields();
+
+        ObservableList<ModelTableMyProductions> observableList = FXCollections.observableArrayList();
+        ArrayList<String[]> myProductions = App.getCreditSystem().showMyProductions();
+        for (String[] s : myProductions){
+            observableList.add(new ModelTableMyProductions(s[0], s[2], s[3]));
+        }
+
+        tvCProduction_id.setCellValueFactory(new PropertyValueFactory<>("production_id"));
+        tvCTitle.setCellValueFactory(new PropertyValueFactory<>("title"));
+        tvcProductionType.setCellValueFactory(new PropertyValueFactory<>("production_type"));
+
+        tvMyProductions.setItems(observableList);
+    }
+
+
 }

@@ -30,28 +30,28 @@ public class EditMyCreditsScreenController implements Initializable {
     private Button btnDeleteCredit;
 
     @FXML
-    private TableView<ModelTableEditMyCredits> TVMyCredits;
+    private TableView<ModelTableEditMyCredits> tvMyCredits;
 
     @FXML
-    private TableColumn<ModelTableEditMyCredits, String> TVCFirstname;
+    private TableColumn<ModelTableEditMyCredits, String> tvcFirstname;
 
     @FXML
-    private TableColumn<ModelTableEditMyCredits, String> TVCLastname;
+    private TableColumn<ModelTableEditMyCredits, String> tvcLastname;
 
     @FXML
-    private TableColumn<ModelTableEditMyCredits, String> TVCUserId;
+    private TableColumn<ModelTableEditMyCredits, String> tvcUserId;
 
     @FXML
-    private TableColumn<ModelTableEditMyCredits, String> TVCTitle;
+    private TableColumn<ModelTableEditMyCredits, String> tvcTitle;
 
     @FXML
-    private TableColumn<ModelTableEditMyCredits, String> TVCProductionType;
+    private TableColumn<ModelTableEditMyCredits, String> tvcProductionType;
 
     @FXML
-    private TableColumn<ModelTableEditMyCredits, String> TVCRoleName;
+    private TableColumn<ModelTableEditMyCredits, String> tvcRoleName;
 
     @FXML
-    private TableColumn<ModelTableEditMyCredits, String> TVCRoleType;
+    private TableColumn<ModelTableEditMyCredits, String> tvcRoleType;
 
     @FXML
     private TextArea txtAreaInfo;
@@ -72,16 +72,16 @@ public class EditMyCreditsScreenController implements Initializable {
     private TextField txtFieldRoleName;
 
     @FXML
-    private TableView<ModelTablePersonsInMyCredits> TVSearchPersons;
+    private TableView<ModelTablePersonsInMyCredits> tvSearchPersons;
 
     @FXML
-    private TableColumn<ModelTablePersonsInMyCredits, String> TVCSearchPersonsFirstName;
+    private TableColumn<ModelTablePersonsInMyCredits, String> tvcSearchPersonsFirstName;
 
     @FXML
-    private TableColumn<ModelTablePersonsInMyCredits, String> TVCSearchPersonsLastName;
+    private TableColumn<ModelTablePersonsInMyCredits, String> tvcSearchPersonsLastName;
 
     @FXML
-    private TableColumn<ModelTablePersonsInMyCredits, String> TVCSearchPersonsUsername;
+    private TableColumn<ModelTablePersonsInMyCredits, String> tvcSearchPersonsUsername;
 
     @FXML
     private Button btnSearchPersons;
@@ -148,10 +148,16 @@ public class EditMyCreditsScreenController implements Initializable {
                 txtAreaInfo.setVisible(true);
                 txtAreaInfo.appendText("Personen er blevet oprettet. \n Krediteringen er blevet oprettet. ");
 
+                resetFields();
+
             } else {
                 txtAreaInfo.appendText("Der skete desværre en fejl 2. ");
+                resetFields();
             }
-        } else txtAreaInfo.appendText("Der skete desværre en fejl 1. ");
+        } else {
+            txtAreaInfo.appendText("Der skete desværre en fejl 1. ");
+            resetFields();
+        }
     }
 
     @FXML
@@ -196,7 +202,7 @@ public class EditMyCreditsScreenController implements Initializable {
         txtFieldRoleName.setVisible(false);
         txtAreaInfo.clear();
         txtAreaInfo.setVisible(false);
-        TVSearchPersons.setVisible(false);
+        tvSearchPersons.setVisible(false);
 
         String productionId = App.getSelectedProductionToEdit();
         ObservableList<ModelTableEditMyCredits> observableList = FXCollections.observableArrayList();
@@ -206,15 +212,14 @@ public class EditMyCreditsScreenController implements Initializable {
             observableList.add(new ModelTableEditMyCredits(s[0], s[1], s[2], s[3], s[4], s[5], s[6]));
         }
 
-        TVCFirstname.setCellValueFactory(new PropertyValueFactory<>("firstName"));
-        TVCLastname.setCellValueFactory(new PropertyValueFactory<>("lastName"));
-        TVCUserId.setCellValueFactory(new PropertyValueFactory<>("account_id"));
-        TVCTitle.setCellValueFactory(new PropertyValueFactory<>("title"));
-        TVCProductionType.setCellValueFactory(new PropertyValueFactory<>("productionType"));
-        TVCRoleType.setCellValueFactory(new PropertyValueFactory<>("roleType"));
-        TVCRoleName.setCellValueFactory(new PropertyValueFactory<>("roleName"));
+        tvcFirstname.setCellValueFactory(new PropertyValueFactory<>("firstName"));
+        tvcLastname.setCellValueFactory(new PropertyValueFactory<>("lastName"));
+        tvcUserId.setCellValueFactory(new PropertyValueFactory<>("account_id"));
+        tvcTitle.setCellValueFactory(new PropertyValueFactory<>("title"));
+        tvcProductionType.setCellValueFactory(new PropertyValueFactory<>("productionType"));
+        tvcRoleType.setCellValueFactory(new PropertyValueFactory<>("roleType"));
+        tvcRoleName.setCellValueFactory(new PropertyValueFactory<>("roleName"));
 
-
-        TVMyCredits.setItems(observableList);
+        tvMyCredits.setItems(observableList);
     }
 }

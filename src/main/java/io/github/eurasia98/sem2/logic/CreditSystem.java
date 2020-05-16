@@ -35,6 +35,24 @@ public class CreditSystem {
       personInfo.add(firstName);
       personInfo.add(lastName);
       personInfo.add(account.getUsername());
+      personInfo.add(null);
+      personManager.insertPerson(personInfo);
+
+      DatabasePersonHandler databasePersonHandler = new DatabasePersonHandler();
+      if (databasePersonHandler.getId(username) != 0){
+         return true;
+      } else return false;
+   }
+
+   public boolean createNewPerson(String username, String password, String firstName, String lastName, String email) {
+      PersonManager personManager = new PersonManager();
+      ArrayList<String> personInfo = new ArrayList<>();
+      personInfo.add(username);
+      personInfo.add(password);
+      personInfo.add(firstName);
+      personInfo.add(lastName);
+      personInfo.add(account.getUsername());
+      personInfo.add(email);
       personManager.insertPerson(personInfo);
 
       DatabasePersonHandler databasePersonHandler = new DatabasePersonHandler();
@@ -108,8 +126,8 @@ public class CreditSystem {
 
    public Boolean createNewCredit(int account_id, String production_id, String roleType, String roleName){
       CreditManager creditManager = new CreditManager();
-      creditManager.insertCredit(new Credit(account_id, production_id, roleType, roleName));
-      return true;
+      return creditManager.insertCredit(new Credit(account_id, production_id, roleType, roleName));
+
    }
 
    public Boolean editProductionId(String oldProductionId, String newProductionId){
@@ -164,4 +182,11 @@ public class CreditSystem {
 
       return personInfo;
    }
+
+    public ArrayList<String[]> getLoggedInPersonCredits() {
+      DatabaseCreditsManager databaseCreditsManager = new DatabaseCreditsManager();
+      ArrayList<String[]> creditsInfo = databaseCreditsManager.getLoggedInPersonsCredits(account.getId());
+      return creditsInfo;
+    }
+
 }

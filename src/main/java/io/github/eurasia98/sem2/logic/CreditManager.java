@@ -6,14 +6,14 @@ import java.util.ArrayList;
 
 public class CreditManager {
 
-    public void insertCredit(Credit credit){
+    public Boolean insertCredit(Credit credit){
         DatabaseCreditsManager databaseCreditsManager = new DatabaseCreditsManager();
         ArrayList<String> creditsInfo = new ArrayList<>();
         creditsInfo.add(Integer.toString(credit.getAccount_id()));
         creditsInfo.add(credit.getProduction_id());
         creditsInfo.add(credit.getRoleType());
         creditsInfo.add(credit.getRoleName());
-        databaseCreditsManager.insertCredit(creditsInfo);
+        return databaseCreditsManager.insertCredit(creditsInfo);
     }
 
     /*public Boolean insertCredit(Credit credit){

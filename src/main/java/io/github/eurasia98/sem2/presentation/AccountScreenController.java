@@ -38,10 +38,6 @@ public class AccountScreenController implements Initializable {
     private Button btnCreateProduction;
 
     @FXML
-    private Button btnEditProduction;
-
-
-    @FXML
     private Button btnAddPerson;
 
     @FXML
@@ -92,11 +88,7 @@ public class AccountScreenController implements Initializable {
     private void btnCreateProductionActionHandler(ActionEvent event) {
         App.switchScene("CreateProductionScreen");
     }
-
-    @FXML
-    private void btnEditProductionActionHandler(ActionEvent event) {
-
-    }
+    
 
     // Technically logs out.
     @FXML
@@ -113,7 +105,7 @@ public class AccountScreenController implements Initializable {
 
     @FXML
     private void btnMyCreditsActionHandler(ActionEvent event){
-//        App.switchScene("MyCreditsScreen");
+        App.switchScene("PersonMyCreditsScreen");
     }
 
     @FXML
@@ -144,8 +136,6 @@ public class AccountScreenController implements Initializable {
                 btnCreateProducer.setVisible(true);
             }
             case "Producer": {
-                btnEditProduction.setManaged(true);
-                btnEditProduction.setVisible(true);
                 btnCreateProduction.setManaged(true);
                 btnCreateProduction.setVisible(true);
                 btnAddPerson.setManaged(true);

@@ -29,10 +29,11 @@ public class DatabaseAccountHandler {
             this.connection = DatabaseAccessHandler.getConnection();
 
             PreparedStatement insertAccountStatement = connection.prepareStatement(
-                    "INSERT INTO accounts(username, password, account_type) VALUES(?,?,?)");
+                    "INSERT INTO accounts(username, password, email, account_type) VALUES(?,?,?,?)");
             insertAccountStatement.setString(1, accountInfo.get(0));
             insertAccountStatement.setString(2, accountInfo.get(1));
             insertAccountStatement.setString(3, accountInfo.get(5));
+            insertAccountStatement.setString(4, accountInfo.get(6));
             insertAccountStatement.execute();
 
         } catch (SQLException throwables) {

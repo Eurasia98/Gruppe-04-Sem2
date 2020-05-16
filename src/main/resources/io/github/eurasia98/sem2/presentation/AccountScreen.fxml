@@ -25,7 +25,6 @@
          <children>
             <Button fx:id="btnCreateProducer" managed="false" mnemonicParsing="false" onAction="#btnCreateProducerActionHandler" prefHeight="25.0" prefWidth="120.0" text="Opret Producer" textAlignment="RIGHT" visible="false" />
             <Button fx:id="btnCreateProduction" managed="false" mnemonicParsing="false" onAction="#btnCreateProductionActionHandler" prefHeight="25.0" prefWidth="120.0" text="Opret Produktion" visible="false" />
-            <Button fx:id="btnEditProduction" managed="false" mnemonicParsing="false" onAction="#btnEditProductionActionHandler" prefHeight="25.0" prefWidth="120.0" text="Ændre Produktion" visible="false" />
             <Button fx:id="btnAddPerson" managed="false" mnemonicParsing="false" onAction="#btnAddPersonActionHandler" prefHeight="25.0" prefWidth="129.0" text="Tilføj person" visible="false" />
             <Button fx:id="btnMyPersons" mnemonicParsing="false" onAction="#btnMyPersonsHandler" text="Personer oprettet af mig" visible="false" />
             <Button fx:id="btnMyCredits" managed="false" mnemonicParsing="false" onAction="#btnMyCreditsActionHandler" prefHeight="25.0" prefWidth="195.0" text="Mine krediteringer" visible="false" />
