@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <ImageView fx:id="ivLogo" fitHeight="150.0" fitWidth="200.0" layoutX="586.0" layoutY="14.0" onMouseClicked="#ivLogoHandler" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/TV2_logo.png" />
+         </image>
+      </ImageView>
+      <Button fx:id="btnMyPage" layoutY="1.0" mnemonicParsing="false" onAction="#btnMyPageHandler" text="Min side" />
+      <TableView fx:id="tvEpisodes" layoutY="233.0" prefHeight="335.0" prefWidth="800.0" AnchorPane.bottomAnchor="32.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="233.0">
+        <columns>
+          <TableColumn fx:id="tvcEpisodeNumber" prefWidth="169.60003662109375" text="Afsnit nr" />
+          <TableColumn fx:id="tvcEpisodeTitle" prefWidth="399.20001220703125" text="Titel" />
+            <TableColumn fx:id="tvcId" prefWidth="228.79998779296875" text="Id" />
+        </columns>
+      </TableView>
+      <Button fx:id="btnChangeEpisode" layoutX="5.0" layoutY="114.0" mnemonicParsing="false" onAction="#btnChangeEpisode" text="Ændre afsnit" />
+      <Button fx:id="btnSaveEpisode" layoutX="101.0" layoutY="114.0" mnemonicParsing="false" onAction="#btnSaveEpisode" text="Gem ændringer" />
+      <Button fx:id="btnChangeTitle" layoutX="344.0" layoutY="114.0" mnemonicParsing="false" onAction="#btnChangeTitleHandler" text="Ændre Titel" />
+      <Button fx:id="btnSaveTitle" layoutX="432.0" layoutY="114.0" mnemonicParsing="false" onAction="#btnSaveTitleHandler" text="Gem ændringer" />
+      <TextField fx:id="txtFieldCurrentEpisodeNumber" layoutX="5.0" layoutY="166.0" promptText="Nuværende afsnitnummer" />
+      <TextField fx:id="txtFieldNewEpisodeNumber" layoutX="172.0" layoutY="166.0" promptText="Nyt afsnitnummer" />
+      <TextField fx:id="txtFieldCurrentTitle" layoutX="344.0" layoutY="166.0" promptText="Nuværende titel" />
+      <TextField fx:id="txtFieldNewTitle" layoutX="507.0" layoutY="166.0" promptText="Ny titel" />
+      <Button fx:id="btnSelect" layoutX="710.0" layoutY="568.0" mnemonicParsing="false" onAction="#btnSelectHandler" text="Vis detaljer" />
+      <Label layoutX="10.0" layoutY="205.0" text="Episoder">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <Button fx:id="btnNewEpisode" layoutX="5.0" layoutY="568.0" mnemonicParsing="false" onAction="#btnNewEpisodeHandler" text="Ny episode" />
+   </children>
+</AnchorPane>

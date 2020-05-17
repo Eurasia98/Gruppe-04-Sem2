@@ -139,21 +139,24 @@ public class DatabasePersonHandler {
         } return false;
     }*/
 
-    public ArrayList<String[]> getMyPersons(String ownerUsername, int personAccountId){
+    public ArrayList<String[]> getMyPersons(String ownerUsername){
         connection = DatabaseAccessHandler.getConnection();
-        String[] personInfoArray;
+        DatabaseAccountHandler databaseAccountHandler;
         ArrayList<String[]> personsInfo = new ArrayList<>();
 
         try {
             PreparedStatement getMyPersonsStatement = connection.prepareStatement(
-                    "SELECT * FROM persons WHERE created_by = ?");
+                    "SELECT account_id, first_name, last_name FROM persons WHERE created_by = ?");
             getMyPersonsStatement.setString(1, ownerUsername);
             ResultSet rs = getMyPersonsStatement.executeQuery();
 
             while (rs.next()){
-                personInfoArray = new String[]{rs.getString(2), rs.getString(5),
-                        rs.getString(6), getAmountOfCredits(personAccountId)};
-                personsInfo.add(personInfoArray);
+                databaseAccountHandler = new DatabaseAccountHandler();
+                ArrayList<String> accountInfo = databaseAccountHandler.getAccount(rs.getInt(1));
+
+                personsInfo.add(new String[]{Integer.toString(rs.getInt(1)), rs.getString(2),
+                        rs.getString(3), getAmountOfCredits(rs.getInt(1)), accountInfo.get(4)});
+
             }
             return personsInfo;
         } catch (SQLException throwables) {

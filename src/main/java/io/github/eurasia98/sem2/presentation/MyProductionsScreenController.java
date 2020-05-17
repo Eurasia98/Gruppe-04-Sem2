@@ -45,6 +45,9 @@ public class MyProductionsScreenController implements Initializable {
     private Button btnMyPage;
 
     @FXML
+    private Button btnWatchDetails;
+
+    @FXML
     private TextField txtFieldCurrentProductionId;
 
     @FXML
@@ -97,6 +100,18 @@ public class MyProductionsScreenController implements Initializable {
 
         txtFieldNewTitle.setManaged(true);
         txtFieldNewTitle.setVisible(true);
+    }
+
+    @FXML
+    void btnWatchDetailsHandler(ActionEvent event) {
+        switch (tvMyProductions.getSelectionModel().getSelectedItem().getProduction_type()){
+            case "Movie":
+            case "Serie":
+                App.setSelectedProductionToEdit(tvMyProductions.getSelectionModel().getSelectedItem().getProduction_id());
+                App.setSelectedTvSeriesToEdit(App.getCreditSystem().getSeriesId(App.getSelectedProductionToEdit()));
+                App.switchScene("ChoosenTvShowToEdit");
+            case "Tv_Program":
+        }
     }
 
     @FXML

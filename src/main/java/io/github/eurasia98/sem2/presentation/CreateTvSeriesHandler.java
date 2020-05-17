@@ -7,6 +7,8 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 
+import java.util.ArrayList;
+
 public class CreateTvSeriesHandler {
     @FXML
     private TextField txtFieldProductionId;
@@ -30,7 +32,7 @@ public class CreateTvSeriesHandler {
     private Button btnMyPage;
 
     @FXML
-    private TextArea txtAreaInfo;
+    private TextArea txtAreaDisplayInfo;
 
     @FXML
     void IVLogoHandler() {
@@ -46,23 +48,62 @@ public class CreateTvSeriesHandler {
     void btnSaveSeriesHandler() {
         if (!txtFieldTitle.getText().isEmpty() && !txtFieldProductionId.getText().isEmpty() &&
                 !txtFieldSeriesId.getText().isEmpty() && !txtAreaDescription.getText().isEmpty()){
-            txtAreaInfo.clear();
-            App.getCreditSystem().createNewTv_series(txtFieldTitle.getText(),
-                    txtFieldProductionId.getText(), txtFieldSeriesId.getText(), txtAreaDescription.getText());
-            txtAreaInfo.appendText("Serien er blevet gemt. ");
-        } else if (!txtFieldTitle.getText().isEmpty() && !txtFieldProductionId.getText().isEmpty() &&
+            ArrayList<String> seriesInfo = new ArrayList<>();
+            seriesInfo.add(txtFieldProductionId.getText());
+            seriesInfo.add(txtFieldTitle.getText());
+            seriesInfo.add("Serie");
+            seriesInfo.add(txtFieldSeriesId.getText());
+            seriesInfo.add(txtAreaDescription.getText());
+        App.getCreditSystem().createNewTv_series(seriesInfo);
+            if(App.getCreditSystem().createNewTv_series(seriesInfo) == true){
+                //txtAreaInfo.appendText("Succes. ");
+                /*resetFields();
+                updateSucces();*/
+                txtAreaDisplayInfo.appendText("Succes");
+            } else {
+                resetFields();
+                updateFailure();
+            }
+         }
+        else if (!txtFieldTitle.getText().isEmpty() && !txtFieldProductionId.getText().isEmpty() &&
                 !txtFieldSeriesId.getText().isEmpty() &&
                 (txtAreaDescription.getText().isEmpty() || txtAreaDescription.getText() == null)){
-            txtAreaInfo.clear();
-            App.getCreditSystem().createNewTv_series(txtFieldTitle.getText(), txtFieldProductionId.getText(),
-                    txtFieldSeriesId.getText(), null);
-            txtAreaInfo.appendText("Serien er blevet gemt. ");
+            ArrayList<String> seriesInfo = new ArrayList<>();
+            seriesInfo.add(txtFieldProductionId.getText());
+            seriesInfo.add(txtFieldTitle.getText());
+            seriesInfo.add("Serie");
+            seriesInfo.add(txtFieldSeriesId.getText());
+            seriesInfo.add(null);
+            if (App.getCreditSystem().createNewTv_series(seriesInfo) == true){
+                resetFields();
+                updateSucces();
+            } else {
+                resetFields();
+                updateFailure();
+            }
         } else {
-            txtAreaInfo.clear();
+            resetFields();
             txtFieldTitle.setStyle("-fx-prompt-text-fill: red");
             txtFieldProductionId.setStyle("-fx-prompt-text-fill: red");
             txtFieldSeriesId.setStyle("-fx-prompt-text-fill: red");
-            txtAreaInfo.appendText("Udfyld venligst alle felter markeret med stjerne. ");
+            txtAreaDisplayInfo.appendText("Udfyld venligst alle felter markeret med stjerne. ");
         }
+    }
+
+    public void resetFields(){
+        txtFieldTitle.clear();
+        txtAreaDescription.clear();
+        txtFieldSeriesId.clear();
+        txtFieldProductionId.clear();
+        txtAreaDisplayInfo.clear();
+        txtAreaDisplayInfo.setEditable(false);
+    }
+
+    public void updateSucces(){
+        txtAreaDisplayInfo.appendText("Serien blev gemt. Se den under mine produktioner. ");
+    }
+
+    private void updateFailure() {
+        txtAreaDisplayInfo.appendText("Der skete desværre en fejl. ");
     }
 }

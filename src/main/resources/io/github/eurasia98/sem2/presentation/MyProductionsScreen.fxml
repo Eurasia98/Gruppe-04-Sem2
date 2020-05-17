@@ -29,6 +29,7 @@
             <Button fx:id="btnEditProductionId" mnemonicParsing="false" onAction="#btnEditProductionIdHandler" text="Rediger produktions id" />
             <Button fx:id="btnEditTitle" mnemonicParsing="false" onAction="#btnEditTitleHandler" text="Rediger titel" />
             <Button fx:id="btnEditCredits" mnemonicParsing="false" onAction="#btnEditCreditsHandler" text="Rediger krediteringer" />
+            <Button fx:id="btnWatchDetails" mnemonicParsing="false" onAction="#btnWatchDetailsHandler" text="Vis detaljer" />
          </children>
       </HBox>
       <Button fx:id="btnMyPage" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#btnMyPageHandler" text="Min side" />

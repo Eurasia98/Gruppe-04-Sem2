@@ -128,6 +128,7 @@ public class DatabaseAccountHandler {
                 accountInfo.add(rs.getString(2));
                 accountInfo.add(rs.getString(3));
                 accountInfo.add(rs.getString(4));
+                accountInfo.add(rs.getString(5));
             }
 
             return accountInfo;

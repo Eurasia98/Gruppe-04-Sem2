@@ -388,6 +388,40 @@ public class DatabaseProductionManager {
         return null;
     }
 
+    public String getTitle(String production_id) {
+        connection = DatabaseAccessHandler.getConnection();
+
+        try {
+            PreparedStatement getTitleStatement = connection.prepareStatement("SELECT title FROM productions WHERE production_id = ?");
+            getTitleStatement.setString(1, production_id);
+
+            ResultSet titleResultSet = getTitleStatement.executeQuery();
+
+            while (titleResultSet.next()) {
+                return titleResultSet.getString(1);
+            }
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return null;
+    }
+
+    public boolean editDescription(String selectedTvSeriesToEdit, String newDescription) {
+        connection = DatabaseAccessHandler.getConnection();
+
+        try {
+            PreparedStatement editDescriptionStatement = connection.prepareStatement(
+                    "UPDATE tv_series SET description = ? WHERE series_id = ?");
+            editDescriptionStatement.setString(1, newDescription);
+            editDescriptionStatement.setString(2, selectedTvSeriesToEdit);
+            editDescriptionStatement.execute();
+
+            return true;
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        } return false;
+    }
+
 /*    public ArrayList<Production> getMyProductions(int account_id){
         connection = DatabaseAccesHandler.getConnection();
         ArrayList<Production> myProductions = new ArrayList<>();

@@ -21,6 +21,33 @@ public class App extends Application{
     private static List<String> userInfo = new ArrayList<>();
     private static String searchField;
     private static String selectedProductionToEdit;
+    private static String selectedTvSeriesToEdit;
+    private static String selectedSeasonToEdit;
+    private static String selectedEpisodeToEdit;
+
+    public static String getSelectedTvSeriesToEdit() {
+        return selectedTvSeriesToEdit;
+    }
+
+    public static void setSelectedTvSeriesToEdit(String selectedTvSeriesToEdit) {
+        App.selectedTvSeriesToEdit = selectedTvSeriesToEdit;
+    }
+
+    public static String getSelectedEpisodeToEdit() {
+        return selectedEpisodeToEdit;
+    }
+
+    public static void setSelectedEpisodeToEdit(String selectedEpisodeToEdit) {
+        App.selectedEpisodeToEdit = selectedEpisodeToEdit;
+    }
+
+    public static String getSelectedSeasonToEdit() {
+        return selectedSeasonToEdit;
+    }
+
+    public static void setSelectedSeasonToEdit(String selectedSeasonToEdit) {
+        App.selectedSeasonToEdit = selectedSeasonToEdit;
+    }
 
     public static String getSelectedProductionToEdit() {
         return selectedProductionToEdit;

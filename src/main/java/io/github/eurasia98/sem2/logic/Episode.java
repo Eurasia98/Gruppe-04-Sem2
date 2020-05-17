@@ -4,10 +4,9 @@ public class Episode extends Production{
     private int episode_number;
     private String episode_title;
 
-    public Episode(String title, String productionID, int episode_number, String episode_title) {
+
+    public Episode(String title, String productionID) {
         super(title, productionID);
-        this.episode_number = episode_number;
-        this.episode_title = episode_title;
     }
 
     public int getEpisode_number() {

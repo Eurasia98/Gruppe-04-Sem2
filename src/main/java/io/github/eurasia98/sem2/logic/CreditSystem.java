@@ -1,6 +1,7 @@
 package io.github.eurasia98.sem2.logic;
 
 import io.github.eurasia98.sem2.persistence.*;
+import javafx.scene.control.TextField;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -70,16 +71,8 @@ public class CreditSystem {
          return true;
       } else return false;
    }
-
-   public Boolean createNewTv_series(String title, String productionId, String series_id,String description) {
-      TvSeriesManager tvSeriesManager = new TvSeriesManager();
-      tvSeriesManager.insertTvSeries(new TvSeries(title, productionId, series_id, getAccount_id(),description));
-
-      DatabaseTvSeriesHandler databaseTvSeriesHandler = new DatabaseTvSeriesHandler();
-      if (databaseTvSeriesHandler.getTitle(productionId) != null){
-         return true;
-      } else return false;
-   }
+   
+   
 
    public HashMap<String, String> search(String searchString) {
       DatabaseSearchController databaseSearchController = new DatabaseSearchController();
@@ -119,9 +112,10 @@ public class CreditSystem {
       return productionManager.getMyProductions(account.getId());
    }
 
-   public ArrayList<String[]> showMyPersons(){
-      PersonManager personManager = new PersonManager();
-      return personManager.getMyPersons(account.getUsername(), account.getId());
+   public ArrayList<String[]> getMyPersons(){
+      DatabasePersonHandler databasePersonHandler = new DatabasePersonHandler();
+      ArrayList<String[]> myProductionsInfo = databasePersonHandler.getMyPersons(account.getUsername());
+      return myProductionsInfo;
    }
 
    public Boolean createNewCredit(int account_id, String production_id, String roleType, String roleName){
@@ -189,4 +183,57 @@ public class CreditSystem {
       return creditsInfo;
     }
 
+   public boolean createNewTv_series(ArrayList<String> tvSeriesInfo) {
+      DatabaseTvSeriesHandler databaseTvSeriesHandler = new DatabaseTvSeriesHandler();
+      final ArrayList<String> finalList = new ArrayList<>();
+      finalList.add(tvSeriesInfo.get(0));
+      finalList.add(tvSeriesInfo.get(1));
+      finalList.add(tvSeriesInfo.get(2));
+      finalList.add(Integer.toString(account.getId()));
+      finalList.add(tvSeriesInfo.get(3));
+      finalList.add(tvSeriesInfo.get(4));
+
+      return databaseTvSeriesHandler.insertTvSeries(finalList);
+   }
+
+   public boolean createNewSeason(ArrayList<String> seasonInfo) {
+      DatabaseSeasonHandler databaseSeasonHandler = new DatabaseSeasonHandler();
+      return databaseSeasonHandler.insertSeason(seasonInfo);
+   }
+
+   public ArrayList<String[]> getMySeriesInfo(String production_id) {
+      DatabaseTvSeriesHandler databaseTvSeriesHandler = new DatabaseTvSeriesHandler();
+      return databaseTvSeriesHandler.getSeriesInfo(production_id);
+
+   }
+
+   public ArrayList<String[]> getSelectedSeasonEpisodesInfo(String selectedSeasonToEdit) {
+      DatabaseEpisodeHandler databaseEpisodeHandler = new DatabaseEpisodeHandler();
+      return databaseEpisodeHandler.getSelectedSeasonEpisodesInfo(selectedSeasonToEdit);
+
+   }
+
+   public String getEpisodeDescription(String selectedEpisodeToEdit) {
+      DatabaseEpisodeHandler databaseEpisodeHandler = new DatabaseEpisodeHandler();
+      return databaseEpisodeHandler.getDescription(selectedEpisodeToEdit);
+   }
+
+   public String getSeriesId(String production_id) {
+      DatabaseTvSeriesHandler databaseTvSeriesHandler = new DatabaseTvSeriesHandler();
+      return databaseTvSeriesHandler.getSeriesId(production_id);
+   }
+
+
+   public boolean createNewEpisode(String selectedSeasonToEdit, String selectedTvSeriesToEdit,
+                                   String selectedProductionToEdit, String title,
+                                   String description, String txtFieldEpisodeId, String txtFieldEpisodeNumber) {
+   DatabaseEpisodeHandler databaseEpisodeHandler = new DatabaseEpisodeHandler();
+   return databaseEpisodeHandler.insertEpisode(selectedSeasonToEdit, selectedTvSeriesToEdit, selectedProductionToEdit,
+           title, description, txtFieldEpisodeId, txtFieldEpisodeNumber);
+   }
+
+   public boolean changeDescription(String selectedTvSeriesToEdit, String newDescription) {
+      DatabaseProductionManager databaseProductionManager = new DatabaseProductionManager();
+      return databaseProductionManager.editDescription(selectedTvSeriesToEdit, newDescription);
+   }
 }

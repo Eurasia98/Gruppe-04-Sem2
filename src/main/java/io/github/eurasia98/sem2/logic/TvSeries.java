@@ -4,14 +4,9 @@ import java.util.ArrayList;
 
 public class TvSeries extends Production {
     private String series_id;
-    private ArrayList<Season> seasons;
 
-    public TvSeries(String title, String productionID, String series_id, int owner_id, String description) {
+    public TvSeries(String title, String productionID) {
         super(title, productionID);
-        this.series_id = series_id;
-        super.setOwner(owner_id);
-        super.setDescription(description);
-        super.setProductionType("Serie");
     }
 
     public String getSeries_id() {
@@ -20,13 +15,5 @@ public class TvSeries extends Production {
 
     public void setSeries_id(String series_id) {
         this.series_id = series_id;
-    }
-
-    public ArrayList<Season> getSeasons() {
-        return seasons;
-    }
-
-    public void setSeasons(ArrayList<Season> seasons) {
-        this.seasons = seasons;
     }
 }

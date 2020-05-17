@@ -7,19 +7,19 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="io.github.eurasia98.sem2.presentation.CreateTvSeriesHandler">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="io.github.eurasia98.sem2.presentation.CreateTvSeriesHandler">
    <children>
       <TextField fx:id="txtFieldProductionId" layoutX="214.0" layoutY="68.0" promptText="Indsæt produktions id*" />
       <TextField fx:id="txtFieldTitle" layoutX="40.0" layoutY="68.0" promptText="Indsæt titel*" />
       <TextField fx:id="txtFieldSeriesId" layoutX="396.0" layoutY="68.0" promptText="Indsæt serie id*" />
-      <Button fx:id="btnSaveSeries" layoutX="234.0" layoutY="345.0" mnemonicParsing="false" onAction="#btnSaveSeriesHandler" text="Gem" />
-      <TextArea fx:id="txtAreaDescription" layoutX="14.0" layoutY="114.0" prefHeight="200.0" prefWidth="200.0" promptText="Indsæt beskrivelse" />
-      <ImageView fx:id="IVLogo" fitHeight="150.0" fitWidth="200.0" layoutX="396.0" layoutY="300.0" onMouseClicked="#IVLogoHandler" pickOnBounds="true" preserveRatio="true">
+      <Button fx:id="btnSaveSeries" layoutX="502.0" layoutY="146.0" mnemonicParsing="false" onAction="#btnSaveSeriesHandler" text="Gem" />
+      <TextArea fx:id="txtAreaDescription" layoutX="40.0" layoutY="129.0" prefHeight="456.0" prefWidth="453.0" promptText="Indsæt beskrivelse:" />
+      <ImageView fx:id="IVLogo" fitHeight="150.0" fitWidth="200.0" layoutX="596.0" onMouseClicked="#IVLogoHandler" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@images/TV2_logo.png" />
          </image>
       </ImageView>
-      <TextArea fx:id="txtAreaInfo" editable="false" layoutX="396.0" layoutY="114.0" prefHeight="142.0" prefWidth="200.0" />
-      <Button fx:id="btnMyPage" layoutX="527.0" layoutY="14.0" mnemonicParsing="false" onAction="#btnMyPageHandler" text="Min side" />
+      <Button fx:id="btnMyPage" layoutX="9.0" layoutY="1.0" mnemonicParsing="false" onAction="#btnMyPageHandler" text="Min side" />
+      <TextArea fx:id="txtAreaDisplayInfo" layoutX="586.0" layoutY="115.0" prefHeight="200.0" prefWidth="200.0" />
    </children>
 </AnchorPane>

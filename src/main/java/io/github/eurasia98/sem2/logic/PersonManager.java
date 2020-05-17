@@ -13,12 +13,4 @@ public class PersonManager {
         personInfo.add("Person");
         databasePersonHandler.insertPerson(personInfo);
     }
-
-    public ArrayList<String[]> getMyPersons(String username, int account_id){
-        DatabasePersonHandler databasePersonHandler = new DatabasePersonHandler();
-        ArrayList<String[]> myProductionsInfo = databasePersonHandler.getMyPersons(username, account_id);
-        return myProductionsInfo;
-    }
-
-
 }
