@@ -1,7 +1,6 @@
 package io.github.eurasia98.sem2.logic;
 
 import io.github.eurasia98.sem2.persistence.*;
-import javafx.scene.control.TextField;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -251,5 +250,17 @@ public class CreditSystem {
    public String testProductionType(String productionId){
       DatabaseProductionManager databaseProductionManager = new DatabaseProductionManager();
       return databaseProductionManager.printTestProductionType(productionId);
+   }
+
+   public boolean createTvProgram(ArrayList<String> tvProgramInfo) {
+      DatabaseTvProgramHandler databaseTvProgramHandler = new DatabaseTvProgramHandler();
+      ArrayList<String> finalList = new ArrayList<>();
+      finalList.add(tvProgramInfo.get(0));
+      finalList.add(tvProgramInfo.get(1));
+      finalList.add("Tv program");
+      finalList.add(account.getUsername());
+      finalList.add(tvProgramInfo.get(2));
+
+      return databaseTvProgramHandler.insertTvProgram(finalList);
    }
 }
