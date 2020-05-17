@@ -138,7 +138,7 @@ public class EditChoosenSeasonController implements Initializable {
 
         ArrayList<String[]> seasonInfo = App.getCreditSystem().getSelectedSeasonEpisodesInfo(App.getSelectedSeasonToEdit());
         for (String[] s : seasonInfo){
-            observableList.add(new ModelTableChoosenSeasonToEdit(s[0], s[1], s[2]));
+            observableList.add(new ModelTableChoosenSeasonToEdit(s[1], s[0], s[2]));
         }
 
         tvcEpisodeNumber.setCellValueFactory(new PropertyValueFactory<>("episode_number"));

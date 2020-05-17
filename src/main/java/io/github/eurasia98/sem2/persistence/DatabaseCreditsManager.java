@@ -92,7 +92,7 @@ public class DatabaseCreditsManager {
         } return null;
     }
 
-    public void insertBackupCredits(String oldProductionId) {
+    public Boolean insertBackupCredits(String oldProductionId) {
         connection = DatabaseAccessHandler.getConnection();
 
         try {
@@ -127,9 +127,10 @@ public class DatabaseCreditsManager {
 
             insertBackupCredits.executeBatch();
 
+            return true;
         } catch (SQLException throwables) {
             throwables.printStackTrace();
-        }
+        } return false;
     }
 
     public boolean checkBackupCredits(String oldProductionId) {

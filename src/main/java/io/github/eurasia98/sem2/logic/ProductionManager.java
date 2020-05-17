@@ -6,9 +6,9 @@ import java.util.ArrayList;
 
 public class ProductionManager {
 
-    public ArrayList<String[]> getMyProductions(int account_id){
+    public ArrayList<String[]> getMyProductions(String username){
         DatabaseProductionManager databaseProductionManager = new DatabaseProductionManager();
-        ArrayList<String[]> myProductionsInfo = databaseProductionManager.getMyProductions(account_id);
+        ArrayList<String[]> myProductionsInfo = databaseProductionManager.getMyProductions(username);
         return myProductionsInfo;
     }
 }

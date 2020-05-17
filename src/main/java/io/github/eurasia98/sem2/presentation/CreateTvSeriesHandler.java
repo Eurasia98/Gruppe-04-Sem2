@@ -54,7 +54,6 @@ public class CreateTvSeriesHandler {
             seriesInfo.add("Serie");
             seriesInfo.add(txtFieldSeriesId.getText());
             seriesInfo.add(txtAreaDescription.getText());
-        App.getCreditSystem().createNewTv_series(seriesInfo);
             if(App.getCreditSystem().createNewTv_series(seriesInfo) == true){
                 //txtAreaInfo.appendText("Succes. ");
                 /*resetFields();

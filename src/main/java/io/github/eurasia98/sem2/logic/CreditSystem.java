@@ -63,13 +63,14 @@ public class CreditSystem {
    }
 
    public Boolean createNewMovie(String title, String productionId) {
-      MovieManager movieManager = new MovieManager();
-      movieManager.insertMovie(new Movie(title, productionId, getAccount_id()));
+      ArrayList<String> movieInfo = new ArrayList<>();
 
+      movieInfo.add(productionId);
+      movieInfo.add(title);
+      movieInfo.add("Movie");
+      movieInfo.add(account.getUsername());
       DatabaseMovieHandler databaseMovieHandler = new DatabaseMovieHandler();
-      if (databaseMovieHandler.getTitle(productionId) != null){
-         return true;
-      } else return false;
+      return databaseMovieHandler.insertMovie(movieInfo);
    }
    
    
@@ -109,7 +110,7 @@ public class CreditSystem {
 
    public ArrayList<String[]> showMyProductions(){
       ProductionManager productionManager = new ProductionManager();
-      return productionManager.getMyProductions(account.getId());
+      return productionManager.getMyProductions(account.getUsername());
    }
 
    public ArrayList<String[]> getMyPersons(){
@@ -127,10 +128,12 @@ public class CreditSystem {
    public Boolean editProductionId(String oldProductionId, String newProductionId){
       DatabaseProductionManager databaseProductionManager = new DatabaseProductionManager();
       ArrayList<String> productionInfo = databaseProductionManager.getProduction(oldProductionId);
-
-      if (account.getId() == Integer.parseInt(productionInfo.get(4))){
+      System.out.println("test1");
+      if (account.getUsername().equals(productionInfo.get(4))){
+         System.out.println("test2");
          return databaseProductionManager.editProductionId(oldProductionId, newProductionId);
       }
+      System.out.println("test3");
       return false;
    }
 
@@ -189,7 +192,7 @@ public class CreditSystem {
       finalList.add(tvSeriesInfo.get(0));
       finalList.add(tvSeriesInfo.get(1));
       finalList.add(tvSeriesInfo.get(2));
-      finalList.add(Integer.toString(account.getId()));
+      finalList.add(account.getUsername());
       finalList.add(tvSeriesInfo.get(3));
       finalList.add(tvSeriesInfo.get(4));
 
@@ -198,7 +201,15 @@ public class CreditSystem {
 
    public boolean createNewSeason(ArrayList<String> seasonInfo) {
       DatabaseSeasonHandler databaseSeasonHandler = new DatabaseSeasonHandler();
-      return databaseSeasonHandler.insertSeason(seasonInfo);
+      ArrayList<String> finalList = new ArrayList<>();
+      finalList.add(seasonInfo.get(0));
+      finalList.add(seasonInfo.get(1));
+      finalList.add(seasonInfo.get(2));
+      finalList.add(account.getUsername());
+      finalList.add(seasonInfo.get(3));
+      finalList.add(seasonInfo.get(4));
+      finalList.add(seasonInfo.get(5));
+      return databaseSeasonHandler.insertSeason(finalList);
    }
 
    public ArrayList<String[]> getMySeriesInfo(String production_id) {
@@ -235,5 +246,10 @@ public class CreditSystem {
    public boolean changeDescription(String selectedTvSeriesToEdit, String newDescription) {
       DatabaseProductionManager databaseProductionManager = new DatabaseProductionManager();
       return databaseProductionManager.editDescription(selectedTvSeriesToEdit, newDescription);
+   }
+
+   public String testProductionType(String productionId){
+      DatabaseProductionManager databaseProductionManager = new DatabaseProductionManager();
+      return databaseProductionManager.printTestProductionType(productionId);
    }
 }

@@ -94,6 +94,8 @@ public class MyProductionsScreenController implements Initializable {
     void btnEditTitleHandler(ActionEvent event) {
         resetFields();
 
+        txtAreaDisplayInfo.appendText(App.getCreditSystem().testProductionType(tvMyProductions.getSelectionModel().getSelectedItem().getProduction_id()));
+
         txtFieldCurrentTitle.setManaged(true);
         txtFieldCurrentTitle.setVisible(true);
         txtFieldCurrentTitle.setText(tvMyProductions.getSelectionModel().getSelectedItem().getTitle());
@@ -109,6 +111,8 @@ public class MyProductionsScreenController implements Initializable {
             case "Serie":
                 App.setSelectedProductionToEdit(tvMyProductions.getSelectionModel().getSelectedItem().getProduction_id());
                 App.setSelectedTvSeriesToEdit(App.getCreditSystem().getSeriesId(App.getSelectedProductionToEdit()));
+                System.out.println(App.getSelectedProductionToEdit());
+                System.out.println(App.getCreditSystem().getSeriesId(App.getSelectedProductionToEdit()));
                 App.switchScene("ChoosenTvShowToEdit");
             case "Tv_Program":
         }
@@ -121,26 +125,30 @@ public class MyProductionsScreenController implements Initializable {
     }
 
     @FXML
-    void btnSaveChangesHandler(ActionEvent event) {
+    void btnSaveChangesHandler() {
         if (!txtFieldNewId.getText().isEmpty()){
-            if (App.getCreditSystem().editProductionId(txtFieldCurrentProductionId.getText(), txtFieldNewId.getText()) == true){
+            if (App.getCreditSystem().editProductionId(txtFieldCurrentProductionId.getText(), txtFieldNewId.getText())){
                 txtAreaDisplayInfo.appendText("Ændringen er blevet gemt. ");
                 update();
             } else {
-                txtAreaDisplayInfo.appendText("Ændringen blev ikke gemt, der skete desværre en fejl. ");
+                resetFields();
+                txtAreaDisplayInfo.appendText("Ændringen blev ikke gemt, der skete desværre en fejl 1. ");
             }
-        } else if (!txtFieldNewTitle.getText().isEmpty()){
+        }
+        else if (!txtFieldNewTitle.getText().isEmpty()){
             if (App.getCreditSystem().editTitle(txtFieldNewTitle.getText(), tvMyProductions.getSelectionModel().getSelectedItems().get(0).getProduction_id()) == true){
                 txtAreaDisplayInfo.appendText("Ændringen er blevet gemt. ");
                 update();
-            } else txtAreaDisplayInfo.appendText("Ændringen er ikke blevet gemt, der skete desværre en fejl. ");
+            } else txtAreaDisplayInfo.appendText("Ændringen er ikke blevet gemt, der skete desværre en fejl 2. ");
+        } else{
+            update();
         }
-        update();
     }
 
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        // resetFields();
         update();
     }
 

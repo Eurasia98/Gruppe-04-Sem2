@@ -73,7 +73,7 @@ public class DatabaseTvSeriesHandler {
         connection = DatabaseAccessHandler.getConnection();
         try {
             PreparedStatement getIdStatement = connection.prepareStatement(
-                    "SELECT season_id FROM seasons WHERE production_id = ?");
+                    "SELECT series_id FROM tv_series WHERE production_id = ?");
             getIdStatement.setString(1, production_id);
             ResultSet idResultSet = getIdStatement.executeQuery();
 
@@ -84,5 +84,106 @@ public class DatabaseTvSeriesHandler {
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         } return null;
+    }
+
+    public Boolean insertBackupSeries(String oldProductionId) {
+        connection = DatabaseAccessHandler.getConnection();
+
+        try {
+            PreparedStatement backupSeriesStatement = connection.prepareStatement(
+                    "SELECT * FROM tv_series WHERE production_id = ?");
+            backupSeriesStatement.setString(1, oldProductionId);
+
+            ResultSet backupSeriesResultset = backupSeriesStatement.executeQuery();
+
+            ArrayList<String> seriesInfo = new ArrayList<>();
+
+            while (backupSeriesResultset.next()){
+                seriesInfo.add(Integer.toString(backupSeriesResultset.getInt(1)));
+                seriesInfo.add(backupSeriesResultset.getString(2));
+                seriesInfo.add(backupSeriesResultset.getString(3));
+                seriesInfo.add(backupSeriesResultset.getString(4));
+                seriesInfo.add(backupSeriesResultset.getString(5));
+
+            }
+
+            PreparedStatement insertBackupSeries = connection.prepareStatement(
+                    "INSERT INTO backup_series(id, production_id, title, series_id, description) VALUES (?,?,?,?,?)");
+
+            insertBackupSeries.setInt(1, Integer.parseInt(seriesInfo.get(0)));
+            insertBackupSeries.setString(2, seriesInfo.get(1));
+            insertBackupSeries.setString(3, seriesInfo.get(2));
+            insertBackupSeries.setString(4, seriesInfo.get(3));
+            insertBackupSeries.setString(5, seriesInfo.get(4));
+
+            insertBackupSeries.execute();
+
+            return true;
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        } return false;
+    }
+
+    public boolean checkBackupSeries() {
+        connection = DatabaseAccessHandler.getConnection();
+
+        try {
+            PreparedStatement checkUpdateStatement = connection.prepareStatement(
+                    "SELECT * FROM backup_series");
+
+            ResultSet checkUpdateResultset = checkUpdateStatement.executeQuery();
+
+            while (checkUpdateResultset.next()){
+                return true;
+            }
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return false;
+    }
+
+    public ArrayList<String> getBackupSeriesInfo(String newProductionId) {
+
+        connection = DatabaseAccessHandler.getConnection();
+        ArrayList<String> seriesInfo = new ArrayList<>();
+
+        try {
+            PreparedStatement getSeriesStatement = connection.prepareStatement(
+                    "SELECT * FROM backup_series");
+            ResultSet seriesResultSet = getSeriesStatement.executeQuery();
+
+            while (seriesResultSet.next()) {
+                seriesInfo.add(Integer.toString(seriesResultSet.getInt(1)));
+                seriesInfo.add(newProductionId);
+                seriesInfo.add(seriesResultSet.getString(3));
+                seriesInfo.add(seriesResultSet.getString(4));
+                seriesInfo.add(seriesResultSet.getString(5));
+            }
+
+            return seriesInfo;
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        } return null;
+    }
+
+    public void editInsertTvSeries(ArrayList<String> series_info) {
+        connection = DatabaseAccessHandler.getConnection();
+
+        try {
+            if (series_info != null){
+                PreparedStatement insertBackupSeriesStatement = connection.prepareStatement(
+                        "INSERT INTO tv_series(id, production_id, title, series_id, description) VALUES" +
+                                "(?,?,?,?,?)");
+                insertBackupSeriesStatement.setInt(1, Integer.parseInt(series_info.get(0)));
+                insertBackupSeriesStatement.setString(2, series_info.get(1));
+                insertBackupSeriesStatement.setString(3, series_info.get(2));
+                insertBackupSeriesStatement.setString(4, series_info.get(3));
+                insertBackupSeriesStatement.setString(5, series_info.get(4));
+
+                insertBackupSeriesStatement.execute();
+            }
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
     }
 }

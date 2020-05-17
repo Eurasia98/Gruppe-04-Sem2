@@ -161,7 +161,7 @@ public class DatabaseAccountHandler {
         } return null;
     }
 
-    public void insertBackupAccounts(ArrayList<Integer> personsInCreditsAccountId) {
+    public Boolean insertBackupAccounts(ArrayList<Integer> personsInCreditsAccountId) {
         connection = DatabaseAccessHandler.getConnection();
 
         try {
@@ -180,10 +180,10 @@ public class DatabaseAccountHandler {
             }
 
             insertBackupAccountsStatement.executeBatch();
-
+            return true;
         } catch (SQLException throwables) {
             throwables.printStackTrace();
-        }
+        } return false;
     }
 
     public boolean checkBackupAccounts() {

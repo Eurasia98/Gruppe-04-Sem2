@@ -7,7 +7,7 @@ public class DatabaseMovieHandler {
 
     static Connection connection = null;
 
-    public void insertMovie(ArrayList<String> movieInfo){
+    public Boolean insertMovie(ArrayList<String> movieInfo){
         try {
             this.connection = DatabaseAccessHandler.getConnection();
             DatabaseProductionManager databaseProductionManager = new DatabaseProductionManager();
@@ -19,9 +19,11 @@ public class DatabaseMovieHandler {
             insertPersonStatement.setString(2, movieInfo.get(1));
 
             insertPersonStatement.execute();
+
+            return true;
         } catch (SQLException throwables) {
             throwables.printStackTrace();
-        }
+        } return false;
     }
 
     public String getTitle(String production_id){
@@ -41,7 +43,7 @@ public class DatabaseMovieHandler {
         } return null;
     }
 
-    public void insertBackupMovies(String oldProductionId){
+    public Boolean insertBackupMovies(String oldProductionId){
         connection = DatabaseAccessHandler.getConnection();
 
         try {
@@ -68,9 +70,11 @@ public class DatabaseMovieHandler {
             insertBackupMovies.setString(3, movieInfo.get(2));
 
             insertBackupMovies.execute();
+
+            return true;
         } catch (SQLException throwables) {
             throwables.printStackTrace();
-        }
+        } return false;
     }
 
     public Boolean checkBackupMovies(String oldProductionId){

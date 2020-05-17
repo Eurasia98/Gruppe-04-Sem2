@@ -6,7 +6,7 @@ import java.util.ArrayList;
 public class DatabasePersonHandler {
     static Connection connection = null;
 
-    public void insertPerson(ArrayList<String> personInfo){
+    public void insertPerson(ArrayList<String> personInfo) {
         try {
             this.connection = DatabaseAccessHandler.getConnection();
 
@@ -17,7 +17,7 @@ public class DatabasePersonHandler {
                     "INSERT INTO persons(account_id, account_username, account_password, " +
                             "first_name, last_name, created_by) VALUES(?,?,?,?,?,?)");
             insertPersonStatement.setInt(1, getId(personInfo.get(0)));
-            insertPersonStatement.setString( 2, personInfo.get(0));
+            insertPersonStatement.setString(2, personInfo.get(0));
             insertPersonStatement.setString(3, personInfo.get(1));
             insertPersonStatement.setString(4, personInfo.get(2));
             insertPersonStatement.setString(5, personInfo.get(3));
@@ -52,7 +52,7 @@ public class DatabasePersonHandler {
     }*/
 
     // Slet er person i databasen.
-    public Boolean deletePerson(String username){
+    public Boolean deletePerson(String username) {
         connection = DatabaseAccessHandler.getConnection();
 
         try {
@@ -67,25 +67,27 @@ public class DatabasePersonHandler {
             return true;
         } catch (SQLException throwables) {
             throwables.printStackTrace();
-        } return false;
+        }
+        return false;
     }
 
-    public int getId(String username){
+    public int getId(String username) {
         try {
             connection = DatabaseAccessHandler.getConnection();
             PreparedStatement searchIdStatement = connection.prepareStatement("SELECT id FROM accounts WHERE username = ?");
             searchIdStatement.setString(1, username);
             ResultSet rs = searchIdStatement.executeQuery();
-            while (rs.next()){
+            while (rs.next()) {
                 return rs.getInt("id");
             }
         } catch (SQLException throwables) {
             throwables.printStackTrace();
-        } return 0;
+        }
+        return 0;
     }
 
     // opretter et person objekt ud fra database info på account_id.
-    public ArrayList<String> getPersonInfo(int account_id){
+    public ArrayList<String> getPersonInfo(int account_id) {
         connection = DatabaseAccessHandler.getConnection();
         ArrayList<String> personInfoList = new ArrayList<>();
         try {
@@ -94,7 +96,7 @@ public class DatabasePersonHandler {
 
             ResultSet personsResultSet = getPersonStatement.executeQuery();
 
-            while (personsResultSet.next()){
+            while (personsResultSet.next()) {
                 personInfoList.add(Integer.toString(personsResultSet.getInt(1)));
                 personInfoList.add(Integer.toString(personsResultSet.getInt(2)));
                 personInfoList.add(personsResultSet.getString(3));
@@ -116,7 +118,8 @@ public class DatabasePersonHandler {
             }*/
         } catch (SQLException throwables) {
             throwables.printStackTrace();
-        } return null;
+        }
+        return null;
     }
 
     // resetter personIdCounter. Lavet til at resette counter ved sletning af row i database, men er udkommenteret
@@ -139,7 +142,7 @@ public class DatabasePersonHandler {
         } return false;
     }*/
 
-    public ArrayList<String[]> getMyPersons(String ownerUsername){
+    public ArrayList<String[]> getMyPersons(String ownerUsername) {
         connection = DatabaseAccessHandler.getConnection();
         DatabaseAccountHandler databaseAccountHandler;
         ArrayList<String[]> personsInfo = new ArrayList<>();
@@ -150,7 +153,7 @@ public class DatabasePersonHandler {
             getMyPersonsStatement.setString(1, ownerUsername);
             ResultSet rs = getMyPersonsStatement.executeQuery();
 
-            while (rs.next()){
+            while (rs.next()) {
                 databaseAccountHandler = new DatabaseAccountHandler();
                 ArrayList<String> accountInfo = databaseAccountHandler.getAccount(rs.getInt(1));
 
@@ -161,10 +164,11 @@ public class DatabasePersonHandler {
             return personsInfo;
         } catch (SQLException throwables) {
             throwables.printStackTrace();
-        } return null;
+        }
+        return null;
     }
 
-    public String getAmountOfCredits(int account_id){
+    public String getAmountOfCredits(int account_id) {
         PreparedStatement getPersonsCreditsStatement = null;
         try {
             getPersonsCreditsStatement = connection.prepareStatement(
@@ -173,14 +177,15 @@ public class DatabasePersonHandler {
 
             int amountOfCredits = 0;
             ResultSet rs = getPersonsCreditsStatement.executeQuery();
-            while (rs.next()){
+            while (rs.next()) {
                 amountOfCredits++;
             }
 
             return Integer.toString(amountOfCredits);
         } catch (SQLException throwables) {
             throwables.printStackTrace();
-        } return null;
+        }
+        return null;
     }
 
     // Returnere ArrayList<String[]> hver hvert StringArray indeholder firstname, lastname og accountid.
@@ -194,7 +199,7 @@ public class DatabasePersonHandler {
             getPersonsStatement.setInt(1, accountId);
             ResultSet getPersonsResults = getPersonsStatement.executeQuery();
 
-            while (getPersonsResults.next()){
+            while (getPersonsResults.next()) {
                 personsToEditList.add(Integer.toString(accountId));
                 personsToEditList.add(getPersonsResults.getString(1));
                 personsToEditList.add(getPersonsResults.getString(2));
@@ -202,10 +207,11 @@ public class DatabasePersonHandler {
             return personsToEditList;
         } catch (SQLException throwables) {
             throwables.printStackTrace();
-        } return null;
+        }
+        return null;
     }
 
-    public void insertBackupPersons(ArrayList<Integer> personInfo) {
+    public Boolean insertBackupPersons(ArrayList<Integer> personInfo) {
         connection = DatabaseAccessHandler.getConnection();
 
         try {
@@ -214,7 +220,7 @@ public class DatabasePersonHandler {
                             "first_name, last_name, created_by) VALUES(?,?,?,?,?,?,?)");
 
 
-            for (int account_id : personInfo){
+            for (int account_id : personInfo) {
                 ArrayList<String> personInfoArray = getPersonInfo(account_id);
                 insertBackupPersonsStatement.setInt(1, Integer.parseInt(personInfoArray.get(0)));
                 insertBackupPersonsStatement.setInt(2, Integer.parseInt(personInfoArray.get(1)));
@@ -228,10 +234,11 @@ public class DatabasePersonHandler {
             }
             insertBackupPersonsStatement.executeBatch();
 
-
+            return true;
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
+        return false;
 
     }
 
@@ -243,12 +250,13 @@ public class DatabasePersonHandler {
                     "SELECT * FROM backup_persons");
             ResultSet backupResultSet = checkBackupStatement.executeQuery();
 
-            if (backupResultSet.next()){
+            if (backupResultSet.next()) {
                 return true;
             }
         } catch (SQLException throwables) {
             throwables.printStackTrace();
-        } return false;
+        }
+        return false;
     }
 
     public ArrayList<String[]> getBackupPersons() {
@@ -260,17 +268,18 @@ public class DatabasePersonHandler {
                     "SELECT * FROM backup_persons");
             ResultSet personsResultSet = getPersonsStatement.executeQuery();
 
-            while (personsResultSet.next()){
+            while (personsResultSet.next()) {
                 personsInfo.add(new String[]{Integer.toString(personsResultSet.getInt(1)),
-                        Integer.toString(personsResultSet.getInt(2)),personsResultSet.getString(3),
+                        Integer.toString(personsResultSet.getInt(2)), personsResultSet.getString(3),
                         personsResultSet.getString(4), personsResultSet.getString(5),
-                personsResultSet.getString(6), personsResultSet.getString(7)});
+                        personsResultSet.getString(6), personsResultSet.getString(7)});
             }
 
             return personsInfo;
         } catch (SQLException throwables) {
             throwables.printStackTrace();
-        } return null;
+        }
+        return null;
     }
 
     public void editInsertPersons(ArrayList<String[]> personsInfo) {
@@ -281,7 +290,7 @@ public class DatabasePersonHandler {
                     "INSERT INTO persons(id, account_id, account_username, account_password, " +
                             "first_name, last_name, created_by) VALUES(?,?,?,?,?,?,?)");
 
-            for (String[] personInfo : personsInfo){
+            for (String[] personInfo : personsInfo) {
                 insertPersonsStatement.setInt(1, Integer.parseInt(personInfo[0]));
                 insertPersonsStatement.setInt(2, Integer.parseInt(personInfo[1]));
                 insertPersonsStatement.setString(3, personInfo[2]);

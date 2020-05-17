@@ -91,8 +91,10 @@ public class EditChoosenTvSeriesController implements Initializable {
     @FXML
     void btnSaveSeasonHandler() {
         ArrayList<String> seasonInfo = new ArrayList<>();
-        seasonInfo.add(txtFieldSeasonId.getText());
         seasonInfo.add(App.getSelectedProductionToEdit());
+        seasonInfo.add(null);
+        seasonInfo.add("Sæson");
+        seasonInfo.add(txtFieldSeasonId.getText());
         seasonInfo.add(App.getSelectedTvSeriesToEdit());
         seasonInfo.add(txtFieldSeasonNumber.getText());
         if (App.getCreditSystem().createNewSeason(seasonInfo) == true) {
@@ -144,7 +146,7 @@ public class EditChoosenTvSeriesController implements Initializable {
 
 
         for (String[] s : mySeriesInfo) {
-            observableList.add(new ModelTableChoosenEditTvSeries(s[0], s[1]));
+            observableList.add(new ModelTableChoosenEditTvSeries(s[1], s[0]));
         }
 
         tvcSeasonNumber.setCellValueFactory(new PropertyValueFactory<>("season_number"));

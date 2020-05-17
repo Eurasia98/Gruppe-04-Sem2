@@ -1,11 +1,16 @@
 package io.github.eurasia98.sem2.logic;
 
-public class Episode extends Production{
+public class TvSeriesEpisode extends Production{
     private int episode_number;
     private String episode_title;
 
+    public TvSeriesEpisode(String productionID, int episode_number, String episode_title) {
+        super(productionID);
+        this.episode_number = episode_number;
+        this.episode_title = episode_title;
+    }
 
-    public Episode(String title, String productionID) {
+    public TvSeriesEpisode(String title, String productionID) {
         super(title, productionID);
     }
 

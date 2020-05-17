@@ -7,7 +7,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="io.github.eurasia98.sem2.presentation.CreateEpisodeHandler">
    <children>
       <TextField fx:id="txtFieldEpisodeTitle" layoutX="29.0" layoutY="137.0" promptText="Indsæt episode titel: *" />
       <TextArea fx:id="txtAreaDescription" layoutX="29.0" layoutY="181.0" prefHeight="405.0" prefWidth="484.0" promptText="Indsæt beskrivelse:" />
