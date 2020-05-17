@@ -8,19 +8,19 @@ import java.util.List;
 
 public class CreditSystem {
    private static ArrayList<String> creditsToDisplay;
-   private static Account account;
+//   private static Account account;
 
    public static ArrayList<String> getCreditsToDisplay() {
       return creditsToDisplay;
    }
 
-   public static Account getAccount() {
-      return account;
-   }
-
-   public static int getAccount_id(){
-      return account.getId();
-   }
+//   public static Account getAccount() {
+//      return account;
+//   }
+//
+//   public static int getAccount_id(){
+//      return account.getId();
+//   }
 
    public Boolean availableUsername(String username) {
       AccountManager accountManager = new AccountManager();
@@ -34,7 +34,8 @@ public class CreditSystem {
       personInfo.add(password);
       personInfo.add(firstName);
       personInfo.add(lastName);
-      personInfo.add(account.getUsername());
+//      personInfo.add(account.getUsername());
+      personInfo.add(Login.getAccount().getUsername());
       personManager.insertPerson(personInfo);
 
       DatabasePersonHandler databasePersonHandler = new DatabasePersonHandler();
@@ -43,9 +44,15 @@ public class CreditSystem {
       } else return false;
    }
 
+   public Boolean createSpecialAccount(String username, String password, String accountType){
+      AccountManager accountManager = new AccountManager();
+      return accountManager.createSpecialAccount(username, password, accountType);
+   }
+
    public Boolean createNewMovie(String title, String productionId) {
       MovieManager movieManager = new MovieManager();
-      movieManager.insertMovie(new Movie(title, productionId, getAccount_id()));
+//      movieManager.insertMovie(new Movie(title, productionId, getAccount_id()));
+      movieManager.insertMovie(new Movie(title, productionId, Login.getAccount().getId()));
 
       DatabaseMovieHandler databaseMovieHandler = new DatabaseMovieHandler();
       if (databaseMovieHandler.getTitle(productionId) != null){
@@ -55,7 +62,8 @@ public class CreditSystem {
 
    public Boolean createNewTv_series(String title, String productionId, String series_id,String description) {
       TvSeriesManager tvSeriesManager = new TvSeriesManager();
-      tvSeriesManager.insertTvSeries(new TvSeries(title, productionId, series_id, getAccount_id(),description));
+//      tvSeriesManager.insertTvSeries(new TvSeries(title, productionId, series_id, getAccount_id(),description));
+      tvSeriesManager.insertTvSeries(new TvSeries(title, productionId, series_id, Login.getAccount().getId(), description));
 
       DatabaseTvSeriesHandler databaseTvSeriesHandler = new DatabaseTvSeriesHandler();
       if (databaseTvSeriesHandler.getTitle(productionId) != null){
@@ -87,23 +95,25 @@ public class CreditSystem {
    public List<String> login(String username, String password) {
       Login login = new Login();
 
-      DatabaseAccountHandler databaseAccountHandler = new DatabaseAccountHandler();
-      if (databaseAccountHandler.getAccount(username) != null ){
-         ArrayList<String> accountInfo = databaseAccountHandler.getAccount(username);
-         account = new Account(Integer.parseInt(accountInfo.get(0)), accountInfo.get(1), accountInfo.get(2), accountInfo.get(3));
-      }
+//      DatabaseAccountHandler databaseAccountHandler = new DatabaseAccountHandler();
+//      if (databaseAccountHandler.getAccount(username) != null ){
+//         ArrayList<String> accountInfo = databaseAccountHandler.getAccount(username);
+//         account = new Account(Integer.parseInt(accountInfo.get(0)), accountInfo.get(1), accountInfo.get(2), accountInfo.get(3));
+//      }
 
       return login.loginVerify(username, password);
    }
 
    public ArrayList<String[]> showMyProductions(){
       ProductionManager productionManager = new ProductionManager();
-      return productionManager.getMyProductions(account.getId());
+//      return productionManager.getMyProductions(account.getId());
+      return productionManager.getMyProductions(Login.getAccount().getId());
    }
 
    public ArrayList<String[]> showMyPersons(){
       PersonManager personManager = new PersonManager();
-      return personManager.getMyPersons(account.getUsername(), account.getId());
+//      return personManager.getMyPersons(account.getUsername(), account.getId());
+      return personManager.getMyPersons(Login.getAccount().getUsername(), Login.getAccount().getId());
    }
 
    public Boolean createNewCredit(int account_id, String production_id, String roleType, String roleName){
@@ -116,7 +126,8 @@ public class CreditSystem {
       DatabaseProductionManager databaseProductionManager = new DatabaseProductionManager();
       ArrayList<String> productionInfo = databaseProductionManager.getProduction(oldProductionId);
 
-      if (account.getId() == Integer.parseInt(productionInfo.get(4))){
+//      if (account.getId() == Integer.parseInt(productionInfo.get(4))){
+      if (Login.getAccount().getId() == Integer.parseInt(productionInfo.get(4))) {
          return databaseProductionManager.editProductionId(oldProductionId, newProductionId);
       }
       return false;
@@ -150,8 +161,8 @@ public class CreditSystem {
       return finalInfoList;
    }
 
-   public boolean exportData(){
-      if(ExportData.printFile(getCreditsToDisplay())){
+   public boolean exportData(String title){
+      if(ExportData.printFile(getCreditsToDisplay(), title)){
          return true;
       }
       return false;

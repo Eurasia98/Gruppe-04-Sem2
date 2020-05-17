@@ -10,6 +10,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 
+<?import java.net.URL?>
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="io.github.eurasia98.sem2.presentation.MyProductionsScreenController">
    <children>
       <ImageView fx:id="IVLogo" fitHeight="150.0" fitWidth="200.0" layoutX="86.0" onMouseClicked="#IVLogoHandler" pickOnBounds="true" preserveRatio="true">
@@ -43,4 +44,7 @@
       <Button fx:id="btnSaveChanges" layoutX="544.0" layoutY="365.0" mnemonicParsing="false" onAction="#btnSaveChangesHandler" text="Gem" />
       <TextArea fx:id="txtAreaDisplayInfo" editable="false" layoutX="306.0" layoutY="-2.0" prefHeight="102.0" prefWidth="294.0" />
    </children>
+   <stylesheets>
+      <URL value="@FrontPageCSS.css" />
+   </stylesheets>
 </AnchorPane>

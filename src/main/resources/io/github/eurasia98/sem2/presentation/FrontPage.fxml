@@ -2,6 +2,7 @@
 
 <?import java.net.URL?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -10,31 +11,31 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="io.github.eurasia98.sem2.presentation.FrontPageController">
    <children>
-      <TextField fx:id="txtFieldSearch" layoutX="200.0" layoutY="80.0" onKeyPressed="#txtFieldSearchKeyPressHandler" prefHeight="25.0" prefWidth="224.0" promptText="Søg efter film / serie " />
-      <ImageView fx:id="ivSearch" fitHeight="23.0" fitWidth="25.0" layoutX="400.0" layoutY="81.0" onMouseClicked="#ivSearchMouseClickHandler" pickOnBounds="true" preserveRatio="true">
+      <TextField fx:id="txtFieldSearch" layoutX="275.0" layoutY="60.0" onKeyPressed="#txtFieldSearchKeyPressHandler" prefHeight="25.0" prefWidth="250.0" promptText="Søg efter film / serie " />
+      <ImageView fx:id="ivSearch" fitHeight="23.0" fitWidth="25.0" layoutX="500.0" layoutY="61.0" onMouseClicked="#ivSearchMouseClickHandler" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@images/Search_Icon.png" />
          </image>
       </ImageView>
-      <VBox fx:id="vBoxAccount" layoutX="490.0" layoutY="10.0" prefHeight="50.0" prefWidth="100.0" visible="false">
+      <VBox fx:id="vBoxAccount" layoutX="690.0" layoutY="10.0" prefHeight="50.0" prefWidth="100.0" visible="false">
          <children>
-            <TextField fx:id="txtFieldAccount" editable="false" />
+            <Label fx:id="lblAccount" />
          </children>
       </VBox>
-      <Button fx:id="btnLogin" layoutX="535.0" layoutY="15.0" mnemonicParsing="false" onAction="#btnLoginHandler" prefHeight="25.0" prefWidth="50.0" text="Login" />
+      <Button fx:id="btnLogin" layoutX="736.0" layoutY="15.0" mnemonicParsing="false" onAction="#btnLoginHandler" prefHeight="25.0" prefWidth="50.0" text="Login" />
       <ImageView fx:id="ivLogo" fitHeight="50.0" fitWidth="150.0" layoutX="2.0" layoutY="2.0" onMouseClicked="#ivLogoActionHandler" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@images/TV2_logo.png" />
          </image>
       </ImageView>
-      <VBox fx:id="vBoxEPG" layoutX="150.0" layoutY="150.0" prefHeight="200.0" prefWidth="100.0">
+      <VBox fx:id="vBoxEPG" layoutX="201.0" layoutY="150.0" prefHeight="200.0" prefWidth="100.0">
          <children>
-            <TextField fx:id="txtFieldEPG" editable="false" text="Aktuelt" />
+            <Label text="Aktuelt" />
          </children>
       </VBox>
-      <VBox fx:id="vBoxPopular" layoutX="375.0" layoutY="150.0" prefHeight="200.0" prefWidth="100.0">
+      <VBox fx:id="vBoxPopular" layoutX="527.0" layoutY="150.0" prefHeight="200.0" prefWidth="100.0">
          <children>
-            <TextField fx:id="txtFieldPopular" text="Populært" />
+            <Label text="Populært" />
          </children>
       </VBox>
    </children>

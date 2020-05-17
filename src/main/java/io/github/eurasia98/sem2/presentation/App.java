@@ -21,6 +21,7 @@ public class App extends Application{
     private static List<String> userInfo = new ArrayList<>();
     private static String searchField;
     private static String selectedProductionToEdit;
+    private static String selectedTitle;
 
     public static String getSelectedProductionToEdit() {
         return selectedProductionToEdit;
@@ -48,6 +49,14 @@ public class App extends Application{
 
     public static void setUserInfo(List<String> userInfo) {
         App.userInfo = userInfo;
+    }
+
+    public static String getSelectedTitle() {
+        return selectedTitle;
+    }
+
+    public static void setSelectedTitle(String selectedTitle) {
+        App.selectedTitle = selectedTitle;
     }
 
     @Override

@@ -38,6 +38,24 @@ public class DatabaseAccountHandler {
         }
     }
 
+    public Boolean insertSpecialAccount(ArrayList<String> accountInfo){
+        try {
+            this.connection = DatabaseAccesHandler.getConnection();
+
+            PreparedStatement insertAccountStatement = connection.prepareStatement(
+                    "INSERT INTO accounts(username, password, account_type) VALUES(?,?,?)");
+            insertAccountStatement.setString(1, accountInfo.get(0));
+            insertAccountStatement.setString(2, accountInfo.get(1));
+            insertAccountStatement.setString(3, accountInfo.get(2));
+            insertAccountStatement.execute();
+            return true;
+
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return false;
+    }
+
     /*public Boolean insertAccount(Account account){
         try {
             this.connection = DatabaseAccesHandler.getConnection();
@@ -85,26 +103,23 @@ public class DatabaseAccountHandler {
             verifyLoginStatement.setString(2, password);
             ResultSet rs = verifyLoginStatement.executeQuery();
 
-            while(rs.next()){
-                accountInfo.add(rs.getString(1));
-                accountInfo.add(rs.getString(2));
-                accountInfo.add(rs.getString(3));
-                accountInfo.add(rs.getString(4));
-            }
+//            while(rs.next()){
+//                accountInfo.add(rs.getString(1));
+//                accountInfo.add(rs.getString(2));
+//                accountInfo.add(rs.getString(3));
+//                accountInfo.add(rs.getString(4));
+//            }
 
             // har ændret nedenstående til ovenstående i et forsøg på at løse en login ting.
-            /*if (!rs.next()){
-//                accountInfo.add("Wrong username / password.");
-//                return accountInfo;
+            if (!rs.next()){
                 return Collections.emptyList();
             }
-            accountInfo = Arrays.asList(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4));*/
+            accountInfo = Arrays.asList(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4));
 
             return accountInfo;
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
-        // return null;
         return Collections.emptyList();
 
     }

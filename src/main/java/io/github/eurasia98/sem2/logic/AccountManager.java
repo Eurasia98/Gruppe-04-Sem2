@@ -3,6 +3,7 @@ package io.github.eurasia98.sem2.logic;
 import io.github.eurasia98.sem2.persistence.DatabaseAccountHandler;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class AccountManager {
     public AccountManager(){}
@@ -19,5 +20,15 @@ public class AccountManager {
                 accountInfo.get(2), accountInfo.get(3));
 
         return account.getId();
+    }
+
+    public Boolean createSpecialAccount(String username, String password, String accountType){
+        ArrayList<String> accountInfo = new ArrayList<>();
+        accountInfo.add(username);
+        accountInfo.add(password);
+        accountInfo.add(accountType);
+
+        DatabaseAccountHandler databaseAccountHandler = new DatabaseAccountHandler();
+        return databaseAccountHandler.insertSpecialAccount(accountInfo);
     }
 }

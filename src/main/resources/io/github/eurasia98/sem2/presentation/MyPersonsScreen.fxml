@@ -7,6 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 
 
+<?import java.net.URL?>
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="io.github.eurasia98.sem2.presentation.MyPersonsScreenController">
    <children>
       <TableView fx:id="TVPersons" layoutX="100.0" layoutY="84.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="100.0">
@@ -23,4 +24,7 @@
          </image>
       </ImageView>
    </children>
+    <stylesheets>
+        <URL value="@FrontPageCSS.css" />
+    </stylesheets>
 </AnchorPane>
