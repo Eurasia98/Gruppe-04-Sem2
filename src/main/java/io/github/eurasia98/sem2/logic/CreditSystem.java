@@ -263,4 +263,24 @@ public class CreditSystem {
 
       return databaseTvProgramHandler.insertTvProgram(finalList);
    }
+
+   public ArrayList<String[]> getTvProgramEpisodesInfo(String selectedProductionToEdit) {
+      DatabaseTvProgramEpisodeHandler databaseTvProgramEpisodeHandler = new DatabaseTvProgramEpisodeHandler();
+      return databaseTvProgramEpisodeHandler.getEpisodesInfo(selectedProductionToEdit);
+   }
+
+   public Boolean changeTvProgramEpisodeTitle(String episode_id, String newTitle) {
+      DatabaseTvProgramEpisodeHandler databaseTvProgramEpisodeHandler = new DatabaseTvProgramEpisodeHandler();
+      return databaseTvProgramEpisodeHandler.changeTitle(episode_id, newTitle);
+   }
+
+   public boolean changeTvProgramEpisodeId(String episode_id, String newId) {
+      DatabaseTvProgramEpisodeHandler databaseTvProgramEpisodeHandler = new DatabaseTvProgramEpisodeHandler();
+      return databaseTvProgramEpisodeHandler.changeEpisodeId(episode_id, newId);
+   }
+
+   public boolean changeTvProgramEpisodeNumber(String episode_id, String newEpisodeNumber) {
+      DatabaseTvProgramEpisodeHandler databaseTvProgramEpisodeHandler = new DatabaseTvProgramEpisodeHandler();
+      return databaseTvProgramEpisodeHandler.changeEpisodeNumber(episode_id, newEpisodeNumber);
+   }
 }
