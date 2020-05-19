@@ -314,4 +314,21 @@ public class DatabaseCreditsManager {
             throwables.printStackTrace();
         } return false;
     }
+
+  /*  public boolean insertTvSeriesCredits(ArrayList<String> finalList) {
+        connection = DatabaseAccessHandler.getConnection();
+
+        try {
+            PreparedStatement insertStatement = connection.prepareStatement(
+                    "INSERT INTO credits(role_type, production_id, account_id) " +
+                            "VALUES (?,?,?)");
+            insertStatement.setString(1, creditsInfo.get(0));
+            insertStatement.setString(2, creditsInfo.get(1));
+            insertStatement.setInt(3, Integer.parseInt(creditsInfo.get(2)));
+            insertStatement.execute();
+            return true;
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        } return false;
+    }*/
 }

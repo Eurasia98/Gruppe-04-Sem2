@@ -101,6 +101,7 @@ public class CreateTvProgramCreditsController implements Initializable {
         txtFieldUsername.setVisible(true);
         txtFieldUserId.setVisible(true);
         txtFieldRole.setVisible(true);
+        btnSaveCredit.setVisible(true);
     }
 
     @FXML

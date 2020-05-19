@@ -20,7 +20,6 @@ public class DatabasePersonHandler {
             insertPersonStatement.setString(4, personInfo.get(3));
             insertPersonStatement.setString(5, personInfo.get(4));
             insertPersonStatement.setString(6, personInfo.get(5));
-            System.out.println(personInfo.get(0));
             insertPersonStatement.execute();
 
             return true;

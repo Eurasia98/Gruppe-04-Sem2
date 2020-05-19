@@ -70,8 +70,10 @@ public class CreateTvSeriesCreditsController implements Initializable {
     @FXML
     private Button btnMyPage;
 
+
     @FXML
     void ivLogoHandler() {
+        App.resetSelects();
         App.switchScene("FrontPage");
     }
 
@@ -79,16 +81,21 @@ public class CreateTvSeriesCreditsController implements Initializable {
     void btnAvailableUsernameHandler() {
         if (App.getCreditSystem().availableUsername(txtFieldNewUsername.getText())) {
             txtArea.clear();
+            txtArea.setVisible(true);
             txtArea.setText("Brugernavnet: " + txtFieldNewUsername.getText() + " er ledigt. ");
+            txtArea.setEditable(false);
         } else {
             txtArea.clear();
+            txtArea.setVisible(true);
             txtArea.setText("Brugernavnet: " + txtFieldNewUsername.getText() + " er ikke ledigt. ");
+            txtArea.setEditable(false);
             txtFieldNewUsername.clear();
         }
     }
 
     @FXML
     void btnCreateNewPersonHandler() {
+        resetFields();
         txtFieldNewUsername.setVisible(true);
         txtFieldPassword.setVisible(true);
         txtFieldFirstName.setVisible(true);
@@ -97,6 +104,7 @@ public class CreateTvSeriesCreditsController implements Initializable {
         txtFieldNewRole.setVisible(true);
         txtFieldNewRoleName.setVisible(true);
         btnSavePerson.setVisible(true);
+        btnAvailableUsername.setVisible(true);
     }
 
     @FXML
@@ -112,6 +120,7 @@ public class CreateTvSeriesCreditsController implements Initializable {
 
     @FXML
     void btnMyPageHandler() {
+        App.resetSelects();
         App.switchScene("FrontPage");
     }
 
@@ -124,26 +133,64 @@ public class CreateTvSeriesCreditsController implements Initializable {
             creditInfo.add(txtFieldRole.getText());
             creditInfo.add(txtFieldRoleName.getText());
 
-            if (App.getCreditSystem().createNewTvSeriesCredit(creditInfo) == true){
+            if (App.getCreditSystem().createNewTvSeriesCreditWithUsername(creditInfo) == true){
                 resetFields();
-                App.switchScene("ChoosenTvShowToEdit");
+                App.switchScene("EditMyTvSeriesCreditsScreen");
+            } else {
+                resetFields();
+                txtArea.setVisible(true);
+                txtArea.setEditable(false);
+                txtArea.appendText("Der skete desværre en fejl. ");
             }
+        } else if (!txtFieldUserId.getText().isEmpty()){
+            ArrayList<String> creditsInfo = new ArrayList<>();
+            creditsInfo.add(txtFieldUserId.getText());
+            creditsInfo.add(App.getSelectedProductionToEdit());
+            creditsInfo.add(txtFieldRole.getText());
+            creditsInfo.add(txtFieldRoleName.getText());
+            if (App.getCreditSystem().createNewTvSeriesCredit(creditsInfo) == true){
+                resetFields();
+                App.switchScene("EditMyTvSeriesCreditsScreen");
+            } else {
+                resetFields();
+                txtArea.appendText("Krediteringen blev ikke gemt. Noget gik galt. ");
+            }
+        } else {
+            resetFields();
+            txtArea.setVisible(true);
+            txtArea.appendText("Der skete desværre en fejl. ");
         }
 
     }
 
     @FXML
     void btnSavePersonHandler() {
-        ArrayList<String> creditInfo = new ArrayList<>();
-        creditInfo.add(txtFieldNewUsername.getText());
-        creditInfo.add(txtFieldPassword.getText());
-        creditInfo.add(txtFieldFirstName.getText());
-        creditInfo.add(txtFieldLastName.getText());
-        creditInfo.add(txtFieldEmail.getText());
-        creditInfo.add(txtFieldNewRole.getText());
-        creditInfo.add(txtFieldNewRoleName.getText());
+
+        if (!txtFieldNewUsername.getText().isEmpty()){
+            ArrayList<String> creditInfo = new ArrayList<>();
+            creditInfo.add(txtFieldNewUsername.getText());
+            creditInfo.add(txtFieldPassword.getText());
+            creditInfo.add(txtFieldFirstName.getText());
+            creditInfo.add(txtFieldLastName.getText());
+            if (!txtFieldEmail.getText().isEmpty()){
+                creditInfo.add(txtFieldEmail.getText());
+            } else creditInfo.add(null);
+            creditInfo.add(txtFieldNewRole.getText());
+            creditInfo.add(txtFieldNewRoleName.getText());
+            creditInfo.add(App.getSelectedProductionToEdit());
+            if (App.getCreditSystem().createNewTvSeriesCreditAndPerson(creditInfo)== true){
+                resetFields();
+                App.switchScene("EditMyTvSeriesCreditsScreen");
+            } else txtArea.appendText("Der skete desværre en fejl. ");
+        } else {
+            resetFields();
+            txtArea.setVisible(true);
+            txtArea.appendText("Der skete desværre en fejl. ");
+        }
 
     }
+
+
 
     public void resetFields(){
         txtFieldUsername.clear();
