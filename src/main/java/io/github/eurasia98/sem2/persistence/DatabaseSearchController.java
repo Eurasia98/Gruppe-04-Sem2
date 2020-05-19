@@ -1,7 +1,6 @@
 package io.github.eurasia98.sem2.persistence;
 
 import io.github.eurasia98.sem2.logic.Credit;
-import io.github.eurasia98.sem2.logic.Person;
 import io.github.eurasia98.sem2.logic.SearchResults;
 
 import java.sql.Connection;
@@ -15,7 +14,7 @@ public class DatabaseSearchController {
     static Connection connection;
 
     public ArrayList<SearchResults> search(String searchString){
-        connection = DatabaseAccesHandler.getConnection();
+        connection = DatabaseAccessHandler.getConnection();
         ArrayList<SearchResults> searchResultsArrayList = new ArrayList<>();
 
         try {
@@ -34,7 +33,7 @@ public class DatabaseSearchController {
     }
 
     public ArrayList<Credit> searchCredits(SearchResults searchResults){
-        connection = DatabaseAccesHandler.getConnection();
+        connection = DatabaseAccessHandler.getConnection();
         ArrayList<Credit> creditArrayList = new ArrayList<>();
 
         try {

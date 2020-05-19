@@ -11,38 +11,40 @@
 <?import javafx.scene.layout.HBox?>
 
 <?import java.net.URL?>
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="io.github.eurasia98.sem2.presentation.MyProductionsScreenController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="io.github.eurasia98.sem2.presentation.MyProductionsScreenController">
    <children>
       <ImageView fx:id="IVLogo" fitHeight="150.0" fitWidth="200.0" layoutX="86.0" onMouseClicked="#IVLogoHandler" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@images/TV2_logo.png" />
          </image>
       </ImageView>
-      <TableView fx:id="TVMyProductions" layoutY="200.0" prefHeight="213.0" prefWidth="600.0" AnchorPane.bottomAnchor="87.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="100.0">
+      <TableView fx:id="tvMyProductions" layoutY="200.0" prefHeight="213.0" prefWidth="600.0" AnchorPane.bottomAnchor="87.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="100.0">
         <columns>
-          <TableColumn fx:id="TVCProduction_id" prefWidth="194.4000244140625" text="Produktions id" />
-          <TableColumn fx:id="TVCTitle" minWidth="0.0" prefWidth="181.5999755859375" text="Titel" />
-            <TableColumn fx:id="TVCProductionType" prefWidth="221.5999755859375" text="Produktions type" />
+          <TableColumn fx:id="tvCProduction_id" prefWidth="168.800048828125" text="Produktions id" />
+          <TableColumn fx:id="tvCTitle" minWidth="0.0" prefWidth="401.59991455078125" text="Titel" />
+            <TableColumn fx:id="tvcProductionType" prefWidth="231.20001220703125" text="Produktions type" />
         </columns>
       </TableView>
-      <HBox layoutY="321.0" prefHeight="34.0" prefWidth="468.0">
+      <HBox layoutY="513.0" prefHeight="34.0" prefWidth="468.0">
          <children>
             <Button fx:id="btnEditProductionId" mnemonicParsing="false" onAction="#btnEditProductionIdHandler" text="Rediger produktions id" />
             <Button fx:id="btnEditTitle" mnemonicParsing="false" onAction="#btnEditTitleHandler" text="Rediger titel" />
             <Button fx:id="btnEditCredits" mnemonicParsing="false" onAction="#btnEditCreditsHandler" text="Rediger krediteringer" />
+            <Button fx:id="btnWatchDetails" mnemonicParsing="false" onAction="#btnWatchDetailsHandler" text="Vis detaljer" />
          </children>
       </HBox>
       <Button fx:id="btnMyPage" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#btnMyPageHandler" text="Min side" />
-      <HBox layoutY="365.0" prefHeight="34.0" prefWidth="534.0">
+      <HBox layoutX="8.0" layoutY="555.0" prefHeight="34.0" prefWidth="534.0">
          <children>
-            <TextField fx:id="txtFieldCurrentTitle" promptText="Nuværende titel" visible="false" />
             <TextField fx:id="txtFieldCurrentProductionId" promptText="Nuværende id" />
             <TextField fx:id="txtFieldNewId" focusTraversable="false" promptText="Nyt id" />
+            <TextField fx:id="txtFieldCurrentTitle" promptText="Nuværende titel" />
             <TextField fx:id="txtFieldNewTitle" promptText="Ny titel" />
          </children>
       </HBox>
-      <Button fx:id="btnSaveChanges" layoutX="544.0" layoutY="365.0" mnemonicParsing="false" onAction="#btnSaveChangesHandler" text="Gem" />
+      <Button fx:id="btnSaveChanges" layoutX="551.0" layoutY="560.0" mnemonicParsing="false" onAction="#btnSaveChangesHandler" text="Gem" />
       <TextArea fx:id="txtAreaDisplayInfo" editable="false" layoutX="306.0" layoutY="-2.0" prefHeight="102.0" prefWidth="294.0" />
+      <Button fx:id="btnUpdate" layoutX="721.0" layoutY="37.0" mnemonicParsing="false" text="Opdater" />
    </children>
    <stylesheets>
       <URL value="@FrontPageCSS.css" />

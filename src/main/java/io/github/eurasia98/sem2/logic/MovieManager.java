@@ -7,13 +7,4 @@ import java.util.ArrayList;
 public class MovieManager {
     public MovieManager(){}
 
-    public void insertMovie(Movie movie){
-        DatabaseMovieHandler databaseMovieHandler = new DatabaseMovieHandler();
-        ArrayList<String> movieInfo = new ArrayList<>();
-        movieInfo.add(movie.getProductionID());
-        movieInfo.add(movie.getTitle());
-        movieInfo.add(movie.getProductionType());
-        movieInfo.add(Integer.toString(movie.getOwner()));
-        databaseMovieHandler.insertMovie(movieInfo);
-    }
 }

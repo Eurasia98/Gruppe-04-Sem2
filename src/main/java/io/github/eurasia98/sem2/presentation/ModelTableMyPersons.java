@@ -2,15 +2,17 @@ package io.github.eurasia98.sem2.presentation;
 
 public class ModelTableMyPersons {
     private String account_id;
-    private String firstName;
-    private String lastName;
+    private String first_name;
+    private String last_name;
     private String amountOfCredits;
+    private String email;
 
-    public ModelTableMyPersons(String account_id, String firstName, String lastName, String amountOfCredits) {
+    public ModelTableMyPersons(String account_id, String first_name, String last_name, String amountOfCredits, String email) {
         this.account_id = account_id;
-        this.firstName = firstName;
-        this.lastName = lastName;
+        this.first_name = first_name;
+        this.last_name = last_name;
         this.amountOfCredits = amountOfCredits;
+        this.email = email;
     }
 
     public String getAccount_id() {
@@ -21,20 +23,20 @@ public class ModelTableMyPersons {
         this.account_id = account_id;
     }
 
-    public String getFirstName() {
-        return firstName;
+    public String getFirst_name() {
+        return first_name;
     }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
+    public void setFirst_name(String first_name) {
+        this.first_name = first_name;
     }
 
-    public String getLastName() {
-        return lastName;
+    public String getLast_name() {
+        return last_name;
     }
 
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
+    public void setLast_name(String last_name) {
+        this.last_name = last_name;
     }
 
     public String getAmountOfCredits() {
@@ -43,5 +45,13 @@ public class ModelTableMyPersons {
 
     public void setAmountOfCredits(String amountOfCredits) {
         this.amountOfCredits = amountOfCredits;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 }

@@ -11,6 +11,10 @@ public class Production {
     private int owner;
     private String description;
 
+    public Production(String productionID) {
+        this.productionID = productionID;
+    }
+
     public Production(String productionID, int id, String title, String productionType, int owner,
                       String description) {
         this.productionID = productionID;

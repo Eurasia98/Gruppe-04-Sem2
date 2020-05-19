@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="io.github.eurasia98.sem2.presentation.EditMyMovieCreditsScreenController">
+   <children>
+      <ImageView fx:id="IVLogo" fitHeight="63.0" fitWidth="200.0" onDragDetected="#IVLogoHandler" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/TV2_logo.png" />
+         </image>
+      </ImageView>
+      <Button fx:id="btnMyPage" layoutX="724.0" layoutY="19.0" mnemonicParsing="false" onAction="#btnMyPageHandler" text="Min side" />
+      <Button fx:id="btnAddCredit" layoutX="8.0" layoutY="506.0" mnemonicParsing="false" onAction="#btnAddCreditHandler" text="Tilføj kreditering" />
+      <Button fx:id="btnSaveChanges" layoutX="121.0" layoutY="506.0" mnemonicParsing="false" onAction="#btnSaveChangesHandler" text="Gem ændringer" />
+      <TableView fx:id="tvMyCredits" layoutY="66.0" prefHeight="427.0" prefWidth="800.0">
+        <columns>
+          <TableColumn fx:id="tvcName" prefWidth="251.20001220703125" text="Fornavn" />
+            <TableColumn fx:id="tvcRoleName" prefWidth="284.0" text="Rollenavn" />
+            <TableColumn fx:id="tvcRoleType" prefWidth="264.800048828125" text="Rolle" />
+        </columns>
+      </TableView>
+      <TextArea fx:id="txtAreaInfo" layoutX="261.0" layoutY="313.0" prefHeight="279.0" prefWidth="532.0" visible="false" />
+      <Button fx:id="btnDeleteCredit" layoutX="696.0" layoutY="506.0" mnemonicParsing="false" onAction="#btnDeleteCreditHandler" text="Slet kreditering" />
+      <TextField fx:id="txtFieldFirstName" layoutX="8.0" layoutY="553.0" promptText="Fornavn" />
+      <TextField fx:id="txtFieldLastName" layoutX="171.0" layoutY="553.0" promptText="Efternavn" />
+      <TextField fx:id="txtFieldRoleType" layoutX="482.0" layoutY="553.0" promptText="Rolle" />
+      <TextField fx:id="txtFieldRoleName" layoutX="644.0" layoutY="553.0" promptText="Rolle navn" />
+      <TextField fx:id="txtFieldUsername" layoutX="326.0" layoutY="553.0" promptText="Brugernavn" />
+   </children>
+</AnchorPane>

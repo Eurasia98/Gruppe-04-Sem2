@@ -1,7 +1,5 @@
 package io.github.eurasia98.sem2.persistence;
 
-import io.github.eurasia98.sem2.logic.Account;
-
 import java.sql.*;
 import java.util.*;
 
@@ -10,32 +8,39 @@ public class DatabaseAccountHandler {
 
     public Boolean checkUsernameAvailability(String username){
         try {
-            this.connection = DatabaseAccesHandler.getConnection();
+            this.connection = DatabaseAccessHandler.getConnection();
             PreparedStatement checkUsernameStatement = connection.prepareStatement(
                     "SELECT username FROM accounts WHERE username = ?");
             checkUsernameStatement.setString(1, username);
             ResultSet rs = checkUsernameStatement.executeQuery();
-            if (rs.next() == false) return true;
-            else return false;
+            if (rs.next() == false){
+                return true;
+            }
+            else {
+                return false;
+            }
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         } return false;
     }
 
-    public void insertAccount(ArrayList<String> accountInfo){
+    public Boolean insertAccount(ArrayList<String> accountInfo){
         try {
-            this.connection = DatabaseAccesHandler.getConnection();
+            this.connection = DatabaseAccessHandler.getConnection();
 
             PreparedStatement insertAccountStatement = connection.prepareStatement(
-                    "INSERT INTO accounts(username, password, account_type) VALUES(?,?,?)");
+                    "INSERT INTO accounts(username, password, email, account_type) VALUES(?,?,?,?)");
             insertAccountStatement.setString(1, accountInfo.get(0));
             insertAccountStatement.setString(2, accountInfo.get(1));
-            insertAccountStatement.setString(3, accountInfo.get(5));
+            insertAccountStatement.setString(3, accountInfo.get(2));
+            insertAccountStatement.setString(4, accountInfo.get(3));
             insertAccountStatement.execute();
+
+            return true;
 
         } catch (SQLException throwables) {
             throwables.printStackTrace();
-        }
+        } return false;
     }
 
     public Boolean insertSpecialAccount(ArrayList<String> accountInfo){
@@ -92,7 +97,7 @@ public class DatabaseAccountHandler {
     }*/
 
     public List<String> verifyLogin (String username, String password){
-        this.connection = DatabaseAccesHandler.getConnection();
+        this.connection = DatabaseAccessHandler.getConnection();
 
         List<String> accountInfo = new ArrayList<>();
 
@@ -125,7 +130,7 @@ public class DatabaseAccountHandler {
     }
 
     public ArrayList<String> getAccount(int account_id){
-        connection = DatabaseAccesHandler.getConnection();
+        connection = DatabaseAccessHandler.getConnection();
         ArrayList<String> accountInfo = new ArrayList<>();
 
         try {
@@ -150,7 +155,7 @@ public class DatabaseAccountHandler {
     }
 
     public ArrayList<String> getAccount(String username){
-        connection = DatabaseAccesHandler.getConnection();
+        connection = DatabaseAccessHandler.getConnection();
         ArrayList<String> accountInfo = new ArrayList<>();
 
         try {
@@ -210,5 +215,114 @@ public class DatabaseAccountHandler {
             throwables.printStackTrace();
         }
         return false;
+    }
+
+    public Boolean insertBackupAccounts(ArrayList<Integer> personsInCreditsAccountId) {
+        connection = DatabaseAccessHandler.getConnection();
+
+        try {
+            PreparedStatement insertBackupAccountsStatement = connection.prepareStatement(
+                    "INSERT INTO backup_accounts(id, username, password, account_type) " +
+                            " VALUES(?,?,?,?)");
+
+            for (int account_id : personsInCreditsAccountId){
+                ArrayList<String> accountInfoArray = getAccount(account_id);
+                insertBackupAccountsStatement.setInt(1, Integer.parseInt(accountInfoArray.get(0)));
+                insertBackupAccountsStatement.setString(2, accountInfoArray.get(1));
+                insertBackupAccountsStatement.setString(3, accountInfoArray.get(2));
+                insertBackupAccountsStatement.setString(4, accountInfoArray.get(3));
+
+                insertBackupAccountsStatement.addBatch();
+            }
+
+            insertBackupAccountsStatement.executeBatch();
+            return true;
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        } return false;
+    }
+
+    public boolean checkBackupAccounts() {
+        connection = DatabaseAccessHandler.getConnection();
+
+        try {
+            PreparedStatement checkBackupStatement = connection.prepareStatement(
+                    "SELECT * FROM backup_accounts");
+            ResultSet backupResultSet = checkBackupStatement.executeQuery();
+
+            if (backupResultSet.next()){
+                return true;
+            }
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        } return false;
+    }
+
+    public ArrayList<String[]> getBackupAccounts(){
+        connection = DatabaseAccessHandler.getConnection();
+        ArrayList<String[]> accountInfo = new ArrayList<>();
+
+        try {
+            PreparedStatement getAccountsStatement = connection.prepareStatement(
+                    "SELECT * FROM backup_accounts");
+            ResultSet accountsResultSet = getAccountsStatement.executeQuery();
+
+            while (accountsResultSet.next()){
+                accountInfo.add(new String[]{Integer.toString(accountsResultSet.getInt(1)),
+                accountsResultSet.getString(2), accountsResultSet.getString(3),
+                accountsResultSet.getString(4)});
+            }
+
+            return accountInfo;
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        } return null;
+
+    }
+
+    public void editInsertAccounts(ArrayList<String[]> accountsInfo) {
+        connection = DatabaseAccessHandler.getConnection();
+
+        try {
+            PreparedStatement insertAccountsStatement = connection.prepareStatement(
+                    "INSERT INTO accounts(id, username, password, account_type) VALUES(?,?,?,?)");
+
+            for (String[] accountInfo : accountsInfo){
+                insertAccountsStatement.setInt(1, Integer.parseInt(accountInfo[0]));
+                insertAccountsStatement.setString(2, accountInfo[1]);
+                insertAccountsStatement.setString(3, accountInfo[2]);
+                insertAccountsStatement.setString(4, accountInfo[3]);
+
+                insertAccountsStatement.addBatch();
+            }
+
+            insertAccountsStatement.executeBatch();
+
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+    }
+
+    public String getAccountId(String username) {
+        connection = DatabaseAccessHandler.getConnection();
+
+        try {
+            PreparedStatement getAccountIdStatement = connection.prepareStatement(
+                    "SELECT id FROM accounts WHERE username = ?");
+            getAccountIdStatement.setString(1, username);
+
+            ResultSet idResultSet = getAccountIdStatement.executeQuery();
+
+            if (idResultSet.next()){
+                return Integer.toString(idResultSet.getInt(1));
+            }
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        } return null;
+    }
+
+    public String getAccountUsername(String account_id) {
+        ArrayList<String> usernameInfo = getAccount(account_id);
+        return usernameInfo.get(1);
     }
 }

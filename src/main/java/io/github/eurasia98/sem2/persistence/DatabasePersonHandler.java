@@ -1,36 +1,33 @@
 package io.github.eurasia98.sem2.persistence;
 
-import io.github.eurasia98.sem2.logic.Account;
-import io.github.eurasia98.sem2.logic.Person;
-import io.github.eurasia98.sem2.logic.PersonManager;
-
 import java.sql.*;
 import java.util.ArrayList;
 
 public class DatabasePersonHandler {
     static Connection connection = null;
 
-    public void insertPerson(ArrayList<String> personInfo){
+    public Boolean insertPerson(ArrayList<String> personInfo) {
         try {
-            this.connection = DatabaseAccesHandler.getConnection();
+            this.connection = DatabaseAccessHandler.getConnection();
 
-            DatabaseAccountHandler databaseAccountHandler = new DatabaseAccountHandler();
-            databaseAccountHandler.insertAccount(personInfo); // gemmer data på en account i databasen
 
             PreparedStatement insertPersonStatement = connection.prepareStatement(
                     "INSERT INTO persons(account_id, account_username, account_password, " +
                             "first_name, last_name, created_by) VALUES(?,?,?,?,?,?)");
-            insertPersonStatement.setInt(1, getId(personInfo.get(0)));
-            insertPersonStatement.setString( 2, personInfo.get(0));
-            insertPersonStatement.setString(3, personInfo.get(1));
-            insertPersonStatement.setString(4, personInfo.get(2));
-            insertPersonStatement.setString(5, personInfo.get(3));
-            insertPersonStatement.setString(6, personInfo.get(4));
+            insertPersonStatement.setInt(1, Integer.parseInt(personInfo.get(0)));
+            insertPersonStatement.setString(2, personInfo.get(1));
+            insertPersonStatement.setString(3, personInfo.get(2));
+            insertPersonStatement.setString(4, personInfo.get(3));
+            insertPersonStatement.setString(5, personInfo.get(4));
+            insertPersonStatement.setString(6, personInfo.get(5));
+            System.out.println(personInfo.get(0));
             insertPersonStatement.execute();
+
+            return true;
 
         } catch (SQLException throwables) {
             throwables.printStackTrace();
-        }
+        } return false;
     }
 
     // gemmer data på en person i databasen. Er udkommenteret fordi den bryder 3-lags-arkitekter ved at modtage et
@@ -56,8 +53,8 @@ public class DatabasePersonHandler {
     }*/
 
     // Slet er person i databasen.
-    public Boolean deletePerson(String username){
-        connection = DatabaseAccesHandler.getConnection();
+    public Boolean deletePerson(String username) {
+        connection = DatabaseAccessHandler.getConnection();
 
         try {
             PreparedStatement deletePersonStatement = connection.prepareStatement("DELETE FROM persons WHERE account_username = ?");
@@ -71,41 +68,43 @@ public class DatabasePersonHandler {
             return true;
         } catch (SQLException throwables) {
             throwables.printStackTrace();
-        } return false;
+        }
+        return false;
     }
 
-    public int getId(String username){
+    public int getId(String username) {
         try {
-            connection = DatabaseAccesHandler.getConnection();
+            connection = DatabaseAccessHandler.getConnection();
             PreparedStatement searchIdStatement = connection.prepareStatement("SELECT id FROM accounts WHERE username = ?");
             searchIdStatement.setString(1, username);
             ResultSet rs = searchIdStatement.executeQuery();
-            while (rs.next()){
+            while (rs.next()) {
                 return rs.getInt("id");
             }
         } catch (SQLException throwables) {
             throwables.printStackTrace();
-        } return 0;
+        }
+        return 0;
     }
 
     // opretter et person objekt ud fra database info på account_id.
-    public ArrayList<String> getPersonInfo(int account_id){
-        connection = DatabaseAccesHandler.getConnection();
+    public ArrayList<String> getPersonInfo(int account_id) {
+        connection = DatabaseAccessHandler.getConnection();
         ArrayList<String> personInfoList = new ArrayList<>();
         try {
             PreparedStatement getPersonStatement = connection.prepareStatement("SELECT * FROM persons WHERE account_id = ?");
             getPersonStatement.setInt(1, account_id);
 
-            ResultSet rs = getPersonStatement.executeQuery();
+            ResultSet personsResultSet = getPersonStatement.executeQuery();
 
-            while (rs.next()){
-                personInfoList.add(rs.getString(1));
-                personInfoList.add(rs.getString(2));
-                personInfoList.add(rs.getString(3));
-                personInfoList.add(rs.getString(4));
-                personInfoList.add(rs.getString(5));
-                personInfoList.add(rs.getString(6));
-                personInfoList.add(rs.getString(7));
+            while (personsResultSet.next()) {
+                personInfoList.add(Integer.toString(personsResultSet.getInt(1)));
+                personInfoList.add(Integer.toString(personsResultSet.getInt(2)));
+                personInfoList.add(personsResultSet.getString(3));
+                personInfoList.add(personsResultSet.getString(4));
+                personInfoList.add(personsResultSet.getString(5));
+                personInfoList.add(personsResultSet.getString(6));
+                personInfoList.add(personsResultSet.getString(7));
             }
 
             return personInfoList;
@@ -120,7 +119,8 @@ public class DatabasePersonHandler {
             }*/
         } catch (SQLException throwables) {
             throwables.printStackTrace();
-        } return null;
+        }
+        return null;
     }
 
     // resetter personIdCounter. Lavet til at resette counter ved sletning af row i database, men er udkommenteret
@@ -143,29 +143,33 @@ public class DatabasePersonHandler {
         } return false;
     }*/
 
-    public ArrayList<String[]> getMyPersons(String ownerUsername, int personAccountId){
-        connection = DatabaseAccesHandler.getConnection();
-        String[] personInfoArray;
+    public ArrayList<String[]> getMyPersons(String ownerUsername) {
+        connection = DatabaseAccessHandler.getConnection();
+        DatabaseAccountHandler databaseAccountHandler;
         ArrayList<String[]> personsInfo = new ArrayList<>();
 
         try {
             PreparedStatement getMyPersonsStatement = connection.prepareStatement(
-                    "SELECT * FROM persons WHERE created_by = ?");
+                    "SELECT account_id, first_name, last_name FROM persons WHERE created_by = ?");
             getMyPersonsStatement.setString(1, ownerUsername);
             ResultSet rs = getMyPersonsStatement.executeQuery();
 
-            while (rs.next()){
-                personInfoArray = new String[]{rs.getString(2), rs.getString(5),
-                        rs.getString(6), getAmountOfCredits(personAccountId)};
-                personsInfo.add(personInfoArray);
+            while (rs.next()) {
+                databaseAccountHandler = new DatabaseAccountHandler();
+                ArrayList<String> accountInfo = databaseAccountHandler.getAccount(rs.getInt(1));
+
+                personsInfo.add(new String[]{Integer.toString(rs.getInt(1)), rs.getString(2),
+                        rs.getString(3), getAmountOfCredits(rs.getInt(1)), accountInfo.get(4)});
+
             }
             return personsInfo;
         } catch (SQLException throwables) {
             throwables.printStackTrace();
-        } return null;
+        }
+        return null;
     }
 
-    public String getAmountOfCredits(int account_id){
+    public String getAmountOfCredits(int account_id) {
         PreparedStatement getPersonsCreditsStatement = null;
         try {
             getPersonsCreditsStatement = connection.prepareStatement(
@@ -174,19 +178,20 @@ public class DatabasePersonHandler {
 
             int amountOfCredits = 0;
             ResultSet rs = getPersonsCreditsStatement.executeQuery();
-            while (rs.next()){
+            while (rs.next()) {
                 amountOfCredits++;
             }
 
             return Integer.toString(amountOfCredits);
         } catch (SQLException throwables) {
             throwables.printStackTrace();
-        } return null;
+        }
+        return null;
     }
 
     // Returnere ArrayList<String[]> hver hvert StringArray indeholder firstname, lastname og accountid.
     public ArrayList<String> getPersonToEditMyCredits(int accountId) {
-        connection = DatabaseAccesHandler.getConnection();
+        connection = DatabaseAccessHandler.getConnection();
         ArrayList<String> personsToEditList = new ArrayList<>();
 
         try {
@@ -195,14 +200,112 @@ public class DatabasePersonHandler {
             getPersonsStatement.setInt(1, accountId);
             ResultSet getPersonsResults = getPersonsStatement.executeQuery();
 
-            while (getPersonsResults.next()){
-                personsToEditList.add(Integer.toString(accountId));
+            while (getPersonsResults.next()) {
                 personsToEditList.add(getPersonsResults.getString(1));
                 personsToEditList.add(getPersonsResults.getString(2));
             }
             return personsToEditList;
         } catch (SQLException throwables) {
             throwables.printStackTrace();
-        } return null;
+        }
+        return null;
+    }
+
+    public Boolean insertBackupPersons(ArrayList<Integer> personInfo) {
+        connection = DatabaseAccessHandler.getConnection();
+
+        try {
+            PreparedStatement insertBackupPersonsStatement = connection.prepareStatement(
+                    "INSERT INTO backup_persons(id, account_id, account_username, account_password, " +
+                            "first_name, last_name, created_by) VALUES(?,?,?,?,?,?,?)");
+
+
+            for (int account_id : personInfo) {
+                ArrayList<String> personInfoArray = getPersonInfo(account_id);
+                insertBackupPersonsStatement.setInt(1, Integer.parseInt(personInfoArray.get(0)));
+                insertBackupPersonsStatement.setInt(2, Integer.parseInt(personInfoArray.get(1)));
+                insertBackupPersonsStatement.setString(3, personInfoArray.get(2));
+                insertBackupPersonsStatement.setString(4, personInfoArray.get(3));
+                insertBackupPersonsStatement.setString(5, personInfoArray.get(4));
+                insertBackupPersonsStatement.setString(6, personInfoArray.get(5));
+                insertBackupPersonsStatement.setString(7, personInfoArray.get(6));
+
+                insertBackupPersonsStatement.addBatch();
+            }
+            insertBackupPersonsStatement.executeBatch();
+
+            return true;
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return false;
+
+    }
+
+    public boolean checkBackupPersons() {
+        connection = DatabaseAccessHandler.getConnection();
+
+        try {
+            PreparedStatement checkBackupStatement = connection.prepareStatement(
+                    "SELECT * FROM backup_persons");
+            ResultSet backupResultSet = checkBackupStatement.executeQuery();
+
+            if (backupResultSet.next()) {
+                return true;
+            }
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return false;
+    }
+
+    public ArrayList<String[]> getBackupPersons() {
+        connection = DatabaseAccessHandler.getConnection();
+        ArrayList<String[]> personsInfo = new ArrayList<>();
+
+        try {
+            PreparedStatement getPersonsStatement = connection.prepareStatement(
+                    "SELECT * FROM backup_persons");
+            ResultSet personsResultSet = getPersonsStatement.executeQuery();
+
+            while (personsResultSet.next()) {
+                personsInfo.add(new String[]{Integer.toString(personsResultSet.getInt(1)),
+                        Integer.toString(personsResultSet.getInt(2)), personsResultSet.getString(3),
+                        personsResultSet.getString(4), personsResultSet.getString(5),
+                        personsResultSet.getString(6), personsResultSet.getString(7)});
+            }
+
+            return personsInfo;
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return null;
+    }
+
+    public void editInsertPersons(ArrayList<String[]> personsInfo) {
+        connection = DatabaseAccessHandler.getConnection();
+
+        try {
+            PreparedStatement insertPersonsStatement = connection.prepareStatement(
+                    "INSERT INTO persons(id, account_id, account_username, account_password, " +
+                            "first_name, last_name, created_by) VALUES(?,?,?,?,?,?,?)");
+
+            for (String[] personInfo : personsInfo) {
+                insertPersonsStatement.setInt(1, Integer.parseInt(personInfo[0]));
+                insertPersonsStatement.setInt(2, Integer.parseInt(personInfo[1]));
+                insertPersonsStatement.setString(3, personInfo[2]);
+                insertPersonsStatement.setString(4, personInfo[3]);
+                insertPersonsStatement.setString(5, personInfo[4]);
+                insertPersonsStatement.setString(6, personInfo[5]);
+                insertPersonsStatement.setString(7, personInfo[6]);
+
+                insertPersonsStatement.addBatch();
+            }
+
+            insertPersonsStatement.executeBatch();
+
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
     }
 }

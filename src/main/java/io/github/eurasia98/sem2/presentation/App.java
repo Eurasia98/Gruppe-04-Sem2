@@ -22,6 +22,51 @@ public class App extends Application{
     private static String searchField;
     private static String selectedProductionToEdit;
     private static String selectedTitle;
+    private static String selectedTvSeriesToEdit;
+    private static String selectedSeasonToEdit;
+    private static String selectedSeriesEpisodeToEdit;
+    private static String selectedTvProgramEpisodeToEdit;
+
+    public static void resetSelects(){
+        searchField = null;
+        selectedProductionToEdit = null;
+        selectedTvSeriesToEdit = null;
+        selectedSeasonToEdit = null;
+        selectedSeriesEpisodeToEdit = null;
+        selectedTvProgramEpisodeToEdit = null;
+    }
+
+    public static String getSelectedTvProgramEpisodeToEdit() {
+        return selectedTvProgramEpisodeToEdit;
+    }
+
+    public static void setSelectedTvProgramEpisodeToEdit(String selectedTvProgramEpisodeToEdit) {
+        App.selectedTvProgramEpisodeToEdit = selectedTvProgramEpisodeToEdit;
+    }
+
+    public static String getSelectedTvSeriesToEdit() {
+        return selectedTvSeriesToEdit;
+    }
+
+    public static void setSelectedTvSeriesToEdit(String selectedTvSeriesToEdit) {
+        App.selectedTvSeriesToEdit = selectedTvSeriesToEdit;
+    }
+
+    public static String getSelectedSeriesEpisodeToEdit() {
+        return selectedSeriesEpisodeToEdit;
+    }
+
+    public static void setSelectedSeriesEpisodeToEdit(String selectedSeriesEpisodeToEdit) {
+        App.selectedSeriesEpisodeToEdit = selectedSeriesEpisodeToEdit;
+    }
+
+    public static String getSelectedSeasonToEdit() {
+        return selectedSeasonToEdit;
+    }
+
+    public static void setSelectedSeasonToEdit(String selectedSeasonToEdit) {
+        App.selectedSeasonToEdit = selectedSeasonToEdit;
+    }
 
     public static String getSelectedProductionToEdit() {
         return selectedProductionToEdit;
@@ -49,6 +94,10 @@ public class App extends Application{
 
     public static void setUserInfo(List<String> userInfo) {
         App.userInfo = userInfo;
+    }
+
+    public static String getSelectedTvSeriesToEditFromProductionId(String production_id) {
+        return creditSystem.getSeriesId(production_id);
     }
 
     public static String getSelectedTitle() {
