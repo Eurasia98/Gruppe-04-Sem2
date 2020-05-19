@@ -46,7 +46,12 @@ public class EditChoosenEpisodeController implements Initializable {
     void btnSaveChangesHandler() {
         if (App.getCreditSystem().changeDescriptionSeriesEpisode(App.getSelectedSeriesEpisodeToEdit(), txtAreaDescription.getText()) == true){
             resetFields();
-        } else resetFields();
+            update();
+        } else {
+            resetFields();
+            update();
+            txtAreaInfo.appendText("Der skete en fejl. ");
+        }
 
     }
 
@@ -57,9 +62,16 @@ public class EditChoosenEpisodeController implements Initializable {
 
     public void initialize(URL url, ResourceBundle resourceBundle) {
         resetFields();
+        update();
     }
 
     public void resetFields(){
+        txtAreaDescription.clear();
+        txtAreaDescription.setEditable(false);
+        btnSaveChanges.setVisible(false);
+    }
+
+    public void update(){
         try {
             if (!App.getCreditSystem().getEpisodeDescription(App.getSelectedSeriesEpisodeToEdit()).isEmpty()){
                 txtAreaDescription.appendText(App.getCreditSystem().getEpisodeDescription(App.getSelectedSeriesEpisodeToEdit()));

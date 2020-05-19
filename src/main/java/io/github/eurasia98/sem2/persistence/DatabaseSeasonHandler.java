@@ -12,15 +12,13 @@ public class DatabaseSeasonHandler {
     public boolean insertSeason(ArrayList<String> seasonInfo) {
         try {
             this.connection = DatabaseAccessHandler.getConnection();
-            /*DatabaseProductionManager databaseProductionManager = new DatabaseProductionManager();
-            databaseProductionManager.insertProduction(seasonInfo);*/
 
             PreparedStatement insertTvSeriesStatement = connection.prepareStatement(
                     "INSERT INTO seasons(season_id, production_id, series_id, season_number) VALUES(?,?,?,?)");
-            insertTvSeriesStatement.setString(1, seasonInfo.get(4));
-            insertTvSeriesStatement.setString(2, seasonInfo.get(0));
-            insertTvSeriesStatement.setString(3, seasonInfo.get(5));
-            insertTvSeriesStatement.setInt(4, Integer.parseInt(seasonInfo.get(6)));
+            insertTvSeriesStatement.setString(1, seasonInfo.get(0));
+            insertTvSeriesStatement.setString(2, seasonInfo.get(1));
+            insertTvSeriesStatement.setString(3, seasonInfo.get(2));
+            insertTvSeriesStatement.setInt(4, Integer.parseInt(seasonInfo.get(3)));
 
             insertTvSeriesStatement.execute();
 

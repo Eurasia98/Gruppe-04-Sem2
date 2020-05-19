@@ -216,4 +216,36 @@ public class DatabaseTvSeriesEpisodeHandler {
         }
         return false;
     }
+
+    public boolean changeEpisodeNumber(String episode_id, String newEpisodeNumber) {
+        connection = DatabaseAccessHandler.getConnection();
+
+        try {
+            PreparedStatement changeNumberStatement = connection.prepareStatement(
+                    "UPDATE episodes SET episode_number = ? WHERE episode_id = ?");
+            changeNumberStatement.setInt(1, Integer.parseInt(newEpisodeNumber));
+            changeNumberStatement.setString(2, episode_id);
+            changeNumberStatement.execute();
+            return true;
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return false;
+    }
+
+    public boolean changeTitle(String episode_id, String newTitle) {
+        connection = DatabaseAccessHandler.getConnection();
+
+        try {
+            PreparedStatement changeTitleStatement = connection.prepareStatement(
+                    "UPDATE episodes SET episode_title = ? WHERE episode_id = ?");
+            changeTitleStatement.setString(1, newTitle);
+            changeTitleStatement.setString(2, episode_id);
+            changeTitleStatement.execute();
+            return true;
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return false;
+    }
 }
