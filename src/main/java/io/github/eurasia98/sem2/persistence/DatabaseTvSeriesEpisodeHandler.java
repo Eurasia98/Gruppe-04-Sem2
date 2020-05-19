@@ -18,7 +18,7 @@ public class DatabaseTvSeriesEpisodeHandler {
 
         try {
             PreparedStatement getEpisodeInfoStatement = connection.prepareStatement(
-                    "SELECT episode_title, episode_number, season_id FROM episodes WHERE season_id = ?");
+                    "SELECT episode_title, episode_number, episode_id FROM episodes WHERE season_id = ?");
             getEpisodeInfoStatement.setString(1, selectedSeasonToEdit);
 
             ResultSet episodeInfoResultSet = getEpisodeInfoStatement.executeQuery();
@@ -26,7 +26,7 @@ public class DatabaseTvSeriesEpisodeHandler {
             while (episodeInfoResultSet.next()) {
                 episodeInfo.add(new String[]{episodeInfoResultSet.getString(1),
                         Integer.toString(episodeInfoResultSet.getInt(2)),
-                        selectedSeasonToEdit});
+                        episodeInfoResultSet.getString(3)});
             }
 
             return episodeInfo;
@@ -200,4 +200,20 @@ public class DatabaseTvSeriesEpisodeHandler {
         }
     }
 
+    public Boolean editDescription(String selectedSeriesEpisodeToEdit, String newDescription) {
+        connection = DatabaseAccessHandler.getConnection();
+
+        try {
+            PreparedStatement editDescriptionStatement = connection.prepareStatement(
+                    "UPDATE episodes SET description = ? WHERE episode_id = ?");
+            editDescriptionStatement.setString(1, newDescription);
+            editDescriptionStatement.setString(2, selectedSeriesEpisodeToEdit);
+            editDescriptionStatement.execute();
+
+            return true;
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return false;
+    }
 }

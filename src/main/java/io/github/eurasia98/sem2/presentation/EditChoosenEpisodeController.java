@@ -22,7 +22,20 @@ public class EditChoosenEpisodeController implements Initializable {
     private Button btnMyPage;
 
     @FXML
+    private Button btnChangeDescription;
+
+    @FXML
+    private TextArea txtAreaInfo;
+
+    @FXML
     private Button btnSaveChanges;
+
+    @FXML
+    void btnChangeDescriptionHandler() {
+        btnSaveChanges.setVisible(true);
+        txtAreaDescription.setEditable(true);
+        txtAreaInfo.appendText("Du kan nu foretage ændringer i beskrivelsen. Max 1500 tegn. ");
+    }
 
     @FXML
     void btnMyPageHandler() {
@@ -31,6 +44,9 @@ public class EditChoosenEpisodeController implements Initializable {
 
     @FXML
     void btnSaveChangesHandler() {
+        if (App.getCreditSystem().changeDescriptionSeriesEpisode(App.getSelectedSeriesEpisodeToEdit(), txtAreaDescription.getText()) == true){
+            resetFields();
+        } else resetFields();
 
     }
 
@@ -44,8 +60,18 @@ public class EditChoosenEpisodeController implements Initializable {
     }
 
     public void resetFields(){
-        txtAreaDescription.appendText(App.getCreditSystem().getEpisodeDescription(App.getSelectedSeriesEpisodeToEdit()));
-        btnSaveChanges.setVisible(false);
+        try {
+            if (!App.getCreditSystem().getEpisodeDescription(App.getSelectedSeriesEpisodeToEdit()).isEmpty()){
+                txtAreaDescription.appendText(App.getCreditSystem().getEpisodeDescription(App.getSelectedSeriesEpisodeToEdit()));
+                btnSaveChanges.setVisible(false);
+                txtAreaDescription.setEditable(false);
+
+            } else {
+                txtAreaDescription.setEditable(false);
+            }
+        } catch (java.lang.NullPointerException e){
+            txtAreaDescription.setEditable(false);
+        }
     }
 
 

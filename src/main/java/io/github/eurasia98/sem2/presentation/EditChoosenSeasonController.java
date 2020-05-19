@@ -104,7 +104,7 @@ public class EditChoosenSeasonController implements Initializable {
 
     @FXML
     void btnSelectHandler() {
-        App.setSelectedSeriesEpisodeToEdit(tvEpisodes.getSelectionModel().getSelectedItem().getSeason_id());
+        App.setSelectedSeriesEpisodeToEdit(tvEpisodes.getSelectionModel().getSelectedItem().getId());
         App.switchScene("ChoosenEpisodeToEdit");
 
     }
@@ -143,7 +143,7 @@ public class EditChoosenSeasonController implements Initializable {
 
         tvcEpisodeNumber.setCellValueFactory(new PropertyValueFactory<>("episode_number"));
         tvcEpisodeTitle.setCellValueFactory(new PropertyValueFactory<>("title"));
-        tvcId.setCellValueFactory(new PropertyValueFactory<>("season_id"));
+        tvcId.setCellValueFactory(new PropertyValueFactory<>("id"));
 
         tvEpisodes.setItems(observableList);
     }

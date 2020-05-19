@@ -399,4 +399,9 @@ public class CreditSystem {
       DatabaseCreditsManager databaseCreditsManager = new DatabaseCreditsManager();
       return databaseCreditsManager.deleteCredit(role, roleName,productionId);
    }
+
+   public Boolean changeDescriptionSeriesEpisode(String selectedSeriesEpisodeToEdit, String newDescription) {
+      DatabaseTvSeriesEpisodeHandler databaseTvSeriesEpisodeHandler = new DatabaseTvSeriesEpisodeHandler();
+      return databaseTvSeriesEpisodeHandler.editDescription(selectedSeriesEpisodeToEdit, newDescription);
+   }
 }

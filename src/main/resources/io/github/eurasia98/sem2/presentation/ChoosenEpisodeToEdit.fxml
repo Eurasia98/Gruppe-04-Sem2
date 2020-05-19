@@ -6,7 +6,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="io.github.eurasia98.sem2.presentation.EditChoosenEpisodeController">
    <children>
       <TextArea fx:id="txtAreaDescription" layoutX="9.0" layoutY="246.0" prefHeight="354.0" prefWidth="791.0" promptText="Beskrivelse" />
       <ImageView fx:id="ivLogo" fitHeight="150.0" fitWidth="200.0" layoutX="258.0" layoutY="14.0" onMouseClicked="#ivLogoHandler" pickOnBounds="true" preserveRatio="true">
@@ -15,7 +15,7 @@
          </image>
       </ImageView>
       <Button fx:id="btnMyPage" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#btnMyPageHandler" text="Min side" />
-      <Button layoutX="20.0" layoutY="200.0" mnemonicParsing="false" text="Ændre beskrivelse" />
+      <Button fx:id="btnChangeDescription" layoutX="20.0" layoutY="200.0" mnemonicParsing="false" onAction="#btnChangeDescriptionHandler" text="Ændre beskrivelse" />
       <Button fx:id="btnSaveChanges" layoutX="148.0" layoutY="200.0" mnemonicParsing="false" onAction="#btnSaveChangesHandler" text="Gem ændringer" />
    </children>
 </AnchorPane>
