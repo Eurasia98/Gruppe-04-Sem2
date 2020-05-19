@@ -1,6 +1,7 @@
 package io.github.eurasia98.sem2.logic;
 
 import io.github.eurasia98.sem2.persistence.*;
+import javafx.fxml.Initializable;
 import javafx.scene.chart.PieChart;
 import org.postgresql.jdbc2.ArrayAssistant;
 
@@ -404,5 +405,48 @@ public class CreditSystem {
     public boolean changeTvSeriesEpisodeTitle(String episode_id, String newTitle) {
         DatabaseTvSeriesEpisodeHandler databaseTvSeriesEpisodeHandler = new DatabaseTvSeriesEpisodeHandler();
         return databaseTvSeriesEpisodeHandler.changeTitle(episode_id, newTitle);
+    }
+
+    public boolean changeDescriptionMovie(String productionId, String newDescription) {
+        DatabaseProductionManager databaseProductionManager = new DatabaseProductionManager();
+        return databaseProductionManager.editMovieDescription(productionId, newDescription);
+    }
+
+    public String getdescription(String productionId) {
+        DatabaseProductionManager databaseProductionManager = new DatabaseProductionManager();
+        return databaseProductionManager.getDescription(productionId);
+    }
+
+    public String getMovieTitle(String productionId) {
+        DatabaseProductionManager databaseProductionManager = new DatabaseProductionManager();
+        return databaseProductionManager.getTitle(productionId);
+    }
+
+    public ArrayList<String[]> searchUpdated(String searchField) {
+        DatabaseProductionManager databaseProductionManager = new DatabaseProductionManager();
+        return databaseProductionManager.searchUpdated(searchField);
+    }
+
+    public ArrayList<String[]> getSearchCredits(String productionid) {
+        try {
+            DatabaseCreditsManager databaseCreditsManager = new DatabaseCreditsManager();
+            DatabasePersonHandler databasePersonHandler = new DatabasePersonHandler();
+            ArrayList<String[]> unSortedFinalList = new ArrayList<>();
+            ArrayList<String[]> creditsInfo = databaseCreditsManager.getCreditsInfo(productionid);
+            for (String[] s : creditsInfo) {
+                ArrayList<String> personInfo = databasePersonHandler.getPersonInfo(Integer.parseInt(s[2]));
+                unSortedFinalList.add(new String[]{personInfo.get(4) + " " +personInfo.get(5), s[0], s[1]});
+            }
+            CreditManager creditManager = new CreditManager();
+            ArrayList<String[]> sortedFinalList = creditManager.sortAlphabet(unSortedFinalList);
+
+
+            return sortedFinalList;
+        } catch (java.lang.NullPointerException e){
+            return null;
+        }
+
+
+
     }
 }

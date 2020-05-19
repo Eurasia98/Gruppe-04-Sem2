@@ -59,6 +59,15 @@ public class EditMyMovieCreditsScreenController implements Initializable {
     @FXML
     private TextField txtFieldRoleName;
 
+
+    @FXML
+    private Hyperlink hlinkKnownUser;
+
+    @FXML
+    void hlinkKnownUserHandler() {
+        App.switchScene("Create");
+    }
+
     @FXML
     void IVLogoHandler() {
         App.resetSelects();
@@ -135,6 +144,7 @@ public class EditMyMovieCreditsScreenController implements Initializable {
         } else {
             txtAreaInfo.clear();
             txtAreaInfo.appendText("Brugernavnet er optaget. ");
+
         }
     }
 
@@ -158,6 +168,9 @@ public class EditMyMovieCreditsScreenController implements Initializable {
         txtFieldRoleName.setVisible(false);
         txtAreaInfo.clear();
         txtAreaInfo.setVisible(false);
+
+
+
 
     }
 

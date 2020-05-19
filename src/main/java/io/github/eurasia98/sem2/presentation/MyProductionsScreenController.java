@@ -119,7 +119,8 @@ public class MyProductionsScreenController implements Initializable {
         switch (tvMyProductions.getSelectionModel().getSelectedItem().getProduction_type()){
             case "Movie":
                 App.setSelectedProductionToEdit(tvMyProductions.getSelectionModel().getSelectedItem().getProduction_id());
-                App.switchScene("ChoosenMovieToEdit");
+                App.switchScene("ChoosenMovieToEditScreen");
+                break;
             case "Serie":
                 App.setSelectedProductionToEdit(tvMyProductions.getSelectionModel().getSelectedItem().getProduction_id());
                 App.setSelectedTvSeriesToEdit(App.getCreditSystem().getSeriesId(App.getSelectedProductionToEdit()));

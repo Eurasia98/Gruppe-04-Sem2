@@ -33,7 +33,7 @@ public class SearchScreenController implements Initializable {
     private ImageView ivSearch;
 
     @FXML
-    void ivLogoActionHandler(MouseEvent event) {
+    void ivLogoActionHandler() {
         App.switchScene("FrontPage");
     }
 

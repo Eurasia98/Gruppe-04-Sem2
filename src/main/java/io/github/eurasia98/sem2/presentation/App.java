@@ -25,6 +25,15 @@ public class App extends Application{
     private static String selectedSeasonToEdit;
     private static String selectedSeriesEpisodeToEdit;
     private static String selectedTvProgramEpisodeToEdit;
+    private static String selectedSearchResult;
+
+    public static String getSelectedSearchResult() {
+        return selectedSearchResult;
+    }
+
+    public static void setSelectedSearchResult(String selectedSearchResult) {
+        App.selectedSearchResult = selectedSearchResult;
+    }
 
     public static void resetSelects(){
         searchField = null;
