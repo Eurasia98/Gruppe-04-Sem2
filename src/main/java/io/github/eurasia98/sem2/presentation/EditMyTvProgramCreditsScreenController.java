@@ -34,6 +34,19 @@ public class EditMyTvProgramCreditsScreenController implements Initializable {
     private Button btnAddCredits;
 
     @FXML
+    private Button btnDeleteCredit;
+
+    @FXML
+    void btnDeleteCreditHandler() {
+        String role = tvCredits.getSelectionModel().getSelectedItem().getRole();
+        if (App.getCreditSystem().deleteCreditFromTvProgram(role, App.getSelectedProductionToEdit()) == true){
+            update();
+        } else {
+            update();
+        }
+    }
+
+    @FXML
     void btnAddCreditsHandler() {
         App.switchScene("CreateTvProgramCreditsScreen");
     }
@@ -50,10 +63,14 @@ public class EditMyTvProgramCreditsScreenController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        update();
+    }
+
+    private void update() {
         ObservableList<ModelTableEditMyTvProgramCredits> observableList = FXCollections.observableArrayList();
         ArrayList<String[]> creditsInfo = App.getCreditSystem().getCreditsInfo(App.getSelectedProductionToEdit());
         for (String[] s : creditsInfo){
-            observableList.add(new ModelTableEditMyTvProgramCredits(s[0], s[2]));
+            observableList.add(new ModelTableEditMyTvProgramCredits(s[0], s[1]));
         }
 
         tvcName.setCellValueFactory(new PropertyValueFactory<>("name"));

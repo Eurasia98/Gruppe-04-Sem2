@@ -80,14 +80,22 @@ public class CreatePersonScreenController implements Initializable {
                     !txtFieldFirstName.getText().isEmpty() && !txtFieldLastName.getText().isEmpty() &&
                     !txtFieldEmail.getText().isEmpty() && !txtFieldProductionId.getText().isEmpty() &&
                     !txtFieldRole.getText().isEmpty() && !txtFieldRoleName.getText().isEmpty()) {
-                if (App.getCreditSystem().createNewPerson(txtFieldUsername.getText(), txtFieldPassword.getText(),
-                        txtFieldFirstName.getText(), txtFieldLastName.getText(), txtFieldEmail.getText()) == true) {
-
-                    ArrayList<String> personInfo = App.getCreditSystem().getPersonInfo(txtFieldUsername.getText());
-                    if (App.getCreditSystem().createNewCredit(Integer.parseInt(personInfo.get(1)),
-                            txtFieldProductionId.getText(), txtFieldRole.getText(), txtFieldRoleName.getText()) == true) {
+                ArrayList<String> personInfo = new ArrayList<>();
+                personInfo.add(txtFieldUsername.getText());
+                personInfo.add(txtFieldPassword.getText());
+                personInfo.add(txtFieldEmail.getText());
+                personInfo.add("Person");
+                personInfo.add(txtFieldFirstName.getText());
+                personInfo.add(txtFieldLastName.getText());
+                if (App.getCreditSystem().createNewPerson(personInfo) == true) {
+                    ArrayList<String> creditsInfo = App.getCreditSystem().getPersonInfo(txtFieldUsername.getText());
+                    creditsInfo.add(creditsInfo.get(1));
+                    creditsInfo.add(App.getSelectedProductionToEdit());
+                    creditsInfo.add(txtFieldRole.getText());
+                    creditsInfo.add(txtFieldRoleName.getText());
+                    if (App.getCreditSystem().createNewCredit(creditsInfo) == true) {
                         updateSuccesfullCreation();
-                    }
+                    } else updateUnsuccesfullCreation();
                 } else {
                     updateUnsuccesfullCreation();
                 }
@@ -95,8 +103,14 @@ public class CreatePersonScreenController implements Initializable {
                     !txtFieldFirstName.getText().isEmpty() && !txtFieldLastName.getText().isEmpty() &&
                     !txtFieldEmail.getText().isEmpty() && txtFieldProductionId.getText().isEmpty() &&
                     txtFieldRole.getText().isEmpty() && txtFieldRoleName.getText().isEmpty()) {
-                if (App.getCreditSystem().createNewPerson(txtFieldUsername.getText(), txtFieldPassword.getText(),
-                        txtFieldFirstName.getText(), txtFieldLastName.getText(), txtFieldEmail.getText()) == true){
+                ArrayList<String> personInfo = new ArrayList<>();
+                personInfo.add(txtFieldUsername.getText());
+                personInfo.add(txtFieldPassword.getText());
+                personInfo.add(txtFieldEmail.getText());
+                personInfo.add("Person");
+                personInfo.add(txtFieldFirstName.getText());
+                personInfo.add(txtFieldLastName.getText());
+                if (App.getCreditSystem().createNewPerson(personInfo)) {
                     updateSuccesfullCreation();
                 } else {
                     updateUnsuccesfullCreation();
@@ -105,8 +119,14 @@ public class CreatePersonScreenController implements Initializable {
                     !txtFieldFirstName.getText().isEmpty() && !txtFieldLastName.getText().isEmpty() &&
                     txtFieldEmail.getText().isEmpty() && txtFieldProductionId.getText().isEmpty() &&
                     txtFieldRole.getText().isEmpty() && txtFieldRoleName.getText().isEmpty()) {
-                if (App.getCreditSystem().createNewPerson(txtFieldUsername.getText(),
-                        txtFieldPassword.getText(), txtFieldFirstName.getText(), txtFieldLastName.getText()) == true) {
+                ArrayList<String> personInfo = new ArrayList<>();
+                personInfo.add(txtFieldUsername.getText());
+                personInfo.add(txtFieldPassword.getText());
+                personInfo.add(null);
+                personInfo.add("Person");
+                personInfo.add(txtFieldFirstName.getText());
+                personInfo.add(txtFieldLastName.getText());
+                if (App.getCreditSystem().createNewPerson(personInfo) == true) {
                     updateSuccesfullCreation();
                 } else {
                     updateUnsuccesfullCreation();

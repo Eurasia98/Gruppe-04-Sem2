@@ -9,7 +9,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="io.github.eurasia98.sem2.presentation.EditMyCreditsScreenController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="io.github.eurasia98.sem2.presentation.EditMyMovieCreditsScreenController">
    <children>
       <ImageView fx:id="IVLogo" fitHeight="63.0" fitWidth="200.0" onDragDetected="#IVLogoHandler" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -21,10 +21,9 @@
       <Button fx:id="btnSaveChanges" layoutX="121.0" layoutY="506.0" mnemonicParsing="false" onAction="#btnSaveChangesHandler" text="Gem ændringer" />
       <TableView fx:id="tvMyCredits" layoutY="66.0" prefHeight="427.0" prefWidth="800.0">
         <columns>
-          <TableColumn fx:id="tvcFirstname" prefWidth="171.19998472929" text="Fornavn" />
-          <TableColumn fx:id="tvcLastname" prefWidth="208.00001525878906" text="Efternavn" />
-            <TableColumn fx:id="tvcRoleName" prefWidth="221.5999755859375" text="Rollenavn" />
-            <TableColumn fx:id="tvcRoleType" prefWidth="199.20001220703125" text="Rolle" />
+          <TableColumn fx:id="tvcName" prefWidth="251.20001220703125" text="Fornavn" />
+            <TableColumn fx:id="tvcRoleName" prefWidth="284.0" text="Rollenavn" />
+            <TableColumn fx:id="tvcRoleType" prefWidth="264.800048828125" text="Rolle" />
         </columns>
       </TableView>
       <TextArea fx:id="txtAreaInfo" layoutX="261.0" layoutY="313.0" prefHeight="279.0" prefWidth="532.0" visible="false" />

@@ -103,8 +103,6 @@ public class DatabaseProductionManager {
     public Boolean editProductionId(String oldProductionId, String newProductionId) {
         String productionType = getProductionType(oldProductionId);
         connection = DatabaseAccessHandler.getConnection();
-        System.out.println(productionType);
-
         try {
             PreparedStatement updateProductionIdStatement = connection.prepareStatement(
                     "UPDATE productions SET production_id = ? WHERE production_id = ?");
@@ -114,7 +112,8 @@ public class DatabaseProductionManager {
             return true;
         } catch (SQLException throwables) {
             throwables.printStackTrace();
-        }
+        } return false;
+    }
 
 /*        switch (productionType) {
             case "Movie":
@@ -390,10 +389,10 @@ public class DatabaseProductionManager {
                     }
                 }
         }*/
-        return false;
-    }
+       // return false;
+    // } ** Hører til editproduktion ovenfor - lukker den.
 
-    private void resetBackupTables() {
+/*    private void resetBackupTables() {
         try {
             PreparedStatement deleteBackupMoviesStatement = connection.prepareStatement(
                     "DELETE FROM backup_movies");
@@ -421,7 +420,7 @@ public class DatabaseProductionManager {
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
-    }
+    }*/
 
     public Boolean editProductionTitle(String newTitle, String production_id) {
         connection = DatabaseAccessHandler.getConnection();

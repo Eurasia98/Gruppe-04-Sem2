@@ -271,13 +271,44 @@ public class DatabaseCreditsManager {
 
         try {
             PreparedStatement insertStatement = connection.prepareStatement(
-                    "INSERT INTO credits(role_type, role_name, production_id, account_id) " +
-                            "VALUES (?,?,?,?)");
+                    "INSERT INTO credits(role_type, production_id, account_id) " +
+                            "VALUES (?,?,?)");
             insertStatement.setString(1, creditsInfo.get(0));
             insertStatement.setString(2, creditsInfo.get(1));
-            insertStatement.setString(3, creditsInfo.get(2));
-            insertStatement.setInt(4, Integer.parseInt(creditsInfo.get(3)));
+            insertStatement.setInt(3, Integer.parseInt(creditsInfo.get(2)));
             insertStatement.execute();
+            return true;
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        } return false;
+    }
+
+    public boolean deleteCredit(String role, String roleName, String productionId) {
+        connection = DatabaseAccessHandler.getConnection();
+
+        try {
+            PreparedStatement deleteStatement = connection.prepareStatement(
+                    "DELETE FROM credits WHERE production_id = ? AND role_type = ? AND role_name = ?");
+            deleteStatement.setString(1, productionId);
+            deleteStatement.setString(2, role);
+            deleteStatement.setString(3, roleName);
+            deleteStatement.execute();
+            return true;
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        } return false;
+    }
+
+    public boolean deleteCreditFromTvProgram(String role, String productionId) {
+
+        connection = DatabaseAccessHandler.getConnection();
+
+        try {
+            PreparedStatement deleteStatement = connection.prepareStatement(
+                    "DELETE FROM credits WHERE production_id = ? AND role_type = ?");
+            deleteStatement.setString(1, productionId);
+            deleteStatement.setString(2, role);
+            deleteStatement.execute();
             return true;
         } catch (SQLException throwables) {
             throwables.printStackTrace();

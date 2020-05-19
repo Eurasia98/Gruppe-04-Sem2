@@ -7,22 +7,22 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="io.github.eurasia98.sem2.presentation.CreatePersonScreenController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="io.github.eurasia98.sem2.presentation.CreateTvSeriesCreditsController">
    <children>
-      <ImageView fx:id="IVLogo" fitHeight="159.0" fitWidth="301.0" layoutX="494.0" layoutY="14.0" onMouseClicked="#IVLogoHandler" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="ivLogo" fitHeight="159.0" fitWidth="301.0" layoutX="494.0" layoutY="14.0" onMouseClicked="#ivLogoHandler" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@images/TV2_logo.png" />
          </image>
       </ImageView>
       <Button fx:id="btnAvailableUsername" layoutX="205.0" layoutY="120.0" mnemonicParsing="false" onAction="#btnAvailableUsernameHandler" text="Tjek om ledigt" />
-      <TextField fx:id="txtFieldUsername" layoutX="325.0" layoutY="120.0" promptText="Ønsket brugernavn *" />
+      <TextField fx:id="txtFieldNewUsername" layoutX="325.0" layoutY="120.0" promptText="Ønsket brugernavn *" />
       <TextField fx:id="txtFieldPassword" layoutX="325.0" layoutY="165.0" promptText="Ønsket password *" />
       <TextField fx:id="txtFieldFirstName" layoutX="326.0" layoutY="199.0" promptText="Fornavn *" />
       <TextField fx:id="txtFieldLastName" layoutX="325.0" layoutY="238.0" promptText="Efternavn *" />
       <TextField fx:id="txtFieldEmail" layoutX="326.0" layoutY="274.0" promptText="Email" />
       <Button fx:id="btnSavePerson" layoutX="365.0" layoutY="426.0" mnemonicParsing="false" onAction="#btnSavePersonHandler" text="Gem" />
-      <TextField fx:id="txtFieldRole" layoutX="325.0" layoutY="328.0" promptText="Rolletype" />
-      <TextField fx:id="txtFieldRoleName" layoutX="325.0" layoutY="374.0" promptText="Eventuelt rollenavn" />
+      <TextField fx:id="txtFieldNewRole" layoutX="325.0" layoutY="328.0" promptText="Rolletype" />
+      <TextField fx:id="txtFieldNewRoleName" layoutX="325.0" layoutY="374.0" promptText="Eventuelt rollenavn" />
       <TextArea fx:id="txtArea" editable="false" layoutX="586.0" layoutY="387.0" prefHeight="200.0" prefWidth="200.0" />
       <Button fx:id="btnCreateNewPerson" layoutX="205.0" layoutY="56.0" mnemonicParsing="false" onAction="#btnCreateNewPersonHandler" text="Opret ny person" />
       <Button fx:id="btnKnownUser" layoutX="14.0" layoutY="56.0" mnemonicParsing="false" onAction="#btnKnownUserHandler" text="Brug eksisterende person" />

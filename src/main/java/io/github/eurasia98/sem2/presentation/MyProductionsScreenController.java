@@ -142,9 +142,9 @@ public class MyProductionsScreenController implements Initializable {
     void btnSaveChangesHandler() {
         if (!txtFieldNewId.getText().isEmpty()){
             if (App.getCreditSystem().editProductionId(txtFieldCurrentProductionId.getText(), txtFieldNewId.getText())){
-                txtAreaDisplayInfo.appendText("Ændringen er blevet gemt. ");
                 update();
                 resetFields();
+                txtAreaDisplayInfo.appendText("Ændringen er blevet gemt. ");
             } else {
                 resetFields();
                 txtAreaDisplayInfo.appendText("Ændringen blev ikke gemt, der skete desværre en fejl 1. ");
@@ -152,13 +152,13 @@ public class MyProductionsScreenController implements Initializable {
         }
         else if (!txtFieldNewTitle.getText().isEmpty()){
             if (App.getCreditSystem().editTitle(txtFieldNewTitle.getText(), tvMyProductions.getSelectionModel().getSelectedItems().get(0).getProduction_id()) == true){
+                update();
+                resetFields();
                 txtAreaDisplayInfo.appendText("Ændringen er blevet gemt. ");
-                update();
-                resetFields();
             } else {
-                txtAreaDisplayInfo.appendText("Ændringen er ikke blevet gemt, der skete desværre en fejl 2. ");
                 update();
                 resetFields();
+                txtAreaDisplayInfo.appendText("Ændringen er ikke blevet gemt, der skete desværre en fejl 2. ");
             }
         } else{
             update();
@@ -182,6 +182,8 @@ public class MyProductionsScreenController implements Initializable {
         txtFieldCurrentTitle.setVisible(false);
         txtFieldNewTitle.clear();
         txtFieldNewTitle.setVisible(false);
+        txtAreaDisplayInfo.clear();
+        txtAreaDisplayInfo.setEditable(false);
 
         App.resetSelects();
     }

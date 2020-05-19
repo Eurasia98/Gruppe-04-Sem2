@@ -1,15 +1,18 @@
 package io.github.eurasia98.sem2.presentation;
 
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import org.postgresql.jdbc2.ArrayAssistant;
 
+import java.net.URL;
 import java.util.ArrayList;
+import java.util.ResourceBundle;
 
-public class CreateTvProgramCreditsController {
+public class CreateTvProgramCreditsController implements Initializable {
     @FXML
     private ImageView IVLogo;
 
@@ -42,12 +45,6 @@ public class CreateTvProgramCreditsController {
 
     @FXML
     private TextField txtFieldNewRole;
-
-    @FXML
-    private TextField txtFieldRoleName;
-
-    @FXML
-    private TextField txtFieldNewRoleName;
 
     @FXML
     private TextArea txtArea;
@@ -96,19 +93,14 @@ public class CreateTvProgramCreditsController {
         txtFieldLastName.setVisible(true);
         txtFieldEmail.setVisible(true);
         txtFieldNewRole.setVisible(true);
-        txtFieldNewRoleName.setVisible(true);
     }
 
     @FXML
     void btnKnownUserHandler() {
         resetFields();
         txtFieldUsername.setVisible(true);
+        txtFieldUserId.setVisible(true);
         txtFieldRole.setVisible(true);
-        txtFieldFirstName.setVisible(true);
-        txtFieldLastName.setVisible(true);
-        txtFieldEmail.setVisible(true);
-        txtFieldRole.setVisible(true);
-        txtFieldRoleName.setVisible(true);
     }
 
     @FXML
@@ -118,34 +110,42 @@ public class CreateTvProgramCreditsController {
 
     @FXML
     void btnSaveCreditHandler() {
+        try{
+            if (!txtFieldUsername.getText().isEmpty()){
+                ArrayList<String> creditsInfo = new ArrayList<>();
+                creditsInfo.add(txtFieldRole.getText());
+                creditsInfo.add(App.getSelectedProductionToEdit());
+                creditsInfo.add(txtFieldUsername.getText());
+                if (App.getCreditSystem().createNewTvProgramCredit(creditsInfo) == true){
+                    resetFields();
+                    App.switchScene("EditMyTvProgramCreditsScreen");
+                } else {
+                    resetFields();
+                    txtArea.appendText("Krediteringen blev ikke gemt. Noget gik galt. ");
+                }
+            } else if (!txtFieldUserId.getText().isEmpty()){
+                ArrayList<String> creditsInfo = new ArrayList<>();
+                creditsInfo.add(txtFieldRole.getText());
+                creditsInfo.add(App.getSelectedProductionToEdit());
+                creditsInfo.add(txtFieldUserId.getText());
+                if (App.getCreditSystem().createNewTvProgramCreditWithUserId(creditsInfo) == true){
+                    resetFields();
+                    App.switchScene("EditMyTvProgramCreditsScreen");
+                } else {
+                    resetFields();
+                    txtArea.appendText("Krediteringen blev ikke gemt. Noget gik galt. ");
+                }
+            } else {
+                txtArea.appendText("Der skete desværre en fejl.");
+            }
+        } catch (java.lang.NumberFormatException e){
+            txtArea.appendText("Der skete desværre en fejl. Måske har du skrevet noget forkert. ");
+        }
+    }
 
-        if (!txtFieldUsername.getText().isEmpty()){
-            ArrayList<String> creditsInfo = new ArrayList<>();
-            creditsInfo.add(txtFieldUsername.getText());
-            creditsInfo.add(txtFieldRole.getText());
-            creditsInfo.add(txtFieldRoleName.getText());
-            creditsInfo.add(App.getSelectedProductionToEdit());
-            if (App.getCreditSystem().createNewTvProgramCredit(creditsInfo) == true){
-                resetFields();
-                txtArea.appendText("Krediteringen blev gemt. ");
-            } else {
-                resetFields();
-                txtArea.appendText("Krediteringen blev ikke gemt. Noget gik galt. ");
-            }
-        } else if (!txtFieldUserId.getText().isEmpty()){
-            ArrayList<String> creditsInfo = new ArrayList<>();
-            creditsInfo.add(txtFieldUserId.getText());
-            creditsInfo.add(txtFieldRole.getText());
-            creditsInfo.add(txtFieldRoleName.getText());
-            creditsInfo.add(App.getSelectedProductionToEdit());
-            if (App.getCreditSystem().createNewTvProgramCreditWithUserId(creditsInfo) == true){
-                resetFields();
-                txtArea.appendText("Krediteringen blev gemt. ");
-            } else {
-                resetFields();
-                txtArea.appendText("Krediteringen blev ikke gemt. Noget gik galt. ");
-            }
-        } else if (!txtFieldNewUsername.getText().isEmpty()){
+    @FXML
+    void btnSavePersonHandler() {
+        if (!txtFieldNewUsername.getText().isEmpty()){
             ArrayList<String> creditsInfo = new ArrayList<>();
             creditsInfo.add(txtFieldNewUsername.getText());
             creditsInfo.add(txtFieldPassword.getText());
@@ -155,19 +155,14 @@ public class CreateTvProgramCreditsController {
                 creditsInfo.add(txtFieldEmail.getText());
             } else creditsInfo.add(null);
             creditsInfo.add(txtFieldNewRole.getText());
-            if (!txtFieldNewRoleName.getText().isEmpty()){
-                creditsInfo.add(txtFieldNewRoleName.getText());
-            } else creditsInfo.add(null);
             creditsInfo.add(App.getSelectedProductionToEdit());
             if (App.getCreditSystem().createNewTvProgramCreditAndPerson(creditsInfo) == true){
                 App.switchScene("EditMyTvProgramCreditsScreen");
             } else txtArea.appendText("Der skete desværre en fejl. ");
-        } else txtArea.appendText("Der skete desværre en fejl.");
-    }
-
-    @FXML
-    void btnSavePersonHandler() {
-
+        } else {
+            resetFields();
+            txtArea.appendText("Der skete desværre en fejl. ");
+        }
     }
 
     private void resetFields() {
@@ -175,8 +170,6 @@ public class CreateTvProgramCreditsController {
         btnSavePerson.setVisible(false);
         btnSaveCredit.setVisible(false);
 
-        txtFieldRoleName.clear();
-        txtFieldRoleName.setVisible(false);
         txtFieldRole.clear();
         txtFieldRole.setVisible(false);
         txtFieldEmail.clear();
@@ -191,7 +184,15 @@ public class CreateTvProgramCreditsController {
         txtFieldNewUsername.setVisible(false);
         txtFieldUsername.clear();
         txtFieldUsername.setVisible(false);
-        txtFieldUserId.clear();txtFieldUserId.setVisible(false);
+        txtFieldUserId.clear();
+        txtFieldUserId.setVisible(false);
+        txtFieldNewRole.clear();
+        txtFieldNewRole.setVisible(false);
         txtArea.clear();
+    }
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        resetFields();
     }
 }

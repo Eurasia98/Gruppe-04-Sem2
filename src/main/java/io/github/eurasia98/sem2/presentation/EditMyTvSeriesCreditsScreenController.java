@@ -56,15 +56,14 @@ public class EditMyTvSeriesCreditsScreenController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         ObservableList<ModelTableEditMyTvSeriesCredits> observableList = FXCollections.observableArrayList();
         ArrayList<String[]> creditsInfo = App.getCreditSystem().getCreditsInfo(App.getSelectedProductionToEdit());
-        ArrayList<Integer> persons_ids = new ArrayList<>();
 
         for (String[] s : creditsInfo){
-            observableList.add(new ModelTableEditMyTvSeriesCredits((s[0] + " " + s[1]), s[2] ,s[3]));
+            observableList.add(new ModelTableEditMyTvSeriesCredits(s[0], s[1] ,s[2]));
         }
 
         tvcName.setCellValueFactory(new PropertyValueFactory<>("name"));
         tvcRoleType.setCellValueFactory(new PropertyValueFactory<>("roleType"));
-        tvcRoleName.setCellValueFactory(new PropertyValueFactory<>("roleType"));
+        tvcRoleName.setCellValueFactory(new PropertyValueFactory<>("roleName"));
 
         tvCredits.setItems(observableList);
     }

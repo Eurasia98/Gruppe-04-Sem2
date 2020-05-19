@@ -201,7 +201,6 @@ public class DatabasePersonHandler {
             ResultSet getPersonsResults = getPersonsStatement.executeQuery();
 
             while (getPersonsResults.next()) {
-                personsToEditList.add(Integer.toString(accountId));
                 personsToEditList.add(getPersonsResults.getString(1));
                 personsToEditList.add(getPersonsResults.getString(2));
             }
