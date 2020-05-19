@@ -68,7 +68,11 @@ public class CreditSystem {
       HashMap<String, String> searchResultsMap = new HashMap<>();
       ArrayList<SearchResults> searchResultsArrayList = databaseSearchController.search(searchString);
       for (SearchResults searchResult : searchResultsArrayList){
-         searchResultsMap.put(searchResult.getTitle(), searchResult.getProductionId());
+         if(searchResult.getSearchResultType().equals("production")){
+            searchResultsMap.put(searchResult.getTitle(), searchResult.getProductionId());
+         } else if(searchResult.getSearchResultType().equals("person")){
+            searchResultsMap.put(searchResult.getName(), searchResult.getPerson_id());
+         }
       }
       return searchResultsMap;
    }

@@ -19,15 +19,23 @@ public class DatabaseSearchController {
         ArrayList<SearchResults> searchResultsArrayList = new ArrayList<>();
 
         try {
-            PreparedStatement searchStatement = connection.prepareStatement("SELECT * FROM productions WHERE title ilike ?");
-            searchStatement.setString(1,"%" + searchString + "%");
-            ResultSet rs = searchStatement.executeQuery();
+            PreparedStatement productionSearchStatement = connection.prepareStatement("SELECT * FROM productions WHERE title ilike ?");
+            productionSearchStatement.setString(1,"%" + searchString + "%");
+            ResultSet proRS = productionSearchStatement.executeQuery();
 
-            while (rs.next()){
-                searchResultsArrayList.add(new SearchResults(rs.getString("title"), rs.getString("production_id")));
+            while (proRS.next()){
+                searchResultsArrayList.add(new SearchResults(1,proRS.getString("title"), proRS.getString("production_id")));
+            }
+            PreparedStatement personSearchStatement = connection.prepareStatement("SELECT * FROM persons WHERE first_name ilike ?");
+            personSearchStatement.setString(1,"%" + searchString + "%");
+            ResultSet perRS = personSearchStatement.executeQuery();
+
+            while (perRS.next()) {
+                searchResultsArrayList.add(new SearchResults(perRS.getString("first_name"), perRS.getString("id"),1));
             }
 
-            return searchResultsArrayList;
+
+                return searchResultsArrayList;
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         } return null;
