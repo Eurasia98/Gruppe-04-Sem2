@@ -23,7 +23,25 @@ public class App extends Application{
     private static String selectedProductionToEdit;
     private static String selectedTvSeriesToEdit;
     private static String selectedSeasonToEdit;
-    private static String selectedEpisodeToEdit;
+    private static String selectedSeriesEpisodeToEdit;
+    private static String selectedTvProgramEpisodeToEdit;
+
+    public static void resetSelects(){
+        searchField = null;
+        selectedProductionToEdit = null;
+        selectedTvSeriesToEdit = null;
+        selectedSeasonToEdit = null;
+        selectedSeriesEpisodeToEdit = null;
+        selectedTvProgramEpisodeToEdit = null;
+    }
+
+    public static String getSelectedTvProgramEpisodeToEdit() {
+        return selectedTvProgramEpisodeToEdit;
+    }
+
+    public static void setSelectedTvProgramEpisodeToEdit(String selectedTvProgramEpisodeToEdit) {
+        App.selectedTvProgramEpisodeToEdit = selectedTvProgramEpisodeToEdit;
+    }
 
     public static String getSelectedTvSeriesToEdit() {
         return selectedTvSeriesToEdit;
@@ -33,12 +51,12 @@ public class App extends Application{
         App.selectedTvSeriesToEdit = selectedTvSeriesToEdit;
     }
 
-    public static String getSelectedEpisodeToEdit() {
-        return selectedEpisodeToEdit;
+    public static String getSelectedSeriesEpisodeToEdit() {
+        return selectedSeriesEpisodeToEdit;
     }
 
-    public static void setSelectedEpisodeToEdit(String selectedEpisodeToEdit) {
-        App.selectedEpisodeToEdit = selectedEpisodeToEdit;
+    public static void setSelectedSeriesEpisodeToEdit(String selectedSeriesEpisodeToEdit) {
+        App.selectedSeriesEpisodeToEdit = selectedSeriesEpisodeToEdit;
     }
 
     public static String getSelectedSeasonToEdit() {
@@ -75,6 +93,10 @@ public class App extends Application{
 
     public static void setUserInfo(List<String> userInfo) {
         App.userInfo = userInfo;
+    }
+
+    public static String getSelectedTvSeriesToEditFromProductionId(String production_id) {
+        return creditSystem.getSeriesId(production_id);
     }
 
     @Override

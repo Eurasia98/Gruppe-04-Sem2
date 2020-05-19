@@ -24,7 +24,7 @@ public class DatabaseAccountHandler {
         } return false;
     }
 
-    public void insertAccount(ArrayList<String> accountInfo){
+    public Boolean insertAccount(ArrayList<String> accountInfo){
         try {
             this.connection = DatabaseAccessHandler.getConnection();
 
@@ -32,13 +32,15 @@ public class DatabaseAccountHandler {
                     "INSERT INTO accounts(username, password, email, account_type) VALUES(?,?,?,?)");
             insertAccountStatement.setString(1, accountInfo.get(0));
             insertAccountStatement.setString(2, accountInfo.get(1));
-            insertAccountStatement.setString(3, accountInfo.get(5));
-            insertAccountStatement.setString(4, accountInfo.get(6));
+            insertAccountStatement.setString(3, accountInfo.get(2));
+            insertAccountStatement.setString(4, accountInfo.get(3));
             insertAccountStatement.execute();
+
+            return true;
 
         } catch (SQLException throwables) {
             throwables.printStackTrace();
-        }
+        } return false;
     }
 
     /*public Boolean insertAccount(Account account){
@@ -245,5 +247,28 @@ public class DatabaseAccountHandler {
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
+    }
+
+    public String getAccountId(String username) {
+        connection = DatabaseAccessHandler.getConnection();
+
+        try {
+            PreparedStatement getAccountIdStatement = connection.prepareStatement(
+                    "SELECT id FROM accounts WHERE username = ?");
+            getAccountIdStatement.setString(1, username);
+
+            ResultSet idResultSet = getAccountIdStatement.executeQuery();
+
+            if (idResultSet.next()){
+                return Integer.toString(idResultSet.getInt(1));
+            }
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        } return null;
+    }
+
+    public String getAccountUsername(String account_id) {
+        ArrayList<String> usernameInfo = getAccount(account_id);
+        return usernameInfo.get(1);
     }
 }

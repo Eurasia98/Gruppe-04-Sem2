@@ -1,16 +1,12 @@
 package io.github.eurasia98.sem2.presentation;
 
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
-import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
 
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class EditChoosenEpisodeController implements Initializable {
@@ -48,7 +44,7 @@ public class EditChoosenEpisodeController implements Initializable {
     }
 
     public void resetFields(){
-        txtAreaDescription.appendText(App.getCreditSystem().getEpisodeDescription(App.getSelectedEpisodeToEdit()));
+        txtAreaDescription.appendText(App.getCreditSystem().getEpisodeDescription(App.getSelectedSeriesEpisodeToEdit()));
         btnSaveChanges.setVisible(false);
     }
 

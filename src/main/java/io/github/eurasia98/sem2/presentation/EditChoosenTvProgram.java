@@ -72,12 +72,59 @@ public class EditChoosenTvProgram implements Initializable {
     private Button btnSaveId;
 
     @FXML
+    private Button btnCreateEpisode;
+
+    @FXML
+    private TextField txtFieldCreateEpisodeTitle;
+
+    @FXML
+    private TextField txtFieldCreateEpisodeNumber;
+
+    @FXML
+    private TextField txtFieldCreateEpisodeId;
+
+    @FXML
+    private Button btnSaveCreatedEpisode;
+
+    @FXML
+    private Button btnShowDescription;
+
+    @FXML
+    void btnShowDescriptionHandler() {
+        App.setSelectedTvProgramEpisodeToEdit(tvMyEpisodes.getSelectionModel().getSelectedItem().getEpisode_id());
+        App.switchScene("TvProgramDescriptionScreen");
+    }
+
+    @FXML
+    void btnSaveCreatedEpisodeHandler() {
+        if (App.getCreditSystem().createNewTvProgramEpisode(App.getSelectedProductionToEdit(), txtFieldCreateEpisodeNumber.getText(),
+                txtFieldCreateEpisodeTitle.getText(), txtFieldCreateEpisodeId.getText()) == true){
+            resetFields();
+            update();
+        } else resetFields();
+    }
+
+    @FXML
+    void btnCreateEpisodeHandler() {
+        txtFieldCreateEpisodeTitle.setVisible(true);
+        txtFieldCreateEpisodeNumber.setVisible(true);
+        txtFieldCreateEpisodeId.setVisible(true);
+        btnSaveCreatedEpisode.setVisible(true);
+    }
+
+    @FXML
     void btnChangeEpisodeNumberHandler() {
-        resetFields();
-        txtFieldCurrentEpisodeNumber.setVisible(true);
-        txtFieldCurrentEpisodeNumber.setEditable(false);
-        txtFieldCurrentEpisodeNumber.setText(tvMyEpisodes.getSelectionModel().getSelectedItem().getEpisode_number());
-        txtFieldNewEpisodeNumber.setVisible(true);
+        try {
+            resetFields();
+            txtFieldCurrentEpisodeNumber.setText(tvMyEpisodes.getSelectionModel().getSelectedItem().getEpisode_number());
+            txtFieldCurrentEpisodeNumber.setVisible(true);
+            txtFieldCurrentEpisodeNumber.setEditable(false);
+            txtFieldCurrentEpisodeNumber.setText(tvMyEpisodes.getSelectionModel().getSelectedItem().getEpisode_number());
+            txtFieldNewEpisodeNumber.setVisible(true);
+            btnSaveEpisodeNumber.setVisible(true);
+        } catch (NullPointerException e){
+            resetFields();
+        }
     }
 
     @FXML
@@ -87,6 +134,7 @@ public class EditChoosenTvProgram implements Initializable {
         txtFieldCurrentId.setEditable(false);
         txtFieldCurrentId.setText(tvMyEpisodes.getSelectionModel().getSelectedItem().getEpisode_id());
         txtFieldNewId.setVisible(true);
+        btnSaveId.setVisible(true);
     }
 
     @FXML
@@ -96,6 +144,7 @@ public class EditChoosenTvProgram implements Initializable {
         txtFieldCurrentTitle.setEditable(false);
         txtFieldCurrentTitle.setText(tvMyEpisodes.getSelectionModel().getSelectedItem().getEpisode_title());
         txtFieldNewTitle.setVisible(true);
+        btnSaveTitle.setVisible(true);
     }
 
     @FXML
@@ -107,8 +156,9 @@ public class EditChoosenTvProgram implements Initializable {
     void btnSaveEpisodeNumberHandler() {
         if (!txtFieldNewEpisodeNumber.getText().isEmpty()){
             if (App.getCreditSystem().changeTvProgramEpisodeNumber(tvMyEpisodes.getSelectionModel().getSelectedItem().getEpisode_id(),
-                    txtFieldNewId.getText()) == true){
+                    txtFieldNewEpisodeNumber.getText()) == true){
                 update();
+                resetFields();
             } else resetFields();
         } else resetFields();
     }
@@ -119,6 +169,7 @@ public class EditChoosenTvProgram implements Initializable {
             if (App.getCreditSystem().changeTvProgramEpisodeId(tvMyEpisodes.getSelectionModel().getSelectedItem().getEpisode_id(),
                     txtFieldNewId.getText()) == true){
                 update();
+                resetFields();
             } else resetFields();
         } else resetFields();
     }
@@ -129,6 +180,7 @@ public class EditChoosenTvProgram implements Initializable {
             if (App.getCreditSystem().changeTvProgramEpisodeTitle(tvMyEpisodes.getSelectionModel().getSelectedItem().getEpisode_id(),
                     txtFieldNewTitle.getText()) == true){
                 update();
+                resetFields();
             } else resetFields();
         } else resetFields();
     }
@@ -149,14 +201,33 @@ public class EditChoosenTvProgram implements Initializable {
         txtFieldNewTitle.setVisible(false);
         txtFieldCurrentId.clear();
         txtFieldCurrentId.setVisible(false);
+        txtFieldNewId.clear();
+        txtFieldNewId.setVisible(false);
+        txtFieldCreateEpisodeTitle.clear();
+        txtFieldCreateEpisodeTitle.setVisible(false);
+        txtFieldCreateEpisodeNumber.clear();
+        txtFieldCreateEpisodeNumber.setVisible(false);
+        txtFieldCreateEpisodeId.clear();
+        txtFieldCreateEpisodeId.setVisible(false);
+
+        btnSaveEpisodeNumber.setVisible(false);
+        btnSaveTitle.setVisible(false);
+        btnSaveId.setVisible(false);
+        btnSaveCreatedEpisode.setVisible(false);
+
     }
 
     private void update() {
         ObservableList<ModelTableTvProgramEpisode> observableList = FXCollections.observableArrayList();
         ArrayList<String[]> episodesInfo = App.getCreditSystem().getTvProgramEpisodesInfo(App.getSelectedProductionToEdit());
-        for (String[] s : episodesInfo) {
-            observableList.add(new ModelTableTvProgramEpisode(s[1], s[2], s[3]));
+         if (!episodesInfo.isEmpty()){
+            for (String[] s : episodesInfo) {
+                observableList.add(new ModelTableTvProgramEpisode(s[0], s[1], s[2]));
+            }
+        } else {
+            observableList.add(new ModelTableTvProgramEpisode(null, null, null));
         }
+
 
         tvcEpisodeNumber.setCellValueFactory(new PropertyValueFactory<>("episode_number"));
         tvcTitle.setCellValueFactory(new PropertyValueFactory<>("episode_title"));

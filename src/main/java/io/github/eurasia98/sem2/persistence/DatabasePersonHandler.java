@@ -6,27 +6,28 @@ import java.util.ArrayList;
 public class DatabasePersonHandler {
     static Connection connection = null;
 
-    public void insertPerson(ArrayList<String> personInfo) {
+    public Boolean insertPerson(ArrayList<String> personInfo) {
         try {
             this.connection = DatabaseAccessHandler.getConnection();
 
-            DatabaseAccountHandler databaseAccountHandler = new DatabaseAccountHandler();
-            databaseAccountHandler.insertAccount(personInfo); // gemmer data på en account i databasen
 
             PreparedStatement insertPersonStatement = connection.prepareStatement(
                     "INSERT INTO persons(account_id, account_username, account_password, " +
                             "first_name, last_name, created_by) VALUES(?,?,?,?,?,?)");
-            insertPersonStatement.setInt(1, getId(personInfo.get(0)));
-            insertPersonStatement.setString(2, personInfo.get(0));
-            insertPersonStatement.setString(3, personInfo.get(1));
-            insertPersonStatement.setString(4, personInfo.get(2));
-            insertPersonStatement.setString(5, personInfo.get(3));
-            insertPersonStatement.setString(6, personInfo.get(4));
+            insertPersonStatement.setInt(1, Integer.parseInt(personInfo.get(0)));
+            insertPersonStatement.setString(2, personInfo.get(1));
+            insertPersonStatement.setString(3, personInfo.get(2));
+            insertPersonStatement.setString(4, personInfo.get(3));
+            insertPersonStatement.setString(5, personInfo.get(4));
+            insertPersonStatement.setString(6, personInfo.get(5));
+            System.out.println(personInfo.get(0));
             insertPersonStatement.execute();
+
+            return true;
 
         } catch (SQLException throwables) {
             throwables.printStackTrace();
-        }
+        } return false;
     }
 
     // gemmer data på en person i databasen. Er udkommenteret fordi den bryder 3-lags-arkitekter ved at modtage et

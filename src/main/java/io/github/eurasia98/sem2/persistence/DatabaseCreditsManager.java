@@ -77,13 +77,13 @@ public class DatabaseCreditsManager {
         ArrayList<String[]> creditsInfoList = new ArrayList<>();
         try {
             PreparedStatement getCreditsInfo = connection.prepareStatement(
-                    "SELECT account_id, role_type, role_name FROM credits WHERE production_id = ?");
+                    "SELECT role_type, role_name, account_id FROM credits WHERE production_id = ?");
             getCreditsInfo.setString(1, productionId);
 
             ResultSet creditsResultSet = getCreditsInfo.executeQuery();
             while (creditsResultSet.next()){
-                creditsInfoList.add(new String[]{Integer.toString(creditsResultSet.getInt(1)),
-                        creditsResultSet.getString(2), creditsResultSet.getString(3)});
+                creditsInfoList.add(new String[]{creditsResultSet.getString(1),
+                        creditsResultSet.getString(2), Integer.toString(creditsResultSet.getInt(3))});
             }
 
             return creditsInfoList;
@@ -172,13 +172,14 @@ public class DatabaseCreditsManager {
         } return null;
     }
 
-    public ArrayList<String[]> getBackupCreditsInfo(String newProductionId) {
+    public ArrayList<String[]> getBackupCreditsInfo(String newProductionId, String oldProductionId) {
         connection = DatabaseAccessHandler.getConnection();
         ArrayList<String[]> creditsInfo = new ArrayList<>();
 
         try {
             PreparedStatement getCreditsStatement = connection.prepareStatement(
-                    "SELECT * FROM backup_credits");
+                    "SELECT * FROM backup_credits where production_id = ?");
+            getCreditsStatement.setString(1, oldProductionId);
             ResultSet creditsResultSet = getCreditsStatement.executeQuery();
 
             while (creditsResultSet.next()){
@@ -263,5 +264,23 @@ public class DatabaseCreditsManager {
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         } return null;
+    }
+
+    public boolean insertTvProgramCredits(ArrayList<String> creditsInfo) {
+        connection = DatabaseAccessHandler.getConnection();
+
+        try {
+            PreparedStatement insertStatement = connection.prepareStatement(
+                    "INSERT INTO credits(role_type, role_name, production_id, account_id) " +
+                            "VALUES (?,?,?,?)");
+            insertStatement.setString(1, creditsInfo.get(0));
+            insertStatement.setString(2, creditsInfo.get(1));
+            insertStatement.setString(3, creditsInfo.get(2));
+            insertStatement.setInt(4, Integer.parseInt(creditsInfo.get(3)));
+            insertStatement.execute();
+            return true;
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        } return false;
     }
 }

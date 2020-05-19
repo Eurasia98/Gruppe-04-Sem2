@@ -1,6 +1,7 @@
 package io.github.eurasia98.sem2.logic;
 
 import io.github.eurasia98.sem2.persistence.*;
+import javafx.scene.chart.PieChart;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -127,12 +128,9 @@ public class CreditSystem {
    public Boolean editProductionId(String oldProductionId, String newProductionId){
       DatabaseProductionManager databaseProductionManager = new DatabaseProductionManager();
       ArrayList<String> productionInfo = databaseProductionManager.getProduction(oldProductionId);
-      System.out.println("test1");
       if (account.getUsername().equals(productionInfo.get(4))){
-         System.out.println("test2");
          return databaseProductionManager.editProductionId(oldProductionId, newProductionId);
       }
-      System.out.println("test3");
       return false;
    }
 
@@ -149,16 +147,12 @@ public class CreditSystem {
    public ArrayList<String[]> getCreditsInfo(String productionId){
       DatabaseCreditsManager databaseCreditsManager = new DatabaseCreditsManager();
       DatabasePersonHandler databasePersonHandler = new DatabasePersonHandler();
-      DatabaseProductionManager databaseProductionManager = new DatabaseProductionManager();
 
-      ArrayList<String> productionInfo = databaseProductionManager.getProduction(productionId);
       ArrayList<String[]> finalInfoList = new ArrayList<>();
       ArrayList<String[]> creditsInfo = databaseCreditsManager.getCreditsInfo(productionId);
       for (String[] s : creditsInfo){
-         ArrayList<String> getPersonInfo = databasePersonHandler.getPersonToEditMyCredits(Integer.parseInt(s[0]));
-         finalInfoList.add(new String[]{getPersonInfo.get(1), getPersonInfo.get(2),
-                 getPersonInfo.get(0), productionInfo.get(2), productionInfo.get(3),
-                 s[1], s[2]});
+         ArrayList<String> getPersonInfo = databasePersonHandler.getPersonToEditMyCredits(Integer.parseInt(s[2]));
+         finalInfoList.add(new String[]{getPersonInfo.get(0) + " " + getPersonInfo.get(1), s[0], s[1]});
       }
 
       return finalInfoList;
@@ -218,14 +212,14 @@ public class CreditSystem {
    }
 
    public ArrayList<String[]> getSelectedSeasonEpisodesInfo(String selectedSeasonToEdit) {
-      DatabaseEpisodeHandler databaseEpisodeHandler = new DatabaseEpisodeHandler();
-      return databaseEpisodeHandler.getSelectedSeasonEpisodesInfo(selectedSeasonToEdit);
+      DatabaseTvSeriesEpisodeHandler databaseTvSeriesEpisodeHandler = new DatabaseTvSeriesEpisodeHandler();
+      return databaseTvSeriesEpisodeHandler.getSelectedSeasonEpisodesInfo(selectedSeasonToEdit);
 
    }
 
    public String getEpisodeDescription(String selectedEpisodeToEdit) {
-      DatabaseEpisodeHandler databaseEpisodeHandler = new DatabaseEpisodeHandler();
-      return databaseEpisodeHandler.getDescription(selectedEpisodeToEdit);
+      DatabaseTvSeriesEpisodeHandler databaseTvSeriesEpisodeHandler = new DatabaseTvSeriesEpisodeHandler();
+      return databaseTvSeriesEpisodeHandler.getDescription(selectedEpisodeToEdit);
    }
 
    public String getSeriesId(String production_id) {
@@ -237,8 +231,8 @@ public class CreditSystem {
    public boolean createNewEpisode(String selectedSeasonToEdit, String selectedTvSeriesToEdit,
                                    String selectedProductionToEdit, String title,
                                    String description, String txtFieldEpisodeId, String txtFieldEpisodeNumber) {
-   DatabaseEpisodeHandler databaseEpisodeHandler = new DatabaseEpisodeHandler();
-   return databaseEpisodeHandler.insertEpisode(selectedSeasonToEdit, selectedTvSeriesToEdit, selectedProductionToEdit,
+   DatabaseTvSeriesEpisodeHandler databaseTvSeriesEpisodeHandler = new DatabaseTvSeriesEpisodeHandler();
+   return databaseTvSeriesEpisodeHandler.insertEpisode(selectedSeasonToEdit, selectedTvSeriesToEdit, selectedProductionToEdit,
            title, description, txtFieldEpisodeId, txtFieldEpisodeNumber);
    }
 
@@ -282,5 +276,74 @@ public class CreditSystem {
    public boolean changeTvProgramEpisodeNumber(String episode_id, String newEpisodeNumber) {
       DatabaseTvProgramEpisodeHandler databaseTvProgramEpisodeHandler = new DatabaseTvProgramEpisodeHandler();
       return databaseTvProgramEpisodeHandler.changeEpisodeNumber(episode_id, newEpisodeNumber);
+   }
+
+   public boolean createNewTvProgramEpisode(String production_id, String episode_number, String episode_title, String episode_id) {
+      ArrayList<String> episodeInfo = new ArrayList<>();
+      episodeInfo.add(production_id);
+      episodeInfo.add(episode_number);
+      episodeInfo.add(episode_title);
+      episodeInfo.add(episode_id);
+      episodeInfo.add(account.getUsername());
+      DatabaseTvProgramEpisodeHandler databaseTvProgramEpisodeHandler = new DatabaseTvProgramEpisodeHandler();
+      if (databaseTvProgramEpisodeHandler.insertEpisode(episodeInfo) == true){
+         return true;
+      } else return false;
+   }
+
+   public String getTvProgramEpisodeDescription(String selectedTvProgramEpisodeToEdit) {
+      DatabaseTvProgramEpisodeHandler databaseTvProgramEpisodeHandler = new DatabaseTvProgramEpisodeHandler();
+
+      return databaseTvProgramEpisodeHandler.getDescription(selectedTvProgramEpisodeToEdit);
+   }
+
+   public boolean changeTvProgramEpisodeDescription(String episode_id, String newDescription) {
+      DatabaseTvProgramEpisodeHandler databaseTvProgramEpisodeHandler = new DatabaseTvProgramEpisodeHandler();
+      return databaseTvProgramEpisodeHandler.changeEpisodeDescription(episode_id, newDescription);
+   }
+
+   public boolean createNewTvProgramCredit(ArrayList<String> creditsInfo) {
+      DatabaseCreditsManager databaseCreditsManager = new DatabaseCreditsManager();
+      DatabaseAccountHandler databaseAccountHandler = new DatabaseAccountHandler();
+      creditsInfo.add(databaseAccountHandler.getAccountId(creditsInfo.get(0)));
+      return databaseCreditsManager.insertTvProgramCredits(creditsInfo);
+   }
+
+   public boolean createNewTvProgramCreditWithUserId(ArrayList<String> creditsInfo) {
+      DatabaseCreditsManager databaseCreditsManager = new DatabaseCreditsManager();
+      ArrayList<String> finalList = new ArrayList<>();
+      finalList.add(creditsInfo.get(1));
+      finalList.add(creditsInfo.get(2));
+      finalList.add(creditsInfo.get(3));
+      finalList.add(creditsInfo.get(0));
+      return databaseCreditsManager.insertTvProgramCredits(creditsInfo);
+   }
+
+   public boolean createNewTvProgramCreditAndPerson(ArrayList<String> creditsInfo) {
+      DatabaseAccountHandler databaseAccountHandler = new DatabaseAccountHandler();
+      DatabasePersonHandler databasePersonHandler = new DatabasePersonHandler();
+      DatabaseCreditsManager databaseCreditsManager = new DatabaseCreditsManager();
+      ArrayList<String> accountInfo = new ArrayList<>();
+      accountInfo.add(creditsInfo.get(0));
+      accountInfo.add(creditsInfo.get(1));
+      accountInfo.add(creditsInfo.get(4));
+      accountInfo.add("Person");
+      if (databaseAccountHandler.insertAccount(accountInfo) == true){
+         ArrayList<String> personInfo = new ArrayList<>();
+         personInfo.add(databaseAccountHandler.getAccountId(creditsInfo.get(0)));
+         personInfo.add(creditsInfo.get(0));
+         personInfo.add(creditsInfo.get(1));
+         personInfo.add(creditsInfo.get(2));
+         personInfo.add(creditsInfo.get(3));
+         personInfo.add(account.getUsername());
+         if (databasePersonHandler.insertPerson(personInfo) == true){
+            ArrayList<String> finalList = new ArrayList<>();
+            finalList.add(creditsInfo.get(5));
+            finalList.add(creditsInfo.get(6));
+            finalList.add(creditsInfo.get(7));
+            finalList.add(personInfo.get(0));
+            return databaseCreditsManager.insertTvProgramCredits(finalList);
+         } else return false;
+      } else return false;
    }
 }

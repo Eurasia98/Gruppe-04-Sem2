@@ -104,7 +104,7 @@ public class EditChoosenSeasonController implements Initializable {
 
     @FXML
     void btnSelectHandler() {
-        App.setSelectedEpisodeToEdit(tvEpisodes.getSelectionModel().getSelectedItem().getSeason_id());
+        App.setSelectedSeriesEpisodeToEdit(tvEpisodes.getSelectionModel().getSelectedItem().getSeason_id());
         App.switchScene("ChoosenEpisodeToEdit");
 
     }

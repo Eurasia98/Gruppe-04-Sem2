@@ -39,15 +39,6 @@ public class EditMyCreditsScreenController implements Initializable {
     private TableColumn<ModelTableEditMyCredits, String> tvcLastname;
 
     @FXML
-    private TableColumn<ModelTableEditMyCredits, String> tvcUserId;
-
-    @FXML
-    private TableColumn<ModelTableEditMyCredits, String> tvcTitle;
-
-    @FXML
-    private TableColumn<ModelTableEditMyCredits, String> tvcProductionType;
-
-    @FXML
     private TableColumn<ModelTableEditMyCredits, String> tvcRoleName;
 
     @FXML
@@ -72,28 +63,13 @@ public class EditMyCreditsScreenController implements Initializable {
     private TextField txtFieldRoleName;
 
     @FXML
-    private TableView<ModelTablePersonsInMyCredits> tvSearchPersons;
-
-    @FXML
-    private TableColumn<ModelTablePersonsInMyCredits, String> tvcSearchPersonsFirstName;
-
-    @FXML
-    private TableColumn<ModelTablePersonsInMyCredits, String> tvcSearchPersonsLastName;
-
-    @FXML
-    private TableColumn<ModelTablePersonsInMyCredits, String> tvcSearchPersonsUsername;
-
-    @FXML
-    private Button btnSearchPersons;
-
-    @FXML
     void IVLogoHandler() {
+        App.resetSelects();
         App.switchScene("FrontPage");
     }
 
     @FXML
     void btnAddCreditHandler(ActionEvent event) {
-        resetFields();
         txtFieldFirstName.setVisible(true);
         txtFieldLastName.setVisible(true);
         txtFieldUsername.setVisible(true);
@@ -110,6 +86,7 @@ public class EditMyCreditsScreenController implements Initializable {
 
     @FXML
     void btnMyPageHandler(ActionEvent event) {
+        App.resetSelects();
         App.switchScene("AccountScreen");
     }
 
@@ -202,21 +179,17 @@ public class EditMyCreditsScreenController implements Initializable {
         txtFieldRoleName.setVisible(false);
         txtAreaInfo.clear();
         txtAreaInfo.setVisible(false);
-        tvSearchPersons.setVisible(false);
 
         String productionId = App.getSelectedProductionToEdit();
         ObservableList<ModelTableEditMyCredits> observableList = FXCollections.observableArrayList();
         ArrayList<String[]> myCredits = App.getCreditSystem().getCreditsInfo(productionId);
 
         for (String[] s : myCredits){
-            observableList.add(new ModelTableEditMyCredits(s[0], s[1], s[2], s[3], s[4], s[5], s[6]));
+            observableList.add(new ModelTableEditMyCredits(s[0], s[1], s[2], s[3]));
         }
 
         tvcFirstname.setCellValueFactory(new PropertyValueFactory<>("firstName"));
         tvcLastname.setCellValueFactory(new PropertyValueFactory<>("lastName"));
-        tvcUserId.setCellValueFactory(new PropertyValueFactory<>("account_id"));
-        tvcTitle.setCellValueFactory(new PropertyValueFactory<>("title"));
-        tvcProductionType.setCellValueFactory(new PropertyValueFactory<>("productionType"));
         tvcRoleType.setCellValueFactory(new PropertyValueFactory<>("roleType"));
         tvcRoleName.setCellValueFactory(new PropertyValueFactory<>("roleName"));
 

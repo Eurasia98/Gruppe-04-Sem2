@@ -67,21 +67,33 @@ public class MyProductionsScreenController implements Initializable {
 
     @FXML
     void IVLogoHandler() {
+        App.resetSelects();
         App.switchScene("FrontPage");
     }
 
     @FXML
     void btnEditCreditsHandler(ActionEvent event) {
-        resetFields();
-        App.setSelectedProductionToEdit(tvMyProductions.getSelectionModel().getSelectedItems().get(0).getProduction_id());
-        App.switchScene("EditCreditsScreen");
+
+        switch (tvMyProductions.getSelectionModel().getSelectedItem().getProduction_type()){
+            case "Movie":
+                App.setSelectedProductionToEdit(tvMyProductions.getSelectionModel().getSelectedItems().get(0).getProduction_id());
+                App.switchScene("EditMovieCreditsScreen");
+                break;
+
+            case "Serie":
+                App.setSelectedProductionToEdit(tvMyProductions.getSelectionModel().getSelectedItem().getProduction_id());
+                App.switchScene("EditMyTvSeriesCreditsScreen");
+                break;
+
+            case "Tv program":
+                App.setSelectedProductionToEdit(tvMyProductions.getSelectionModel().getSelectedItem().getProduction_id());
+                App.switchScene("EditMyTvProgramCreditsScreen");
+                break;
+        }
     }
 
     @FXML
     void btnEditProductionIdHandler(ActionEvent event) {
-        resetFields();
-        // Object selectedItems = TVMyProductions.getSelectionModel().getSelectedItems().get(0);
-
         txtFieldCurrentProductionId.setManaged(true);
         txtFieldCurrentProductionId.setVisible(true);
         txtFieldCurrentProductionId.setText(tvMyProductions.getSelectionModel().getSelectedItem().getProduction_id());
@@ -92,8 +104,6 @@ public class MyProductionsScreenController implements Initializable {
 
     @FXML
     void btnEditTitleHandler(ActionEvent event) {
-        resetFields();
-
         txtAreaDisplayInfo.appendText(App.getCreditSystem().testProductionType(tvMyProductions.getSelectionModel().getSelectedItem().getProduction_id()));
 
         txtFieldCurrentTitle.setManaged(true);
@@ -108,13 +118,17 @@ public class MyProductionsScreenController implements Initializable {
     void btnWatchDetailsHandler(ActionEvent event) {
         switch (tvMyProductions.getSelectionModel().getSelectedItem().getProduction_type()){
             case "Movie":
+                App.setSelectedProductionToEdit(tvMyProductions.getSelectionModel().getSelectedItem().getProduction_id());
+                App.switchScene("ChoosenMovieToEdit");
             case "Serie":
                 App.setSelectedProductionToEdit(tvMyProductions.getSelectionModel().getSelectedItem().getProduction_id());
                 App.setSelectedTvSeriesToEdit(App.getCreditSystem().getSeriesId(App.getSelectedProductionToEdit()));
-                System.out.println(App.getSelectedProductionToEdit());
-                System.out.println(App.getCreditSystem().getSeriesId(App.getSelectedProductionToEdit()));
                 App.switchScene("ChoosenTvShowToEdit");
-            case "Tv_Program":
+                break;
+            case "Tv program":
+                App.setSelectedProductionToEdit(tvMyProductions.getSelectionModel().getSelectedItem().getProduction_id());
+                App.switchScene("ChoosenTvProgramToEdit");
+                break;
         }
     }
 
@@ -130,6 +144,7 @@ public class MyProductionsScreenController implements Initializable {
             if (App.getCreditSystem().editProductionId(txtFieldCurrentProductionId.getText(), txtFieldNewId.getText())){
                 txtAreaDisplayInfo.appendText("Ændringen er blevet gemt. ");
                 update();
+                resetFields();
             } else {
                 resetFields();
                 txtAreaDisplayInfo.appendText("Ændringen blev ikke gemt, der skete desværre en fejl 1. ");
@@ -139,17 +154,23 @@ public class MyProductionsScreenController implements Initializable {
             if (App.getCreditSystem().editTitle(txtFieldNewTitle.getText(), tvMyProductions.getSelectionModel().getSelectedItems().get(0).getProduction_id()) == true){
                 txtAreaDisplayInfo.appendText("Ændringen er blevet gemt. ");
                 update();
-            } else txtAreaDisplayInfo.appendText("Ændringen er ikke blevet gemt, der skete desværre en fejl 2. ");
+                resetFields();
+            } else {
+                txtAreaDisplayInfo.appendText("Ændringen er ikke blevet gemt, der skete desværre en fejl 2. ");
+                update();
+                resetFields();
+            }
         } else{
             update();
+            resetFields();
         }
     }
 
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        // resetFields();
         update();
+        resetFields();
     }
 
     private void resetFields(){
@@ -162,11 +183,10 @@ public class MyProductionsScreenController implements Initializable {
         txtFieldNewTitle.clear();
         txtFieldNewTitle.setVisible(false);
 
+        App.resetSelects();
     }
 
     public void update(){
-        resetFields();
-
         ObservableList<ModelTableMyProductions> observableList = FXCollections.observableArrayList();
         ArrayList<String[]> myProductions = App.getCreditSystem().showMyProductions();
         for (String[] s : myProductions){

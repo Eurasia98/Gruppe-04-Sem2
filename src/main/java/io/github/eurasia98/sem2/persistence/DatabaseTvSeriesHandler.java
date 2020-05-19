@@ -142,14 +142,15 @@ public class DatabaseTvSeriesHandler {
         return false;
     }
 
-    public ArrayList<String> getBackupSeriesInfo(String newProductionId) {
+    public ArrayList<String> getBackupSeriesInfo(String newProductionId, String oldProductionId) {
 
         connection = DatabaseAccessHandler.getConnection();
         ArrayList<String> seriesInfo = new ArrayList<>();
 
         try {
             PreparedStatement getSeriesStatement = connection.prepareStatement(
-                    "SELECT * FROM backup_series");
+                    "SELECT * FROM backup_series WHERE production_id = ?");
+            getSeriesStatement.setString(1, oldProductionId);
             ResultSet seriesResultSet = getSeriesStatement.executeQuery();
 
             while (seriesResultSet.next()) {
@@ -185,5 +186,21 @@ public class DatabaseTvSeriesHandler {
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
+    }
+
+    public boolean editTitle(String newTitle, String production_id) {
+        connection = DatabaseAccessHandler.getConnection();
+
+        try {
+            PreparedStatement editTitleStatement = connection.prepareStatement(
+                    "UPDATE tv_series SET title = ? WHERE production_id = ?");
+            editTitleStatement.setString(1, newTitle);
+            editTitleStatement.setString(2, production_id);
+
+            editTitleStatement.execute();
+            return true;
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        } return false;
     }
 }

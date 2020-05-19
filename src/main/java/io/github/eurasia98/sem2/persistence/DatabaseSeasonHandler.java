@@ -88,14 +88,15 @@ public class DatabaseSeasonHandler {
         return false;
     }
 
-    public ArrayList<String[]> getBackupSeasonInfo(String newProductionId) {
+    public ArrayList<String[]> getBackupSeasonInfo(String newProductionId, String oldProductionId) {
 
         connection = DatabaseAccessHandler.getConnection();
         ArrayList<String[]> seasonInfo = new ArrayList<>();
 
         try {
             PreparedStatement getCreditsStatement = connection.prepareStatement(
-                    "SELECT * FROM backup_seasons");
+                    "SELECT * FROM backup_seasons WHERE production_id = ?");
+            getCreditsStatement.setString(1, oldProductionId);
             ResultSet seasonResultSet = getCreditsStatement.executeQuery();
 
             while (seasonResultSet.next()) {

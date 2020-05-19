@@ -8,10 +8,9 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="io.github.eurasia98.sem2.presentation.EditChoosenTvProgram">
    <children>
-      <TableView fx:id="tvMyEpisodes" layoutY="184.0" prefHeight="415.0" prefWidth="800.0">
+      <TableView fx:id="tvMyEpisodes" layoutY="184.0" prefHeight="360.0" prefWidth="800.0">
         <columns>
           <TableColumn fx:id="tvcEpisodeNumber" prefWidth="164.79998779296875" text="Episode nummer" />
           <TableColumn fx:id="tvcTitle" prefWidth="366.4000244140625" text="Episode titel" />
@@ -31,10 +30,16 @@
       <TextField fx:id="txtFieldCurrentId" layoutX="559.0" layoutY="148.0" prefHeight="26.0" prefWidth="99.0" promptText="Nuværende id:" />
       <TextField fx:id="txtFieldNewId" layoutX="669.0" layoutY="148.0" prefHeight="26.0" prefWidth="107.0" promptText="Nyt id:" />
       <Button fx:id="btnChangeEpisodeNumber" layoutX="14.0" layoutY="104.0" mnemonicParsing="false" onAction="#btnChangeEpisodeNumberHandler" text="Ændre epiosde nummer" />
-      <Button fx:id="btnSaveEpisodeNumber" layoutX="179.0" layoutY="104.0" mnemonicParsing="false" onAction="#btnSaveEpisodeNumberHandler" text="Gem " />
+      <Button fx:id="btnSaveEpisodeNumber" layoutX="171.0" layoutY="104.0" mnemonicParsing="false" onAction="#btnSaveEpisodeNumberHandler" text="Gem " />
       <Button fx:id="btnChangeTitle" layoutX="270.0" layoutY="104.0" mnemonicParsing="false" onAction="#btnChangeTitleHandler" text="Ændre titel" />
-      <Button fx:id="btnSaveTitle" layoutX="415.0" layoutY="104.0" mnemonicParsing="false" onAction="#btnSaveTitleHandler" text="Gem" />
+      <Button fx:id="btnSaveTitle" layoutX="353.0" layoutY="104.0" mnemonicParsing="false" onAction="#btnSaveTitleHandler" text="Gem" />
       <Button fx:id="btnChangeId" layoutX="559.0" layoutY="104.0" mnemonicParsing="false" onAction="#btnChangeIdHandler" text="Ændre id" />
-      <Button fx:id="btnSaveId" layoutX="658.0" layoutY="104.0" mnemonicParsing="false" onAction="#btnSaveIdHandler" text="Gem" />
+      <Button fx:id="btnSaveId" layoutX="637.0" layoutY="104.0" mnemonicParsing="false" onAction="#btnSaveIdHandler" text="Gem" />
+      <Button fx:id="btnCreateEpisode" layoutX="5.0" layoutY="562.0" mnemonicParsing="false" onAction="#btnCreateEpisodeHandler" text="Opret program episode" />
+      <TextField fx:id="txtFieldCreateEpisodeTitle" layoutX="158.0" layoutY="562.0" promptText="Episode titel" />
+      <TextField fx:id="txtFieldCreateEpisodeNumber" layoutX="310.0" layoutY="562.0" promptText="Episode nummer" />
+      <TextField fx:id="txtFieldCreateEpisodeId" layoutX="467.0" layoutY="560.0" promptText="Episode id" />
+      <Button fx:id="btnSaveCreatedEpisode" layoutX="623.0" layoutY="560.0" mnemonicParsing="false" onAction="#btnSaveCreatedEpisodeHandler" text="Gem" />
+      <Button fx:id="btnShowDescription" layoutX="693.0" layoutY="560.0" mnemonicParsing="false" onAction="#btnShowDescriptionHandler" text="Vis beskrivelse" />
    </children>
 </AnchorPane>

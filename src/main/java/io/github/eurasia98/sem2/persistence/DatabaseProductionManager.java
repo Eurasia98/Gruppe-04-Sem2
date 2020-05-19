@@ -95,18 +95,28 @@ public class DatabaseProductionManager {
         return null;
     }
 
-    public String printTestProductionType(String productionId){
+    public String printTestProductionType(String productionId) {
         //System.out.println(getProductionType(productionId));
         return getProductionType(productionId);
     }
 
     public Boolean editProductionId(String oldProductionId, String newProductionId) {
-        System.out.println("hej");
         String productionType = getProductionType(oldProductionId);
         connection = DatabaseAccessHandler.getConnection();
         System.out.println(productionType);
 
-        switch (productionType) {
+        try {
+            PreparedStatement updateProductionIdStatement = connection.prepareStatement(
+                    "UPDATE productions SET production_id = ? WHERE production_id = ?");
+            updateProductionIdStatement.setString(1, newProductionId);
+            updateProductionIdStatement.setString(2, oldProductionId);
+            updateProductionIdStatement.execute();
+            return true;
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+
+/*        switch (productionType) {
             case "Movie":
                 System.out.println("Første test");
                 DatabaseMovieHandler databaseMovieHandler = new DatabaseMovieHandler();
@@ -172,7 +182,7 @@ public class DatabaseProductionManager {
                                     ArrayList<String[]> accountsInfo = databaseAccountHandler.getBackupAccounts();
                                     ArrayList<String> movieInfo = databaseMovieHandler.getBackupMovieInfo(oldProductionId, newProductionId);
                                     ArrayList<String[]> personsInfo = databasePersonHandler.getBackupPersons();
-                                    ArrayList<String[]> creditsInfo = databaseCreditsManager.getBackupCreditsInfo(newProductionId);
+                                    ArrayList<String[]> creditsInfo = databaseCreditsManager.getBackupCreditsInfo(newProductionId, oldProductionId);
 
                                     databaseAccountHandler.editInsertAccounts(accountsInfo);
                                     databasePersonHandler.editInsertPersons(personsInfo);
@@ -191,8 +201,8 @@ public class DatabaseProductionManager {
 
             case "Serie":
                 System.out.println("Første print serie");
-                DatabaseEpisodeHandler databaseEpisodeHandler = new DatabaseEpisodeHandler();
-                if (databaseEpisodeHandler.insertBackupEpisodes(oldProductionId) == true) {
+                DatabaseTvSeriesEpisodeHandler databaseTvSeriesEpisodeHandler = new DatabaseTvSeriesEpisodeHandler();
+                if (databaseTvSeriesEpisodeHandler.insertBackupEpisodes(oldProductionId) == true) {
                     System.out.println("First true");
                     DatabaseSeasonHandler databaseSeasonHandler = new DatabaseSeasonHandler();
                     if (databaseSeasonHandler.insertBackupSeasons(oldProductionId) == true) {
@@ -266,16 +276,16 @@ public class DatabaseProductionManager {
                                             ArrayList<String> productionInfo = getBackupProductions(oldProductionId, newProductionId);
                                             ArrayList<String[]> accountsInfo = databaseAccountHandler.getBackupAccounts();
                                             ArrayList<String[]> personsInfo = databasePersonHandler.getBackupPersons();
-                                            ArrayList<String[]> creditsInfo = databaseCreditsManager.getBackupCreditsInfo(newProductionId);
-                                            ArrayList<String[]> seasonsInfo = databaseSeasonHandler.getBackupSeasonInfo(newProductionId);
-                                            ArrayList<String[]> episodesInfo = databaseEpisodeHandler.getBackupEpisodeInfo(newProductionId);
-                                            ArrayList<String> series_info = databaseTvSeriesHandler.getBackupSeriesInfo(newProductionId);
+                                            ArrayList<String[]> creditsInfo = databaseCreditsManager.getBackupCreditsInfo(newProductionId, oldProductionId);
+                                            ArrayList<String[]> seasonsInfo = databaseSeasonHandler.getBackupSeasonInfo(newProductionId, oldProductionId);
+                                            ArrayList<String[]> episodesInfo = databaseTvSeriesEpisodeHandler.getBackupEpisodeInfo(newProductionId, oldProductionId);
+                                            ArrayList<String> series_info = databaseTvSeriesHandler.getBackupSeriesInfo(newProductionId, oldProductionId);
 
                                             editInsertProduction(productionInfo);
                                             databaseAccountHandler.editInsertAccounts(accountsInfo);
                                             databaseTvSeriesHandler.editInsertTvSeries(series_info);
                                             databaseSeasonHandler.editInsertSeasons(seasonsInfo);
-                                            databaseEpisodeHandler.editInsertEpisodes(episodesInfo);
+                                            databaseTvSeriesEpisodeHandler.editInsertEpisodes(episodesInfo);
                                             databasePersonHandler.editInsertPersons(personsInfo);
                                             databaseCreditsManager.editInsertCredits(creditsInfo);
 
@@ -289,8 +299,97 @@ public class DatabaseProductionManager {
                         }
                     }
                 }
-        }
-        System.out.println("Hej");
+            case "Tv program":
+                System.out.println("First true tvprogram");
+                DatabaseTvProgramEpisodeHandler databaseTvProgramEpisodeHandler = new DatabaseTvProgramEpisodeHandler();
+                if (databaseTvProgramEpisodeHandler.insertBackupEpisodes(oldProductionId) == true) {
+                    System.out.println("Thrid true tvprogram");
+                    DatabaseTvProgramHandler databaseTvProgramHandler = new DatabaseTvProgramHandler();
+                    if (databaseTvProgramHandler.insertBackupTvProgram(oldProductionId) == true) {
+                        System.out.println("Fourth true tvprograms");
+                        if (insertBackupProductions(oldProductionId) == true) {
+                            DatabaseCreditsManager databaseCreditsManager = new DatabaseCreditsManager();
+                            ArrayList<Integer> personsInCreditsAccountId = databaseCreditsManager.getAllPersonsFromCreditsAccountId(oldProductionId);
+                            if (databaseCreditsManager.insertBackupCredits(oldProductionId) == true) {
+                                System.out.println("Fifth true tvprogram");
+                                DatabasePersonHandler databasePersonHandler = new DatabasePersonHandler();
+                                if (databasePersonHandler.insertBackupPersons(personsInCreditsAccountId) == true) {
+                                    System.out.println("Sixth true tvprogram");
+                                    DatabaseAccountHandler databaseAccountHandler = new DatabaseAccountHandler();
+                                    if (databaseAccountHandler.insertBackupAccounts(personsInCreditsAccountId) == true) {
+                                        try {
+                                            connection.setAutoCommit(false);
+                                            PreparedStatement deleteTvProgramEpisodesRowStatement = connection.prepareStatement(
+                                                    "DELETE FROM tvprogram_episodes WHERE production_id = ?");
+                                            deleteTvProgramEpisodesRowStatement.setString(1, oldProductionId);
+                                            deleteTvProgramEpisodesRowStatement.execute();
+
+                                            PreparedStatement deleteTvProgramRowStatement = connection.prepareStatement(
+                                                    "DELETE FROM tv_programs WHERE production_id = ?");
+                                            deleteTvProgramRowStatement.setString(1, oldProductionId);
+                                            deleteTvProgramRowStatement.execute();
+
+                                            PreparedStatement deleteCreditsRowsStatement = connection.prepareStatement(
+                                                    "DELETE FROM credits WHERE production_id = ?");
+                                            deleteCreditsRowsStatement.setString(1, oldProductionId);
+                                            deleteCreditsRowsStatement.execute();
+
+                                            PreparedStatement deletePersonsRowStatement = connection.prepareStatement(
+                                                    "DELETE FROM persons WHERE account_id = ?");
+
+                                            for (int accountId : personsInCreditsAccountId) {
+                                                deletePersonsRowStatement.setInt(1, accountId);
+                                                deletePersonsRowStatement.addBatch();
+                                            }
+
+                                            deletePersonsRowStatement.executeBatch();
+
+                                            PreparedStatement deleteAccountsRowStatement = connection.prepareStatement(
+                                                    "DELETE FROM accounts WHERE id = ?");
+
+                                            for (int accountId : personsInCreditsAccountId) {
+                                                deleteAccountsRowStatement.setInt(1, accountId);
+                                                deleteAccountsRowStatement.addBatch();
+                                            }
+
+                                            deleteAccountsRowStatement.executeBatch();
+
+                                            PreparedStatement deleteProductionRowStatement = connection.prepareStatement(
+                                                    "DELETE FROM productions WHERE production_id = ?");
+                                            deleteProductionRowStatement.setString(1, oldProductionId);
+                                            deleteProductionRowStatement.execute();
+
+                                            connection.commit();
+                                            connection.close();
+
+                                        } catch (SQLException throwables) {
+                                            throwables.printStackTrace();
+                                        }
+                                        ArrayList<String> productionInfo = getBackupProductions(oldProductionId, newProductionId);
+                                        ArrayList<String[]> accountsInfo = databaseAccountHandler.getBackupAccounts();
+                                        ArrayList<String[]> personsInfo = databasePersonHandler.getBackupPersons();
+                                        ArrayList<String[]> creditsInfo = databaseCreditsManager.getBackupCreditsInfo(newProductionId, oldProductionId);
+                                        ArrayList<String[]> episodesInfo = databaseTvProgramEpisodeHandler.getBackupTvProgramEpisodesInfo(newProductionId, oldProductionId);
+                                        ArrayList<String> tvprogram_info = databaseTvProgramHandler.getBackupTvProgramInfo(newProductionId, oldProductionId);
+
+                                        editInsertProduction(productionInfo);
+                                        databaseAccountHandler.editInsertAccounts(accountsInfo);
+                                        databaseTvProgramHandler.editInsertTvProgram(tvprogram_info);
+                                        databaseTvProgramEpisodeHandler.editInsertEpisodes(episodesInfo);
+                                        databasePersonHandler.editInsertPersons(personsInfo);
+                                        databaseCreditsManager.editInsertCredits(creditsInfo);
+
+                                        resetBackupTables();
+
+                                        return true;
+                                    }
+                                }
+                            }
+
+                        }
+                    }
+                }
+        }*/
         return false;
     }
 
@@ -332,6 +431,34 @@ public class DatabaseProductionManager {
             case "Movie":
                 DatabaseMovieHandler databaseMovieHandler = new DatabaseMovieHandler();
                 if (databaseMovieHandler.editTitle(newTitle, production_id) == true) {
+                    try {
+                        PreparedStatement editProductionTitle = connection.prepareStatement(
+                                "UPDATE productions SET title = ? WHERE production_id = ?");
+                        editProductionTitle.setString(1, newTitle);
+                        editProductionTitle.setString(2, production_id);
+                        editProductionTitle.execute();
+                        return true;
+                    } catch (SQLException throwables) {
+                        throwables.printStackTrace();
+                    }
+                }
+            case "Serie":
+                DatabaseTvSeriesHandler databaseTvSeriesHandler = new DatabaseTvSeriesHandler();
+                if (databaseTvSeriesHandler.editTitle(newTitle, production_id) == true) {
+                    try {
+                        PreparedStatement editProductionTitle = connection.prepareStatement(
+                                "UPDATE productions SET title = ? WHERE production_id = ?");
+                        editProductionTitle.setString(1, newTitle);
+                        editProductionTitle.setString(2, production_id);
+                        editProductionTitle.execute();
+                        return true;
+                    } catch (SQLException throwables) {
+                        throwables.printStackTrace();
+                    }
+                }
+            case "Tv program":
+                DatabaseTvProgramHandler databaseTvProgramHandler = new DatabaseTvProgramHandler();
+                if (databaseTvProgramHandler.editTitle(newTitle, production_id) == true){
                     try {
                         PreparedStatement editProductionTitle = connection.prepareStatement(
                                 "UPDATE productions SET title = ? WHERE production_id = ?");

@@ -9,7 +9,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-public class DatabaseEpisodeHandler {
+public class DatabaseTvSeriesEpisodeHandler {
     static Connection connection = null;
 
     public ArrayList<String[]> getSelectedSeasonEpisodesInfo(String selectedSeasonToEdit) {
@@ -146,13 +146,14 @@ public class DatabaseEpisodeHandler {
         return false;
     }
 
-    public ArrayList<String[]> getBackupEpisodeInfo(String newProductionId) {
+    public ArrayList<String[]> getBackupEpisodeInfo(String newProductionId, String oldProductionId) {
         connection = DatabaseAccessHandler.getConnection();
         ArrayList<String[]> episodesInfo = new ArrayList<>();
 
         try {
             PreparedStatement getEpisodesStatement = connection.prepareStatement(
-                    "SELECT * FROM backup_episodes");
+                    "SELECT * FROM backup_episodes where production_id = ?");
+            getEpisodesStatement.setString(1, oldProductionId);
             ResultSet episodeResultSet = getEpisodesStatement.executeQuery();
 
             while (episodeResultSet.next()) {
@@ -198,4 +199,5 @@ public class DatabaseEpisodeHandler {
             throwables.printStackTrace();
         }
     }
+
 }
