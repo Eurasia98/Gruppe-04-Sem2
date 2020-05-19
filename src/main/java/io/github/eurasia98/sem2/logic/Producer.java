@@ -7,36 +7,44 @@ public class Producer extends Account {
     private String productionCompanyName;
     private String fName;
     private String lName;
-    private String email;
+    private int madeByAccountId;
+//    private String email;
     private List<Production> myProductions = new ArrayList<>();
 
     public Producer(int userId, String username, String password, String accountType,
                     String productionCompanyName, String fName, String lName, String email,
                     List<Production> myProductions) {
-        super(userId, username, password, accountType);
+        super(userId, username, password, accountType, email);
         this.productionCompanyName = productionCompanyName;
         this.fName = fName;
         this.lName = lName;
-        this.email = email;
+//        this.email = email;
         this.myProductions = myProductions;
     }
 
     public Producer(int userId, String username, String password, String fName, String lName, String email) {
-        super(userId, username, password);
+        super(userId, username, password, email);
         this.fName = fName;
         this.lName = lName;
-        this.email = email;
+//        this.email = email;
         super.setAccountType("Producer");
     }
 
     public Producer(int userId, String username, String password, String fName, String lName, String email, String accountType){
-        super(userId, username, password, accountType);
+        super(userId, username, password, accountType, email);
         this.fName = fName;
         this.lName = lName;
-        this.email = email;
+//        this.email = email;
     }
 
-    //    AUser user1 = new AUser("MediaKing" ,"1234" , "User", "TV2", "Jens", "Jensen", "Jensen.tv2.dk");
+    public Producer (int userId, String firstName, String lastName, String companyName,String email, int madeByAccountId, String username, String password){
+        super(userId, username, password, email);
+        super.setAccountType("Producer");
+        this.fName = firstName;
+        this.lName = lastName;
+        this.productionCompanyName = companyName;
+        this.madeByAccountId = madeByAccountId;
+    }
 
     public String getProductionCompanyName() {
         return productionCompanyName;
@@ -47,9 +55,9 @@ public class Producer extends Account {
     public String getLName() {
         return lName;
     }
-    public String getEmail() {
-        return email;
-    }
+//    public String getEmail() {
+//        return email;
+//    }
 
     @Override
     public String toString(){

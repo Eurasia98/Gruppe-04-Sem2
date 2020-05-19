@@ -114,7 +114,7 @@ public class DatabaseAccountHandler {
             if (!rs.next()){
                 return Collections.emptyList();
             }
-            accountInfo = Arrays.asList(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4));
+            accountInfo = Arrays.asList(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5));
 
             return accountInfo;
         } catch (SQLException throwables) {
@@ -140,6 +140,7 @@ public class DatabaseAccountHandler {
                 accountInfo.add(rs.getString(2));
                 accountInfo.add(rs.getString(3));
                 accountInfo.add(rs.getString(4));
+                accountInfo.add(rs.getString(5));
             }
 
             return accountInfo;
@@ -164,11 +165,50 @@ public class DatabaseAccountHandler {
                 accountInfo.add(rs.getString(2));
                 accountInfo.add(rs.getString(3));
                 accountInfo.add(rs.getString(4));
+                accountInfo.add(rs.getString(5));
             }
 
             return accountInfo;
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         } return null;
+    }
+
+    public boolean editAccountPassword(String username, String oldPassword, String newPassword){
+        connection = DatabaseAccesHandler.getConnection();
+
+        try {
+            PreparedStatement editAccountPasswordStatement = connection.prepareStatement(
+                    "UPDATE accounts SET password = ? WHERE username = ? AND password = ?");
+            editAccountPasswordStatement.setString(1, newPassword);
+            editAccountPasswordStatement.setString(2, username);
+            editAccountPasswordStatement.setString(3, oldPassword);
+
+            editAccountPasswordStatement.execute();
+
+            return true;
+
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return false;
+    }
+
+    public boolean editAccountEmail(String username, String email){
+        connection = DatabaseAccesHandler.getConnection();
+
+        try {
+            PreparedStatement editAccountEmailStatement = connection.prepareStatement(
+                    "UPDATE accounts SET email = ? WHERE username = ?");
+            editAccountEmailStatement.setString(1, email);
+            editAccountEmailStatement.setString(2, username);
+
+            editAccountEmailStatement.execute();
+
+            return true;
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return false;
     }
 }

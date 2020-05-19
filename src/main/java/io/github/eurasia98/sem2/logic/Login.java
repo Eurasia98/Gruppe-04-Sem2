@@ -36,26 +36,27 @@ public class Login {
         switch (accountType){
             case "SystemAdministrator": {
                 account = new SystemAdministrator(Integer.parseInt(accountArray.get(0)), accountArray.get(1),
-                        accountArray.get(2), accountArray.get(3));
+                        accountArray.get(2), accountArray.get(4));
                 break;
             }
             case "Producer": {
                 DatabaseProducerManager databaseProducerManager = new DatabaseProducerManager();
                 ArrayList<String> producerInfo = databaseProducerManager.getProducer(Integer.parseInt(accountArray.get(0)));
+                System.out.println(producerInfo);
                 account = new Producer(Integer.parseInt(producerInfo.get(0)), producerInfo.get(1), producerInfo.get(2),
-                        producerInfo.get(3), producerInfo.get(4), producerInfo.get(5));
+                        producerInfo.get(3), accountArray.get(4), Integer.parseInt(producerInfo.get(5)), accountArray.get(1), accountArray.get(2));
                 break;
             }
             case "Person": {
                 DatabasePersonHandler databasePersonHandler = new DatabasePersonHandler();
                 ArrayList<String> personInfo = databasePersonHandler.getPersonInfo(Integer.parseInt(accountArray.get(0)));
-                account = new Person(Integer.parseInt(personInfo.get(0)), Integer.parseInt(personInfo.get(1)), personInfo.get(2),
-                        personInfo.get(3),personInfo.get(4),personInfo.get(5),personInfo.get(6));
+                account = new Person(Integer.parseInt(personInfo.get(0)), Integer.parseInt(personInfo.get(1)), personInfo.get(4),
+                        personInfo.get(5), personInfo.get(6), accountArray.get(1), accountArray.get(2), accountArray.get(4));
                 break;
             }
             case "RegistreringDanmark": {
                 account = new RegistreringDanmark(Integer.parseInt(accountArray.get(0)), accountArray.get(1),
-                        accountArray.get(2), accountArray.get(3));
+                        accountArray.get(2), accountArray.get(4));
                 break;
             }
             default: {
@@ -67,5 +68,13 @@ public class Login {
 
     public static Account getAccount() {
         return account;
+    }
+
+    public static Producer getProducerAccount() {
+        return ((Producer)account);
+    }
+
+    public static Person getPersonAccount() {
+        return ((Person)account);
     }
 }

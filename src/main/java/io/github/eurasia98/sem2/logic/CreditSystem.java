@@ -14,9 +14,9 @@ public class CreditSystem {
       return creditsToDisplay;
    }
 
-//   public static Account getAccount() {
-//      return account;
-//   }
+   public static Account getAccount() {
+      return Login.getAccount();
+   }
 //
 //   public static int getAccount_id(){
 //      return account.getId();
@@ -174,5 +174,23 @@ public class CreditSystem {
       ArrayList<String> personInfo = databasePersonHandler.getPersonInfo(account_id);
 
       return personInfo;
+   }
+
+   public Boolean editAccountPassword(String oldPassword, String newPassword){
+      AccountManager accountManager = new AccountManager();
+      return accountManager.editAccountPassword(Login.getAccount().getUsername(), oldPassword, newPassword);
+   }
+
+   public Boolean editAccountEmail(String newEmail){
+      AccountManager accountManager = new AccountManager();
+      return accountManager.editAccountEmail(newEmail);
+   }
+
+   public static Producer getProducerAccount() {
+      return Login.getProducerAccount();
+   }
+
+   public static Person getPersonAccount() {
+      return Login.getPersonAccount();
    }
 }

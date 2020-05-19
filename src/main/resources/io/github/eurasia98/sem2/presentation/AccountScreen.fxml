@@ -1,12 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import java.net.URL?>
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="io.github.eurasia98.sem2.presentation.AccountScreenController">
@@ -24,15 +28,22 @@
       </VBox>
       <VBox layoutX="10.0" layoutY="150.0" prefHeight="431.0" prefWidth="170.0" spacing="5.0">
          <children>
-            <Button fx:id="btnCreateProducer" managed="false" mnemonicParsing="false" onAction="#btnCreateProducerActionHandler" prefHeight="25.0" prefWidth="170.0" text="Opret Producer" textAlignment="RIGHT" visible="false" />
             <Button fx:id="btnCreateProduction" managed="false" mnemonicParsing="false" onAction="#btnCreateProductionActionHandler" prefHeight="25.0" prefWidth="170.0" text="Opret Produktion" visible="false" />
             <Button fx:id="btnEditProduction" managed="false" mnemonicParsing="false" onAction="#btnEditProductionActionHandler" prefHeight="25.0" prefWidth="170.0" text="Ændre Produktion" visible="false" />
             <Button fx:id="btnAddPerson" managed="false" mnemonicParsing="false" onAction="#btnAddPersonActionHandler" prefHeight="25.0" prefWidth="170.0" text="Tilføj person" visible="false" />
             <Button fx:id="btnMyPersons" managed="false" mnemonicParsing="false" onAction="#btnMyPersonsHandler" prefHeight="25.0" prefWidth="170.0" text="Personer oprettet af mig" visible="false" />
             <Button fx:id="btnMyCredits" managed="false" mnemonicParsing="false" onAction="#btnMyCreditsActionHandler" prefHeight="25.0" prefWidth="170.0" text="Mine krediteringer" visible="false" />
             <Button fx:id="btnMyProductions" managed="false" mnemonicParsing="false" onAction="#btnMyProductionsHandler" prefHeight="25.0" prefWidth="170.0" text="Mine produktioner" visible="false" />
+            <Separator fx:id="sepAdminControls" managed="false" prefWidth="200.0" visible="false" />
+            <Label fx:id="lblAdminControls" focusTraversable="false" managed="false" text="Admin Controls" visible="false">
+               <VBox.margin>
+                  <Insets left="40.0" />
+               </VBox.margin>
+            </Label>
             <Button fx:id="btnRegDanmark" managed="false" mnemonicParsing="false" onAction="#btnRegDanmarkActionHandler" prefWidth="170.0" text="Opret Registrering Danmark" visible="false" />
+            <Button fx:id="btnCreateProducer" managed="false" mnemonicParsing="false" onAction="#btnCreateProducerActionHandler" prefHeight="25.0" prefWidth="170.0" text="Opret Producer" textAlignment="RIGHT" visible="false" />
             <Button fx:id="btnSysAdmin" managed="false" mnemonicParsing="false" onAction="#btnSysAdminActionHandler" prefHeight="25.0" prefWidth="170.0" text="Opret System Administrator" visible="false" />
+            <Separator fx:id="sepNormal" prefWidth="200.0" />
             <Button fx:id="btnLogOut" mnemonicParsing="false" onAction="#btnLogOutActionHandler" prefHeight="25.0" prefWidth="170.0" text="Log ud" />
          </children>
       </VBox>
@@ -41,6 +52,101 @@
             <Image url="@images/Search_Icon.png" />
          </image>
       </ImageView>
+      <VBox layoutX="261.0" layoutY="150.0" prefHeight="291.0" prefWidth="402.0" spacing="10.0">
+         <children>
+            <HBox spacing="30.0">
+               <children>
+                  <Label text="Brugernavn" />
+                  <Label fx:id="lblAccountUsername">
+                     <HBox.margin>
+                        <Insets left="50.0" />
+                     </HBox.margin>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox spacing="30.0">
+               <children>
+                  <Label text="Email" />
+                  <Label fx:id="lblAccountEmail" text="Ikke oplyst">
+                     <HBox.margin>
+                        <Insets left="73.0" />
+                     </HBox.margin>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox>
+               <children>
+                  <Button fx:id="btnChangeEmail" mnemonicParsing="false" onAction="#btnChangeEmailActionHandler" prefWidth="100.0" text="Ændre email" />
+                  <TextField fx:id="txtFieldNewEmail" disable="true" prefWidth="190.0" promptText="Indtast ny email..." visible="false">
+                     <HBox.margin>
+                        <Insets left="30.0" />
+                     </HBox.margin>
+                  </TextField>
+                  <Button fx:id="btnSaveEmail" disable="true" mnemonicParsing="false" onAction="#btnSaveEmailActionHandler" text="Gem" visible="false" />
+               </children>
+            </HBox>
+            <Separator prefWidth="200.0" />
+            <HBox>
+               <children>
+                  <Button fx:id="btnChangePassword" mnemonicParsing="false" onAction="#btnChangePasswordActionHandler" prefHeight="25.0" prefWidth="100.0" text="Ændre kodeord" />
+                  <PasswordField fx:id="pwOldPassword" disable="true" prefHeight="25.0" prefWidth="190.0" promptText="Nuværende kodeord..." visible="false">
+                     <HBox.margin>
+                        <Insets left="30.0" />
+                     </HBox.margin>
+                  </PasswordField>
+               </children>
+            </HBox>
+            <PasswordField fx:id="pwNewPassword1" disable="true" prefHeight="190.0" prefWidth="130.0" promptText="Nyt kodeord..." visible="false">
+               <VBox.margin>
+                  <Insets left="130.0" right="82.0" />
+               </VBox.margin>
+            </PasswordField>
+            <HBox>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+               <children>
+                  <PasswordField fx:id="pwNewPassword2" disable="true" prefWidth="190.0" promptText="Bekræft nyt kodeord..." visible="false">
+                     <HBox.margin>
+                        <Insets left="130.0" />
+                     </HBox.margin>
+                  </PasswordField>
+                  <Button fx:id="btnSavePassword" disable="true" mnemonicParsing="false" onAction="#btnSavePasswordActionHandler" text="Gem" visible="false" />
+               </children>
+            </HBox>
+            <Separator prefWidth="200.0" />
+            <HBox prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <Label fx:id="lblFirstName" text="Fornavn" />
+                  <Label fx:id="lblAccountFirstName">
+                     <HBox.margin>
+                        <Insets left="90.0" />
+                     </HBox.margin>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <Label fx:id="lblLastName" text="Efternavn" />
+                  <Label fx:id="lblAccountLastName">
+                     <HBox.margin>
+                        <Insets left="80.0" />
+                     </HBox.margin>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <Label fx:id="lblCompany" text="Firma" />
+                  <Label fx:id="lblAccountCompany">
+                     <HBox.margin>
+                        <Insets left="100.0" />
+                     </HBox.margin>
+                  </Label>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
    </children>
    <stylesheets>
       <URL value="@FrontPageCSS.css" />

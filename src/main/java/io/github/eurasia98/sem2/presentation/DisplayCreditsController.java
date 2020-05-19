@@ -51,6 +51,7 @@ public class DisplayCreditsController implements Initializable {
     // Returns to front page
     @FXML
     private void ivLogoActionHandler(MouseEvent event) {
+        resetSelectedTitle();
         App.switchScene("FrontPage");
     }
 
@@ -76,6 +77,7 @@ public class DisplayCreditsController implements Initializable {
 
     @FXML
     private void btnLoginActionHandler(ActionEvent event) {
+        resetSelectedTitle();
         App.switchScene("LoginScreen");
     }
 
@@ -101,6 +103,7 @@ public class DisplayCreditsController implements Initializable {
             myPage.setOnAction(new EventHandler<ActionEvent>() {
                 @Override
                 public void handle(ActionEvent event) {
+                    resetSelectedTitle();
                     App.switchScene("AccountScreen");
                 }
             });
@@ -117,6 +120,10 @@ public class DisplayCreditsController implements Initializable {
                 vBoxAccount.getChildren().remove(1);
             }
         }
+    }
+
+    public void resetSelectedTitle(){
+        App.setSelectedTitle(null);
     }
 
     @Override
