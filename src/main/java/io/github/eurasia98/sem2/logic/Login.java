@@ -42,7 +42,6 @@ public class Login {
             case "Producer": {
                 DatabaseProducerManager databaseProducerManager = new DatabaseProducerManager();
                 ArrayList<String> producerInfo = databaseProducerManager.getProducer(Integer.parseInt(accountArray.get(0)));
-                System.out.println(producerInfo);
                 account = new Producer(Integer.parseInt(producerInfo.get(0)), producerInfo.get(1), producerInfo.get(2),
                         producerInfo.get(3), accountArray.get(4), Integer.parseInt(producerInfo.get(5)), accountArray.get(1), accountArray.get(2));
                 break;

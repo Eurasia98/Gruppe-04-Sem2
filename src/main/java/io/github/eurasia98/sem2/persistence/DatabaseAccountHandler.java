@@ -45,7 +45,7 @@ public class DatabaseAccountHandler {
 
     public Boolean insertSpecialAccount(ArrayList<String> accountInfo){
         try {
-            this.connection = DatabaseAccesHandler.getConnection();
+            this.connection = DatabaseAccessHandler.getConnection();
 
             PreparedStatement insertAccountStatement = connection.prepareStatement(
                     "INSERT INTO accounts(username, password, account_type) VALUES(?,?,?)");
@@ -180,7 +180,7 @@ public class DatabaseAccountHandler {
     }
 
     public boolean editAccountPassword(String username, String oldPassword, String newPassword){
-        connection = DatabaseAccesHandler.getConnection();
+        connection = DatabaseAccessHandler.getConnection();
 
         try {
             PreparedStatement editAccountPasswordStatement = connection.prepareStatement(
@@ -200,7 +200,7 @@ public class DatabaseAccountHandler {
     }
 
     public boolean editAccountEmail(String username, String email){
-        connection = DatabaseAccesHandler.getConnection();
+        connection = DatabaseAccessHandler.getConnection();
 
         try {
             PreparedStatement editAccountEmailStatement = connection.prepareStatement(

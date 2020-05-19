@@ -39,7 +39,7 @@ public class CreditSystem {
          finalPersonInfo.add(personInfo.get(1));
          finalPersonInfo.add(personInfo.get(4));
          finalPersonInfo.add(personInfo.get(5));
-         finalPersonInfo.add(account.getUsername());
+         finalPersonInfo.add(getAccount().getUsername());
          if (databasePersonHandler.insertPerson(finalPersonInfo) == true){
             return true;
          } else {
@@ -61,7 +61,7 @@ public class CreditSystem {
       movieInfo.add(productionId);
       movieInfo.add(title);
       movieInfo.add("Movie");
-      movieInfo.add(account.getUsername());
+      movieInfo.add(getAccount().getUsername());
       DatabaseMovieHandler databaseMovieHandler = new DatabaseMovieHandler();
       return databaseMovieHandler.insertMovie(movieInfo);
    }
@@ -103,12 +103,12 @@ public class CreditSystem {
 
    public ArrayList<String[]> showMyProductions(){
       ProductionManager productionManager = new ProductionManager();
-      return productionManager.getMyProductions(account.getUsername());
+      return productionManager.getMyProductions(getAccount().getUsername());
    }
 
    public ArrayList<String[]> getMyPersons(){
       DatabasePersonHandler databasePersonHandler = new DatabasePersonHandler();
-      ArrayList<String[]> myProductionsInfo = databasePersonHandler.getMyPersons(account.getUsername());
+      ArrayList<String[]> myProductionsInfo = databasePersonHandler.getMyPersons(getAccount().getUsername());
       return myProductionsInfo;
    }
 
@@ -120,7 +120,7 @@ public class CreditSystem {
    public Boolean editProductionId(String oldProductionId, String newProductionId){
       DatabaseProductionManager databaseProductionManager = new DatabaseProductionManager();
       ArrayList<String> productionInfo = databaseProductionManager.getProduction(oldProductionId);
-      if (account.getUsername().equals(productionInfo.get(4))){
+      if (getAccount().getUsername().equals(productionInfo.get(4))){
          return databaseProductionManager.editProductionId(oldProductionId, newProductionId);
       }
       return false;
@@ -185,7 +185,7 @@ public class CreditSystem {
 
     public ArrayList<String[]> getLoggedInPersonCredits() {
       DatabaseCreditsManager databaseCreditsManager = new DatabaseCreditsManager();
-      ArrayList<String[]> creditsInfo = databaseCreditsManager.getLoggedInPersonsCredits(account.getId());
+      ArrayList<String[]> creditsInfo = databaseCreditsManager.getLoggedInPersonsCredits(getAccount().getId());
       return creditsInfo;
     }
 
@@ -195,7 +195,7 @@ public class CreditSystem {
       finalList.add(tvSeriesInfo.get(0));
       finalList.add(tvSeriesInfo.get(1));
       finalList.add(tvSeriesInfo.get(2));
-      finalList.add(account.getUsername());
+      finalList.add(getAccount().getUsername());
       finalList.add(tvSeriesInfo.get(3));
       finalList.add(tvSeriesInfo.get(4));
 
@@ -208,7 +208,7 @@ public class CreditSystem {
       finalList.add(seasonInfo.get(0));
       finalList.add(seasonInfo.get(1));
       finalList.add(seasonInfo.get(2));
-      finalList.add(account.getUsername());
+      finalList.add(getAccount().getUsername());
       finalList.add(seasonInfo.get(3));
       finalList.add(seasonInfo.get(4));
       finalList.add(seasonInfo.get(5));
@@ -262,7 +262,7 @@ public class CreditSystem {
       finalList.add(tvProgramInfo.get(0));
       finalList.add(tvProgramInfo.get(1));
       finalList.add("Tv program");
-      finalList.add(account.getUsername());
+      finalList.add(getAccount().getUsername());
       finalList.add(tvProgramInfo.get(2));
 
       return databaseTvProgramHandler.insertTvProgram(finalList);
@@ -294,7 +294,7 @@ public class CreditSystem {
       episodeInfo.add(episode_number);
       episodeInfo.add(episode_title);
       episodeInfo.add(episode_id);
-      episodeInfo.add(account.getUsername());
+      episodeInfo.add(getAccount().getUsername());
       DatabaseTvProgramEpisodeHandler databaseTvProgramEpisodeHandler = new DatabaseTvProgramEpisodeHandler();
       if (databaseTvProgramEpisodeHandler.insertEpisode(episodeInfo) == true){
          return true;
@@ -347,7 +347,7 @@ public class CreditSystem {
          personInfo.add(creditsInfo.get(1));
          personInfo.add(creditsInfo.get(2));
          personInfo.add(creditsInfo.get(3));
-         personInfo.add(account.getUsername());
+         personInfo.add(getAccount().getUsername());
          if (databasePersonHandler.insertPerson(personInfo) == true){
             ArrayList<String> finalList = new ArrayList<>();
             finalList.add(creditsInfo.get(5));

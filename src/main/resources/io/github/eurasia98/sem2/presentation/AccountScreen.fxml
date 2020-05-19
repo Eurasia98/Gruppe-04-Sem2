@@ -29,7 +29,6 @@
       <VBox layoutX="10.0" layoutY="150.0" prefHeight="431.0" prefWidth="170.0" spacing="5.0">
          <children>
             <Button fx:id="btnCreateProduction" managed="false" mnemonicParsing="false" onAction="#btnCreateProductionActionHandler" prefHeight="25.0" prefWidth="170.0" text="Opret Produktion" visible="false" />
-            <Button fx:id="btnEditProduction" managed="false" mnemonicParsing="false" onAction="#btnEditProductionActionHandler" prefHeight="25.0" prefWidth="170.0" text="Ændre Produktion" visible="false" />
             <Button fx:id="btnAddPerson" managed="false" mnemonicParsing="false" onAction="#btnAddPersonActionHandler" prefHeight="25.0" prefWidth="170.0" text="Tilføj person" visible="false" />
             <Button fx:id="btnMyPersons" managed="false" mnemonicParsing="false" onAction="#btnMyPersonsHandler" prefHeight="25.0" prefWidth="170.0" text="Personer oprettet af mig" visible="false" />
             <Button fx:id="btnMyCredits" managed="false" mnemonicParsing="false" onAction="#btnMyCreditsActionHandler" prefHeight="25.0" prefWidth="170.0" text="Mine krediteringer" visible="false" />
