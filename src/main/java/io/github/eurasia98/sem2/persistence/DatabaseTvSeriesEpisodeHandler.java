@@ -18,7 +18,7 @@ public class DatabaseTvSeriesEpisodeHandler {
 
         try {
             PreparedStatement getEpisodeInfoStatement = connection.prepareStatement(
-                    "SELECT episode_title, episode_number, season_id FROM episodes WHERE season_id = ?");
+                    "SELECT episode_title, episode_number, episode_id FROM episodes WHERE season_id = ?");
             getEpisodeInfoStatement.setString(1, selectedSeasonToEdit);
 
             ResultSet episodeInfoResultSet = getEpisodeInfoStatement.executeQuery();
@@ -26,7 +26,7 @@ public class DatabaseTvSeriesEpisodeHandler {
             while (episodeInfoResultSet.next()) {
                 episodeInfo.add(new String[]{episodeInfoResultSet.getString(1),
                         Integer.toString(episodeInfoResultSet.getInt(2)),
-                        selectedSeasonToEdit});
+                        episodeInfoResultSet.getString(3)});
             }
 
             return episodeInfo;
@@ -200,4 +200,52 @@ public class DatabaseTvSeriesEpisodeHandler {
         }
     }
 
+    public Boolean editDescription(String selectedSeriesEpisodeToEdit, String newDescription) {
+        connection = DatabaseAccessHandler.getConnection();
+
+        try {
+            PreparedStatement editDescriptionStatement = connection.prepareStatement(
+                    "UPDATE episodes SET description = ? WHERE episode_id = ?");
+            editDescriptionStatement.setString(1, newDescription);
+            editDescriptionStatement.setString(2, selectedSeriesEpisodeToEdit);
+            editDescriptionStatement.execute();
+
+            return true;
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return false;
+    }
+
+    public boolean changeEpisodeNumber(String episode_id, String newEpisodeNumber) {
+        connection = DatabaseAccessHandler.getConnection();
+
+        try {
+            PreparedStatement changeNumberStatement = connection.prepareStatement(
+                    "UPDATE episodes SET episode_number = ? WHERE episode_id = ?");
+            changeNumberStatement.setInt(1, Integer.parseInt(newEpisodeNumber));
+            changeNumberStatement.setString(2, episode_id);
+            changeNumberStatement.execute();
+            return true;
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return false;
+    }
+
+    public boolean changeTitle(String episode_id, String newTitle) {
+        connection = DatabaseAccessHandler.getConnection();
+
+        try {
+            PreparedStatement changeTitleStatement = connection.prepareStatement(
+                    "UPDATE episodes SET episode_title = ? WHERE episode_id = ?");
+            changeTitleStatement.setString(1, newTitle);
+            changeTitleStatement.setString(2, episode_id);
+            changeTitleStatement.execute();
+            return true;
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return false;
+    }
 }

@@ -3,6 +3,9 @@ package io.github.eurasia98.sem2.logic;
 import io.github.eurasia98.sem2.persistence.DatabaseCreditsManager;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Comparator;
 
 public class CreditManager {
 
@@ -35,5 +38,14 @@ public class CreditManager {
                     creditsInfo[2], creditsInfo[3], creditsInfo[4]);
             creditsToDisplay.add(credit);
             return credit;
+    }
+
+    public ArrayList<String[]> sortMovieCreditsNames(ArrayList<String[]> creditsInfo){
+        Collections.sort(creditsInfo,new Comparator<String[]>() {
+            public int compare(String[] strings, String[] compareStrings) {
+                return strings[2].compareTo(compareStrings[1]);
+            }
+        });
+        return creditsInfo;
     }
 }

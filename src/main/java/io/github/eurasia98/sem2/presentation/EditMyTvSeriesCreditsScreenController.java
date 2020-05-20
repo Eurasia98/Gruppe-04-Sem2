@@ -38,22 +38,41 @@ public class EditMyTvSeriesCreditsScreenController implements Initializable {
     private Button btnAddCredits;
 
     @FXML
+    private Button btnDeleteCredit;
+
+    @FXML
     void btnAddCreditsHandler() {
         App.switchScene("CreateTvSeriesCreditsScreen");
     }
 
     @FXML
     void btnMyPageHandler() {
+        App.resetSelects();
         App.switchScene("AccountScreen");
     }
 
     @FXML
     void ivLogoHandler() {
+        App.resetSelects();
         App.switchScene("FrontPage");
     }
 
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
+    @FXML
+    void btnDeleteCreditHandler() {
+        try{
+            String role = tvCredits.getSelectionModel().getSelectedItem().getRoleType();
+            String roleName = tvCredits.getSelectionModel().getSelectedItem().getRoleName();
+            if (App.getCreditSystem().deleteCreditFromTvSeries(role, roleName,App.getSelectedProductionToEdit()) == true){
+                update();
+            } else {
+                update();
+            }
+        } catch (java.lang.NullPointerException e){
+            update();
+        }
+    }
+
+    private void update() {
         ObservableList<ModelTableEditMyTvSeriesCredits> observableList = FXCollections.observableArrayList();
         ArrayList<String[]> creditsInfo = App.getCreditSystem().getCreditsInfo(App.getSelectedProductionToEdit());
 
@@ -66,5 +85,10 @@ public class EditMyTvSeriesCreditsScreenController implements Initializable {
         tvcRoleName.setCellValueFactory(new PropertyValueFactory<>("roleName"));
 
         tvCredits.setItems(observableList);
+    }
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        update();
     }
 }

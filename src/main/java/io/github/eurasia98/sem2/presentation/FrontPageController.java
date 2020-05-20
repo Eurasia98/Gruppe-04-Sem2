@@ -59,7 +59,7 @@ public class FrontPageController implements Initializable {
     private void ivSearchMouseClickHandler() {
         if(!txtFieldSearch.getText().isEmpty()) {
             App.setSearchField(txtFieldSearch.getText());
-            App.switchScene("SearchScreen");
+        App.switchScene("SearchScreenUpdatedScreen");
         }
         txtFieldSearch.setStyle("-fx-prompt-text-fill: red");
     }

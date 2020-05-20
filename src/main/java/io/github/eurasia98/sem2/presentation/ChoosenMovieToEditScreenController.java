@@ -3,15 +3,14 @@ package io.github.eurasia98.sem2.presentation;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.image.ImageView;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class EditChoosenEpisodeController implements Initializable {
-
-
+public class ChoosenMovieToEditScreenController implements Initializable {
     @FXML
     private TextArea txtAreaDescription;
 
@@ -25,10 +24,13 @@ public class EditChoosenEpisodeController implements Initializable {
     private Button btnChangeDescription;
 
     @FXML
+    private Button btnSaveChanges;
+
+    @FXML
     private TextArea txtAreaInfo;
 
     @FXML
-    private Button btnSaveChanges;
+    private Label lblTitle;
 
     @FXML
     void btnChangeDescriptionHandler() {
@@ -39,20 +41,22 @@ public class EditChoosenEpisodeController implements Initializable {
 
     @FXML
     void btnMyPageHandler() {
-        App.switchScene("AccountScreen");
+        App.switchScene("MyProductionsScreen");
     }
 
     @FXML
     void btnSaveChangesHandler() {
-        if (App.getCreditSystem().changeDescriptionSeriesEpisode(App.getSelectedSeriesEpisodeToEdit(), txtAreaDescription.getText()) == true){
+        if (App.getCreditSystem().changeDescriptionMovie(App.getSelectedProductionToEdit(), txtAreaDescription.getText()) == true){
             resetFields();
-            update();
         } else {
             resetFields();
-            update();
             txtAreaInfo.appendText("Der skete en fejl. ");
         }
+    }
 
+    private void resetFields() {
+        txtAreaDescription.setEditable(false);
+        btnSaveChanges.setVisible(false);
     }
 
     @FXML
@@ -60,31 +64,24 @@ public class EditChoosenEpisodeController implements Initializable {
         App.switchScene("FrontPage");
     }
 
+    public void update(){
+        try{
+            txtAreaDescription.clear();
+            txtAreaDescription.appendText(App.getCreditSystem().getdescription(App.getSelectedProductionToEdit()));
+            txtAreaDescription.setEditable(false);
+
+            txtAreaInfo.clear();
+            txtAreaInfo.setEditable(false);
+
+            lblTitle.setText(App.getCreditSystem().getMovieTitle(App.getSelectedProductionToEdit()));
+        } catch (java.lang.NullPointerException e){
+            resetFields();
+        }
+    }
+
+    @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         resetFields();
         update();
     }
-
-    public void resetFields(){
-        txtAreaDescription.clear();
-        txtAreaDescription.setEditable(false);
-        btnSaveChanges.setVisible(false);
-    }
-
-    public void update(){
-        try {
-            if (!App.getCreditSystem().getEpisodeDescription(App.getSelectedSeriesEpisodeToEdit()).isEmpty()){
-                txtAreaDescription.appendText(App.getCreditSystem().getEpisodeDescription(App.getSelectedSeriesEpisodeToEdit()));
-                btnSaveChanges.setVisible(false);
-                txtAreaDescription.setEditable(false);
-
-            } else {
-                txtAreaDescription.setEditable(false);
-            }
-        } catch (java.lang.NullPointerException e){
-            txtAreaDescription.setEditable(false);
-        }
-    }
-
-
 }

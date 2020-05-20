@@ -36,10 +36,10 @@ public class EditChoosenSeasonController implements Initializable {
     private TableColumn<ModelTableChoosenSeasonToEdit, String> tvcId;
 
     @FXML
-    private Button btnChangeEpisode;
+    private Button btnChangeEpisodeNumber;
 
     @FXML
-    private Button btnSaveEpisode;
+    private Button btnSaveEpisodeNumber;
 
     @FXML
     private Button btnChangeTitle;
@@ -71,29 +71,49 @@ public class EditChoosenSeasonController implements Initializable {
     }
 
     @FXML
-    void btnChangeEpisode() {
-        txtFieldCurrentEpisodeNumber.setVisible(true);
-        txtFieldCurrentEpisodeNumber.setText(tvEpisodes.getSelectionModel().getSelectedItem().getEpisode_number());
-        txtFieldNewEpisodeNumber.setVisible(true);
-        btnSaveEpisode.setVisible(true);
+    void btnChangeEpisodeNumberHandler() {
+        try {
+            txtFieldCurrentEpisodeNumber.setVisible(true);
+            txtFieldCurrentEpisodeNumber.setText(tvEpisodes.getSelectionModel().getSelectedItem().getEpisode_number());
+            txtFieldCurrentEpisodeNumber.setEditable(false);
+            txtFieldNewEpisodeNumber.setVisible(true);
+            btnSaveEpisodeNumber.setVisible(true);
+        } catch (java.lang.NullPointerException e){
+            resetFields();
+        }
     }
 
     @FXML
-    void btnSaveEpisode() {
-
+    void btnSaveEpisodeNumberHandler() {
+        if (!txtFieldNewEpisodeNumber.getText().isEmpty()){
+            if (App.getCreditSystem().changeTvSeriesEpisodeNumber(tvEpisodes.getSelectionModel().getSelectedItem().getId(), txtFieldNewEpisodeNumber.getText()) == true){
+                update();
+                resetFields();
+            } else resetFields();
+        } else resetFields();
     }
 
     @FXML
     void btnChangeTitleHandler() {
-        txtFieldCurrentTitle.setVisible(true);
-        txtFieldCurrentTitle.setText(tvEpisodes.getSelectionModel().getSelectedItem().getTitle());
-        txtFieldNewTitle.setVisible(true);
-        btnSaveTitle.setVisible(true);
+        try {
+            txtFieldCurrentTitle.setVisible(true);
+            txtFieldCurrentTitle.setText(tvEpisodes.getSelectionModel().getSelectedItem().getTitle());
+            txtFieldNewTitle.setVisible(true);
+            btnSaveTitle.setVisible(true);
+        } catch (java.lang.NullPointerException e){
+            resetFields();
+            update();
+        }
     }
 
     @FXML
     void btnSaveTitleHandler() {
-
+        if (!txtFieldNewTitle.getText().isEmpty()){
+            if (App.getCreditSystem().changeTvSeriesEpisodeTitle(tvEpisodes.getSelectionModel().getSelectedItem().getId(), txtFieldNewTitle.getText()) == true){
+                update();
+                resetFields();
+            } else resetFields();
+        } else resetFields();
     }
 
     @FXML
@@ -104,7 +124,7 @@ public class EditChoosenSeasonController implements Initializable {
 
     @FXML
     void btnSelectHandler() {
-        App.setSelectedSeriesEpisodeToEdit(tvEpisodes.getSelectionModel().getSelectedItem().getSeason_id());
+        App.setSelectedSeriesEpisodeToEdit(tvEpisodes.getSelectionModel().getSelectedItem().getId());
         App.switchScene("ChoosenEpisodeToEdit");
 
     }
@@ -129,7 +149,7 @@ public class EditChoosenSeasonController implements Initializable {
         txtFieldCurrentTitle.setVisible(false);
         txtFieldNewTitle.clear();
         txtFieldNewTitle.setVisible(false);
-        btnSaveEpisode.setVisible(false);
+        btnSaveEpisodeNumber.setVisible(false);
         btnSaveTitle.setVisible(false);
     }
 
@@ -143,7 +163,7 @@ public class EditChoosenSeasonController implements Initializable {
 
         tvcEpisodeNumber.setCellValueFactory(new PropertyValueFactory<>("episode_number"));
         tvcEpisodeTitle.setCellValueFactory(new PropertyValueFactory<>("title"));
-        tvcId.setCellValueFactory(new PropertyValueFactory<>("season_id"));
+        tvcId.setCellValueFactory(new PropertyValueFactory<>("id"));
 
         tvEpisodes.setItems(observableList);
     }

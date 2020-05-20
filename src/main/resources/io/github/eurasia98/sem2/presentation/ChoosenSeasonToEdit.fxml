@@ -25,8 +25,8 @@
             <TableColumn fx:id="tvcId" prefWidth="228.79998779296875" text="Id" />
         </columns>
       </TableView>
-      <Button fx:id="btnChangeEpisode" layoutX="5.0" layoutY="114.0" mnemonicParsing="false" onAction="#btnChangeEpisode" text="Ændre afsnit" />
-      <Button fx:id="btnSaveEpisode" layoutX="101.0" layoutY="114.0" mnemonicParsing="false" onAction="#btnSaveEpisode" text="Gem ændringer" />
+      <Button fx:id="btnChangeEpisodeNumber" layoutX="5.0" layoutY="114.0" mnemonicParsing="false" onAction="#btnChangeEpisodeNumberHandler" text="Ændre episode nummer" />
+      <Button fx:id="btnSaveEpisodeNumber" layoutX="172.0" layoutY="114.0" mnemonicParsing="false" onAction="#btnSaveEpisodeNumberHandler" text="Gem ændringer" />
       <Button fx:id="btnChangeTitle" layoutX="344.0" layoutY="114.0" mnemonicParsing="false" onAction="#btnChangeTitleHandler" text="Ændre Titel" />
       <Button fx:id="btnSaveTitle" layoutX="432.0" layoutY="114.0" mnemonicParsing="false" onAction="#btnSaveTitleHandler" text="Gem ændringer" />
       <TextField fx:id="txtFieldCurrentEpisodeNumber" layoutX="5.0" layoutY="166.0" promptText="Nuværende afsnitnummer" />

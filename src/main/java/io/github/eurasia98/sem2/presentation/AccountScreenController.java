@@ -130,11 +130,18 @@ public class AccountScreenController implements Initializable {
 
     @FXML
     private void ivSearchMouseClickHandler() {
-        if(!txtFieldSearch.getText().isEmpty()) {
+        /*if(!txtFieldSearch.getText().isEmpty()) {
             App.setSearchField(txtFieldSearch.getText());
             App.switchScene("searchScreen");
         } else
+            txtFieldSearch.setStyle("-fx-prompt-text-fill: red");*/
+
+        try {
+            App.setSearchField(txtFieldSearch.getText());
+            App.switchScene("SearchScreenUpdatedScreen");
+        } catch (java.lang.NullPointerException e){
             txtFieldSearch.setStyle("-fx-prompt-text-fill: red");
+        }
     }
 
     @FXML

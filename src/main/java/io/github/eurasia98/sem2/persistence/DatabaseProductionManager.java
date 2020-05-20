@@ -101,18 +101,20 @@ public class DatabaseProductionManager {
     }
 
     public Boolean editProductionId(String oldProductionId, String newProductionId) {
-        String productionType = getProductionType(oldProductionId);
-        connection = DatabaseAccessHandler.getConnection();
         try {
-            PreparedStatement updateProductionIdStatement = connection.prepareStatement(
-                    "UPDATE productions SET production_id = ? WHERE production_id = ?");
-            updateProductionIdStatement.setString(1, newProductionId);
-            updateProductionIdStatement.setString(2, oldProductionId);
-            updateProductionIdStatement.execute();
-            return true;
-        } catch (SQLException throwables) {
+            String productionType = getProductionType(oldProductionId);
+            connection = DatabaseAccessHandler.getConnection();
+
+                PreparedStatement updateProductionIdStatement = connection.prepareStatement(
+                        "UPDATE productions SET production_id = ? WHERE production_id = ?");
+                updateProductionIdStatement.setString(1, newProductionId);
+                updateProductionIdStatement.setString(2, oldProductionId);
+                updateProductionIdStatement.execute();
+                return true;
+            } catch (SQLException throwables) {
             throwables.printStackTrace();
-        } return false;
+            return false;
+            }
     }
 
 /*        switch (productionType) {
@@ -648,6 +650,65 @@ public class DatabaseProductionManager {
             throwables.printStackTrace();
         }
         return false;
+    }
+
+    public boolean editMovieDescription(String productionId, String newDescription) {
+        connection = DatabaseAccessHandler.getConnection();
+
+        try {
+            PreparedStatement editDescriptionStatement = connection.prepareStatement(
+                    "UPDATE productions SET description = ? WHERE production_id = ?");
+            editDescriptionStatement.setString(1, newDescription);
+            editDescriptionStatement.setString(2, productionId);
+            editDescriptionStatement.execute();
+
+            return true;
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return false;
+    }
+
+    public String getDescription(String productionId) {
+        connection = DatabaseAccessHandler.getConnection();
+
+        try {
+            PreparedStatement editDescriptionStatement = connection.prepareStatement(
+                    "SELECT description FROM productions WHERE production_id = ?");
+            editDescriptionStatement.setString(1, productionId);
+            ResultSet descriptionResultSet = editDescriptionStatement.executeQuery();
+
+            if (descriptionResultSet.next()){
+                return descriptionResultSet.getString(1);
+            } else return null;
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return null;
+    }
+
+    public ArrayList<String[]> searchUpdated(String searchField) {
+        connection = DatabaseAccessHandler.getConnection();
+
+        try {
+            ArrayList<String[]> searchInfo = new ArrayList<>();
+            PreparedStatement searchStatement = connection.prepareStatement(
+                    "SELECT title, production_id FROM productions WHERE title ilike ?");
+            searchStatement.setString(1, "%" + searchField + "%");
+
+            ResultSet searchResultSet = searchStatement.executeQuery();
+
+            try{
+                while (searchResultSet.next()){
+                    searchInfo.add(new String[]{searchResultSet.getString(1), searchResultSet.getString(2)});
+                }
+                return searchInfo;
+            } catch (java.lang.NullPointerException e){
+                return null;
+            }
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        } return null;
     }
 
 /*    public ArrayList<Production> getMyProductions(int account_id){
