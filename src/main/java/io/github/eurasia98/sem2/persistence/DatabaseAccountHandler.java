@@ -119,7 +119,8 @@ public class DatabaseAccountHandler {
             if (!rs.next()){
                 return Collections.emptyList();
             }
-            accountInfo = Arrays.asList(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5));
+            accountInfo = Arrays.asList(rs.getString(1), rs.getString(2),
+                    rs.getString(3), rs.getString(4), rs.getString(5));
 
             return accountInfo;
         } catch (SQLException throwables) {
@@ -324,5 +325,21 @@ public class DatabaseAccountHandler {
     public String getAccountUsername(String account_id) {
         ArrayList<String> usernameInfo = getAccount(account_id);
         return usernameInfo.get(1);
+    }
+
+    public String getEmail(String username) {
+        connection = DatabaseAccessHandler.getConnection();
+
+        try {
+            PreparedStatement emailStatement = connection.prepareStatement(
+                    "SELECT email FROM accounts WHERE username = ?");
+            emailStatement.setString(1, username);
+            ResultSet emailResultSet = emailStatement.executeQuery();
+            if (emailResultSet.next()){
+                return emailResultSet.getString(1);
+            } else return null;
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        } return null;
     }
 }

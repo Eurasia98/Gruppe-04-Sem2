@@ -195,6 +195,7 @@ public class AccountScreenController implements Initializable {
 
     @FXML
     private void btnChangeEmailActionHandler(ActionEvent event) {
+        resetFields();
         txtFieldNewEmail.setDisable(false);
         txtFieldNewEmail.setVisible(true);
         btnSaveEmail.setDisable(false);
@@ -203,6 +204,7 @@ public class AccountScreenController implements Initializable {
 
     @FXML
     private void btnChangePasswordActionHandler(ActionEvent event) {
+        resetFields();
         pwOldPassword.setDisable(false);
         pwOldPassword.setVisible(true);
         pwNewPassword1.setDisable(false);
@@ -219,6 +221,8 @@ public class AccountScreenController implements Initializable {
             if (App.getCreditSystem().editAccountEmail(txtFieldNewEmail.getText())){
                 txtFieldNewEmail.clear();
                 txtFieldNewEmail.setPromptText("Email ændret.");
+                update();
+                resetFields();
             }
         }
         else {
@@ -233,12 +237,13 @@ public class AccountScreenController implements Initializable {
     private void btnSavePasswordActionHandler(ActionEvent event) {
         if (pwNewPassword1.getText().equals(pwNewPassword2.getText())){
             if (App.getCreditSystem().editAccountPassword(pwOldPassword.getText(), pwNewPassword1.getText())){
-                pwOldPassword.clear();
+                /*pwOldPassword.clear();
                 pwNewPassword1.clear();
                 pwNewPassword2.clear();
                 pwOldPassword.setPromptText("");
                 pwNewPassword1.setPromptText("");
-                pwNewPassword2.setPromptText("Kodeord ændret.");
+                pwNewPassword2.setPromptText("Kodeord ændret.");*/
+                resetFields();
             }
 
         }
@@ -303,7 +308,7 @@ public class AccountScreenController implements Initializable {
             lblAccountLastName.setText(App.getCreditSystem().getProducerAccount().getLName());
             lblAccountCompany.setText(App.getCreditSystem().getProducerAccount().getProductionCompanyName());
         }
-        else if (App.getCreditSystem().getAccount().getAccountType().equals("Person")){
+        else if (App.getUserInfo().get(1).equals("Person")){
             lblAccountFirstName.setText(App.getCreditSystem().getPersonAccount().getFirstName());
             lblAccountLastName.setText(App.getCreditSystem().getPersonAccount().getLastName());
             lblCompany.setVisible(false);
@@ -315,6 +320,24 @@ public class AccountScreenController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         loggedIn();
         sideBarVisibility();
+        //accountInfoFill();
+        update();
+    }
+
+    public void update(){
         accountInfoFill();
+    }
+
+    public void resetFields(){
+        txtFieldNewEmail.clear();
+        txtFieldNewEmail.setVisible(false);
+        pwOldPassword.clear();
+        pwOldPassword.setVisible(false);
+        pwNewPassword1.clear();
+        pwNewPassword1.setVisible(false);
+        pwNewPassword2.clear();
+        pwNewPassword2.setVisible(false);
+        btnSavePassword.setDisable(false);
+        btnSavePassword.setVisible(true);
     }
 }

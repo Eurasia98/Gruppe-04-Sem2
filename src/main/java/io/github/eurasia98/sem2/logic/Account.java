@@ -1,5 +1,7 @@
 package io.github.eurasia98.sem2.logic;
 
+import io.github.eurasia98.sem2.persistence.DatabaseAccountHandler;
+
 public class Account {
 
     private int id;
@@ -23,12 +25,6 @@ public class Account {
         this.email = email;
     }
 
-    public Account(int id, String username, String password) {
-        this.id = id;
-        this.username = username;
-        this.password = password;
-    }
-
     // Too many different ways to make the different accounts. Fix before finish.
     public Account (String username, String password){
         this.username = username;
@@ -50,7 +46,8 @@ public class Account {
     public int getId(){ return id; }
 
     public String getEmail() {
-        return email;
+        DatabaseAccountHandler databaseAccountHandler = new DatabaseAccountHandler();
+        return databaseAccountHandler.getEmail(CreditSystem.getAccount().getUsername());
     }
 
     public void setUsername(String username) { this.username = username; }

@@ -20,8 +20,6 @@ public class Login {
             return Collections.emptyList();
         }
 
-        loginVerified(accountVerified);
-
         List<String> accountLoggedIn = new ArrayList<>();
         accountLoggedIn.add(accountVerified.get(1));
         accountLoggedIn.add(accountVerified.get(3));
