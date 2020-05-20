@@ -1,6 +1,8 @@
 package io.github.eurasia98.sem2.logic;
 
 import io.github.eurasia98.sem2.persistence.*;
+import javafx.scene.chart.PieChart;
+import org.postgresql.jdbc2.ArrayAssistant;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -48,8 +50,13 @@ public class CreditSystem {
         }
     }
 
-    public Boolean createNewMovie(String title, String productionId) {
-        ArrayList<String> movieInfo = new ArrayList<>();
+   public Boolean createSpecialAccount(String username, String password, String accountType){
+      AccountManager accountManager = new AccountManager();
+      return accountManager.createSpecialAccount(username, password, accountType);
+   }
+
+   public Boolean createNewMovie(String title, String productionId) {
+      ArrayList<String> movieInfo = new ArrayList<>();
 
         movieInfo.add(productionId);
         movieInfo.add(title);
@@ -142,12 +149,12 @@ public class CreditSystem {
         return finalInfoList;
     }
 
-    public boolean exportData() {
-        if (ExportData.printFile(getCreditsToDisplay())) {
-            return true;
-        }
-        return false;
-    }
+   public boolean exportData(String title){
+      if(ExportData.printFile(getCreditsToDisplay(), title)){
+         return true;
+      }
+      return false;
+   }
 
     public ArrayList<String> getPersonInfo(String username) {
         DatabasePersonHandler databasePersonHandler = new DatabasePersonHandler();
@@ -156,6 +163,24 @@ public class CreditSystem {
 
         return personInfo;
     }
+
+   public Boolean editAccountPassword(String oldPassword, String newPassword){
+      AccountManager accountManager = new AccountManager();
+      return accountManager.editAccountPassword(Login.getAccount().getUsername(), oldPassword, newPassword);
+   }
+
+   public Boolean editAccountEmail(String newEmail){
+      AccountManager accountManager = new AccountManager();
+      return accountManager.editAccountEmail(newEmail);
+   }
+
+   public static Producer getProducerAccount() {
+      return Login.getProducerAccount();
+   }
+
+   public static Person getPersonAccount() {
+      return Login.getPersonAccount();
+   }
 
     public ArrayList<String[]> getLoggedInPersonCredits() {
         DatabaseCreditsManager databaseCreditsManager = new DatabaseCreditsManager();

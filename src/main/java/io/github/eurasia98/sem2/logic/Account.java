@@ -6,12 +6,21 @@ public class Account {
     private String username;
     private String password;
     private String accountType;
+    private String email;
 
-    public Account(int id, String username, String password, String accountType) {
+    public Account(int id, String username, String password, String accountType, String email) {
         this.id = id;
         this.username = username;
         this.password = password;
         this.accountType = accountType;
+        this.email = email;
+    }
+
+    public Account(int id, String username, String password, String email) {
+        this.id = id;
+        this.username = username;
+        this.password = password;
+        this.email = email;
     }
 
     public Account(int id, String username, String password) {
@@ -40,15 +49,21 @@ public class Account {
 
     public int getId(){ return id; }
 
+    public String getEmail() {
+        return email;
+    }
+
     public void setUsername(String username) { this.username = username; }
 
     public void setPassword(String password) { this.password = password; }
 
     public void setAccountType(String accountType) { this.accountType = accountType; }
 
+    public void setId(int id) {
+        this.id = id;
+    }
 
-
-
-
-
+    public void setEmail(String email) {
+        this.email = email;
+    }
 }

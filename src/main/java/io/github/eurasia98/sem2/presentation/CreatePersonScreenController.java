@@ -55,13 +55,13 @@ public class CreatePersonScreenController implements Initializable {
     private TextArea txtArea;
 
     @FXML
-    void IVLogoHandler(MouseEvent event) {
+    private void IVLogoHandler(MouseEvent event) {
         App.switchScene("FrontPage");
     }
 
     @FXML
-    void btnAvailableUsernameHandler(ActionEvent event) {
-        if (App.getCreditSystem().availableUsername(txtFieldUsername.getText())) {
+    private void btnAvailableUsernameHandler(ActionEvent event) {
+        if (App.getCreditSystem().availableUsername(txtFieldUsername.getText())){
             txtArea.clear();
             txtArea.setText("Brugernavnet: " + txtFieldUsername.getText() + " er ledigt. ");
         } else {
@@ -74,7 +74,7 @@ public class CreatePersonScreenController implements Initializable {
     // og laver en person med dette, uanset om der er indtsatet yderligere værdier. Resetter skærmen
     // og skriver en besked til brugeren om succes eller ej.
     @FXML
-    void btnSavePersonHandler(ActionEvent event) {
+    private void btnSavePersonHandler(ActionEvent event) {
         if (App.getCreditSystem().availableUsername(txtFieldUsername.getText())) {
             if (!txtFieldUsername.getText().isEmpty() && !txtFieldPassword.getText().isEmpty() &&
                     !txtFieldFirstName.getText().isEmpty() && !txtFieldLastName.getText().isEmpty() &&
@@ -140,8 +140,7 @@ public class CreatePersonScreenController implements Initializable {
         }
     }
 
-
-    public void updateSuccesfullCreation() {
+    private void updateSuccesfullCreation(){
         txtFieldUsername.clear();
         txtFieldPassword.clear();
         txtFieldFirstName.clear();
@@ -153,7 +152,7 @@ public class CreatePersonScreenController implements Initializable {
         txtArea.setText("Personen er blevet oprettet i systemet. ");
     }
 
-    public void updateUnsuccesfullCreation() {
+    private void updateUnsuccesfullCreation(){
         txtFieldUsername.clear();
         txtFieldPassword.clear();
         txtFieldFirstName.clear();

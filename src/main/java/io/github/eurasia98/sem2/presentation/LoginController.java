@@ -3,6 +3,7 @@ package io.github.eurasia98.sem2.presentation;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
@@ -25,17 +26,28 @@ public class LoginController {
     private ImageView ivLogo;
 
     @FXML
-    private TextField txtFieldError;
+    private Label lblError;
 
+    // Verifies login in Login class. Stores username and account type in userInfo variable in App.
     @FXML
     private void btnLoginActionHandler () {
-        List<String> verifyAccount = App.getCreditSystem().login(txtFieldUsername.getText(), pwField.getText());
-        if (verifyAccount.isEmpty()){
-            txtFieldError.setText("Forkert brugernavn / password");
+        if(!txtFieldUsername.getText().isEmpty() && !pwField.getText().isEmpty()){
+            List<String> verifyAccount = App.getCreditSystem().login(txtFieldUsername.getText(), pwField.getText());
+            if (verifyAccount.isEmpty()){
+                lblError.setVisible(true);
+            }
+            else {
+                App.setUserInfo(verifyAccount);
+                App.switchScene("AccountScreen");
+            }
         }
-        else {
-            App.setUserInfo(verifyAccount);
-            App.switchScene("AccountScreen");
+
+        if(txtFieldUsername.getText().isEmpty()){
+            txtFieldUsername.setStyle("-fx-prompt-text-fill: red");
+        }
+
+        if(pwField.getText().isEmpty()){
+            pwField.setStyle("-fx-prompt-text-fill: red");
         }
     }
 

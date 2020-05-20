@@ -12,23 +12,3 @@
 #ivSearch:hover {
     -fx-cursor: hand;
 }
-
-#txtFieldAccount{
-    -fx-text-box-border: transparent;
-    -fx-background-color: transparent;
-}
-
-#txtFieldEPG{
-    -fx-text-box-border: transparent;
-    -fx-background-color: transparent;
-}
-
-#txtFieldPopular{
-    -fx-text-box-border: transparent;
-    -fx-background-color: transparent;
-}
-
-#txtFieldExport{
-    -fx-text-box-border: transparent;
-    -fx-background-color: transparent;
-}

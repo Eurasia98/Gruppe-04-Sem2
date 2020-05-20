@@ -21,6 +21,7 @@ public class App extends Application{
     private static List<String> userInfo = new ArrayList<>();
     private static String searchField;
     private static String selectedProductionToEdit;
+    private static String selectedTitle;
     private static String selectedTvSeriesToEdit;
     private static String selectedSeasonToEdit;
     private static String selectedSeriesEpisodeToEdit;
@@ -106,6 +107,14 @@ public class App extends Application{
 
     public static String getSelectedTvSeriesToEditFromProductionId(String production_id) {
         return creditSystem.getSeriesId(production_id);
+    }
+
+    public static String getSelectedTitle() {
+        return selectedTitle;
+    }
+
+    public static void setSelectedTitle(String selectedTitle) {
+        App.selectedTitle = selectedTitle;
     }
 
     @Override

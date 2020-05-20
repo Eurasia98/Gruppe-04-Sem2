@@ -7,7 +7,7 @@ public class Person extends Account {
     private int id;
     private String firstName;
     private String lastName;
-    private String email;
+//    private String email;
     private ArrayList<Credit> myCreditsList;
     private String created_by;
 
@@ -37,6 +37,15 @@ public class Person extends Account {
         this.created_by = created_by;
     }
 
+    public Person (int id, int accountId, String firstName, String lastName, String createdBy, String username, String password, String email){
+        super(accountId, username, password, email);
+        super.setAccountType("Person");
+        this.id = id;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.created_by = createdBy;
+    }
+
 
 
     public String getFirstName() {
@@ -55,13 +64,13 @@ public class Person extends Account {
         this.lastName = lastName;
     }
 
-    public String getEmail() {
-        return email;
-    }
+//    public String getEmail() {
+//        return email;
+//    }
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
+//    public void setEmail(String email) {
+//        this.email = email;
+//    }
 
     public ArrayList<Credit> getMyCreditsList() {
         return myCreditsList;
