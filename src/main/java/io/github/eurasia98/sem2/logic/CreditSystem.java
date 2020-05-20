@@ -1,9 +1,6 @@
 package io.github.eurasia98.sem2.logic;
 
 import io.github.eurasia98.sem2.persistence.*;
-import javafx.fxml.Initializable;
-import javafx.scene.chart.PieChart;
-import org.postgresql.jdbc2.ArrayAssistant;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -108,8 +105,8 @@ public class CreditSystem {
     }
 
     public Boolean createNewCredit(ArrayList<String> creditsInfo) {
-        CreditManager creditManager = new CreditManager();
-        return creditManager.insertCredit(creditsInfo);
+        DatabaseCreditsManager databaseCreditsManager = new DatabaseCreditsManager();
+        return databaseCreditsManager.insertCredit(creditsInfo);
     }
 
     public Boolean editProductionId(String oldProductionId, String newProductionId) {
@@ -438,7 +435,7 @@ public class CreditSystem {
                 unSortedFinalList.add(new String[]{personInfo.get(4) + " " +personInfo.get(5), s[0], s[1]});
             }
             CreditManager creditManager = new CreditManager();
-            ArrayList<String[]> sortedFinalList = creditManager.sortAlphabet(unSortedFinalList);
+            ArrayList<String[]> sortedFinalList = creditManager.sortMovieCreditsNames(unSortedFinalList);
 
 
             return sortedFinalList;
@@ -448,5 +445,10 @@ public class CreditSystem {
 
 
 
+    }
+
+    public String getAnAccountId(String username) {
+        DatabaseAccountHandler databaseAccountHandler = new DatabaseAccountHandler();
+        return databaseAccountHandler.getAccountId(username);
     }
 }

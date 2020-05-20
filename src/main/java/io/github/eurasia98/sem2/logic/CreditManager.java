@@ -40,11 +40,10 @@ public class CreditManager {
             return credit;
     }
 
-    public ArrayList<String[]> sortAlphabet(ArrayList<String[]> creditsInfo){
-        ArrayList<String[]> sortedList = new ArrayList<>();
+    public ArrayList<String[]> sortMovieCreditsNames(ArrayList<String[]> creditsInfo){
         Collections.sort(creditsInfo,new Comparator<String[]>() {
-            public int compare(String[] strings, String[] otherStrings) {
-                return strings[1].compareTo(otherStrings[1]);
+            public int compare(String[] strings, String[] compareStrings) {
+                return strings[2].compareTo(compareStrings[1]);
             }
         });
         return creditsInfo;

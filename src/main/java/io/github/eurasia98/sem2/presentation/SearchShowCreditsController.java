@@ -56,10 +56,10 @@ public class SearchShowCreditsController implements Initializable {
     @FXML
     void searchKeyHandler(KeyEvent event) {
         try {
-            if (event.getSource() == "ENTER") {
+            if (event.getCode().toString().equals("ENTER")) {
                 App.setSearchField(txtFieldSearch.getText());
                 App.switchScene("SearchScreenUpdatedScreen");
-            } else txtFieldSearch.clear();
+            }
         } catch (java.lang.NullPointerException e) {
             txtFieldSearch.clear();
         }

@@ -41,8 +41,13 @@ public class SearchScreenUpdatedController implements Initializable {
 
     @FXML
     void btnSelectHandler() {
-        App.setSelectedSearchResult(tvEpisodes.getSelectionModel().getSelectedItem().getProduction_id());
-        App.switchScene("SearchShowCreditsScreen");
+        try {
+            App.setSelectedSearchResult(tvEpisodes.getSelectionModel().getSelectedItem().getProduction_id());
+            App.switchScene("SearchShowCreditsScreen");
+        } catch (java.lang.NullPointerException e){
+            update();
+        }
+
     }
 
     @FXML
@@ -63,10 +68,11 @@ public class SearchScreenUpdatedController implements Initializable {
 
     @FXML
     void txtFieldSearchKeyHandler(KeyEvent event) {
-        if (event.getSource() == "ENTER"){
+        if (event.getCode().toString().equals("ENTER")){
             App.setSearchField(txtFieldSearch.getText());
-            txtFieldSearch.clear();
             update();
+            txtFieldSearch.clear();
+            App.resetSelects();
         }
     }
 

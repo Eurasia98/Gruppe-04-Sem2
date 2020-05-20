@@ -101,18 +101,20 @@ public class DatabaseProductionManager {
     }
 
     public Boolean editProductionId(String oldProductionId, String newProductionId) {
-        String productionType = getProductionType(oldProductionId);
-        connection = DatabaseAccessHandler.getConnection();
         try {
-            PreparedStatement updateProductionIdStatement = connection.prepareStatement(
-                    "UPDATE productions SET production_id = ? WHERE production_id = ?");
-            updateProductionIdStatement.setString(1, newProductionId);
-            updateProductionIdStatement.setString(2, oldProductionId);
-            updateProductionIdStatement.execute();
-            return true;
-        } catch (SQLException throwables) {
+            String productionType = getProductionType(oldProductionId);
+            connection = DatabaseAccessHandler.getConnection();
+
+                PreparedStatement updateProductionIdStatement = connection.prepareStatement(
+                        "UPDATE productions SET production_id = ? WHERE production_id = ?");
+                updateProductionIdStatement.setString(1, newProductionId);
+                updateProductionIdStatement.setString(2, oldProductionId);
+                updateProductionIdStatement.execute();
+                return true;
+            } catch (SQLException throwables) {
             throwables.printStackTrace();
-        } return false;
+            return false;
+            }
     }
 
 /*        switch (productionType) {

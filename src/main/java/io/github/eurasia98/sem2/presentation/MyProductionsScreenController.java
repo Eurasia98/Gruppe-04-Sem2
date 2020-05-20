@@ -148,7 +148,7 @@ public class MyProductionsScreenController implements Initializable {
                 txtAreaDisplayInfo.appendText("Ændringen er blevet gemt. ");
             } else {
                 resetFields();
-                txtAreaDisplayInfo.appendText("Ændringen blev ikke gemt, der skete desværre en fejl 1. ");
+                txtAreaDisplayInfo.appendText("Ændringen blev ikke gemt, det nye produktions id er desværre optaget. ");
             }
         }
         else if (!txtFieldNewTitle.getText().isEmpty()){
@@ -159,7 +159,7 @@ public class MyProductionsScreenController implements Initializable {
             } else {
                 update();
                 resetFields();
-                txtAreaDisplayInfo.appendText("Ændringen er ikke blevet gemt, der skete desværre en fejl 2. ");
+                txtAreaDisplayInfo.appendText("Udfyld venligst alle felter markeret med rød. ");
             }
         } else{
             update();
