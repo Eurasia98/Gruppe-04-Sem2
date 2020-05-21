@@ -130,18 +130,11 @@ public class AccountScreenController implements Initializable {
 
     @FXML
     private void ivSearchMouseClickHandler() {
-        /*if(!txtFieldSearch.getText().isEmpty()) {
+        if(!txtFieldSearch.getText().isEmpty()) {
             App.setSearchField(txtFieldSearch.getText());
-            App.switchScene("searchScreen");
+            App.switchScene("searchScreenUpdatedScreen");
         } else
-            txtFieldSearch.setStyle("-fx-prompt-text-fill: red");*/
-
-        try {
-            App.setSearchField(txtFieldSearch.getText());
-            App.switchScene("SearchScreenUpdatedScreen");
-        } catch (java.lang.NullPointerException e){
             txtFieldSearch.setStyle("-fx-prompt-text-fill: red");
-        }
     }
 
     @FXML
@@ -217,6 +210,7 @@ public class AccountScreenController implements Initializable {
     private void btnSaveEmailActionHandler(ActionEvent event) {
         if (!txtFieldNewEmail.getText().equals(lblAccountEmail.getText())){
             if (App.getCreditSystem().editAccountEmail(txtFieldNewEmail.getText())){
+                lblAccountEmail.setText(txtFieldNewEmail.getText());
                 txtFieldNewEmail.clear();
                 txtFieldNewEmail.setPromptText("Email ændret.");
             }
@@ -226,7 +220,6 @@ public class AccountScreenController implements Initializable {
             txtFieldNewEmail.setPromptText("Forrige og ny email er ens.");
             txtFieldNewEmail.setStyle("-fx-prompt-text-fill: red");
         }
-
     }
 
     @FXML
@@ -240,7 +233,6 @@ public class AccountScreenController implements Initializable {
                 pwNewPassword1.setPromptText("");
                 pwNewPassword2.setPromptText("Kodeord ændret.");
             }
-
         }
         else{
             pwNewPassword1.setStyle("-fx-prompt-text-fill: red");

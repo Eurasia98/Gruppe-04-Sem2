@@ -88,9 +88,9 @@ public class CreatePersonScreenController implements Initializable {
                 personInfo.add(txtFieldFirstName.getText());
                 personInfo.add(txtFieldLastName.getText());
                 if (App.getCreditSystem().createNewPerson(personInfo) == true) {
-                    ArrayList<String> creditsInfo = App.getCreditSystem().getPersonInfo(txtFieldUsername.getText());
-                    creditsInfo.add(creditsInfo.get(1));
-                    creditsInfo.add(App.getSelectedProductionToEdit());
+                    ArrayList<String> creditsInfo = new ArrayList<>();
+                    creditsInfo.add(App.getCreditSystem().getAnAccountId(txtFieldUsername.getText()));
+                    creditsInfo.add(txtFieldProductionId.getText());
                     creditsInfo.add(txtFieldRole.getText());
                     creditsInfo.add(txtFieldRoleName.getText());
                     if (App.getCreditSystem().createNewCredit(creditsInfo) == true) {

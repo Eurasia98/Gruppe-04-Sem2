@@ -8,19 +8,14 @@ import java.util.List;
 
 public class CreditSystem {
    private static ArrayList<String> creditsToDisplay;
-//   private static Account account;
 
-    public static ArrayList<String> getCreditsToDisplay() {
+   public static ArrayList<String> getCreditsToDisplay() {
         return creditsToDisplay;
     }
 
    public static Account getAccount() {
       return Login.getAccount();
    }
-//
-//   public static int getAccount_id(){
-//      return account.getId();
-//   }
 
    public Boolean availableUsername(String username) {
       AccountManager accountManager = new AccountManager();
@@ -28,22 +23,20 @@ public class CreditSystem {
    }
 
    public Boolean createNewPerson(ArrayList<String> personInfo) {
-      DatabaseAccountHandler databaseAccountHandler = new DatabaseAccountHandler();
-      DatabasePersonHandler databasePersonHandler = new DatabasePersonHandler();
-      if (databaseAccountHandler.insertAccount(personInfo) == true){
-         ArrayList<String> finalPersonInfo = new ArrayList<>();
-         finalPersonInfo.add(databaseAccountHandler.getAccountId(personInfo.get(0)));
-         finalPersonInfo.add(personInfo.get(0));
-         finalPersonInfo.add(personInfo.get(1));
-         finalPersonInfo.add(personInfo.get(4));
-         finalPersonInfo.add(personInfo.get(5));
-         finalPersonInfo.add(getAccount().getUsername());
-         if (databasePersonHandler.insertPerson(finalPersonInfo) == true){
-            return true;
-         } else {
-            return false;
-        }
-    }
+       DatabaseAccountHandler databaseAccountHandler = new DatabaseAccountHandler();
+       DatabasePersonHandler databasePersonHandler = new DatabasePersonHandler();
+       if (databaseAccountHandler.insertAccount(personInfo)) {
+           ArrayList<String> finalPersonInfo = new ArrayList<>();
+           finalPersonInfo.add(databaseAccountHandler.getAccountId(personInfo.get(0)));
+           finalPersonInfo.add(personInfo.get(0));
+           finalPersonInfo.add(personInfo.get(1));
+           finalPersonInfo.add(personInfo.get(4));
+           finalPersonInfo.add(personInfo.get(5));
+           finalPersonInfo.add(getAccount().getUsername());
+           return databasePersonHandler.insertPerson(finalPersonInfo);
+       }
+       return false;
+   }
 
    public Boolean createSpecialAccount(String username, String password, String accountType){
       AccountManager accountManager = new AccountManager();
@@ -60,9 +53,6 @@ public class CreditSystem {
       DatabaseMovieHandler databaseMovieHandler = new DatabaseMovieHandler();
       return databaseMovieHandler.insertMovie(movieInfo);
    }
-   
-   
-
 
     public HashMap<String, String> search(String searchString) {
         DatabaseSearchController databaseSearchController = new DatabaseSearchController();
@@ -81,26 +71,14 @@ public class CreditSystem {
 
     public ArrayList<Credit> findCredits(SearchResults searchResults) {
         DatabaseSearchController databaseSearchController = new DatabaseSearchController();
-        ArrayList<Credit> credits = databaseSearchController.searchCredits(searchResults);
-        return credits;
+        return databaseSearchController.searchCredits(searchResults);
     }
 
     public List<String> login(String username, String password) {
         Login login = new Login();
-//      DatabaseAccountHandler databaseAccountHandler = new DatabaseAccountHandler();
-//      if (databaseAccountHandler.getAccount(username) != null ){
-//         ArrayList<String> accountInfo = databaseAccountHandler.getAccount(username);
-//         account = new Account(Integer.parseInt(accountInfo.get(0)), accountInfo.get(1), accountInfo.get(2), accountInfo.get(3));
-//      }
-
-        DatabaseAccountHandler databaseAccountHandler = new DatabaseAccountHandler();
-        if (databaseAccountHandler.getAccount(username) != null) {
-            ArrayList<String> accountInfo = databaseAccountHandler.getAccount(username);
-            account = new Account(Integer.parseInt(accountInfo.get(0)), accountInfo.get(1), accountInfo.get(2), accountInfo.get(3));
-        }
-
         return login.loginVerify(username, password);
     }
+
    public ArrayList<String[]> showMyProductions(){
       ProductionManager productionManager = new ProductionManager();
       return productionManager.getMyProductions(getAccount().getUsername());
@@ -108,15 +86,8 @@ public class CreditSystem {
 
    public ArrayList<String[]> getMyPersons(){
       DatabasePersonHandler databasePersonHandler = new DatabasePersonHandler();
-      ArrayList<String[]> myProductionsInfo = databasePersonHandler.getMyPersons(getAccount().getUsername());
-      return myProductionsInfo;
+       return databasePersonHandler.getMyPersons(getAccount().getUsername());
    }
-
-    public ArrayList<String[]> getMyPersons() {
-        DatabasePersonHandler databasePersonHandler = new DatabasePersonHandler();
-        ArrayList<String[]> myProductionsInfo = databasePersonHandler.getMyPersons(account.getUsername());
-        return myProductionsInfo;
-    }
 
     public Boolean createNewCredit(ArrayList<String> creditsInfo) {
         DatabaseCreditsManager databaseCreditsManager = new DatabaseCreditsManager();
@@ -126,7 +97,7 @@ public class CreditSystem {
     public Boolean editProductionId(String oldProductionId, String newProductionId) {
         DatabaseProductionManager databaseProductionManager = new DatabaseProductionManager();
         ArrayList<String> productionInfo = databaseProductionManager.getProduction(oldProductionId);
-        if (account.getUsername().equals(productionInfo.get(4))) {
+        if (Login.getAccount().getUsername().equals(productionInfo.get(4))) {
             return databaseProductionManager.editProductionId(oldProductionId, newProductionId);
         }
         return false;
@@ -156,24 +127,20 @@ public class CreditSystem {
         return finalInfoList;
     }
 
-    public boolean exportData() {
-        if (ExportData.printFile(getCreditsToDisplay())) {
-            return true;
-        }
-        return false;
+    public boolean exportData(String title) {
+        return ExportData.printFile(getCreditsToDisplay(), title);
     }
 
     public ArrayList<String> getPersonInfo(String username) {
         DatabasePersonHandler databasePersonHandler = new DatabasePersonHandler();
         int account_id = databasePersonHandler.getId(username);
-        ArrayList<String> personInfo = databasePersonHandler.getPersonInfo(account_id);
 
-        return personInfo;
+        return databasePersonHandler.getPersonInfo(account_id);
     }
 
    public Boolean editAccountPassword(String oldPassword, String newPassword){
       AccountManager accountManager = new AccountManager();
-      return accountManager.editAccountPassword(Login.getAccount().getUsername(), oldPassword, newPassword);
+      return accountManager.editAccountPassword(oldPassword, newPassword);
    }
 
    public Boolean editAccountEmail(String newEmail){
@@ -191,8 +158,7 @@ public class CreditSystem {
 
     public ArrayList<String[]> getLoggedInPersonCredits() {
         DatabaseCreditsManager databaseCreditsManager = new DatabaseCreditsManager();
-        ArrayList<String[]> creditsInfo = databaseCreditsManager.getLoggedInPersonsCredits(account.getId());
-        return creditsInfo;
+        return databaseCreditsManager.getLoggedInPersonsCredits(Login.getAccount().getId());
     }
 
    public boolean createNewTv_series(ArrayList<String> tvSeriesInfo) {
@@ -292,11 +258,9 @@ public class CreditSystem {
         episodeInfo.add(episode_number);
         episodeInfo.add(episode_title);
         episodeInfo.add(episode_id);
-        episodeInfo.add(account.getUsername());
+        episodeInfo.add(Login.getAccount().getUsername());
         DatabaseTvProgramEpisodeHandler databaseTvProgramEpisodeHandler = new DatabaseTvProgramEpisodeHandler();
-        if (databaseTvProgramEpisodeHandler.insertEpisode(episodeInfo) == true) {
-            return true;
-        } else return false;
+        return databaseTvProgramEpisodeHandler.insertEpisode(episodeInfo);
     }
 
     public String getTvProgramEpisodeDescription(String selectedTvProgramEpisodeToEdit) {
@@ -326,7 +290,7 @@ public class CreditSystem {
         finalList.add(creditsInfo.get(0));
         finalList.add(creditsInfo.get(1));
         finalList.add(creditsInfo.get(2));
-        return databaseCreditsManager.insertTvProgramCredits(creditsInfo);
+        return databaseCreditsManager.insertTvProgramCredits(finalList);
     }
 
     public boolean createNewTvProgramCreditAndPerson(ArrayList<String> creditsInfo) {
@@ -338,15 +302,15 @@ public class CreditSystem {
         accountInfo.add(creditsInfo.get(1));
         accountInfo.add(creditsInfo.get(4));
         accountInfo.add("Person");
-        if (databaseAccountHandler.insertAccount(accountInfo) == true) {
+        if (databaseAccountHandler.insertAccount(accountInfo)) {
             ArrayList<String> personInfo = new ArrayList<>();
             personInfo.add(databaseAccountHandler.getAccountId(creditsInfo.get(0)));
             personInfo.add(creditsInfo.get(0));
             personInfo.add(creditsInfo.get(1));
             personInfo.add(creditsInfo.get(2));
             personInfo.add(creditsInfo.get(3));
-            personInfo.add(account.getUsername());
-            if (databasePersonHandler.insertPerson(personInfo) == true) {
+            personInfo.add(Login.getAccount().getUsername());
+            if (databasePersonHandler.insertPerson(personInfo)) {
                 ArrayList<String> finalList = new ArrayList<>();
                 finalList.add(creditsInfo.get(5));
                 finalList.add(creditsInfo.get(6));
@@ -385,15 +349,15 @@ public class CreditSystem {
         accountInfo.add(creditsInfo.get(1));
         accountInfo.add(creditsInfo.get(4));
         accountInfo.add("Person");
-        if (databaseAccountHandler.insertAccount(accountInfo) == true) {
+        if (databaseAccountHandler.insertAccount(accountInfo)) {
             ArrayList<String> personInfo = new ArrayList<>();
             personInfo.add(databaseAccountHandler.getAccountId(creditsInfo.get(0)));
             personInfo.add(creditsInfo.get(0));
             personInfo.add(creditsInfo.get(1));
             personInfo.add(creditsInfo.get(2));
             personInfo.add(creditsInfo.get(3));
-            personInfo.add(account.getUsername());
-            if (databasePersonHandler.insertPerson(personInfo) == true) {
+            personInfo.add(Login.getAccount().getUsername());
+            if (databasePersonHandler.insertPerson(personInfo)) {
                 ArrayList<String> finalList = new ArrayList<>();
                 finalList.add(personInfo.get(0));
                 finalList.add(creditsInfo.get(7));
@@ -441,7 +405,7 @@ public class CreditSystem {
         return databaseProductionManager.editMovieDescription(productionId, newDescription);
     }
 
-    public String getdescription(String productionId) {
+    public String getDescription(String productionId) {
         DatabaseProductionManager databaseProductionManager = new DatabaseProductionManager();
         return databaseProductionManager.getDescription(productionId);
     }

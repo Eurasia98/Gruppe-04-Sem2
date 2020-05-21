@@ -67,7 +67,7 @@ public class ChoosenMovieToEditScreenController implements Initializable {
     public void update(){
         try{
             txtAreaDescription.clear();
-            txtAreaDescription.appendText(App.getCreditSystem().getdescription(App.getSelectedProductionToEdit()));
+            txtAreaDescription.appendText(App.getCreditSystem().getDescription(App.getSelectedProductionToEdit()));
             txtAreaDescription.setEditable(false);
 
             txtAreaInfo.clear();

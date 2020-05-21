@@ -8,7 +8,6 @@ public class Producer extends Account {
     private String fName;
     private String lName;
     private int madeByAccountId;
-//    private String email;
     private List<Production> myProductions = new ArrayList<>();
 
     public Producer(int userId, String username, String password, String accountType,
@@ -18,7 +17,6 @@ public class Producer extends Account {
         this.productionCompanyName = productionCompanyName;
         this.fName = fName;
         this.lName = lName;
-//        this.email = email;
         this.myProductions = myProductions;
     }
 
@@ -26,7 +24,6 @@ public class Producer extends Account {
         super(userId, username, password, email);
         this.fName = fName;
         this.lName = lName;
-//        this.email = email;
         super.setAccountType("Producer");
     }
 
@@ -34,10 +31,9 @@ public class Producer extends Account {
         super(userId, username, password, accountType, email);
         this.fName = fName;
         this.lName = lName;
-//        this.email = email;
     }
 
-    public Producer (int userId, String firstName, String lastName, String companyName,String email, int madeByAccountId, String username, String password){
+    public Producer (int userId, String firstName, String lastName, String companyName, String email, int madeByAccountId, String username, String password){
         super(userId, username, password, email);
         super.setAccountType("Producer");
         this.fName = firstName;
@@ -49,15 +45,22 @@ public class Producer extends Account {
     public String getProductionCompanyName() {
         return productionCompanyName;
     }
+
     public String getFName() {
         return fName;
     }
+
     public String getLName() {
         return lName;
     }
-//    public String getEmail() {
-//        return email;
-//    }
+
+    public int getMadeByAccountId() {
+        return madeByAccountId;
+    }
+
+    public List<Production> getMyProductions() {
+        return myProductions;
+    }
 
     @Override
     public String toString(){
