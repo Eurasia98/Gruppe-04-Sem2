@@ -9,4 +9,7 @@
       <Button fx:id="btnMyProductions" layoutX="433.0" layoutY="91.0" mnemonicParsing="false" onAction="#btnMyProductionsHandler" text="Vis produktioner" />
       <Button fx:id="btnCreatePerson" layoutX="433.0" layoutY="131.0" mnemonicParsing="false" onAction="#btnCreatePersonHandler" text="Opret person" />
    </children>
+   <stylesheets>
+      <URL value="@FrontPageCSS.css" />
+   </stylesheets>
 </AnchorPane>

@@ -43,6 +43,24 @@ public class DatabaseAccountHandler {
         } return false;
     }
 
+    public Boolean insertSpecialAccount(ArrayList<String> accountInfo){
+        try {
+            this.connection = DatabaseAccessHandler.getConnection();
+
+            PreparedStatement insertAccountStatement = connection.prepareStatement(
+                    "INSERT INTO accounts(username, password, account_type) VALUES(?,?,?)");
+            insertAccountStatement.setString(1, accountInfo.get(0));
+            insertAccountStatement.setString(2, accountInfo.get(1));
+            insertAccountStatement.setString(3, accountInfo.get(2));
+            insertAccountStatement.execute();
+            return true;
+
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return false;
+    }
+
     /*public Boolean insertAccount(Account account){
         try {
             this.connection = DatabaseAccesHandler.getConnection();
@@ -90,26 +108,23 @@ public class DatabaseAccountHandler {
             verifyLoginStatement.setString(2, password);
             ResultSet rs = verifyLoginStatement.executeQuery();
 
-            while(rs.next()){
-                accountInfo.add(rs.getString(1));
-                accountInfo.add(rs.getString(2));
-                accountInfo.add(rs.getString(3));
-                accountInfo.add(rs.getString(4));
-            }
+//            while(rs.next()){
+//                accountInfo.add(rs.getString(1));
+//                accountInfo.add(rs.getString(2));
+//                accountInfo.add(rs.getString(3));
+//                accountInfo.add(rs.getString(4));
+//            }
 
             // har ændret nedenstående til ovenstående i et forsøg på at løse en login ting.
-            /*if (!rs.next()){
-//                accountInfo.add("Wrong username / password.");
-//                return accountInfo;
+            if (!rs.next()){
                 return Collections.emptyList();
             }
-            accountInfo = Arrays.asList(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4));*/
+            accountInfo = Arrays.asList(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5));
 
             return accountInfo;
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
-        // return null;
         return Collections.emptyList();
 
     }
@@ -155,12 +170,51 @@ public class DatabaseAccountHandler {
                 accountInfo.add(rs.getString(2));
                 accountInfo.add(rs.getString(3));
                 accountInfo.add(rs.getString(4));
+                accountInfo.add(rs.getString(5));
             }
 
             return accountInfo;
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         } return null;
+    }
+
+    public boolean editAccountPassword(String username, String oldPassword, String newPassword){
+        connection = DatabaseAccessHandler.getConnection();
+
+        try {
+            PreparedStatement editAccountPasswordStatement = connection.prepareStatement(
+                    "UPDATE accounts SET password = ? WHERE username = ? AND password = ?");
+            editAccountPasswordStatement.setString(1, newPassword);
+            editAccountPasswordStatement.setString(2, username);
+            editAccountPasswordStatement.setString(3, oldPassword);
+
+            editAccountPasswordStatement.execute();
+
+            return true;
+
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return false;
+    }
+
+    public boolean editAccountEmail(String username, String email){
+        connection = DatabaseAccessHandler.getConnection();
+
+        try {
+            PreparedStatement editAccountEmailStatement = connection.prepareStatement(
+                    "UPDATE accounts SET email = ? WHERE username = ?");
+            editAccountEmailStatement.setString(1, email);
+            editAccountEmailStatement.setString(2, username);
+
+            editAccountEmailStatement.execute();
+
+            return true;
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return false;
     }
 
     public Boolean insertBackupAccounts(ArrayList<Integer> personsInCreditsAccountId) {

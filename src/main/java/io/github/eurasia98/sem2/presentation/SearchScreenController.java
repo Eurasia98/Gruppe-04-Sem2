@@ -33,8 +33,23 @@ public class SearchScreenController implements Initializable {
     private ImageView ivSearch;
 
     @FXML
-    void ivLogoActionHandler() {
+    private Button btnLogin;
+
+    @FXML
+    private Label lblAccount;
+
+    @FXML
+    private VBox vBoxAccount;
+
+    @FXML
+    private void ivLogoActionHandler(MouseEvent event) {
         App.switchScene("FrontPage");
+    }
+
+    // Switches to login screen
+    @FXML
+    private void btnLoginHandler(ActionEvent event) {
+        App.switchScene("LoginScreen");
     }
 
     // Enables search by pressing return key
@@ -50,7 +65,9 @@ public class SearchScreenController implements Initializable {
         if(!txtFieldSearch.getText().isEmpty()) {
             search();
         }
-        txtFieldSearch.setStyle("-fx-prompt-text-fill: red");
+        else {
+            txtFieldSearch.setStyle("-fx-prompt-text-fill: red");
+        }
     }
 
 
@@ -71,7 +88,7 @@ public class SearchScreenController implements Initializable {
          og returnere en ArrayList med HyperLinks der
          linker videre til visning af credits.
      */
-    public ArrayList<Hyperlink> getHyperLinks(String searchString){
+    private ArrayList<Hyperlink> getHyperLinks(String searchString){
         ArrayList<Hyperlink> hyperlinkArrayList = new ArrayList<>();
         HashMap<String, String> creditsMap = App.getCreditSystem().search(searchString);
         for (Map.Entry<String, String> hashMap : creditsMap.entrySet()){
@@ -81,6 +98,7 @@ public class SearchScreenController implements Initializable {
                 @Override
                 public void handle(ActionEvent actionEvent) {
                     App.getCreditSystem().setCreditsToDisplay(hashMap.getValue());
+                    App.setSelectedTitle(hashMap.getKey());
                     App.switchScene("DisplayCreditsFirstIteration");
                 }
             });
@@ -89,9 +107,35 @@ public class SearchScreenController implements Initializable {
         return hyperlinkArrayList;
     }
 
+    private void loggedIn(){
+        if (!App.getUserInfo().isEmpty()){
+            btnLogin.setVisible(false);
+            vBoxAccount.setVisible(true);
+            lblAccount.setText(App.getUserInfo().get(0));
+            Hyperlink myPage = new Hyperlink("Min side");
+            myPage.setOnAction(new EventHandler<ActionEvent>() {
+                @Override
+                public void handle(ActionEvent event) {
+                    App.switchScene("AccountScreen");
+                }
+            });
+            vBoxAccount.getChildren().add(1, myPage);
+        }
+
+        else {
+            btnLogin.setVisible(true);
+            vBoxAccount.setVisible(false);
+            lblAccount.setText("");
+            if (vBoxAccount.getChildren().size() == 2){
+                vBoxAccount.getChildren().remove(1);
+            }
+        }
+    }
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         txtFieldSearch.setText(App.getSearchField());
         search();
+        loggedIn();
     }
 }

@@ -1,21 +1,16 @@
 package io.github.eurasia98.sem2.presentation;
 
-import io.github.eurasia98.sem2.presentation.App;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.Hyperlink;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.ResourceBundle;
 
@@ -41,7 +36,7 @@ public class AccountScreenController implements Initializable {
     private Button btnAddPerson;
 
     @FXML
-    private TextField txtFieldAccount;
+    private Label lblAccount;
 
     @FXML
     private VBox vBoxAccount;
@@ -59,6 +54,69 @@ public class AccountScreenController implements Initializable {
     private Button btnMyPersons;
 
     @FXML
+    private Button btnRegDanmark;
+
+    @FXML
+    private Button btnSysAdmin;
+
+    @FXML
+    private Separator sepAdminControls;
+
+    @FXML
+    private Label lblAdminControls;
+
+    @FXML
+    private Separator sepNormal;
+
+    @FXML
+    private Label lblAccountUsername;
+
+    @FXML
+    private Button btnChangeEmail;
+
+    @FXML
+    private Label lblAccountEmail;
+
+    @FXML
+    private TextField txtFieldNewEmail;
+
+    @FXML
+    private Button btnSaveEmail;
+
+    @FXML
+    private Button btnChangePassword;
+
+    @FXML
+    private PasswordField pwOldPassword;
+
+    @FXML
+    private PasswordField pwNewPassword1;
+
+    @FXML
+    private PasswordField pwNewPassword2;
+
+    @FXML
+    private Button btnSavePassword;
+
+    @FXML
+    private Label lblFirstName;
+
+    @FXML
+    private Label lblAccountFirstName;
+
+    @FXML
+    private Label lblLastName;
+
+    @FXML
+    private Label lblAccountLastName;
+
+    @FXML
+    private Label lblCompany;
+
+    @FXML
+    private Label lblAccountCompany;
+
+    @FXML
     private void ivLogoActionHandler(MouseEvent mouseEvent) {
         App.switchScene("FrontPage");
     }
@@ -72,18 +130,11 @@ public class AccountScreenController implements Initializable {
 
     @FXML
     private void ivSearchMouseClickHandler() {
-        /*if(!txtFieldSearch.getText().isEmpty()) {
+        if(!txtFieldSearch.getText().isEmpty()) {
             App.setSearchField(txtFieldSearch.getText());
-            App.switchScene("searchScreen");
+            App.switchScene("searchScreenUpdatedScreen");
         } else
-            txtFieldSearch.setStyle("-fx-prompt-text-fill: red");*/
-
-        try {
-            App.setSearchField(txtFieldSearch.getText());
-            App.switchScene("SearchScreenUpdatedScreen");
-        } catch (java.lang.NullPointerException e){
             txtFieldSearch.setStyle("-fx-prompt-text-fill: red");
-        }
     }
 
     @FXML
@@ -116,18 +167,81 @@ public class AccountScreenController implements Initializable {
     }
 
     @FXML
-    void btnMyPersonsHandler(ActionEvent event) {
+    private void btnMyPersonsHandler(ActionEvent event) {
         App.switchScene("MyPersonsScreen");
     }
 
     @FXML
-    void btnMyProductionsHandler(ActionEvent event) {
+    private void btnMyProductionsHandler(ActionEvent event) {
         App.switchScene("MyProductionsScreen");
     }
 
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
-        txtFieldAccount.setText(App.getUserInfo().get(0));
+    @FXML
+    private void btnRegDanmarkActionHandler(){
+        App.switchScene("CreateRegDanmarkScreen");
+    }
+
+    @FXML
+    private void btnSysAdminActionHandler(){
+        App.switchScene("CreateSysAdminScreen");
+    }
+
+    @FXML
+    private void btnChangeEmailActionHandler(ActionEvent event) {
+        txtFieldNewEmail.setDisable(false);
+        txtFieldNewEmail.setVisible(true);
+        btnSaveEmail.setDisable(false);
+        btnSaveEmail.setVisible(true);
+    }
+
+    @FXML
+    private void btnChangePasswordActionHandler(ActionEvent event) {
+        pwOldPassword.setDisable(false);
+        pwOldPassword.setVisible(true);
+        pwNewPassword1.setDisable(false);
+        pwNewPassword1.setVisible(true);
+        pwNewPassword2.setDisable(false);
+        pwNewPassword2.setVisible(true);
+        btnSavePassword.setDisable(false);
+        btnSavePassword.setVisible(true);
+    }
+
+    @FXML
+    private void btnSaveEmailActionHandler(ActionEvent event) {
+        if (!txtFieldNewEmail.getText().equals(lblAccountEmail.getText())){
+            if (App.getCreditSystem().editAccountEmail(txtFieldNewEmail.getText())){
+                lblAccountEmail.setText(txtFieldNewEmail.getText());
+                txtFieldNewEmail.clear();
+                txtFieldNewEmail.setPromptText("Email ændret.");
+            }
+        }
+        else {
+            txtFieldNewEmail.clear();
+            txtFieldNewEmail.setPromptText("Forrige og ny email er ens.");
+            txtFieldNewEmail.setStyle("-fx-prompt-text-fill: red");
+        }
+    }
+
+    @FXML
+    private void btnSavePasswordActionHandler(ActionEvent event) {
+        if (pwNewPassword1.getText().equals(pwNewPassword2.getText())){
+            if (App.getCreditSystem().editAccountPassword(pwOldPassword.getText(), pwNewPassword1.getText())){
+                pwOldPassword.clear();
+                pwNewPassword1.clear();
+                pwNewPassword2.clear();
+                pwOldPassword.setPromptText("");
+                pwNewPassword1.setPromptText("");
+                pwNewPassword2.setPromptText("Kodeord ændret.");
+            }
+        }
+        else{
+            pwNewPassword1.setStyle("-fx-prompt-text-fill: red");
+            pwNewPassword2.setStyle("-fx-prompt-text-fill: red");
+        }
+    }
+
+    private void loggedIn(){
+        lblAccount.setText(App.getUserInfo().get(0));
         Hyperlink myPage = new Hyperlink("Min side");
         myPage.setOnAction(new EventHandler<ActionEvent>() {
             @Override
@@ -136,11 +250,22 @@ public class AccountScreenController implements Initializable {
             }
         });
         vBoxAccount.getChildren().add(1, myPage);
+    }
 
-        switch (App.getUserInfo().get(1)){
-            case "System Administrator": {
+    private void sideBarVisibility(){
+
+        switch (App.getUserInfo().get(1)) {
+            case "SystemAdministrator": {
+                sepAdminControls.setManaged(true);
+                sepAdminControls.setVisible(true);
+                lblAdminControls.setManaged(true);
+                lblAdminControls.setVisible(true);
                 btnCreateProducer.setManaged(true);
                 btnCreateProducer.setVisible(true);
+                btnRegDanmark.setManaged(true);
+                btnRegDanmark.setVisible(true);
+                btnSysAdmin.setManaged(true);
+                btnSysAdmin.setVisible(true);
             }
             case "Producer": {
                 btnCreateProduction.setManaged(true);
@@ -159,7 +284,29 @@ public class AccountScreenController implements Initializable {
             default: {
                 break;
             }
-
         }
+    }
+
+    private void accountInfoFill(){
+        lblAccountUsername.setText(App.getCreditSystem().getAccount().getUsername());
+        lblAccountEmail.setText(App.getCreditSystem().getAccount().getEmail());
+        if(App.getCreditSystem().getAccount().getAccountType().equals("Producer")){
+            lblAccountFirstName.setText(App.getCreditSystem().getProducerAccount().getFName());
+            lblAccountLastName.setText(App.getCreditSystem().getProducerAccount().getLName());
+            lblAccountCompany.setText(App.getCreditSystem().getProducerAccount().getProductionCompanyName());
+        }
+        else if (App.getCreditSystem().getAccount().getAccountType().equals("Person")){
+            lblAccountFirstName.setText(App.getCreditSystem().getPersonAccount().getFirstName());
+            lblAccountLastName.setText(App.getCreditSystem().getPersonAccount().getLastName());
+            lblCompany.setVisible(false);
+            lblCompany.setDisable(true);
+        }
+    }
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        loggedIn();
+        sideBarVisibility();
+        accountInfoFill();
     }
 }
