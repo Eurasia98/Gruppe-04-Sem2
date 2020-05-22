@@ -10,6 +10,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
+<?import java.net.URL?>
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="io.github.eurasia98.sem2.presentation.EditMyMovieCreditsScreenController">
    <children>
       <ImageView fx:id="IVLogo" fitHeight="63.0" fitWidth="200.0" onDragDetected="#IVLogoHandler" pickOnBounds="true" preserveRatio="true">
@@ -39,4 +40,7 @@
       <Hyperlink fx:id="hlinkYes" layoutX="171.0" layoutY="95.0" onMouseClicked="#hlinkYesHandler" text="Ja" />
       <Hyperlink fx:id="hlinkNo" layoutX="261.0" layoutY="95.0" onMouseClicked="#hlinkNoHandler" text="Nej" />
    </children>
+   <stylesheets>
+      <URL value="@FrontPageCSS.css" />
+   </stylesheets>
 </AnchorPane>

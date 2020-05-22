@@ -7,6 +7,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
+<?import java.net.URL?>
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="io.github.eurasia98.sem2.presentation.CreateTvProgramCreditsController">
    <children>
       <ImageView fx:id="IVLogo" fitHeight="159.0" fitWidth="301.0" layoutX="494.0" layoutY="14.0" onMouseClicked="#IVLogoHandler" pickOnBounds="true" preserveRatio="true">
@@ -31,4 +32,7 @@
       <TextField fx:id="txtFieldUserId" layoutX="15.0" layoutY="153.0" promptText="Bruger id" />
       <Button fx:id="btnMyPage" layoutY="2.0" mnemonicParsing="false" onAction="#btnMyPageHandler" text="Min side" />
    </children>
+   <stylesheets>
+      <URL value="@FrontPageCSS.css" />
+   </stylesheets>
 </AnchorPane>

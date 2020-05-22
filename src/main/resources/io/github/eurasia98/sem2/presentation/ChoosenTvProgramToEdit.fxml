@@ -8,6 +8,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
+<?import java.net.URL?>
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="io.github.eurasia98.sem2.presentation.EditChoosenTvProgram">
    <children>
       <TableView fx:id="tvMyEpisodes" layoutY="184.0" prefHeight="360.0" prefWidth="800.0">
@@ -42,4 +43,7 @@
       <Button fx:id="btnSaveCreatedEpisode" layoutX="623.0" layoutY="560.0" mnemonicParsing="false" onAction="#btnSaveCreatedEpisodeHandler" text="Gem" />
       <Button fx:id="btnShowDescription" layoutX="693.0" layoutY="560.0" mnemonicParsing="false" onAction="#btnShowDescriptionHandler" text="Vis beskrivelse" />
    </children>
+   <stylesheets>
+      <URL value="@FrontPageCSS.css" />
+   </stylesheets>
 </AnchorPane>

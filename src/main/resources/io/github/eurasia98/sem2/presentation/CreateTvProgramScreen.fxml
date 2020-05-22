@@ -8,6 +8,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 
 
+<?import java.net.URL?>
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="io.github.eurasia98.sem2.presentation.CreateTvProgramController">
    <children>
       <Button fx:id="btnMyPage" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#btnMyPageHandler" text="Min side" />
@@ -21,4 +22,7 @@
       <TextArea fx:id="txtAreaDescription" layoutX="400.0" layoutY="186.0" prefHeight="200.0" prefWidth="200.0" promptText="Indsæt beskrivelse:" />
       <Button fx:id="btnSave" layoutX="323.0" layoutY="349.0" mnemonicParsing="false" onAction="#btnSaveHandler" text="Gem" />
    </children>
+   <stylesheets>
+      <URL value="@FrontPageCSS.css" />
+   </stylesheets>
 </AnchorPane>

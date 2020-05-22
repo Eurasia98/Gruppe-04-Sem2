@@ -7,6 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 
 
+<?import java.net.URL?>
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="io.github.eurasia98.sem2.presentation.TvProgramDescriptionScreenController">
    <children>
       <TextArea fx:id="txtAreaDescrption" layoutY="100.0" prefHeight="499.0" prefWidth="800.0" />
@@ -19,4 +20,7 @@
       </ImageView>
       <Button fx:id="btnMyPage" layoutX="514.0" layoutY="51.0" mnemonicParsing="false" onAction="#btnMyPageHandler" text="Min side" />
    </children>
+   <stylesheets>
+      <URL value="@FrontPageCSS.css" />
+   </stylesheets>
 </AnchorPane>

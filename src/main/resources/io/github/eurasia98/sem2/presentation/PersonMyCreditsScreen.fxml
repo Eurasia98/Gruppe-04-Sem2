@@ -5,6 +5,7 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 
+<?import java.net.URL?>
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="io.github.eurasia98.sem2.presentation.PersonMyCreditsScreenController">
    <children>
       <TableView fx:id="tvMyCredits" layoutY="42.0" prefHeight="556.0" prefWidth="800.0">
@@ -17,4 +18,7 @@
       </TableView>
       <Button fx:id="btnMyPage" layoutY="1.0" mnemonicParsing="false" onAction="#btnMyPageHandler" text="Min side" />
    </children>
+    <stylesheets>
+        <URL value="@FrontPageCSS.css" />
+    </stylesheets>
 </AnchorPane>

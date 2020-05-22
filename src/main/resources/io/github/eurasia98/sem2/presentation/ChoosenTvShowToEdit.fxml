@@ -11,6 +11,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
+<?import java.net.URL?>
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="io.github.eurasia98.sem2.presentation.EditChoosenTvSeriesController">
    <children>
       <ImageView fx:id="ivLogo" fitHeight="150.0" fitWidth="200.0" layoutX="76.0" layoutY="14.0" onMouseClicked="#ivLogoHandler" pickOnBounds="true" preserveRatio="true">
@@ -40,4 +41,7 @@
       <TextField fx:id="txtFieldSeasonNumber" layoutX="25.0" layoutY="437.0" promptText="Indtast sæson nummer:*" />
       <TextField fx:id="txtFieldSeasonId" layoutX="25.0" layoutY="472.0" promptText="Indtast sæson id:*" />
    </children>
+   <stylesheets>
+      <URL value="@FrontPageCSS.css" />
+   </stylesheets>
 </AnchorPane>
