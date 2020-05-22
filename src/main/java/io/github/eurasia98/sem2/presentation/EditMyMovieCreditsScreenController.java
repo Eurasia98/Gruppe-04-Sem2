@@ -9,6 +9,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyEvent;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 
 import java.net.URL;
@@ -87,9 +89,38 @@ public class EditMyMovieCreditsScreenController implements Initializable {
     private Hyperlink hlinkNo;
 
     @FXML
-    void IVLogoHandler() {
+    private void ivLogoActionHandler(MouseEvent mouseEvent) {
         App.resetSelects();
         App.switchScene("FrontPage");
+    }
+
+    @FXML
+    private void txtFieldSearchKeyPressHandler(KeyEvent event) {
+        if (event.getCode().toString().equals("ENTER")){
+            ivSearchMouseClickHandler();
+        }
+    }
+
+    @FXML
+    private void ivSearchMouseClickHandler() {
+        if(!txtFieldSearch.getText().isEmpty()) {
+            App.setSearchField(txtFieldSearch.getText());
+            App.switchScene("searchScreen");
+        } else {
+            txtFieldSearch.setStyle("-fx-prompt-text-fill: red");
+        }
+    }
+
+    private void loggedIn(){
+        lblAccount.setText(App.getUserInfo().get(0));
+        Hyperlink myPage = new Hyperlink("Min side");
+        myPage.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                App.switchScene("AccountScreen");
+            }
+        });
+        vBoxAccount.getChildren().add(1, myPage);
     }
 
     @FXML
