@@ -132,6 +132,8 @@ public class MyPersonsScreenController implements Initializable {
 
 
         tvPersons.setItems(observableList);
+
+        loggedIn();
     }
 
     public void resetFields(){

@@ -3,15 +3,18 @@ package io.github.eurasia98.sem2.presentation;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 
+import java.net.URL;
 import java.util.ArrayList;
+import java.util.ResourceBundle;
 
-public class CreateTvProgramController {
+public class CreateTvProgramController implements Initializable {
 
     @FXML
     private ImageView ivLogo;
@@ -116,4 +119,8 @@ public class CreateTvProgramController {
         App.switchScene("MyProductionsScreen");
     }
 
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        loggedIn();
+    }
 }

@@ -108,5 +108,6 @@ public class TvProgramDescriptionScreenController implements Initializable {
             txtAreaDescrption.appendText(App.getCreditSystem().getTvProgramEpisodeDescription(App.getSelectedTvProgramEpisodeToEdit()));
             txtAreaDescrption.setEditable(false);
         } else txtAreaDescrption.setEditable(false);
+        loggedIn();
     }
 }

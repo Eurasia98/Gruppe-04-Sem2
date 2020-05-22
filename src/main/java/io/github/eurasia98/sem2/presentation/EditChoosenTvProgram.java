@@ -284,5 +284,6 @@ public class EditChoosenTvProgram implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         resetFields();
         update();
+        loggedIn();
     }
 }

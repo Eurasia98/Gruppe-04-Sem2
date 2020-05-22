@@ -107,6 +107,6 @@ public class CreateMovieScreenHandler implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
+        loggedIn();
     }
 }

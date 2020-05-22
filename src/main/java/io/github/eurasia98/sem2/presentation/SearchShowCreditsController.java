@@ -107,6 +107,7 @@ public class SearchShowCreditsController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         update();
         txtFieldSearch.clear();
+        loggedIn();
     }
 
     public void update() {

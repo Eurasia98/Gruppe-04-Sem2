@@ -134,5 +134,6 @@ public class EditMyTvSeriesCreditsScreenController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         update();
+        loggedIn();
     }
 }

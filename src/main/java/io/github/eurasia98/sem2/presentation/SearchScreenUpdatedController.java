@@ -131,5 +131,6 @@ public class SearchScreenUpdatedController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         txtFieldSearch.clear();
         update();
+        loggedIn();
     }
 }

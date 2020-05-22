@@ -110,6 +110,7 @@ public class EditMyTvProgramCreditsScreenController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         update();
+        loggedIn();
     }
 
     private void update() {

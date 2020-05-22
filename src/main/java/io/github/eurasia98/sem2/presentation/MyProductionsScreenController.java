@@ -215,6 +215,7 @@ public class MyProductionsScreenController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         update();
         resetFields();
+        loggedIn();
     }
 
     private void resetFields(){

@@ -107,5 +107,7 @@ public class PersonMyCreditsScreenController implements Initializable {
         tvcRoleName.setCellValueFactory(new PropertyValueFactory<>("role_name"));
 
         tvMyCredits.setItems(creditsInfoList);
+
+        loggedIn();
     }
 }

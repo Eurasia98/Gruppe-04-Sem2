@@ -172,6 +172,7 @@ public class EditChoosenTvSeriesController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         resetFields();
         update();
+        loggedIn();
     }
 
     public void resetFields() {

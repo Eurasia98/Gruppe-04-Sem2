@@ -240,5 +240,6 @@ public class CreateTvProgramCreditsController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         resetFields();
+        loggedIn();
     }
 }
