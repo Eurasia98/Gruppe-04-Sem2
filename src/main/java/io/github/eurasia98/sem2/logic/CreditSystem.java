@@ -28,6 +28,11 @@ public class CreditSystem {
       return personManager.insertPerson(new Person(username, password, firstName, lastName));
    }
 
+   public Boolean createNewProducer(String username, String password, String fName, String lName, String email, String productionCompanyName){
+      ProducerManager producerManager = new ProducerManager();
+      return producerManager.saveProducer(new Producer(username, password, fName, lName, email, productionCompanyName));
+   }
+
    public Boolean createNewMovie(String title, String productionId){
       MovieManager movieManager = new MovieManager();
       return movieManager.insertMovie(movieManager.createMovie(title, productionId));

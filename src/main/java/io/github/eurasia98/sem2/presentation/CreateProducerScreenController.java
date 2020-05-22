@@ -22,7 +22,7 @@ public class CreateProducerScreenController implements Initializable {
     private TextField fNameField;
 
     @FXML
-    private Button saveButton;
+    private Button btnSaveProducer;
 
     @FXML
     private TextField lNameField;
@@ -34,21 +34,54 @@ public class CreateProducerScreenController implements Initializable {
     private ImageView ivLogo;
 
     @FXML
+    private TextArea txtAreaResponse;
+
+    @FXML
+    private TextField txtFieldUsername;
+
+    @FXML
+    private TextField txtFieldPassword;
+
+    @FXML
     void IVLogoHandler(MouseEvent event) {
         App.switchScene("FrontPage");
     }
 
     @FXML
-    void saveButtonHandler(ActionEvent event) {
-        createProducer();
+    void btnAvailableUsernameHandler(ActionEvent event) {
+        if (App.getCreditSystem().availableUsername(txtFieldUsername.getText())){
+            txtAreaResponse.clear();
+            txtAreaResponse.setText("Username:"  + txtFieldUsername.getText() + " is available. ");
+        } else {
+            txtAreaResponse.clear();
+            txtAreaResponse.setText("The username: " + txtFieldUsername + " is not available. ");
+        }
+    }
+    @FXML
+    void btnSaveProducerHandler(ActionEvent event) {
+        if (App.getCreditSystem().createNewProducer(txtFieldUsername.getText(),txtFieldPassword.getText(),
+                fNameField.getText(), lNameField.getText(), emailField.getText(), productionCompanyNameField.getText()) == false){
+            updateProducerSuccesful();
+        } else updateProducerUnsuccesful();
+    }
+    //username, password, fName, lName, email, productionCompanyName
+    public void updateProducerSuccesful(){
+        productionCompanyNameField.clear();
+        fNameField.clear();
+        lNameField.clear();
+        emailField.clear();
+        txtAreaResponse.setText("Producer has been succesfully created");
     }
 
-    public void createProducer(){
-
+    public void updateProducerUnsuccesful(){
+        productionCompanyNameField.clear();
+        fNameField.clear();
+        lNameField.clear();
+        emailField.clear();
+        txtAreaResponse.setText("Producer has not been created - something went wrong. ");
     }
-
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        createProducer();
+
     }
 }

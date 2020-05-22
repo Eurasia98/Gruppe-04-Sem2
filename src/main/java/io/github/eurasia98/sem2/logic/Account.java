@@ -6,6 +6,7 @@ public class Account {
     private String username;
     private String password;
     private String accountType;
+    private String email;
 
     public Account(int userId, String username, String password, String accountType) {
         this.userId = userId;
@@ -17,6 +18,12 @@ public class Account {
     public Account(String username, String password) {
         this.username = username;
         this.password = password;
+    }
+
+    public Account(String username, String password, String email) {
+        this.username = username;
+        this.password = password;
+        this.email = email;
     }
 
     public String getUsername() {

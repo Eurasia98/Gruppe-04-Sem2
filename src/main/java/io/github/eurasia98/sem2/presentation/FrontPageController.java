@@ -51,7 +51,7 @@ public class FrontPageController implements Initializable {
 
     @FXML
     void btnLoginHandler(ActionEvent event) {
-
+        App.switchScene("LoginController");
     }
 
     @FXML

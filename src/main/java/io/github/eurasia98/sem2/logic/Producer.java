@@ -21,11 +21,11 @@ public class Producer extends Account {
         this.myProductions = myProductions;
     }
 
-    public Producer(String username, String password, String fName, String lName, String email) {
-        super(username, password);
+    public Producer(String username, String password, String fName, String lName, String email, String productionCompanyName) {
+        super(username, password, email);
         this.fName = fName;
         this.lName = lName;
-        this.email = email;
+        this.productionCompanyName = productionCompanyName;
         super.setAccountType("Producer");
     }
     public Producer(String username, String password, String fName, String lName) {

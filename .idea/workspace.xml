@@ -19,16 +19,16 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ee5fccad-6595-4165-9f51-be05e2812e13" name="Default Changelist" comment="Lavet rettelse i opret person der var blevet påvirket af arbejdet med search. Det virker nu igen. Resetted id counter på account og person så den nu starter med 1. Lavet metoder til løbende at opdatere counteren så den altid tæller fra en højere end højeste værdi. Dette var meningen at være smart hvis man sletter rows, men de er udkommenteret da jeg ikke tror det er smart alligevel, fordi man alligevel ikke umiddelbart kan refactor alle andre rows i table til at være en løbende talserie uden huller hvis man sletter undervejs.">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="ee5fccad-6595-4165-9f51-be05e2812e13" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/github/eurasia98/sem2/logic/Account.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/github/eurasia98/sem2/logic/Account.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/github/eurasia98/sem2/logic/CreditSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/github/eurasia98/sem2/logic/CreditSystem.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/io/github/eurasia98/sem2/logic/Producer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/github/eurasia98/sem2/logic/Producer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/io/github/eurasia98/sem2/logic/ProducerManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/github/eurasia98/sem2/logic/ProducerManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/github/eurasia98/sem2/persistence/DatabaseProducerManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/github/eurasia98/sem2/persistence/DatabaseProducerManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/io/github/eurasia98/sem2/presentation/CreateProducerScreenController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/github/eurasia98/sem2/presentation/CreateProducerScreenController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/io/github/eurasia98/sem2/presentation/FrontPageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/github/eurasia98/sem2/presentation/FrontPageController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/io/github/eurasia98/sem2/presentation/CreatePersonScreen.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/io/github/eurasia98/sem2/presentation/CreatePersonScreen.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/io/github/eurasia98/sem2/presentation/CreateProducerScene.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/io/github/eurasia98/sem2/presentation/CreateProducerScene.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/io/github/eurasia98/sem2/presentation/FrontPage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/io/github/eurasia98/sem2/presentation/FrontPage.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -89,6 +89,36 @@
         <item name="public: schema" type="983ebcf7:PgImplModel$Schema" />
         <item name="tables" type="d4e8921:DatabaseStructure$FamilyGroup" />
       </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="Krediteringssystem@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="databases" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="Krediteringssystem: database" type="162271b6:PgImplModel$Database" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="public: schema" type="983ebcf7:PgImplModel$Schema" />
+        <item name="tables" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="accounts: table" type="69fad909:PgImplModel$LocalTable" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="Krediteringssystem@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="databases" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="Krediteringssystem: database" type="162271b6:PgImplModel$Database" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="public: schema" type="983ebcf7:PgImplModel$Schema" />
+        <item name="tables" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="persons: table" type="69fad909:PgImplModel$LocalTable" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="Krediteringssystem@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="databases" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="Krediteringssystem: database" type="162271b6:PgImplModel$Database" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="public: schema" type="983ebcf7:PgImplModel$Schema" />
+        <item name="tables" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="producers: table" type="69fad909:PgImplModel$LocalTable" />
+      </path>
     </expand>
     <select />
   </component>
@@ -114,13 +144,6 @@
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-  </component>
-  <component name="IgnoredFileRootStore">
-    <option name="generatedRoots">
-      <set>
-        <option value="C:\Users\emilo\IdeaProjects\Gruppe-04-Sem2\.idea" />
-      </set>
-    </option>
   </component>
   <component name="ProjectCodeStyleSettingsMigration">
     <option name="version" value="1" />
@@ -190,19 +213,6 @@
       <module name="Gruppe-04-Sem2" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="io.github.eurasia98.sem2.presentation.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="io.github.eurasia98.sem2.presentation.App" />
-      <module name="Gruppe-04-Sem2" />
-      <extension name="coverage">
-        <pattern>
           <option name="PATTERN" value="io.github.eurasia98.sem2.presentation.accountPresentation.*" />
           <option name="ENABLED" value="true" />
         </pattern>
@@ -224,7 +234,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Main" type="Application" factoryName="Application" nameIsGenerated="true">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="io.github.eurasia98.sem2.presentation.Main" />
       <module name="Gruppe-04-Sem2" />
       <extension name="coverage">
@@ -276,17 +286,33 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.Presentation.main" />
+      <module name="Gruppe-04-Sem2" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.Logic.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <list>
-      <item itemvalue="Application.Main" />
       <item itemvalue="Application.App" />
-      <item itemvalue="Application.App (1)" />
+      <item itemvalue="Application.main" />
       <item itemvalue="Application.CreditSystem" />
+      <item itemvalue="Application.Main" />
+      <item itemvalue="Application.App (1)" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Main" />
+        <item itemvalue="Application.CreditSystem" />
         <item itemvalue="Application.App (1)" />
         <item itemvalue="Application.App" />
-        <item itemvalue="Application.CreditSystem" />
+        <item itemvalue="Application.main" />
       </list>
     </recent_temporary>
   </component>
@@ -309,6 +335,9 @@
       <workItem from="1588938849339" duration="24853000" />
       <workItem from="1588970527859" duration="1306000" />
       <workItem from="1589011315803" duration="33753000" />
+      <workItem from="1589546392337" duration="1600000" />
+      <workItem from="1589849606908" duration="3823000" />
+      <workItem from="1590151089285" duration="10312000" />
     </task>
     <task id="LOCAL-00001" summary="Indsat lidt FXML docs og lidt klasser. Små commits, og der er testet at programmet stadig kører">
       <created>1587205027592</created>
@@ -608,7 +637,7 @@
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="2" />
+    <option name="version" value="1" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -657,22 +686,22 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="654" y="275" key="#Notifications/0.0.1536.824@0.0.1536.824" timestamp="1588970697147" />
-    <state x="361" y="71" key="#Project_Structure" timestamp="1589269677023">
+    <state x="361" y="71" key="#Project_Structure" timestamp="1589548561482">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="361" y="71" key="#Project_Structure/0.0.1536.824@0.0.1536.824" timestamp="1589269677023" />
-    <state x="407" y="42" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1589297028165">
+    <state x="361" y="71" key="#Project_Structure/0.0.1536.824@0.0.1536.824" timestamp="1589548561482" />
+    <state x="204" y="36" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1589548606162">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="407" y="42" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824@0.0.1536.824" timestamp="1589297028165" />
-    <state x="574" y="119" key="#com.intellij.ide.util.MemberChooser" timestamp="1589025121453">
+    <state x="204" y="36" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824@0.0.1536.824" timestamp="1589548606162" />
+    <state x="574" y="119" key="#com.intellij.ide.util.MemberChooser" timestamp="1590162754103">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="574" y="119" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1589025121453" />
-    <state x="682" y="171" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1589297024879">
+    <state x="574" y="119" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1590162754103" />
+    <state x="479" y="165" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1589548602363">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="682" y="171" key="#com.intellij.ide.util.TreeClassChooserDialog/0.0.1536.824@0.0.1536.824" timestamp="1589297024879" />
+    <state x="479" y="165" key="#com.intellij.ide.util.TreeClassChooserDialog/0.0.1536.824@0.0.1536.824" timestamp="1589548602363" />
     <state x="571" y="304" width="608" height="220" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1588958117677">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -690,10 +719,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="499" y="159" key="#com.intellij.refactoring.typeMigration.ui.FailedConversionsDialog/0.0.1536.824@0.0.1536.824" timestamp="1589029306933" />
-    <state x="0" y="0" key="CommitChangelistDialog2" timestamp="1589297345401">
+    <state x="295" y="0" key="CommitChangelistDialog2" timestamp="1589101825781">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="0" y="0" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1589297345401" />
+    <state x="295" y="0" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1589101825781" />
     <state x="147" y="65" key="DiffContextDialog" timestamp="1587406925996">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -702,38 +731,38 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="549" y="170" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1588838391202" />
-    <state width="1493" height="225" key="GridCell.Tab.0.bottom" timestamp="1589297345614">
+    <state width="1493" height="167" key="GridCell.Tab.0.bottom" timestamp="1590163833828">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="225" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1589297345614" />
-    <state width="1493" height="225" key="GridCell.Tab.0.center" timestamp="1589297345611">
+    <state width="1493" height="167" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1590163833828" />
+    <state width="1493" height="167" key="GridCell.Tab.0.center" timestamp="1590163833828">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="225" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1589297345611" />
-    <state width="1493" height="225" key="GridCell.Tab.0.left" timestamp="1589297345610">
+    <state width="1493" height="167" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1590163833827" />
+    <state width="1493" height="167" key="GridCell.Tab.0.left" timestamp="1590163833827">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="225" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1589297345610" />
-    <state width="1493" height="225" key="GridCell.Tab.0.right" timestamp="1589297345612">
+    <state width="1493" height="167" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1590163833827" />
+    <state width="1493" height="167" key="GridCell.Tab.0.right" timestamp="1590163833828">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="225" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1589297345612" />
-    <state width="1493" height="261" key="GridCell.Tab.1.bottom" timestamp="1589297211965">
+    <state width="1493" height="167" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1590163833828" />
+    <state width="1493" height="167" key="GridCell.Tab.1.bottom" timestamp="1590163833368">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="261" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1589297211965" />
-    <state width="1493" height="261" key="GridCell.Tab.1.center" timestamp="1589297211965">
+    <state width="1493" height="167" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1590163833368" />
+    <state width="1493" height="167" key="GridCell.Tab.1.center" timestamp="1590163833368">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="261" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1589297211965" />
-    <state width="1493" height="261" key="GridCell.Tab.1.left" timestamp="1589297211965">
+    <state width="1493" height="167" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1590163833368" />
+    <state width="1493" height="167" key="GridCell.Tab.1.left" timestamp="1590163833368">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="261" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1589297211965" />
-    <state width="1493" height="261" key="GridCell.Tab.1.right" timestamp="1589297211965">
+    <state width="1493" height="167" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1590163833368" />
+    <state width="1493" height="167" key="GridCell.Tab.1.right" timestamp="1590163833368">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="261" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1589297211965" />
+    <state width="1493" height="167" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1590163833368" />
     <state width="189" height="457" key="HiddenNamespacesPopup" timestamp="1588674089034">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -742,14 +771,14 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="299" y="67" key="Maven.ArtifactSearchDialog/0.0.1536.824@0.0.1536.824" timestamp="1588837856822" />
-    <state x="40" y="65" width="1486" height="694" key="MergeDialog" timestamp="1588524504992">
+    <state x="40" y="65" width="1486" height="694" key="MergeDialog" timestamp="1589849703858">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="40" y="65" width="1486" height="694" key="MergeDialog/0.0.1536.824@0.0.1536.824" timestamp="1588524504992" />
-    <state x="481" y="130" width="882" height="580" key="MultipleFileMergeDialog" timestamp="1589269635155">
+    <state x="40" y="65" width="1486" height="694" key="MergeDialog/0.0.1536.824@0.0.1536.824" timestamp="1589849703858" />
+    <state x="481" y="130" width="882" height="580" key="MultipleFileMergeDialog" timestamp="1589849710125">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="481" y="130" key="MultipleFileMergeDialog/0.0.1536.824@0.0.1536.824" timestamp="1589269635155" />
+    <state x="481" y="130" key="MultipleFileMergeDialog/0.0.1536.824@0.0.1536.824" timestamp="1589849710125" />
     <state x="359" y="126" key="RollbackChangesDialog" timestamp="1587326351396">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -770,34 +799,30 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="566" y="78" key="com.intellij.database.dbimport.ImportDialog/0.0.1536.824@0.0.1536.824" timestamp="1588839667566" />
-    <state x="734" y="99" width="577" height="663" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog" timestamp="1589120992998">
+    <state x="66" y="62" width="687" height="670" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog" timestamp="1590163970973">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="734" y="99" width="577" height="663" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog/0.0.1536.824@0.0.1536.824" timestamp="1589120992998" />
-    <state x="93" y="93" width="1350" height="638" key="com.intellij.dvcs.ui.CompareBranchesDialog" timestamp="1589269834860">
+    <state x="66" y="62" width="687" height="670" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog/0.0.1536.824@0.0.1536.824" timestamp="1590163970973" />
+    <state x="477" y="240" key="com.intellij.ide.util.TipDialog" timestamp="1590151918321">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="93" y="93" width="1350" height="638" key="com.intellij.dvcs.ui.CompareBranchesDialog/0.0.1536.824@0.0.1536.824" timestamp="1589269834860" />
-    <state x="477" y="240" key="com.intellij.ide.util.TipDialog" timestamp="1588023341565">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="477" y="240" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1588023341565" />
+    <state x="477" y="240" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1590151918321" />
     <state x="414" y="30" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1587220443604">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="414" y="30" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1536.824@0.0.1536.824" timestamp="1587220443604" />
-    <state x="580" y="331" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1589297350478">
+    <state x="580" y="331" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1587215798689">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="580" y="331" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.824@0.0.1536.824" timestamp="1589297350478" />
+    <state x="580" y="331" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.824@0.0.1536.824" timestamp="1587215798689" />
     <state x="474" y="46" width="588" height="732" key="find.popup" timestamp="1588829689455">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="474" y="46" width="588" height="732" key="find.popup/0.0.1536.824@0.0.1536.824" timestamp="1588829689455" />
-    <state x="370" y="128" key="git4idea.branch.GitSmartOperationDialog" timestamp="1587724701730">
+    <state x="370" y="128" key="git4idea.branch.GitSmartOperationDialog" timestamp="1589849687081">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="370" y="128" key="git4idea.branch.GitSmartOperationDialog/0.0.1536.824@0.0.1536.824" timestamp="1587724701730" />
+    <state x="370" y="128" key="git4idea.branch.GitSmartOperationDialog/0.0.1536.824@0.0.1536.824" timestamp="1589849687081" />
     <state x="392" y="216" key="git4idea.merge.GitPullDialog" timestamp="1588971394038">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -806,14 +831,14 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="209" y="78" key="new project wizard/0.0.1536.824@0.0.1536.824" timestamp="1588023437580" />
-    <state x="475" y="160" key="refactoring.ChangeSignatureDialog" timestamp="1588937954620">
+    <state x="475" y="82" key="refactoring.ChangeSignatureDialog" timestamp="1590162610636">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="475" y="160" key="refactoring.ChangeSignatureDialog/0.0.1536.824@0.0.1536.824" timestamp="1588937954620" />
-    <state x="425" y="187" key="run.anything.popup" timestamp="1588949366129">
+    <state x="475" y="82" key="refactoring.ChangeSignatureDialog/0.0.1536.824@0.0.1536.824" timestamp="1590162610636" />
+    <state x="425" y="187" key="run.anything.popup" timestamp="1589852063022">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="425" y="187" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1588949366129" />
+    <state x="425" y="187" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1589852063022" />
     <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1587671602782">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -837,11 +862,8 @@
     <SUITE FILE_PATH="coverage/Gruppe_04_Sem2$Main__1_.ic" NAME="Main (1) Coverage Results" MODIFIED="1588828354836" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>io.github.eurasia98.sem2.presentation.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/Gruppe_04_Sem2$App.ic" NAME="App Coverage Results" MODIFIED="1589269773272" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>org.Logic.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/Gruppe_04_Sem2$Main.ic" NAME="Main Coverage Results" MODIFIED="1589297211782" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>org.Presentation.*</FILTER>
+    <SUITE FILE_PATH="coverage/Gruppe_04_Sem2$Main.ic" NAME="Main Coverage Results" MODIFIED="1588828741293" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>io.github.eurasia98.sem2.presentation.*</FILTER>
     </SUITE>
   </component>
 </project>
