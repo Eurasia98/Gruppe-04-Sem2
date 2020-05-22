@@ -8,6 +8,8 @@
 <?import javafx.scene.layout.AnchorPane?>
 
 <?import java.net.URL?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.Label?>
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="io.github.eurasia98.sem2.presentation.EditMyTvSeriesCreditsScreenController">
    <children>
       <TableView fx:id="tvCredits" layoutX="7.0" layoutY="242.0" prefHeight="499.0" prefWidth="800.0" AnchorPane.bottomAnchor="1.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="100.0">
@@ -22,6 +24,11 @@
             <Image url="@images/TV2_logo.png" />
          </image>
       </ImageView>
+       <VBox fx:id="vBoxAccount" layoutX="690.0" layoutY="10.0" prefHeight="50.0" prefWidth="100.0">
+           <children>
+               <Label fx:id="lblAccount" />
+           </children>
+       </VBox>
       <Button fx:id="btnMyPage" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#btnMyPageHandler" text="Min side" />
       <Button fx:id="btnAddCredits" layoutX="14.0" layoutY="64.0" mnemonicParsing="false" onAction="#btnAddCreditsHandler" text="Tilføj kreditering" />
       <Button fx:id="btnDeleteCredit" layoutX="143.0" layoutY="64.0" mnemonicParsing="false" onAction="#btnDeleteCreditHandler" text="Slet kreditering" />

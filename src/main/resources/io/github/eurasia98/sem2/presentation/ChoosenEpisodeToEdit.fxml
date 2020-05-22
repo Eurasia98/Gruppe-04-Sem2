@@ -7,8 +7,9 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
-
 <?import java.net.URL?>
+<?import javafx.scene.layout.VBox?>
+
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="io.github.eurasia98.sem2.presentation.EditChoosenEpisodeController">
    <children>
       <TextArea fx:id="txtAreaDescription" layoutX="9.0" layoutY="246.0" prefHeight="354.0" prefWidth="791.0" promptText="Beskrivelse" />
@@ -17,6 +18,11 @@
             <Image url="@images/TV2_logo.png" />
          </image>
       </ImageView>
+      <VBox fx:id="vBoxAccount" layoutX="690.0" layoutY="10.0" prefHeight="50.0" prefWidth="100.0">
+         <children>
+            <Label fx:id="lblAccount" />
+         </children>
+      </VBox>
       <Button fx:id="btnMyPage" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#btnMyPageHandler" text="Min side" />
       <Button fx:id="btnChangeDescription" layoutX="20.0" layoutY="200.0" mnemonicParsing="false" onAction="#btnChangeDescriptionHandler" text="Ændre beskrivelse" />
       <Button fx:id="btnSaveChanges" layoutX="148.0" layoutY="200.0" mnemonicParsing="false" onAction="#btnSaveChangesHandler" text="Gem ændringer" />
