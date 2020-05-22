@@ -5,14 +5,31 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.VBox;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 
 public class CreateProducerScreenController implements Initializable {
+
+    @FXML
+    private ImageView ivLogo;
+
+    @FXML
+    private TextField txtFieldSearch;
+
+    @FXML
+    private ImageView ivSearch;
+
+    @FXML
+    private Label lblAccount;
+
+    @FXML
+    private VBox vBoxAccount;
 
     @FXML
     private TextField fNameField;
@@ -22,9 +39,6 @@ public class CreateProducerScreenController implements Initializable {
 
     @FXML
     private TextField lNameField;
-
-    @FXML
-    private ImageView ivLogo;
 
     @FXML
     void ivLogoActionHandler(MouseEvent event) {

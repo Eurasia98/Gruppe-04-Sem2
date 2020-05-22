@@ -3,15 +3,32 @@ package io.github.eurasia98.sem2.presentation;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.VBox;
 
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class CreateSeasonController implements Initializable {
+
+    @FXML
+    private ImageView ivLogo;
+
+    @FXML
+    private TextField txtFieldSearch;
+
+    @FXML
+    private ImageView ivSearch;
+
+    @FXML
+    private Label lblAccount;
+
+    @FXML
+    private VBox vBoxAccount;
 
     @FXML
     private TextField txtFieldTitle;
@@ -27,9 +44,6 @@ public class CreateSeasonController implements Initializable {
 
     @FXML
     private Button btnSave;
-
-    @FXML
-    private ImageView ivLogo;
 
     @FXML
     private TextArea txtAreaDisplayInfo;

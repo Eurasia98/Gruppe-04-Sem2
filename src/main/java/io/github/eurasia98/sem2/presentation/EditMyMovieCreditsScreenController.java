@@ -9,14 +9,28 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.VBox;
 
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class EditMyMovieCreditsScreenController implements Initializable {
+
     @FXML
-    private ImageView IVLogo;
+    private ImageView ivLogo;
+
+    @FXML
+    private TextField txtFieldSearch;
+
+    @FXML
+    private ImageView ivSearch;
+
+    @FXML
+    private Label lblAccount;
+
+    @FXML
+    private VBox vBoxAccount;
 
     @FXML
     private Button btnMyPage;

@@ -4,21 +4,32 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.layout.VBox;
 
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class SearchShowCreditsController implements Initializable {
+
     @FXML
     private ImageView ivLogo;
+
+    @FXML
+    private TextField txtFieldSearch;
+
+    @FXML
+    private ImageView ivSearch;
+
+    @FXML
+    private Label lblAccount;
+
+    @FXML
+    private VBox vBoxAccount;
 
     @FXML
     private TableView<ModelTableSearchCredits> tvMyCredits;
@@ -31,12 +42,6 @@ public class SearchShowCreditsController implements Initializable {
 
     @FXML
     private TableColumn<ModelTableSearchCredits, String> tvcRoleType;
-
-    @FXML
-    private TextField txtFieldSearch;
-
-    @FXML
-    private ImageView ivSearch;
 
     @FXML
     void ivLogoHandler() {
