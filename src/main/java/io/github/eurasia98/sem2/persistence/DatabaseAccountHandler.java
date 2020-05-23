@@ -342,4 +342,34 @@ public class DatabaseAccountHandler {
             throwables.printStackTrace();
         } return null;
     }
+
+    public String getAccountUsernameWithId(int id) {
+        connection = DatabaseAccessHandler.getConnection();
+
+        try {
+            PreparedStatement getStatement = connection.prepareStatement(
+                    "SELECT username FROM accounts WHERE id = ?");
+            getStatement.setInt(1, id);
+            ResultSet getResultSet = getStatement.executeQuery();
+            if (getResultSet.next()){
+                return getResultSet.getString(1);
+            } else return null;
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        } return null;
+    }
+
+    public void editAccountPersonEmail(String newMail, int accountId) {
+        connection = DatabaseAccessHandler.getConnection();
+
+        try {
+            PreparedStatement getStatement = connection.prepareStatement(
+                    "UPDATE accounts SET email = ? WHERE id = ?");
+            getStatement.setString(1, newMail);
+            getStatement.setInt(2, accountId);
+            getStatement.execute();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+    }
 }

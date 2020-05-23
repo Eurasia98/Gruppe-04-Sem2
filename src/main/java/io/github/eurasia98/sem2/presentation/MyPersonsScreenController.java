@@ -93,11 +93,26 @@ public class MyPersonsScreenController implements Initializable {
 
     @FXML
     void btnEditEmailHandler() {
-
+        resetFields();
+        String username = App.getCreditSystem().getUsernameWithId(Integer.parseInt(tvPersons.getSelectionModel().getSelectedItem().getAccount_id()));
+        String currentEmail = App.getCreditSystem().getEmail(username);
+        txtFieldCurrentEmail.setVisible(true);
+        txtFieldCurrentEmail.setText(currentEmail);
+        txtFieldCurrentEmail.setEditable(false);
+        txtFieldNewEmail.setVisible(true);
+        btnSaveChanges.setVisible(true);
     }
 
     @FXML
     void btnSaveChangesHandler() {
+        if (!txtFieldNewEmail.getText().isEmpty()){
+            int accountId = Integer.parseInt(tvPersons.getSelectionModel().getSelectedItem().getAccount_id());
+            App.getCreditSystem().editAccountPersonEmail(txtFieldNewEmail.getText(), accountId);
+            update();
+            resetFields();
+        } else {
+            txtFieldNewEmail.setStyle("-fx-prompt-text-fill: red");
+        }
 
     }
 
@@ -116,12 +131,23 @@ public class MyPersonsScreenController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         resetFields();
+        update();
+        loggedIn();
+    }
 
+    public void resetFields(){
+        txtFieldCurrentEmail.clear();
+        txtFieldCurrentEmail.setVisible(false);
+        txtFieldNewEmail.clear();
+        txtFieldNewEmail.setVisible(false);
+        btnSaveChanges.setVisible(false);
+    }
+
+    private void update() {
         ObservableList<ModelTableMyPersons> observableList = FXCollections.observableArrayList();
         ArrayList<String[]> myPersons = App.getCreditSystem().getMyPersons();
         for (String[] s : myPersons){
             observableList.add(new ModelTableMyPersons(s[0], s[1], s[2], s[3], s[4]));
-            System.out.println(s[2]);
         }
 
         tvcAccount_id.setCellValueFactory(new PropertyValueFactory<>("account_id"));
@@ -132,15 +158,5 @@ public class MyPersonsScreenController implements Initializable {
 
 
         tvPersons.setItems(observableList);
-
-        loggedIn();
-    }
-
-    public void resetFields(){
-        txtFieldCurrentEmail.clear();
-        txtFieldCurrentEmail.setVisible(false);
-        txtFieldNewEmail.clear();
-        txtFieldNewEmail.setVisible(false);
-        btnSaveChanges.setVisible(false);
     }
 }

@@ -447,4 +447,24 @@ public class CreditSystem {
         DatabaseAccountHandler databaseAccountHandler = new DatabaseAccountHandler();
         return databaseAccountHandler.getAccountId(username);
     }
+
+    public String getUsername(String account_id) {
+       DatabaseAccountHandler databaseAccountHandler = new DatabaseAccountHandler();
+       return databaseAccountHandler.getAccountUsername(account_id);
+    }
+
+    public String getEmail(String username) {
+       DatabaseAccountHandler databaseAccountHandler = new DatabaseAccountHandler();
+       return databaseAccountHandler.getEmail(username);
+    }
+
+    public String getUsernameWithId(int id) {
+       DatabaseAccountHandler databaseAccountHandler = new DatabaseAccountHandler();
+       return databaseAccountHandler.getAccountUsernameWithId(id);
+    }
+
+    public void editAccountPersonEmail(String newMail, int id) {
+       DatabaseAccountHandler databaseAccountHandler = new DatabaseAccountHandler();
+       databaseAccountHandler.editAccountPersonEmail(newMail, id);
+    }
 }
