@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.net.URL?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
@@ -7,7 +8,6 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<?import java.net.URL?>
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="io.github.eurasia98.sem2.presentation.CreatePersonScreenController">
    <children>
       <ImageView fx:id="IVLogo" fitHeight="66.0" fitWidth="200.0" layoutX="226.0" onMouseClicked="#IVLogoHandler" pickOnBounds="true" preserveRatio="true">
@@ -25,7 +25,7 @@
       <TextField fx:id="txtFieldProductionId" layoutX="29.0" layoutY="522.0" prefHeight="26.0" prefWidth="135.0" promptText="Produktions Id" />
       <TextField fx:id="txtFieldRole" layoutX="251.0" layoutY="523.0" promptText="Rolletype" />
       <TextField fx:id="txtFieldRoleName" layoutX="455.0" layoutY="523.0" promptText="Rollenavn" />
-      <TextArea fx:id="txtArea" editable="false" layoutX="522.0" layoutY="200.0" prefHeight="200.0" prefWidth="200.0" promptText="Email samt produktionid, rolletype og rollenavn er ikke obligatoriske. De tre sidste vil tilføje en kreditering på personen." />
+      <TextArea fx:id="txtArea" editable="false" layoutX="459.0" layoutY="143.0" prefHeight="219.0" prefWidth="334.0" promptText="Email samt produktionid, rolletype og rollenavn er ikke obligatoriske. De tre sidste vil tilføje en kreditering på personen." />
    </children>
    <stylesheets>
       <URL value="@FrontPageCSS.css" />

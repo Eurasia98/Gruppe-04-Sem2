@@ -88,16 +88,18 @@ public class CreatePersonScreenController implements Initializable {
                 personInfo.add(txtFieldFirstName.getText());
                 personInfo.add(txtFieldLastName.getText());
                 if (App.getCreditSystem().createNewPerson(personInfo) == true) {
-                    ArrayList<String> creditsInfo = App.getCreditSystem().getPersonInfo(txtFieldUsername.getText());
-                    creditsInfo.add(creditsInfo.get(1));
-                    creditsInfo.add(App.getSelectedProductionToEdit());
+                    ArrayList<String> creditsInfo = new ArrayList<>();
+                    creditsInfo.add(App.getCreditSystem().getAnAccountId(txtFieldUsername.getText()));
+                    creditsInfo.add(txtFieldProductionId.getText());
                     creditsInfo.add(txtFieldRole.getText());
                     creditsInfo.add(txtFieldRoleName.getText());
                     if (App.getCreditSystem().createNewCredit(creditsInfo) == true) {
-                        updateSuccesfullCreation();
-                    } else updateUnsuccesfullCreation();
+                        resetFields();
+                        txtArea.appendText("Personen blev oprettet. ");
+                    } else resetFields();
                 } else {
-                    updateUnsuccesfullCreation();
+                    resetFields();
+                    txtArea.appendText("Personen blev ikke oprettet. Der skete desværre en fejl. ");
                 }
             } else if (!txtFieldUsername.getText().isEmpty() && !txtFieldPassword.getText().isEmpty() &&
                     !txtFieldFirstName.getText().isEmpty() && !txtFieldLastName.getText().isEmpty() &&
@@ -111,9 +113,11 @@ public class CreatePersonScreenController implements Initializable {
                 personInfo.add(txtFieldFirstName.getText());
                 personInfo.add(txtFieldLastName.getText());
                 if (App.getCreditSystem().createNewPerson(personInfo)) {
-                    updateSuccesfullCreation();
+                    resetFields();
+                    txtArea.appendText("Personen blev oprettet. \n Se personen under 'mine personer'. ");
                 } else {
-                    updateUnsuccesfullCreation();
+                    resetFields();
+                    txtArea.appendText("Personen blev ikke oprettet. \n Der skete desværre en fejl. ");
                 }
             } else if (!txtFieldUsername.getText().isEmpty() && !txtFieldPassword.getText().isEmpty() &&
                     !txtFieldFirstName.getText().isEmpty() && !txtFieldLastName.getText().isEmpty() &&
@@ -127,12 +131,15 @@ public class CreatePersonScreenController implements Initializable {
                 personInfo.add(txtFieldFirstName.getText());
                 personInfo.add(txtFieldLastName.getText());
                 if (App.getCreditSystem().createNewPerson(personInfo) == true) {
-                    updateSuccesfullCreation();
+                    resetFields();
+                    txtArea.appendText("Personen blev oprettet");
                 } else {
-                    updateUnsuccesfullCreation();
+                    resetFields();
+                    txtArea.appendText("Personen blev ikke oprettet. \n Der skete desværre en fejl. ");
                 }
             } else {
-                updateUnsuccesfullCreation();
+                resetFields();
+                txtArea.appendText("Der skete desværre en fejl. ");
             }
         } else {
             txtArea.clear();
@@ -140,7 +147,7 @@ public class CreatePersonScreenController implements Initializable {
         }
     }
 
-    private void updateSuccesfullCreation(){
+    private void resetFields(){
         txtFieldUsername.clear();
         txtFieldPassword.clear();
         txtFieldFirstName.clear();
@@ -149,20 +156,7 @@ public class CreatePersonScreenController implements Initializable {
         txtFieldProductionId.clear();
         txtFieldRole.clear();
         txtFieldRoleName.clear();
-        txtArea.setText("Personen er blevet oprettet i systemet. ");
-    }
-
-    private void updateUnsuccesfullCreation(){
-        txtFieldUsername.clear();
-        txtFieldPassword.clear();
-        txtFieldFirstName.clear();
-        txtFieldLastName.clear();
-        txtFieldEmail.clear();
-        txtFieldProductionId.clear();
-        txtFieldRole.clear();
-        txtFieldRoleName.clear();
-        txtArea.setText("Personen er ikke blevet oprettet i systemet - Udfyld venligst alle relevante felter. \n " +
-                "Alle felter omkring en kreditering skal fyldes hvis en kreditering skal oprettes. ");
+        txtArea.clear();
     }
 
     @Override

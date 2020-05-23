@@ -46,8 +46,7 @@ public class Account {
     public int getId(){ return id; }
 
     public String getEmail() {
-        DatabaseAccountHandler databaseAccountHandler = new DatabaseAccountHandler();
-        return databaseAccountHandler.getEmail(CreditSystem.getAccount().getUsername());
+        return this.email;
     }
 
     public void setUsername(String username) { this.username = username; }

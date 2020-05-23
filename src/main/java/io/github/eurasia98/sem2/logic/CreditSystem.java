@@ -319,7 +319,7 @@ public class CreditSystem {
         finalList.add(creditsInfo.get(0));
         finalList.add(creditsInfo.get(1));
         finalList.add(creditsInfo.get(2));
-        return databaseCreditsManager.insertTvProgramCredits(creditsInfo);
+        return databaseCreditsManager.insertTvProgramCredits(finalList);
     }
 
     public boolean createNewTvProgramCreditAndPerson(ArrayList<String> creditsInfo) {
@@ -467,9 +467,6 @@ public class CreditSystem {
         } catch (java.lang.NullPointerException e){
             return null;
         }
-
-
-
     }
 
     public String getAnAccountId(String username) {

@@ -57,8 +57,13 @@ public class FrontPageController implements Initializable {
     // Stores content of txtFieldSearch as a static variable in App
     @FXML
     private void ivSearchMouseClickHandler() {
-        App.setSearchField(txtFieldSearch.getText());
-        App.switchScene("SearchScreenUpdatedScreen");
+        if (!txtFieldSearch.getText().isEmpty()){
+            App.setSearchField(txtFieldSearch.getText());
+            App.switchScene("SearchScreenUpdatedScreen");
+        } else {
+            txtFieldSearch.clear();
+            txtFieldSearch.setStyle("-fx-prompt-text-fill: red");
+        }
     }
 
     // Enables search by pressing return key
