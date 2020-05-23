@@ -16,9 +16,8 @@
       <TextField fx:id="txtFieldTitle" layoutX="69.0" layoutY="145.0" promptText="Indsæt sæson titel: *" />
       <TextField fx:id="txtFieldSeasonNumber" layoutX="251.0" layoutY="145.0" promptText="Indsæt sæson nummer: *" />
       <TextField fx:id="txtFieldSeasonId" layoutX="444.0" layoutY="145.0" promptText="Indsæt sæson id: *" />
-      <Button fx:id="btnMyPage" layoutX="8.0" layoutY="1.0" mnemonicParsing="false" onAction="#btnMyPageHandler" text="Min side" />
       <Button fx:id="btnSave" layoutX="549.0" layoutY="240.0" mnemonicParsing="false" onAction="#btnSaveHandler" text="Gem" />
-      <ImageView fx:id="ivLogo" fitHeight="150.0" fitWidth="200.0" layoutX="593.0" layoutY="1.0" onMouseClicked="#ivLogoHandler" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="ivLogo" fitHeight="50.0" fitWidth="150.0" layoutX="2.0" layoutY="2.0" onMousePressed="#ivLogoActionHandler" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@images/TV2_logo.png" />
          </image>

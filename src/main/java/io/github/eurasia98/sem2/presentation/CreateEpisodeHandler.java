@@ -43,9 +43,6 @@ public class CreateEpisodeHandler implements Initializable {
     private TextField txtFieldEpisodeId;
 
     @FXML
-    private Button btnMyPage;
-
-    @FXML
     private Button btnSave;
 
     @FXML
@@ -80,11 +77,6 @@ public class CreateEpisodeHandler implements Initializable {
             }
         });
         vBoxAccount.getChildren().add(1, myPage);
-    }
-
-    @FXML
-    void btnMyPageHandler() {
-        App.switchScene("AccountScreen");
     }
 
     @FXML

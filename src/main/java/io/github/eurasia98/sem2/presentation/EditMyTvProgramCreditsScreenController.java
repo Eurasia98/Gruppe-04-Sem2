@@ -43,10 +43,6 @@ public class EditMyTvProgramCreditsScreenController implements Initializable {
     @FXML
     private TableColumn<ModelTableEditMyTvProgramCredits, String> tvcRoleType;
 
-
-    @FXML
-    private Button btnMyPage;
-
     @FXML
     private Button btnAddCredits;
 
@@ -100,11 +96,6 @@ public class EditMyTvProgramCreditsScreenController implements Initializable {
     @FXML
     void btnAddCreditsHandler() {
         App.switchScene("CreateTvProgramCreditsScreen");
-    }
-
-    @FXML
-    void btnMyPageHandler() {
-        App.switchScene("AccountScreen");
     }
 
     @Override

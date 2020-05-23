@@ -15,7 +15,7 @@
 <?import javafx.scene.control.Label?>
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="io.github.eurasia98.sem2.presentation.MyProductionsScreenController">
    <children>
-      <ImageView fx:id="IVLogo" fitHeight="150.0" fitWidth="200.0" layoutX="86.0" onMouseClicked="#IVLogoHandler" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="ivLogo" fitHeight="50.0" fitWidth="150.0" layoutX="2.0" layoutY="2.0" onMousePressed="#ivLogoActionHandler" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@images/TV2_logo.png" />
          </image>
@@ -40,7 +40,6 @@
             <Button fx:id="btnWatchDetails" mnemonicParsing="false" onAction="#btnWatchDetailsHandler" text="Vis detaljer" />
          </children>
       </HBox>
-      <Button fx:id="btnMyPage" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#btnMyPageHandler" text="Min side" />
       <HBox layoutX="8.0" layoutY="555.0" prefHeight="34.0" prefWidth="534.0">
          <children>
             <TextField fx:id="txtFieldCurrentProductionId" promptText="Nuværende id" />

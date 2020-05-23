@@ -16,7 +16,7 @@
       <TextArea fx:id="txtAreaDescription" layoutX="29.0" layoutY="181.0" prefHeight="405.0" prefWidth="484.0" promptText="Indsæt beskrivelse:" />
       <TextField fx:id="txtFieldEpisodeNumber" layoutX="208.0" layoutY="137.0" prefHeight="26.0" prefWidth="174.0" promptText="Indsæt episode nummer: *" />
       <TextField fx:id="txtFieldEpisodeId" layoutX="432.0" layoutY="137.0" promptText="Indsæt episode id: *" />
-      <ImageView fx:id="ivLogo" fitHeight="150.0" fitWidth="200.0" layoutX="592.0" onMouseClicked="#ivLogoHandler" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="ivLogo" fitHeight="50.0" fitWidth="150.0" layoutX="2.0" layoutY="2.0" onMouseClicked="#ivLogoActionHandler" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@images/TV2_logo.png" />
          </image>
@@ -26,7 +26,6 @@
             <Label fx:id="lblAccount" />
          </children>
       </VBox>
-      <Button fx:id="btnMyPage" layoutX="3.0" layoutY="1.0" mnemonicParsing="false" onAction="#btnMyPageHandler" text="Min side" />
       <Button fx:id="btnSave" layoutX="529.0" layoutY="201.0" mnemonicParsing="false" onAction="#btnSaveHandler" text="Gem" />
    </children>
    <stylesheets>

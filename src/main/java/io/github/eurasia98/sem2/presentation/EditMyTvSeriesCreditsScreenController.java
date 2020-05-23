@@ -47,9 +47,6 @@ public class EditMyTvSeriesCreditsScreenController implements Initializable {
     private TableColumn<ModelTableEditMyTvSeriesCredits, String> tvcRoleName;
 
     @FXML
-    private Button btnMyPage;
-
-    @FXML
     private Button btnAddCredits;
 
     @FXML
@@ -93,12 +90,6 @@ public class EditMyTvSeriesCreditsScreenController implements Initializable {
     @FXML
     void btnAddCreditsHandler() {
         App.switchScene("CreateTvSeriesCreditsScreen");
-    }
-
-    @FXML
-    void btnMyPageHandler() {
-        App.resetSelects();
-        App.switchScene("AccountScreen");
     }
 
     @FXML

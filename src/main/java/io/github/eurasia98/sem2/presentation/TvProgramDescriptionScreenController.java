@@ -37,9 +37,6 @@ public class TvProgramDescriptionScreenController implements Initializable {
     private Button btnSaveChanges;
 
     @FXML
-    private Button btnMyPage;
-
-    @FXML
     private TextArea txtAreaDescrption;
 
     @FXML
@@ -74,11 +71,6 @@ public class TvProgramDescriptionScreenController implements Initializable {
             }
         });
         vBoxAccount.getChildren().add(1, myPage);
-    }
-
-    @FXML
-    void btnMyPageHandler() {
-        App.switchScene("AccountScreen");
     }
 
     @FXML

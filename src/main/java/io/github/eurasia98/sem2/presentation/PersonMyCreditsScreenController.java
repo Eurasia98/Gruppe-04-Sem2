@@ -50,9 +50,6 @@ public class PersonMyCreditsScreenController implements Initializable {
     private TableColumn<ModelTablePersonMyCredits, String> tvcRoleName;
 
     @FXML
-    private Button btnMyPage;
-
-    @FXML
     private void ivLogoActionHandler(MouseEvent mouseEvent) {
         App.switchScene("FrontPage");
     }
@@ -85,12 +82,6 @@ public class PersonMyCreditsScreenController implements Initializable {
         });
         vBoxAccount.getChildren().add(1, myPage);
     }
-
-    @FXML
-    void btnMyPageHandler(ActionEvent event) {
-        App.switchScene("AccountScreen");
-    }
-
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {

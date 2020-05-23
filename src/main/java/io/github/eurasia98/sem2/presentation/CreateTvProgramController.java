@@ -32,9 +32,6 @@ public class CreateTvProgramController implements Initializable {
     private VBox vBoxAccount;
 
     @FXML
-    private Button btnMyPage;
-
-    @FXML
     private TextField txtFieldTitle;
 
     @FXML
@@ -78,11 +75,6 @@ public class CreateTvProgramController implements Initializable {
             }
         });
         vBoxAccount.getChildren().add(1, myPage);
-    }
-
-    @FXML
-    void btnMyPageHandler() {
-        App.switchScene("AccountScreen");
     }
 
     @FXML

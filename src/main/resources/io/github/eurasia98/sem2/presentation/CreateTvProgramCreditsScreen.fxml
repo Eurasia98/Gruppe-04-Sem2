@@ -12,7 +12,7 @@
 <?import javafx.scene.control.Label?>
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="io.github.eurasia98.sem2.presentation.CreateTvProgramCreditsController">
    <children>
-      <ImageView fx:id="IVLogo" fitHeight="159.0" fitWidth="301.0" layoutX="494.0" layoutY="14.0" onMouseClicked="#IVLogoHandler" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="ivLogo" fitHeight="50.0" fitWidth="150.0" layoutX="2.0" layoutY="2.0" onMousePressed="#ivLogoActionHandler" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@images/TV2_logo.png" />
          </image>
@@ -37,7 +37,6 @@
       <TextField fx:id="txtFieldRole" layoutX="15.0" layoutY="199.0" promptText="Rolle" />
       <Button fx:id="btnSaveCredit" layoutX="47.0" layoutY="238.0" mnemonicParsing="false" onAction="#btnSaveCreditHandler" text="Gem" />
       <TextField fx:id="txtFieldUserId" layoutX="15.0" layoutY="153.0" promptText="Bruger id" />
-      <Button fx:id="btnMyPage" layoutY="2.0" mnemonicParsing="false" onAction="#btnMyPageHandler" text="Min side" />
    </children>
    <stylesheets>
       <URL value="@FrontPageCSS.css" />

@@ -14,7 +14,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="io.github.eurasia98.sem2.presentation.EditChoosenSeasonController">
    <children>
-      <ImageView fx:id="ivLogo" fitHeight="150.0" fitWidth="200.0" layoutX="586.0" layoutY="14.0" onMouseClicked="#ivLogoHandler" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="ivLogo" fitHeight="50.0" fitWidth="150.0" layoutX="2.0" layoutY="2.0" onMouseClicked="#ivLogoActionHandler" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@images/TV2_logo.png" />
          </image>
@@ -24,7 +24,6 @@
             <Label fx:id="lblAccount" />
          </children>
       </VBox>
-      <Button fx:id="btnMyPage" layoutY="1.0" mnemonicParsing="false" onAction="#btnMyPageHandler" text="Min side" />
       <TableView fx:id="tvEpisodes" layoutY="233.0" prefHeight="335.0" prefWidth="800.0" AnchorPane.bottomAnchor="32.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="233.0">
         <columns>
           <TableColumn fx:id="tvcEpisodeNumber" prefWidth="169.60003662109375" text="Afsnit nr" />

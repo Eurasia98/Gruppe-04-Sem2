@@ -56,9 +56,6 @@ public class MyProductionsScreenController implements Initializable {
     private Button btnEditCredits;
 
     @FXML
-    private Button btnMyPage;
-
-    @FXML
     private Button btnWatchDetails;
 
     @FXML
@@ -174,12 +171,6 @@ public class MyProductionsScreenController implements Initializable {
                 App.switchScene("ChoosenTvProgramToEdit");
                 break;
         }
-    }
-
-    @FXML
-    void btnMyPageHandler(ActionEvent event) {
-        resetFields();
-        App.switchScene("AccountScreen");
     }
 
     @FXML

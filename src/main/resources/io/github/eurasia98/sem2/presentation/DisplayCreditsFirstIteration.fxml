@@ -17,7 +17,8 @@
       <ImageView fx:id="ivLogo" fitHeight="50.0" fitWidth="150.0" layoutX="2.0" layoutY="2.0" onMouseClicked="#ivLogoActionHandler" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@images/TV2_logo.png" />
-         </image></ImageView>
+         </image>
+      </ImageView>
       <TextField fx:id="txtFieldSearch" layoutX="275.0" layoutY="60.0" onKeyPressed="#txtFieldSearchKeyPressHandler" prefHeight="25.0" prefWidth="250.0" promptText="Søg efter film / serie " />
       <ImageView fx:id="ivSearch" fitHeight="23.0" fitWidth="25.0" layoutX="500.0" layoutY="61.0" onMouseClicked="#ivSearchMouseClickHandler" pickOnBounds="true" preserveRatio="true">
          <image>

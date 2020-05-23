@@ -35,9 +35,6 @@ public class EditMyMovieCreditsScreenController implements Initializable {
     private VBox vBoxAccount;
 
     @FXML
-    private Button btnMyPage;
-
-    @FXML
     private Button btnAddCredit;
 
     @FXML
@@ -159,12 +156,6 @@ public class EditMyMovieCreditsScreenController implements Initializable {
         txtFieldRoleName.setVisible(true);
 
         btnSaveChanges.setVisible(true);
-    }
-
-    @FXML
-    void btnMyPageHandler(ActionEvent event) {
-        App.resetSelects();
-        App.switchScene("AccountScreen");
     }
 
     @FXML

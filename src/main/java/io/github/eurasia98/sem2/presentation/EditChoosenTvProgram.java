@@ -47,9 +47,6 @@ public class EditChoosenTvProgram implements Initializable {
     private TableColumn<ModelTableTvProgramEpisode, String> tvcEpisodeId;
 
     @FXML
-    private Button btnMyPage;
-
-    @FXML
     private TextField txtFieldCurrentEpisodeNumber;
 
     @FXML
@@ -193,11 +190,6 @@ public class EditChoosenTvProgram implements Initializable {
         txtFieldCurrentTitle.setText(tvMyEpisodes.getSelectionModel().getSelectedItem().getEpisode_title());
         txtFieldNewTitle.setVisible(true);
         btnSaveTitle.setVisible(true);
-    }
-
-    @FXML
-    void btnMyPageHandler() {
-        App.switchScene("AccountScreen");
     }
 
     @FXML

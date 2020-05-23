@@ -13,7 +13,7 @@
       <Button fx:id="btnCreateMovie" layoutX="451.0" layoutY="73.0" mnemonicParsing="false" onAction="#btnCreateMovieHandler" text="Opret film" />
       <Button fx:id="btnCreateTvProgram" layoutX="451.0" layoutY="111.0" mnemonicParsing="false" onAction="#btnCreateTvProgramHandler" text="Opret tv program" />
       <Button fx:id="btnCreateTvShow" layoutX="451.0" layoutY="151.0" mnemonicParsing="false" onAction="#btnCreateTvShowHandler" text="Opret serie" />
-      <ImageView fx:id="IVLogo" fitHeight="150.0" fitWidth="200.0" layoutY="-2.0" onMouseClicked="#IVLogoHandler" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="ivLogo" fitHeight="50.0" fitWidth="150.0" layoutX="2.0" layoutY="2.0" onMouseClicked="#ivLogoActionHandler" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@images/TV2_logo.png" />
          </image>

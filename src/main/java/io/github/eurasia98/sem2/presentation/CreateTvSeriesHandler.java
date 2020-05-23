@@ -47,9 +47,6 @@ public class CreateTvSeriesHandler implements Initializable {
     private TextArea txtAreaDescription;
 
     @FXML
-    private Button btnMyPage;
-
-    @FXML
     private TextArea txtAreaDisplayInfo;
 
     @FXML
@@ -84,11 +81,6 @@ public class CreateTvSeriesHandler implements Initializable {
             }
         });
         vBoxAccount.getChildren().add(1, myPage);
-    }
-
-    @FXML
-    void btnMyPageHandler(ActionEvent event) {
-        App.switchScene("AccountScreen");
     }
 
     @FXML

@@ -78,9 +78,6 @@ public class CreateTvProgramCreditsController implements Initializable {
     private TextField txtFieldUserId;
 
     @FXML
-    private Button btnMyPage;
-
-    @FXML
     private void ivLogoActionHandler(MouseEvent mouseEvent) {
         App.switchScene("FrontPage");
     }
@@ -147,11 +144,6 @@ public class CreateTvProgramCreditsController implements Initializable {
         txtFieldUserId.setVisible(true);
         txtFieldRole.setVisible(true);
         btnSaveCredit.setVisible(true);
-    }
-
-    @FXML
-    void btnMyPageHandler() {
-        App.switchScene("AccountScreen");
     }
 
     @FXML

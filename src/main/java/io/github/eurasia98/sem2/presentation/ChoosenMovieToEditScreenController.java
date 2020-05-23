@@ -34,9 +34,6 @@ public class ChoosenMovieToEditScreenController implements Initializable {
     private TextArea txtAreaDescription;
 
     @FXML
-    private Button btnMyPage;
-
-    @FXML
     private Button btnChangeDescription;
 
     @FXML
@@ -87,11 +84,6 @@ public class ChoosenMovieToEditScreenController implements Initializable {
         btnSaveChanges.setVisible(true);
         txtAreaDescription.setEditable(true);
         txtAreaInfo.appendText("Du kan nu foretage ændringer i beskrivelsen. Max 1500 tegn. ");
-    }
-
-    @FXML
-    void btnMyPageHandler() {
-        App.switchScene("MyProductionsScreen");
     }
 
     @FXML

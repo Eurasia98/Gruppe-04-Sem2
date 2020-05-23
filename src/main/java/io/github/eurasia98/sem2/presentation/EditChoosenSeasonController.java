@@ -35,9 +35,6 @@ public class EditChoosenSeasonController implements Initializable {
     private VBox vBoxAccount;
 
     @FXML
-    private Button btnMyPage;
-
-    @FXML
     private TableView<ModelTableChoosenSeasonToEdit> tvEpisodes;
 
     @FXML
@@ -163,12 +160,6 @@ public class EditChoosenSeasonController implements Initializable {
             } else resetFields();
         } else resetFields();
     }
-
-    @FXML
-    void btnMyPageHandler() {
-        App.switchScene("AccountScreen");
-    }
-
 
     @FXML
     void btnSelectHandler() {

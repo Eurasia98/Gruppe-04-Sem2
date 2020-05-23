@@ -56,9 +56,6 @@ public class EditChoosenTvSeriesController implements Initializable {
     private Button btnSelect;
 
     @FXML
-    private Button btnMyPage;
-
-    @FXML
     private TextArea txtAreaDisplayInfo;
 
     @FXML
@@ -154,12 +151,6 @@ public class EditChoosenTvSeriesController implements Initializable {
         } else {
             txtAreaDisplayInfo.appendText("Der skete desværre en fejl. ");
         }
-    }
-
-
-    @FXML
-    void btnMyPageHandler() {
-        App.switchScene("AccountScreen");
     }
 
     @FXML
