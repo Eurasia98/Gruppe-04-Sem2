@@ -8,17 +8,24 @@
 <?import javafx.scene.layout.AnchorPane?>
 
 <?import java.net.URL?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.Label?>
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="io.github.eurasia98.sem2.presentation.CreateMovieScreenHandler">
    <children>
       <TextField fx:id="txtFieldTitel" layoutX="48.0" layoutY="163.0" promptText="Indtast Titel" />
       <TextField fx:id="txtFieldProductionid" layoutX="48.0" layoutY="200.0" promptText="Indtast Produktions Id" />
       <Button fx:id="btnSave" layoutX="102.0" layoutY="243.0" mnemonicParsing="false" onAction="#btnSaveHandler" text="Gem" />
       <TextArea fx:id="txtAreaMessage" layoutX="368.0" layoutY="125.0" prefHeight="200.0" prefWidth="200.0" />
-      <ImageView fx:id="IVLogo" fitHeight="150.0" fitWidth="200.0" layoutX="2.0" onMouseClicked="#IVLogoHandler" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="ivLogo" fitHeight="50.0" fitWidth="150.0" layoutX="2.0" layoutY="2.0" onMouseClicked="#ivLogoActionHandler" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@images/TV2_logo.png" />
          </image>
       </ImageView>
+      <VBox fx:id="vBoxAccount" layoutX="690.0" layoutY="10.0" prefHeight="50.0" prefWidth="100.0">
+         <children>
+            <Label fx:id="lblAccount" />
+         </children>
+      </VBox>
    </children>
    <stylesheets>
       <URL value="@FrontPageCSS.css" />

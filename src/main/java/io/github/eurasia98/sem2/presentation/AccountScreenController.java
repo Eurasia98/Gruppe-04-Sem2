@@ -132,16 +132,9 @@ public class AccountScreenController implements Initializable {
     private void ivSearchMouseClickHandler() {
         if(!txtFieldSearch.getText().isEmpty()) {
             App.setSearchField(txtFieldSearch.getText());
-            App.switchScene("searchScreen");
+            App.switchScene("searchScreenUpdatedScreen");
         } else
             txtFieldSearch.setStyle("-fx-prompt-text-fill: red");
-
-        /*try {
-            App.setSearchField(txtFieldSearch.getText());
-            App.switchScene("SearchScreenUpdatedScreen");
-        } catch (java.lang.NullPointerException e){
-            txtFieldSearch.setStyle("-fx-prompt-text-fill: red");
-        }*/
     }
 
     @FXML
@@ -195,7 +188,6 @@ public class AccountScreenController implements Initializable {
 
     @FXML
     private void btnChangeEmailActionHandler(ActionEvent event) {
-        resetFields();
         txtFieldNewEmail.setDisable(false);
         txtFieldNewEmail.setVisible(true);
         btnSaveEmail.setDisable(false);
@@ -204,7 +196,6 @@ public class AccountScreenController implements Initializable {
 
     @FXML
     private void btnChangePasswordActionHandler(ActionEvent event) {
-        resetFields();
         pwOldPassword.setDisable(false);
         pwOldPassword.setVisible(true);
         pwNewPassword1.setDisable(false);
@@ -219,10 +210,9 @@ public class AccountScreenController implements Initializable {
     private void btnSaveEmailActionHandler(ActionEvent event) {
         if (!txtFieldNewEmail.getText().equals(lblAccountEmail.getText())){
             if (App.getCreditSystem().editAccountEmail(txtFieldNewEmail.getText())){
+                lblAccountEmail.setText(txtFieldNewEmail.getText());
                 txtFieldNewEmail.clear();
                 txtFieldNewEmail.setPromptText("Email ændret.");
-                accountInfoFill();
-                resetFields();
             }
         }
         else {
@@ -230,22 +220,19 @@ public class AccountScreenController implements Initializable {
             txtFieldNewEmail.setPromptText("Forrige og ny email er ens.");
             txtFieldNewEmail.setStyle("-fx-prompt-text-fill: red");
         }
-
     }
 
     @FXML
     private void btnSavePasswordActionHandler(ActionEvent event) {
         if (pwNewPassword1.getText().equals(pwNewPassword2.getText())){
             if (App.getCreditSystem().editAccountPassword(pwOldPassword.getText(), pwNewPassword1.getText())){
-                /*pwOldPassword.clear();
+                pwOldPassword.clear();
                 pwNewPassword1.clear();
                 pwNewPassword2.clear();
                 pwOldPassword.setPromptText("");
                 pwNewPassword1.setPromptText("");
-                pwNewPassword2.setPromptText("Kodeord ændret.");*/
-                resetFields();
+                pwNewPassword2.setPromptText("Kodeord ændret.");
             }
-
         }
         else{
             pwNewPassword1.setStyle("-fx-prompt-text-fill: red");
@@ -308,7 +295,7 @@ public class AccountScreenController implements Initializable {
             lblAccountLastName.setText(App.getCreditSystem().getProducerAccount().getLName());
             lblAccountCompany.setText(App.getCreditSystem().getProducerAccount().getProductionCompanyName());
         }
-        else if (App.getUserInfo().get(1).equals("Person")){
+        else if (App.getCreditSystem().getAccount().getAccountType().equals("Person")){
             lblAccountFirstName.setText(App.getCreditSystem().getPersonAccount().getFirstName());
             lblAccountLastName.setText(App.getCreditSystem().getPersonAccount().getLastName());
             lblCompany.setVisible(false);
@@ -321,18 +308,5 @@ public class AccountScreenController implements Initializable {
         loggedIn();
         sideBarVisibility();
         accountInfoFill();
-    }
-
-    public void resetFields(){
-        txtFieldNewEmail.clear();
-        txtFieldNewEmail.setVisible(false);
-        pwOldPassword.clear();
-        pwOldPassword.setVisible(false);
-        pwNewPassword1.clear();
-        pwNewPassword1.setVisible(false);
-        pwNewPassword2.clear();
-        pwNewPassword2.setVisible(false);
-        btnSavePassword.setDisable(false);
-        btnSavePassword.setVisible(true);
     }
 }

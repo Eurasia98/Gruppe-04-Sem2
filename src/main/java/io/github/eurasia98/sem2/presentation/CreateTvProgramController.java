@@ -1,19 +1,35 @@
 package io.github.eurasia98.sem2.presentation;
 
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
+import javafx.fxml.Initializable;
+import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyEvent;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.VBox;
 
+import java.net.URL;
 import java.util.ArrayList;
+import java.util.ResourceBundle;
 
-public class CreateTvProgramController {
-    @FXML
-    private Button btnMyPage;
+public class CreateTvProgramController implements Initializable {
 
     @FXML
     private ImageView ivLogo;
+
+    @FXML
+    private TextField txtFieldSearch;
+
+    @FXML
+    private ImageView ivSearch;
+
+    @FXML
+    private Label lblAccount;
+
+    @FXML
+    private VBox vBoxAccount;
 
     @FXML
     private TextField txtFieldTitle;
@@ -28,8 +44,37 @@ public class CreateTvProgramController {
     private Button btnSave;
 
     @FXML
-    void btnMyPageHandler() {
-        App.switchScene("AccountScreen");
+    private void ivLogoActionHandler(MouseEvent mouseEvent) {
+        App.switchScene("FrontPage");
+    }
+
+    @FXML
+    private void txtFieldSearchKeyPressHandler(KeyEvent event) {
+        if (event.getCode().toString().equals("ENTER")){
+            ivSearchMouseClickHandler();
+        }
+    }
+
+    @FXML
+    private void ivSearchMouseClickHandler() {
+        if(!txtFieldSearch.getText().isEmpty()) {
+            App.setSearchField(txtFieldSearch.getText());
+            App.switchScene("searchScreen");
+        } else {
+            txtFieldSearch.setStyle("-fx-prompt-text-fill: red");
+        }
+    }
+
+    private void loggedIn(){
+        lblAccount.setText(App.getUserInfo().get(0));
+        Hyperlink myPage = new Hyperlink("Min side");
+        myPage.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                App.switchScene("AccountScreen");
+            }
+        });
+        vBoxAccount.getChildren().add(1, myPage);
     }
 
     @FXML
@@ -66,8 +111,8 @@ public class CreateTvProgramController {
         App.switchScene("MyProductionsScreen");
     }
 
-    @FXML
-    void ivLogoHandler() {
-        App.switchScene("FrontPage");
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        loggedIn();
     }
 }

@@ -5,6 +5,9 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 
+<?import java.net.URL?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.Label?>
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="io.github.eurasia98.sem2.presentation.PersonMyCreditsScreenController">
    <children>
       <TableView fx:id="tvMyCredits" layoutY="42.0" prefHeight="556.0" prefWidth="800.0">
@@ -15,6 +18,13 @@
             <TableColumn fx:id="tvcRoleName" prefWidth="232.800048828125" text="Rollenavn" />
         </columns>
       </TableView>
-      <Button fx:id="btnMyPage" layoutY="1.0" mnemonicParsing="false" onAction="#btnMyPageHandler" text="Min side" />
+       <VBox fx:id="vBoxAccount" layoutX="690.0" layoutY="10.0" prefHeight="50.0" prefWidth="100.0">
+           <children>
+               <Label fx:id="lblAccount" />
+           </children>
+       </VBox>
    </children>
+    <stylesheets>
+        <URL value="@FrontPageCSS.css" />
+    </stylesheets>
 </AnchorPane>

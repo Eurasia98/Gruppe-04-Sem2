@@ -7,5 +7,4 @@ public class SystemAdministrator extends Account {
         super.setAccountType("SystemAdministrator");
     }
 
-
 }

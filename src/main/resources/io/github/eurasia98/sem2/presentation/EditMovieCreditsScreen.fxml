@@ -10,14 +10,21 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
+<?import java.net.URL?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.Label?>
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="io.github.eurasia98.sem2.presentation.EditMyMovieCreditsScreenController">
    <children>
-      <ImageView fx:id="IVLogo" fitHeight="63.0" fitWidth="200.0" onDragDetected="#IVLogoHandler" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="ivLogo" fitHeight="50.0" fitWidth="150.0" layoutX="2.0" layoutY="2.0" onMousePressed="#ivLogoActionHandler" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@images/TV2_logo.png" />
          </image>
       </ImageView>
-      <Button fx:id="btnMyPage" layoutX="14.0" layoutY="94.0" mnemonicParsing="false" onAction="#btnMyPageHandler" text="Min side" />
+      <VBox fx:id="vBoxAccount" layoutX="690.0" layoutY="10.0" prefHeight="50.0" prefWidth="100.0">
+         <children>
+            <Label fx:id="lblAccount" />
+         </children>
+      </VBox>
       <Button fx:id="btnAddCredit" layoutX="8.0" layoutY="506.0" mnemonicParsing="false" onAction="#btnAddCreditHandler" text="Tilføj kreditering" />
       <Button fx:id="btnDeleteCredit" layoutX="116.0" layoutY="506.0" mnemonicParsing="false" onAction="#btnDeleteCreditHandler" text="Slet kreditering" />
       <Button fx:id="btnKnownUser" layoutX="223.0" layoutY="506.0" mnemonicParsing="false" onAction="#btnKnownUserHandler" text="Brug eksisterende person" />
@@ -39,4 +46,7 @@
       <Hyperlink fx:id="hlinkYes" layoutX="171.0" layoutY="95.0" onMouseClicked="#hlinkYesHandler" text="Ja" />
       <Hyperlink fx:id="hlinkNo" layoutX="261.0" layoutY="95.0" onMouseClicked="#hlinkNoHandler" text="Nej" />
    </children>
+   <stylesheets>
+      <URL value="@FrontPageCSS.css" />
+   </stylesheets>
 </AnchorPane>

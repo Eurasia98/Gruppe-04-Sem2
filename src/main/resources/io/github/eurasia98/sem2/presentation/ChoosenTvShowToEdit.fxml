@@ -11,13 +11,20 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
+<?import java.net.URL?>
+<?import javafx.scene.layout.VBox?>
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="io.github.eurasia98.sem2.presentation.EditChoosenTvSeriesController">
    <children>
-      <ImageView fx:id="ivLogo" fitHeight="150.0" fitWidth="200.0" layoutX="76.0" layoutY="14.0" onMouseClicked="#ivLogoHandler" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="ivLogo" fitHeight="50.0" fitWidth="150.0" layoutX="2.0" layoutY="2.0" onMouseClicked="#ivLogoActionHandler" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@images/TV2_logo.png" />
          </image>
       </ImageView>
+      <VBox fx:id="vBoxAccount" layoutX="690.0" layoutY="10.0" prefHeight="50.0" prefWidth="100.0">
+         <children>
+            <Label fx:id="lblAccount" />
+         </children>
+      </VBox>
       <TextArea fx:id="txtAreaDescription" layoutX="14.0" layoutY="195.0" prefHeight="185.0" prefWidth="251.0" promptText="Beskrivelse" />
       <Button fx:id="btnChangeDescription" layoutX="20.0" layoutY="157.0" mnemonicParsing="false" onAction="#btnChangeDescriptionHandler" text="Ændre beskrivelse" />
       <TableView fx:id="tvSeasons" layoutX="273.0" layoutY="209.0" prefHeight="346.0" prefWidth="526.0">
@@ -27,7 +34,6 @@
         </columns>
       </TableView>
       <Button fx:id="btnSelect" layoutX="723.0" layoutY="564.0" mnemonicParsing="false" onAction="#btnSelectHandler" text="Vis detaljer" />
-      <Button fx:id="btnMyPage" layoutY="1.0" mnemonicParsing="false" onAction="#btnMyPageHandler" text="Min side" />
       <Button fx:id="btnSaveDescription" layoutX="155.0" layoutY="157.0" mnemonicParsing="false" onAction="#btnSaveDescriptionHandler" text="Gem ændringer" />
       <TextArea fx:id="txtAreaDisplayInfo" layoutX="598.0" layoutY="4.0" prefHeight="200.0" prefWidth="200.0" />
       <Label layoutX="276.0" layoutY="181.0" text="Sæsoner">
@@ -40,4 +46,7 @@
       <TextField fx:id="txtFieldSeasonNumber" layoutX="25.0" layoutY="437.0" promptText="Indtast sæson nummer:*" />
       <TextField fx:id="txtFieldSeasonId" layoutX="25.0" layoutY="472.0" promptText="Indtast sæson id:*" />
    </children>
+   <stylesheets>
+      <URL value="@FrontPageCSS.css" />
+   </stylesheets>
 </AnchorPane>
