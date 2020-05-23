@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.net.URL?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
@@ -9,10 +10,9 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<?import java.net.URL?>
-<?import javafx.scene.layout.VBox?>
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="io.github.eurasia98.sem2.presentation.EditChoosenTvSeriesController">
    <children>
       <ImageView fx:id="ivLogo" fitHeight="50.0" fitWidth="150.0" layoutX="2.0" layoutY="2.0" onMouseClicked="#ivLogoActionHandler" pickOnBounds="true" preserveRatio="true">
@@ -45,6 +45,13 @@
       <Button fx:id="btnSaveSeason" layoutX="129.0" layoutY="396.0" mnemonicParsing="false" onAction="#btnSaveSeasonHandler" text="Gem ny sæson" />
       <TextField fx:id="txtFieldSeasonNumber" layoutX="25.0" layoutY="437.0" promptText="Indtast sæson nummer:*" />
       <TextField fx:id="txtFieldSeasonId" layoutX="25.0" layoutY="472.0" promptText="Indtast sæson id:*" />
+      <Button fx:id="btnEditSeasonNumber" layoutX="255.0" layoutY="14.0" mnemonicParsing="false" onAction="#btnEditSeasonNumberHandler" text="Ændre sæson nummer" />
+      <Button fx:id="btnSaveChanges" layoutX="362.0" layoutY="144.0" mnemonicParsing="false" onAction="#btnSaveChangesHandler" text="Gem ændringer" />
+      <Button fx:id="btnEditSeasonId" layoutX="411.0" layoutY="14.0" mnemonicParsing="false" onAction="#btnEditSeasonIdHandler" text="Ændre sæson id" />
+      <TextField fx:id="txtFieldCurrentNumber" layoutX="249.0" layoutY="60.0" promptText="Nuværende nummer:" />
+      <TextField fx:id="txtFieldCurrentId" layoutX="249.0" layoutY="98.0" promptText="Nuværende id" />
+      <TextField fx:id="txtFieldNewNumber" layoutX="412.0" layoutY="60.0" promptText="Nyt sæson nummer:" />
+      <TextField fx:id="txtFieldNewId" layoutX="412.0" layoutY="98.0" promptText="Nyt id" />
    </children>
    <stylesheets>
       <URL value="@FrontPageCSS.css" />

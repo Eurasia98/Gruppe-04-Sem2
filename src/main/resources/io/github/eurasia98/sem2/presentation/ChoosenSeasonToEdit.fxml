@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.net.URL?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
@@ -8,9 +9,8 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.text.Font?>
-<?import java.net.URL?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="io.github.eurasia98.sem2.presentation.EditChoosenSeasonController">
    <children>
@@ -31,14 +31,14 @@
             <TableColumn fx:id="tvcId" prefWidth="228.79998779296875" text="Id" />
         </columns>
       </TableView>
-      <Button fx:id="btnChangeEpisodeNumber" layoutX="5.0" layoutY="114.0" mnemonicParsing="false" onAction="#btnChangeEpisodeNumberHandler" text="Ændre episode nummer" />
-      <Button fx:id="btnSaveEpisodeNumber" layoutX="172.0" layoutY="114.0" mnemonicParsing="false" onAction="#btnSaveEpisodeNumberHandler" text="Gem ændringer" />
-      <Button fx:id="btnChangeTitle" layoutX="344.0" layoutY="114.0" mnemonicParsing="false" onAction="#btnChangeTitleHandler" text="Ændre Titel" />
-      <Button fx:id="btnSaveTitle" layoutX="432.0" layoutY="114.0" mnemonicParsing="false" onAction="#btnSaveTitleHandler" text="Gem ændringer" />
-      <TextField fx:id="txtFieldCurrentEpisodeNumber" layoutX="5.0" layoutY="166.0" promptText="Nuværende afsnitnummer" />
-      <TextField fx:id="txtFieldNewEpisodeNumber" layoutX="172.0" layoutY="166.0" promptText="Nyt afsnitnummer" />
-      <TextField fx:id="txtFieldCurrentTitle" layoutX="344.0" layoutY="166.0" promptText="Nuværende titel" />
-      <TextField fx:id="txtFieldNewTitle" layoutX="507.0" layoutY="166.0" promptText="Ny titel" />
+      <Button fx:id="btnChangeEpisodeNumber" layoutX="150.0" layoutY="14.0" mnemonicParsing="false" onAction="#btnChangeEpisodeNumberHandler" text="Ændre episode nummer" />
+      <Button fx:id="btnSaveEpisodeNumber" layoutX="321.0" layoutY="14.0" mnemonicParsing="false" onAction="#btnSaveEpisodeNumberHandler" text="Gem ændringer" />
+      <Button fx:id="btnChangeTitle" layoutX="150.0" layoutY="79.0" mnemonicParsing="false" onAction="#btnChangeTitleHandler" text="Ændre Titel" />
+      <Button fx:id="btnSaveTitle" layoutX="321.0" layoutY="79.0" mnemonicParsing="false" onAction="#btnSaveTitleHandler" text="Gem ændringer" />
+      <TextField fx:id="txtFieldCurrentEpisodeNumber" layoutX="148.0" layoutY="47.0" promptText="Nuværende afsnitnummer" />
+      <TextField fx:id="txtFieldNewEpisodeNumber" layoutX="321.0" layoutY="47.0" promptText="Nyt afsnitnummer" />
+      <TextField fx:id="txtFieldCurrentTitle" layoutX="147.0" layoutY="115.0" promptText="Nuværende titel" />
+      <TextField fx:id="txtFieldNewTitle" layoutX="321.0" layoutY="115.0" promptText="Ny titel" />
       <Button fx:id="btnSelect" layoutX="710.0" layoutY="568.0" mnemonicParsing="false" onAction="#btnSelectHandler" text="Vis detaljer" />
       <Label layoutX="10.0" layoutY="205.0" text="Episoder">
          <font>
@@ -46,6 +46,10 @@
          </font>
       </Label>
       <Button fx:id="btnNewEpisode" layoutX="5.0" layoutY="568.0" mnemonicParsing="false" onAction="#btnNewEpisodeHandler" text="Ny episode" />
+      <Button fx:id="btnEditId" layoutX="147.0" layoutY="148.0" mnemonicParsing="false" onAction="#btnEditIdHandler" text="Ændre id" />
+      <Button fx:id="btnSaveEditId" layoutX="321.0" layoutY="148.0" mnemonicParsing="false" onAction="#btnSaveEditIdHandler" text="Gem ændringer" />
+      <TextField fx:id="txtFieldCurrentId" layoutX="147.0" layoutY="180.0" promptText="Nuværende id" />
+      <TextField fx:id="txtFieldNewId" layoutX="321.0" layoutY="180.0" promptText="Nyt id:" />
    </children>
    <stylesheets>
       <URL value="@FrontPageCSS.css" />

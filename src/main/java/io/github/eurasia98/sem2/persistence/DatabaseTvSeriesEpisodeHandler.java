@@ -248,4 +248,18 @@ public class DatabaseTvSeriesEpisodeHandler {
         }
         return false;
     }
+
+    public void editId(String currentId, String newId) {
+        connection = DatabaseAccessHandler.getConnection();
+
+        try {
+            PreparedStatement changeTitleStatement = connection.prepareStatement(
+                    "UPDATE episodes SET episode_id = ? WHERE episode_id = ?");
+            changeTitleStatement.setString(1, newId);
+            changeTitleStatement.setString(2, currentId);
+            changeTitleStatement.execute();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+    }
 }

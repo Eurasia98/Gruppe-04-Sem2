@@ -74,6 +74,85 @@ public class EditChoosenTvSeriesController implements Initializable {
     private Button btnSaveDescription;
 
     @FXML
+    private Button btnEditSeasonNumber;
+
+    @FXML
+    private Button btnSaveChanges;
+
+    @FXML
+    private Button btnEditSeasonId;
+
+    @FXML
+    private TextField txtFieldCurrentNumber;
+
+    @FXML
+    private TextField txtFieldCurrentId;
+
+    @FXML
+    private TextField txtFieldNewNumber;
+
+    @FXML
+    private TextField txtFieldNewId;
+
+    @FXML
+    void btnEditSeasonIdHandler(ActionEvent event) {
+        try {
+            resetFields();
+            txtFieldCurrentId.setVisible(true);
+            txtFieldCurrentId.setText(tvSeasons.getSelectionModel().getSelectedItem().getId());
+            txtFieldCurrentId.setEditable(false);
+            txtFieldNewId.setVisible(true);
+            btnSaveChanges.setVisible(true);
+        } catch (java.lang.NullPointerException e){
+            resetFields();
+            txtAreaDisplayInfo.appendText("Vælg venligst en sæson at redigere. ");
+        }
+    }
+
+    @FXML
+    void btnEditSeasonNumberHandler(ActionEvent event) {
+        try {
+            resetFields();
+            txtFieldCurrentNumber.setVisible(true);
+            txtFieldCurrentNumber.setText(tvSeasons.getSelectionModel().getSelectedItem().getSeason_number());
+            txtFieldCurrentNumber.setEditable(false);
+            txtFieldNewNumber.setVisible(true);
+            btnSaveChanges.setVisible(true);
+        } catch (java.lang.NullPointerException e){
+            resetFields();
+            txtAreaDisplayInfo.appendText("Vælg venligst en sæson at redigere. ");
+        }
+    }
+
+    @FXML
+    void btnSaveChangesHandler(ActionEvent event) {
+        if (!txtFieldNewNumber.getText().isEmpty()){
+            if (App.getCreditSystem().editSeasonNumber(tvSeasons.getSelectionModel().getSelectedItem().getId(), txtFieldNewNumber.getText()) == true){
+                update();
+                resetFields();
+                txtAreaDisplayInfo.appendText("Ændringen blev gemt. ");
+            } else {
+                update();
+                resetFields();
+                txtAreaDisplayInfo.appendText("Ændringen blev ikke gemt. \nNoget gik galt. ");
+            }
+        } else if (!txtFieldNewId.getText().isEmpty()){
+            if (App.getCreditSystem().editSeasonId(txtFieldCurrentId.getText(), txtFieldNewId.getText()) == true){
+                update();
+                resetFields();
+                txtAreaDisplayInfo.appendText("Ændringen blev gemt. ");
+            } else {
+                update();
+                resetFields();
+                txtAreaDisplayInfo.appendText("Ændringen blev ikke gemt. \nNoget gik galt.");
+            }
+        } else {
+            txtFieldNewId.setStyle("-fx-prompt-text-fill: red");
+            txtFieldNewNumber.setStyle("-fx-prompt-text-fill: red");
+        }
+    }
+
+    @FXML
     private void ivLogoActionHandler(MouseEvent mouseEvent) {
         App.switchScene("FrontPage");
     }
@@ -109,12 +188,15 @@ public class EditChoosenTvSeriesController implements Initializable {
 
     @FXML
     void btnChangeDescriptionHandler() {
+        resetFields();
+        btnSaveDescription.setVisible(true);
         txtAreaDescription.setEditable(true);
         btnSaveDescription.setVisible(true);
     }
 
     @FXML
     void btnSaveDescriptionHandler() {
+        btnSaveDescription.setVisible(true);
         if (txtAreaDescription != null && !txtAreaDescription.getText().isEmpty()) {
             if (App.getCreditSystem().changeDescription(App.getSelectedTvSeriesToEdit(), txtAreaDescription.getText()) == true) {
                 resetFields();
@@ -135,6 +217,7 @@ public class EditChoosenTvSeriesController implements Initializable {
         btnSaveSeason.setVisible(true);
         txtFieldSeasonNumber.setVisible(true);
         txtFieldSeasonId.setVisible(true);
+        btnSaveSeason.setVisible(true);
     }
 
     @FXML
@@ -174,6 +257,18 @@ public class EditChoosenTvSeriesController implements Initializable {
         txtFieldSeasonNumber.setVisible(false);
         txtFieldSeasonId.clear();
         txtFieldSeasonId.setVisible(false);
+        btnSaveDescription.setVisible(false);
+        btnSaveSeason.setVisible(false);
+        txtFieldCurrentNumber.setVisible(false);
+        txtFieldCurrentNumber.clear();
+        txtFieldNewNumber.setVisible(false);
+        txtFieldNewNumber.clear();
+        txtFieldCurrentId.setVisible(false);
+        txtFieldCurrentId.clear();
+        txtFieldNewId.setVisible(false);
+        txtFieldNewId.clear();
+        txtAreaDisplayInfo.clear();
+        btnSaveChanges.setVisible(false);
     }
 
     public void update() {

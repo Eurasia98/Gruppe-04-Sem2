@@ -467,4 +467,19 @@ public class CreditSystem {
        DatabaseAccountHandler databaseAccountHandler = new DatabaseAccountHandler();
        databaseAccountHandler.editAccountPersonEmail(newMail, id);
     }
+
+    public boolean editSeasonId(String currentId, String newId) {
+       DatabaseSeasonHandler databaseSeasonHandler = new DatabaseSeasonHandler();
+       return databaseSeasonHandler.editSeasonId(currentId, newId);
+    }
+
+    public boolean editSeasonNumber(String id, String newNumber) {
+       DatabaseSeasonHandler databaseSeasonHandler = new DatabaseSeasonHandler();
+       return databaseSeasonHandler.editSeasonNumber(id, newNumber);
+    }
+
+    public void editSeriesEpisodeId(String currentId, String newId) {
+       DatabaseTvSeriesEpisodeHandler databaseTvSeriesEpisodeHandler = new DatabaseTvSeriesEpisodeHandler();
+       databaseTvSeriesEpisodeHandler.editId(currentId, newId);
+    }
 }

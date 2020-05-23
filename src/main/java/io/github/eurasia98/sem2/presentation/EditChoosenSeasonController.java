@@ -77,6 +77,41 @@ public class EditChoosenSeasonController implements Initializable {
     private Button btnNewEpisode;
 
     @FXML
+    private TextField txtFieldCurrentId;
+
+    @FXML
+    private TextField txtFieldNewId;
+
+    @FXML
+    private Button btnEditId;
+
+    @FXML
+    private Button btnSaveEditId;
+
+    @FXML
+    void btnEditIdHandler(ActionEvent event) {
+        try {
+            resetFields();
+            txtFieldCurrentId.setVisible(true);
+            txtFieldNewId.setVisible(true);
+            txtFieldCurrentId.setText(tvEpisodes.getSelectionModel().getSelectedItem().getId());
+            txtFieldCurrentId.setEditable(false);
+            btnSaveEditId.setVisible(true);
+        } catch (java.lang.NullPointerException e){
+            resetFields();
+        }
+    }
+
+    @FXML
+    void btnSaveEditIdHandler(ActionEvent event) {
+        if (!txtFieldNewId.getText().isEmpty()){
+            App.getCreditSystem().editSeriesEpisodeId(txtFieldCurrentId.getText(), txtFieldNewId.getText());
+            resetFields();
+            update();
+        } else txtFieldNewId.setStyle("-fx-prompt-text-fill: red");
+    }
+
+    @FXML
     private void ivLogoActionHandler(MouseEvent mouseEvent) {
         App.switchScene("FrontPage");
     }
@@ -147,7 +182,6 @@ public class EditChoosenSeasonController implements Initializable {
             btnSaveTitle.setVisible(true);
         } catch (java.lang.NullPointerException e){
             resetFields();
-            update();
         }
     }
 
@@ -186,6 +220,11 @@ public class EditChoosenSeasonController implements Initializable {
         txtFieldNewTitle.setVisible(false);
         btnSaveEpisodeNumber.setVisible(false);
         btnSaveTitle.setVisible(false);
+        btnSaveEditId.setVisible(false);
+        txtFieldCurrentId.setVisible(false);
+        txtFieldCurrentId.clear();
+        txtFieldNewId.clear();
+        txtFieldNewId.setVisible(false);
     }
 
     public void update(){

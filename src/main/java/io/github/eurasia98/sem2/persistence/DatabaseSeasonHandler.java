@@ -1,5 +1,6 @@
 package io.github.eurasia98.sem2.persistence;
 
+import java.net.Inet4Address;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -134,5 +135,33 @@ public class DatabaseSeasonHandler {
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
+    }
+
+    public boolean editSeasonId(String currentId, String newId) {
+        connection = DatabaseAccessHandler.getConnection();
+        try {
+            PreparedStatement updateStatement = connection.prepareStatement(
+                    "UPDATE seasons SET season_id = ? WHERE season_id = ?");
+            updateStatement.setString(1, newId);
+            updateStatement.setString(2, currentId);
+            updateStatement.execute();
+            return true;
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        } return false;
+    }
+
+    public boolean editSeasonNumber(String id, String newNumber) {
+        connection = DatabaseAccessHandler.getConnection();
+        try {
+            PreparedStatement updateStatement = connection.prepareStatement(
+                    "UPDATE seasons SET season_number = ? WHERE season_id = ?");
+            updateStatement.setInt(1, Integer.parseInt(newNumber));
+            updateStatement.setString(2, id);
+            updateStatement.execute();
+            return true;
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        } return false;
     }
 }
