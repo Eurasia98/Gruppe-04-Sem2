@@ -719,6 +719,8 @@ public class DatabaseProductionManager {
         String productionType = getProductionType(production_id);
         try {
             connection.setAutoCommit(false);
+            Savepoint savepoint = connection.setSavepoint();
+
 
             switch (productionType){
                 case "Movie":
@@ -727,8 +729,14 @@ public class DatabaseProductionManager {
                             connection.commit();
                             connection.close();
                             return deleteProductionFinal(production_id);
-                        } else return false;
-                    } else return false;
+                        } else {
+                            connection.rollback(savepoint);
+                            return false;
+                        }
+                    } else {
+                        connection.rollback(savepoint);
+                        return false;
+                    }
                 case "Serie":
                     if (databaseTvSeriesEpisodeHandler.deleteEpisode(production_id) == true){
                         if (databaseSeasonHandler.deleteSeason(production_id) == true){
@@ -738,8 +746,14 @@ public class DatabaseProductionManager {
                                     connection.close();
                                     return deleteProductionFinal(production_id);
                                 }
-                            } else return false;
-                        } else return false;
+                            } else {
+                                connection.rollback(savepoint);
+                                return false;
+                            }
+                        } else {
+                            connection.rollback(savepoint);
+                            return false;
+                        }
                     } else return false;
                 case "Tv program":
                     if (databaseTvProgramEpisodeHandler.deleteEpisode(production_id) == true){
@@ -747,12 +761,20 @@ public class DatabaseProductionManager {
                             connection.commit();
                             connection.close();
                             return deleteProductionFinal(production_id);
-                        } else return false;
-                    } else return false;
-            } return false;
+                        } else {
+                            connection.rollback(savepoint);
+                            return false;
+                        }
+                    } else {
+                        connection.rollback(savepoint);
+                        return false;
+                    }
+            }
         } catch (SQLException throwables) {
             throwables.printStackTrace();
-        } return false;
+        } {
+            return false;
+        }
     }
 
     private Boolean deleteProductionFinal(String production_id) {
