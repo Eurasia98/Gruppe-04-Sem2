@@ -698,14 +698,10 @@ public class DatabaseProductionManager {
 
             ResultSet searchResultSet = searchStatement.executeQuery();
 
-            try{
-                while (searchResultSet.next()){
-                    searchInfo.add(new String[]{searchResultSet.getString(1), searchResultSet.getString(2)});
-                }
-                return searchInfo;
-            } catch (java.lang.NullPointerException e){
-                return null;
+            while (searchResultSet.next()){
+                searchInfo.add(new String[]{searchResultSet.getString(1), searchResultSet.getString(2)});
             }
+            return searchInfo;
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         } return null;

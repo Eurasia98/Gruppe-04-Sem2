@@ -94,10 +94,8 @@ public class CreateTvSeriesHandler implements Initializable {
             seriesInfo.add(txtFieldSeriesId.getText());
             seriesInfo.add(txtAreaDescription.getText());
             if(App.getCreditSystem().createNewTv_series(seriesInfo) == true){
-                //txtAreaInfo.appendText("Succes. ");
-                /*resetFields();
-                updateSucces();*/
-                txtAreaDisplayInfo.appendText("Succes");
+                resetFields();
+                updateSucces();
             } else {
                 resetFields();
                 updateFailure();

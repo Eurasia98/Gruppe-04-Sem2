@@ -122,9 +122,15 @@ public class SearchScreenUpdatedController implements Initializable {
     public void update(){
         ObservableList<ModelTableSearch> observableList = FXCollections.observableArrayList();
         ArrayList<String[]> searchInfo = App.getCreditSystem().searchUpdated(App.getSearchField());
-        for (String[] s : searchInfo){
-            observableList.add(new ModelTableSearch(s[0], s[1]));
+
+        try {
+            for (String[] s : searchInfo){
+                observableList.add(new ModelTableSearch(s[0], s[1]));
+            }
+        } catch (java.lang.NullPointerException e){
+
         }
+
         tvcEpisodeTitle.setCellValueFactory(new PropertyValueFactory<>("title"));
         tvcProductionId.setCellValueFactory(new PropertyValueFactory<>("production_id"));
 
