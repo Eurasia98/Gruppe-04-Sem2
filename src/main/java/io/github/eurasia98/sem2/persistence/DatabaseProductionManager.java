@@ -707,6 +707,57 @@ public class DatabaseProductionManager {
         } return null;
     }
 
+    public boolean deleteProduction(String production_id) {
+        connection = DatabaseAccessHandler.getConnection();
+        DatabaseCreditsManager databaseCreditsManager = new DatabaseCreditsManager();
+        DatabaseTvSeriesHandler databaseTvSeriesHandler = new DatabaseTvSeriesHandler();
+        DatabaseSeasonHandler databaseSeasonHandler = new DatabaseSeasonHandler();
+        DatabaseTvSeriesEpisodeHandler databaseTvSeriesEpisodeHandler = new DatabaseTvSeriesEpisodeHandler();
+        DatabaseMovieHandler databaseMovieHandler = new DatabaseMovieHandler();
+        DatabaseTvProgramHandler databaseTvProgramHandler = new DatabaseTvProgramHandler();
+        DatabaseTvProgramEpisodeHandler databaseTvProgramEpisodeHandler = new DatabaseTvProgramEpisodeHandler();
+        String productionType = getProductionType(production_id);
+
+        switch (productionType){
+            case "Movie":
+                if (databaseCreditsManager.deleteCreditDeleteProduction(production_id) == true){
+                    if (databaseMovieHandler.deleteMovie(production_id) == true){
+                        return deleteProductionFinal(production_id);
+                    } else return false;
+                } else return false;
+            case "Serie":
+                if (databaseTvSeriesEpisodeHandler.deleteEpisode(production_id) == true){
+                    if (databaseSeasonHandler.deleteSeason(production_id) == true){
+                        if (databaseTvSeriesHandler.deleteSeries(production_id) == true){
+                            if (databaseCreditsManager.deleteCreditDeleteProduction(production_id) == true){
+                                return deleteProductionFinal(production_id);
+                            }
+                        } else return false;
+                    } else return false;
+                } else return false;
+            case "Tv program":
+                if (databaseTvProgramEpisodeHandler.deleteEpisode(production_id) == true){
+                    if (databaseTvProgramHandler.deleteProgram(production_id) == true){
+                        return deleteProductionFinal(production_id);
+                    } else return false;
+                } else return false;
+        } return false;
+    }
+
+    private Boolean deleteProductionFinal(String production_id) {
+        connection = DatabaseAccessHandler.getConnection();
+
+        try {
+            PreparedStatement deleteStatement = connection.prepareStatement(
+                    "DELETE FROM productions WHERE production_id = ?");
+            deleteStatement.setString(1, production_id);
+            deleteStatement.execute();
+            return true;
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        } return false;
+    }
+
 /*    public ArrayList<Production> getMyProductions(int account_id){
         connection = DatabaseAccesHandler.getConnection();
         ArrayList<Production> myProductions = new ArrayList<>();

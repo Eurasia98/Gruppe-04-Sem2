@@ -482,4 +482,9 @@ public class CreditSystem {
        DatabaseTvSeriesEpisodeHandler databaseTvSeriesEpisodeHandler = new DatabaseTvSeriesEpisodeHandler();
        databaseTvSeriesEpisodeHandler.editId(currentId, newId);
     }
+
+    public boolean deleteProduction(String production_id) {
+       DatabaseProductionManager databaseProductionManager = new DatabaseProductionManager();
+       return databaseProductionManager.deleteProduction(production_id);
+    }
 }

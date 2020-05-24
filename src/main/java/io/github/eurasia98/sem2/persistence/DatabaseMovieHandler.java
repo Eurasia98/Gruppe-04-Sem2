@@ -169,4 +169,18 @@ public class DatabaseMovieHandler {
             throwables.printStackTrace();
         } return false;
     }
+
+    public boolean deleteMovie(String production_id) {
+        connection = DatabaseAccessHandler.getConnection();
+
+        try {
+            PreparedStatement deleteStatement = connection.prepareStatement(
+                    "DELETE FROM movies WHERE production_id = ?");
+            deleteStatement.setString(1, production_id);
+            deleteStatement.execute();
+            return true;
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        } return false;
+    }
 }

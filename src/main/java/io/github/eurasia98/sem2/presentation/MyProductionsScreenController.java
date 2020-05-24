@@ -77,6 +77,35 @@ public class MyProductionsScreenController implements Initializable {
     private TextArea txtAreaDisplayInfo;
 
     @FXML
+    private Button btnDeleteProduction;
+
+    @FXML
+    private Button btnConfirmDelete;
+
+    @FXML
+    void btnConfirmDeleteHandler(ActionEvent event) {
+        try {
+            if (App.getCreditSystem().deleteProduction(tvMyProductions.getSelectionModel().getSelectedItem().getProduction_id()) == true){
+                resetFields();
+                update();
+                txtAreaDisplayInfo.appendText("Produktionen er slettet. ");
+            } else {
+                resetFields();
+                update();
+                txtAreaDisplayInfo.appendText("Der skete desværre en fejl. ");
+            }
+        } catch (java.lang.NullPointerException e){
+            resetFields();
+            update();
+        }
+    }
+
+    @FXML
+    void btnDeleteProductionHandler(ActionEvent event) {
+        btnConfirmDelete.setVisible(true);
+    }
+
+    @FXML
     private void ivLogoActionHandler(MouseEvent mouseEvent) {
         App.resetSelects();
         App.switchScene("FrontPage");
@@ -220,6 +249,7 @@ public class MyProductionsScreenController implements Initializable {
         txtFieldNewTitle.setVisible(false);
         txtAreaDisplayInfo.clear();
         txtAreaDisplayInfo.setEditable(false);
+        btnConfirmDelete.setVisible(false);
 
         App.resetSelects();
     }
