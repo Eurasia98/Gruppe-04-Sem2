@@ -76,7 +76,7 @@ public class SearchScreenUpdatedController implements Initializable {
     private void ivSearchMouseClickHandler() {
         if(!txtFieldSearch.getText().isEmpty()) {
             App.setSearchField(txtFieldSearch.getText());
-            App.switchScene("searchScreen");
+            App.switchScene("SearchScreenUpdatedScreen");
         } else {
             txtFieldSearch.setStyle("-fx-prompt-text-fill: red");
         }
