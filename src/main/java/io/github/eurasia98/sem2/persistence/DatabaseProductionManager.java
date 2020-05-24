@@ -717,30 +717,41 @@ public class DatabaseProductionManager {
         DatabaseTvProgramHandler databaseTvProgramHandler = new DatabaseTvProgramHandler();
         DatabaseTvProgramEpisodeHandler databaseTvProgramEpisodeHandler = new DatabaseTvProgramEpisodeHandler();
         String productionType = getProductionType(production_id);
+        try {
+            connection.setAutoCommit(false);
 
-        switch (productionType){
-            case "Movie":
-                if (databaseCreditsManager.deleteCreditDeleteProduction(production_id) == true){
-                    if (databaseMovieHandler.deleteMovie(production_id) == true){
-                        return deleteProductionFinal(production_id);
-                    } else return false;
-                } else return false;
-            case "Serie":
-                if (databaseTvSeriesEpisodeHandler.deleteEpisode(production_id) == true){
-                    if (databaseSeasonHandler.deleteSeason(production_id) == true){
-                        if (databaseTvSeriesHandler.deleteSeries(production_id) == true){
-                            if (databaseCreditsManager.deleteCreditDeleteProduction(production_id) == true){
-                                return deleteProductionFinal(production_id);
-                            }
+            switch (productionType){
+                case "Movie":
+                    if (databaseCreditsManager.deleteCreditDeleteProduction(production_id) == true){
+                        if (databaseMovieHandler.deleteMovie(production_id) == true){
+                            connection.commit();
+                            connection.close();
+                            return deleteProductionFinal(production_id);
                         } else return false;
                     } else return false;
-                } else return false;
-            case "Tv program":
-                if (databaseTvProgramEpisodeHandler.deleteEpisode(production_id) == true){
-                    if (databaseTvProgramHandler.deleteProgram(production_id) == true){
-                        return deleteProductionFinal(production_id);
+                case "Serie":
+                    if (databaseTvSeriesEpisodeHandler.deleteEpisode(production_id) == true){
+                        if (databaseSeasonHandler.deleteSeason(production_id) == true){
+                            if (databaseTvSeriesHandler.deleteSeries(production_id) == true){
+                                if (databaseCreditsManager.deleteCreditDeleteProduction(production_id) == true){
+                                    connection.commit();
+                                    connection.close();
+                                    return deleteProductionFinal(production_id);
+                                }
+                            } else return false;
+                        } else return false;
                     } else return false;
-                } else return false;
+                case "Tv program":
+                    if (databaseTvProgramEpisodeHandler.deleteEpisode(production_id) == true){
+                        if (databaseTvProgramHandler.deleteProgram(production_id) == true){
+                            connection.commit();
+                            connection.close();
+                            return deleteProductionFinal(production_id);
+                        } else return false;
+                    } else return false;
+            } return false;
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
         } return false;
     }
 
