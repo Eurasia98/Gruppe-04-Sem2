@@ -83,15 +83,19 @@ public class SearchScreenUpdatedController implements Initializable {
     }
 
     private void loggedIn(){
-        lblAccount.setText(App.getUserInfo().get(0));
-        Hyperlink myPage = new Hyperlink("Min side");
-        myPage.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                App.switchScene("AccountScreen");
-            }
-        });
-        vBoxAccount.getChildren().add(1, myPage);
+        try {
+            lblAccount.setText(App.getUserInfo().get(0));
+            Hyperlink myPage = new Hyperlink("Min side");
+            myPage.setOnAction(new EventHandler<ActionEvent>() {
+                @Override
+                public void handle(ActionEvent event) {
+                    App.switchScene("AccountScreen");
+                }
+            });
+            vBoxAccount.getChildren().add(1, myPage);
+        } catch (java.lang.IndexOutOfBoundsException e){
+
+        }
     }
 
     @FXML
