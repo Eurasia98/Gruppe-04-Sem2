@@ -184,19 +184,27 @@ public class CreateTvProgramCreditsController implements Initializable {
     @FXML
     void btnSavePersonHandler() {
         if (!txtFieldNewUsername.getText().isEmpty()){
-            ArrayList<String> creditsInfo = new ArrayList<>();
-            creditsInfo.add(txtFieldNewUsername.getText());
-            creditsInfo.add(txtFieldPassword.getText());
-            creditsInfo.add(txtFieldFirstName.getText());
-            creditsInfo.add(txtFieldLastName.getText());
-            if (!txtFieldEmail.getText().isEmpty()){
-                creditsInfo.add(txtFieldEmail.getText());
-            } else creditsInfo.add(null);
-            creditsInfo.add(txtFieldNewRole.getText());
-            creditsInfo.add(App.getSelectedProductionToEdit());
-            if (App.getCreditSystem().createNewTvProgramCreditAndPerson(creditsInfo) == true){
-                App.switchScene("EditMyTvProgramCreditsScreen");
-            } else txtArea.appendText("Der skete desværre en fejl. ");
+            if (App.getCreditSystem().availableUsername(txtFieldNewUsername.getText()) == true){
+                ArrayList<String> creditsInfo = new ArrayList<>();
+                creditsInfo.add(txtFieldNewUsername.getText());
+                creditsInfo.add(txtFieldPassword.getText());
+                creditsInfo.add(txtFieldFirstName.getText());
+                creditsInfo.add(txtFieldLastName.getText());
+                if (!txtFieldEmail.getText().isEmpty()){
+                    creditsInfo.add(txtFieldEmail.getText());
+                } else creditsInfo.add(null);
+                creditsInfo.add(txtFieldNewRole.getText());
+                creditsInfo.add(App.getSelectedProductionToEdit());
+                if (App.getCreditSystem().createNewTvProgramCreditAndPerson(creditsInfo) == true){
+                    App.switchScene("EditMyTvProgramCreditsScreen");
+                } else {
+                    resetFields();
+                    txtArea.appendText("Der skete desværre en fejl. ");
+                }
+            } else {
+                resetFields();
+                txtArea.appendText("Brugernavnet er desværre optaget. ");
+            }
         } else {
             resetFields();
             txtArea.appendText("Der skete desværre en fejl. ");
