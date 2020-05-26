@@ -127,8 +127,8 @@ public class CreditSystem {
         return finalInfoList;
     }
 
-    public boolean exportData(String title) {
-        return ExportData.printFile(getCreditsToDisplay(), title);
+    public boolean exportData(ArrayList<String[]> creditsInfo, String title) {
+       return ExportData.printFile(creditsInfo, title);
     }
 
     public ArrayList<String> getPersonInfo(String username) {
@@ -486,5 +486,10 @@ public class CreditSystem {
     public boolean deleteProduction(String production_id) {
        DatabaseProductionManager databaseProductionManager = new DatabaseProductionManager();
        return databaseProductionManager.deleteProduction(production_id);
+    }
+
+    public String getProductionTitle(String selectedProduction) {
+       DatabaseProductionManager databaseProductionManager = new DatabaseProductionManager();
+       return databaseProductionManager.getTitle(selectedProduction);
     }
 }

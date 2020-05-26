@@ -197,7 +197,7 @@ public class EditChoosenSeasonController implements Initializable {
 
     @FXML
     void btnSelectHandler() {
-        App.setSelectedSeriesEpisodeToEdit(tvEpisodes.getSelectionModel().getSelectedItem().getId());
+        App.setSelectedSeriesEpisode(tvEpisodes.getSelectionModel().getSelectedItem().getId());
         App.switchScene("ChoosenEpisodeToEdit");
 
     }
@@ -230,7 +230,7 @@ public class EditChoosenSeasonController implements Initializable {
     public void update(){
         ObservableList<ModelTableChoosenSeasonToEdit> observableList = FXCollections.observableArrayList();
 
-        ArrayList<String[]> seasonInfo = App.getCreditSystem().getSelectedSeasonEpisodesInfo(App.getSelectedSeasonToEdit());
+        ArrayList<String[]> seasonInfo = App.getCreditSystem().getSelectedSeasonEpisodesInfo(App.getSelectedSeason());
         for (String[] s : seasonInfo){
             observableList.add(new ModelTableChoosenSeasonToEdit(s[1], s[0], s[2]));
         }

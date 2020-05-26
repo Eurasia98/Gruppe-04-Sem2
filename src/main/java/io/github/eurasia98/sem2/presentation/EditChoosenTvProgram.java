@@ -136,13 +136,13 @@ public class EditChoosenTvProgram implements Initializable {
 
     @FXML
     void btnShowDescriptionHandler() {
-        App.setSelectedTvProgramEpisodeToEdit(tvMyEpisodes.getSelectionModel().getSelectedItem().getEpisode_id());
+        App.setSelectedTvProgramEpisode(tvMyEpisodes.getSelectionModel().getSelectedItem().getEpisode_id());
         App.switchScene("TvProgramDescriptionScreen");
     }
 
     @FXML
     void btnSaveCreatedEpisodeHandler() {
-        if (App.getCreditSystem().createNewTvProgramEpisode(App.getSelectedProductionToEdit(), txtFieldCreateEpisodeNumber.getText(),
+        if (App.getCreditSystem().createNewTvProgramEpisode(App.getSelectedProduction(), txtFieldCreateEpisodeNumber.getText(),
                 txtFieldCreateEpisodeTitle.getText(), txtFieldCreateEpisodeId.getText()) == true){
             resetFields();
             update();
@@ -254,7 +254,7 @@ public class EditChoosenTvProgram implements Initializable {
 
     private void update() {
         ObservableList<ModelTableTvProgramEpisode> observableList = FXCollections.observableArrayList();
-        ArrayList<String[]> episodesInfo = App.getCreditSystem().getTvProgramEpisodesInfo(App.getSelectedProductionToEdit());
+        ArrayList<String[]> episodesInfo = App.getCreditSystem().getTvProgramEpisodesInfo(App.getSelectedProduction());
          if (!episodesInfo.isEmpty()){
             for (String[] s : episodesInfo) {
                 observableList.add(new ModelTableTvProgramEpisode(s[0], s[1], s[2]));

@@ -80,11 +80,11 @@ public class TvProgramDescriptionScreenController implements Initializable {
 
     @FXML
     void btnSaveChanges() {
-        if (App.getCreditSystem().changeTvProgramEpisodeDescription(App.getSelectedTvProgramEpisodeToEdit(),txtAreaDescrption.getText()) == true){
+        if (App.getCreditSystem().changeTvProgramEpisodeDescription(App.getSelectedTvProgramEpisode(),txtAreaDescrption.getText()) == true){
             App.switchScene("ChoosenTvProgramToEdit");
         } else {
             try{
-                txtAreaDescrption.appendText(App.getCreditSystem().getTvProgramEpisodeDescription(App.getSelectedTvProgramEpisodeToEdit()));
+                txtAreaDescrption.appendText(App.getCreditSystem().getTvProgramEpisodeDescription(App.getSelectedTvProgramEpisode()));
                 txtAreaDescrption.setEditable(false);
             } catch (NullPointerException e){
                 txtAreaDescrption.clear();
@@ -96,8 +96,8 @@ public class TvProgramDescriptionScreenController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        if (App.getCreditSystem().getTvProgramEpisodeDescription(App.getSelectedTvProgramEpisodeToEdit()) != null){
-            txtAreaDescrption.appendText(App.getCreditSystem().getTvProgramEpisodeDescription(App.getSelectedTvProgramEpisodeToEdit()));
+        if (App.getCreditSystem().getTvProgramEpisodeDescription(App.getSelectedTvProgramEpisode()) != null){
+            txtAreaDescrption.appendText(App.getCreditSystem().getTvProgramEpisodeDescription(App.getSelectedTvProgramEpisode()));
             txtAreaDescrption.setEditable(false);
         } else txtAreaDescrption.setEditable(false);
         loggedIn();

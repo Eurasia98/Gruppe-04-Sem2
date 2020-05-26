@@ -51,7 +51,7 @@ public class DisplayCreditsController implements Initializable {
     // Returns to front page
     @FXML
     private void ivLogoActionHandler(MouseEvent event) {
-        resetSelectedTitle();
+        App.resetSelects();
         App.switchScene("FrontPage");
     }
 
@@ -77,14 +77,14 @@ public class DisplayCreditsController implements Initializable {
 
     @FXML
     private void btnLoginActionHandler(ActionEvent event) {
-        resetSelectedTitle();
+        App.resetSelects();
         App.switchScene("LoginScreen");
     }
 
-    @FXML
+    /*@FXML
     private void btnExportDataActionHandler(ActionEvent event){
         lblExport.setVisible(true);
-        if (App.getCreditSystem().exportData(App.getSelectedTitle())){
+        if (App.getCreditSystem().exportData()){
             lblExport.setText("Krediteringer gemt");
             lblExport.setTextFill(Color.GREEN);
         }
@@ -92,7 +92,7 @@ public class DisplayCreditsController implements Initializable {
             lblExport.setText("Fejl med export af krediteringer");
             lblExport.setTextFill(Color.RED);
         }
-    }
+    }*/
 
     private void loggedIn(){
         if (!App.getUserInfo().isEmpty()){
@@ -103,7 +103,7 @@ public class DisplayCreditsController implements Initializable {
             myPage.setOnAction(new EventHandler<ActionEvent>() {
                 @Override
                 public void handle(ActionEvent event) {
-                    resetSelectedTitle();
+                    App.resetSelects();
                     App.switchScene("AccountScreen");
                 }
             });
@@ -120,10 +120,6 @@ public class DisplayCreditsController implements Initializable {
                 vBoxAccount.getChildren().remove(1);
             }
         }
-    }
-
-    public void resetSelectedTitle(){
-        App.setSelectedTitle(null);
     }
 
     @Override

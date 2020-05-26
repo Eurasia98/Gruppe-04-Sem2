@@ -131,7 +131,7 @@ public class EditMyMovieCreditsScreenController implements Initializable {
     void btnDeleteCreditHandler(ActionEvent event) {
         String role = tvMyCredits.getSelectionModel().getSelectedItem().getRoleType();
         String roleName = tvMyCredits.getSelectionModel().getSelectedItem().getRoleName();
-        if (App.getCreditSystem().deleteCredit(role, roleName, App.getSelectedProductionToEdit()) == true) {
+        if (App.getCreditSystem().deleteCredit(role, roleName, App.getSelectedProduction()) == true) {
             resetFields();
             update();
         } else {
@@ -191,7 +191,7 @@ public class EditMyMovieCreditsScreenController implements Initializable {
                     ArrayList<String> personDetails = App.getCreditSystem().getPersonInfo(txtFieldUsername.getText());
                     ArrayList<String> creditsInfo = new ArrayList<>();
                     creditsInfo.add(personDetails.get(1));
-                    creditsInfo.add(App.getSelectedProductionToEdit());
+                    creditsInfo.add(App.getSelectedProduction());
                     creditsInfo.add(txtFieldRoleType.getText());
                     creditsInfo.add(txtFieldRoleName.getText());
                     if (App.getCreditSystem().createNewCredit(creditsInfo) == true) {
@@ -216,7 +216,7 @@ public class EditMyMovieCreditsScreenController implements Initializable {
         } else if (!txtFieldUsername.getText().isEmpty() && !txtFieldRoleType.getText().isEmpty()) {
             ArrayList<String> creditInfo = new ArrayList<>();
             creditInfo.add(App.getCreditSystem().getAnAccountId(txtFieldUsername.getText()));
-            creditInfo.add(App.getSelectedProductionToEdit());
+            creditInfo.add(App.getSelectedProduction());
             creditInfo.add(tvMyCredits.getSelectionModel().getSelectedItem().getRoleType());
             creditInfo.add(tvMyCredits.getSelectionModel().getSelectedItem().getRoleName());
             if (App.getCreditSystem().createNewCredit(creditInfo) == true) {
@@ -240,7 +240,7 @@ public class EditMyMovieCreditsScreenController implements Initializable {
     }
 
     public void update() {
-        String productionId = App.getSelectedProductionToEdit();
+        String productionId = App.getSelectedProduction();
         ObservableList<ModelTableEditMyMovieCredits> observableList = FXCollections.observableArrayList();
         ArrayList<String[]> myCredits = App.getCreditSystem().getCreditsInfo(productionId);
 
@@ -295,7 +295,7 @@ public class EditMyMovieCreditsScreenController implements Initializable {
             public void handle(ActionEvent actionEvent) {
                 ArrayList<String> creditInfo = new ArrayList<>();
                 creditInfo.add(App.getCreditSystem().getAnAccountId(txtFieldUsername.getText()));
-                creditInfo.add(App.getSelectedProductionToEdit());
+                creditInfo.add(App.getSelectedProduction());
                 creditInfo.add(txtFieldRoleType.getText());
                 creditInfo.add(txtFieldRoleName.getText());
                 if (App.getCreditSystem().createNewCredit(creditInfo) == true) {

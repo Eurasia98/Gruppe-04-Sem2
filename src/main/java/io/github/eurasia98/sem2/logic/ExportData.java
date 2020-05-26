@@ -7,16 +7,18 @@ import java.util.ArrayList;
 
 public class ExportData {
 
-    public static boolean printFile(ArrayList<String> exportData, String title){
+    public static boolean printFile(ArrayList<String[]> exportData, String title){
         PrintWriter outputStream = null;
         try {
-            outputStream = new PrintWriter(new FileOutputStream("ExportedCredits.txt", true));
-
             // Saved file is same name as title of production. Commented out for easier github management.
-            //outputStream = new PrintWriter(new FileOutputStream(title + ".txt", true));
+            outputStream = new PrintWriter(new FileOutputStream(title + ".txt", true));
 
-            for (String s : exportData){
-                outputStream.println(s);
+            outputStream.println(title + " krediteringer. \n\n");
+            outputStream.println("Navn: " + "\t" + "Rolle: " + "\t" +"Rollens navn: " + "\n\n");
+
+
+            for (String[] s : exportData){
+                outputStream.println(s[0] + " " + s[1] + " " +s[2] + "\n");
             }
             outputStream.close();
             return true;

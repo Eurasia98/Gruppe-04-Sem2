@@ -12,6 +12,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 
 import java.net.URL;
 import java.util.ArrayList;
@@ -48,6 +49,7 @@ public class SearchShowCreditsController implements Initializable {
 
     @FXML
     private void ivLogoActionHandler(MouseEvent mouseEvent) {
+        App.resetSelects();
         App.switchScene("FrontPage");
     }
 
@@ -68,12 +70,28 @@ public class SearchShowCreditsController implements Initializable {
         }
     }
 
+    @FXML
+    private Button btnExportDataAction;
+
+    @FXML
+    void btnExportDataActionHandler(ActionEvent event) {
+        ArrayList<String[]> creditsInfo = App.getCreditSystem().getSearchCredits(App.getSelectedSearchResult());
+        App.setSelectedCreditsToExport(creditsInfo);
+        if (App.getCreditSystem().exportData(creditsInfo, App.getCreditSystem().getProductionTitle(App.getSelectedSearchResult()))){
+            update();
+        }
+        else {
+            update();
+        }
+    }
+
     private void loggedIn(){
         lblAccount.setText(App.getUserInfo().get(0));
         Hyperlink myPage = new Hyperlink("Min side");
         myPage.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
+                App.resetSelects();
                 App.switchScene("AccountScreen");
             }
         });
@@ -83,6 +101,7 @@ public class SearchShowCreditsController implements Initializable {
     @FXML
     void ivSearchHandler() {
         try {
+            App.resetSelects();
             App.setSearchField(txtFieldSearch.getText());
             App.switchScene("SearchScreenUpdatedScreen");
         } catch (java.lang.NullPointerException e) {
@@ -94,6 +113,7 @@ public class SearchShowCreditsController implements Initializable {
     void searchKeyHandler(KeyEvent event) {
         try {
             if (event.getCode().toString().equals("ENTER")) {
+                App.resetSelects();
                 App.setSearchField(txtFieldSearch.getText());
                 App.switchScene("SearchScreenUpdatedScreen");
             }

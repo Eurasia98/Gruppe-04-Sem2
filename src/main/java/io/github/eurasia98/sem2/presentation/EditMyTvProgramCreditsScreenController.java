@@ -86,7 +86,7 @@ public class EditMyTvProgramCreditsScreenController implements Initializable {
     @FXML
     void btnDeleteCreditHandler() {
         String role = tvCredits.getSelectionModel().getSelectedItem().getRole();
-        if (App.getCreditSystem().deleteCreditFromTvProgram(role, App.getSelectedProductionToEdit()) == true){
+        if (App.getCreditSystem().deleteCreditFromTvProgram(role, App.getSelectedProduction()) == true){
             update();
         } else {
             update();
@@ -106,7 +106,7 @@ public class EditMyTvProgramCreditsScreenController implements Initializable {
 
     private void update() {
         ObservableList<ModelTableEditMyTvProgramCredits> observableList = FXCollections.observableArrayList();
-        ArrayList<String[]> creditsInfo = App.getCreditSystem().getCreditsInfo(App.getSelectedProductionToEdit());
+        ArrayList<String[]> creditsInfo = App.getCreditSystem().getCreditsInfo(App.getSelectedProduction());
         for (String[] s : creditsInfo){
             observableList.add(new ModelTableEditMyTvProgramCredits(s[0], s[1]));
         }

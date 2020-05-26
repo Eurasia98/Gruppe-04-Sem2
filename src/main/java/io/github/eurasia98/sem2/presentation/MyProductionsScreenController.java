@@ -145,17 +145,17 @@ public class MyProductionsScreenController implements Initializable {
 
         switch (tvMyProductions.getSelectionModel().getSelectedItem().getProduction_type()){
             case "Movie":
-                App.setSelectedProductionToEdit(tvMyProductions.getSelectionModel().getSelectedItems().get(0).getProduction_id());
+                App.setSelectedProduction(tvMyProductions.getSelectionModel().getSelectedItems().get(0).getProduction_id());
                 App.switchScene("EditMovieCreditsScreen");
                 break;
 
             case "Serie":
-                App.setSelectedProductionToEdit(tvMyProductions.getSelectionModel().getSelectedItem().getProduction_id());
+                App.setSelectedProduction(tvMyProductions.getSelectionModel().getSelectedItem().getProduction_id());
                 App.switchScene("EditMyTvSeriesCreditsScreen");
                 break;
 
             case "Tv program":
-                App.setSelectedProductionToEdit(tvMyProductions.getSelectionModel().getSelectedItem().getProduction_id());
+                App.setSelectedProduction(tvMyProductions.getSelectionModel().getSelectedItem().getProduction_id());
                 App.switchScene("EditMyTvProgramCreditsScreen");
                 break;
         }
@@ -187,16 +187,16 @@ public class MyProductionsScreenController implements Initializable {
     void btnWatchDetailsHandler(ActionEvent event) {
         switch (tvMyProductions.getSelectionModel().getSelectedItem().getProduction_type()){
             case "Movie":
-                App.setSelectedProductionToEdit(tvMyProductions.getSelectionModel().getSelectedItem().getProduction_id());
+                App.setSelectedProduction(tvMyProductions.getSelectionModel().getSelectedItem().getProduction_id());
                 App.switchScene("ChoosenMovieToEditScreen");
                 break;
             case "Serie":
-                App.setSelectedProductionToEdit(tvMyProductions.getSelectionModel().getSelectedItem().getProduction_id());
-                App.setSelectedTvSeriesToEdit(App.getCreditSystem().getSeriesId(App.getSelectedProductionToEdit()));
+                App.setSelectedProduction(tvMyProductions.getSelectionModel().getSelectedItem().getProduction_id());
+                App.setSelectedTvSeries(App.getCreditSystem().getSeriesId(App.getSelectedProduction()));
                 App.switchScene("ChoosenTvShowToEdit");
                 break;
             case "Tv program":
-                App.setSelectedProductionToEdit(tvMyProductions.getSelectionModel().getSelectedItem().getProduction_id());
+                App.setSelectedProduction(tvMyProductions.getSelectionModel().getSelectedItem().getProduction_id());
                 App.switchScene("ChoosenTvProgramToEdit");
                 break;
         }

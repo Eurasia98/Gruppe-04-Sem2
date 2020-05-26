@@ -88,7 +88,7 @@ public class ChoosenMovieToEditScreenController implements Initializable {
 
     @FXML
     void btnSaveChangesHandler() {
-        if (App.getCreditSystem().changeDescriptionMovie(App.getSelectedProductionToEdit(), txtAreaDescription.getText()) == true){
+        if (App.getCreditSystem().changeDescriptionMovie(App.getSelectedProduction(), txtAreaDescription.getText()) == true){
             resetFields();
         } else {
             resetFields();
@@ -104,13 +104,13 @@ public class ChoosenMovieToEditScreenController implements Initializable {
     public void update(){
         try{
             txtAreaDescription.clear();
-            txtAreaDescription.appendText(App.getCreditSystem().getDescription(App.getSelectedProductionToEdit()));
+            txtAreaDescription.appendText(App.getCreditSystem().getDescription(App.getSelectedProduction()));
             txtAreaDescription.setEditable(false);
 
             txtAreaInfo.clear();
             txtAreaInfo.setEditable(false);
 
-            lblTitle.setText(App.getCreditSystem().getMovieTitle(App.getSelectedProductionToEdit()));
+            lblTitle.setText(App.getCreditSystem().getMovieTitle(App.getSelectedProduction()));
         } catch (java.lang.NullPointerException e){
             resetFields();
         }

@@ -163,7 +163,7 @@ public class CreateTvSeriesCreditsController implements Initializable {
         if (!txtFieldUsername.getText().isEmpty()){
             ArrayList<String> creditInfo = new ArrayList<>();
             creditInfo.add(txtFieldUsername.getText());
-            creditInfo.add(App.getSelectedProductionToEdit());
+            creditInfo.add(App.getSelectedProduction());
             creditInfo.add(txtFieldRole.getText());
             creditInfo.add(txtFieldRoleName.getText());
 
@@ -179,7 +179,7 @@ public class CreateTvSeriesCreditsController implements Initializable {
         } else if (!txtFieldUserId.getText().isEmpty()){
             ArrayList<String> creditsInfo = new ArrayList<>();
             creditsInfo.add(txtFieldUserId.getText());
-            creditsInfo.add(App.getSelectedProductionToEdit());
+            creditsInfo.add(App.getSelectedProduction());
             creditsInfo.add(txtFieldRole.getText());
             creditsInfo.add(txtFieldRoleName.getText());
             if (App.getCreditSystem().createNewTvSeriesCredit(creditsInfo) == true){
@@ -211,7 +211,7 @@ public class CreateTvSeriesCreditsController implements Initializable {
             } else creditInfo.add(null);
             creditInfo.add(txtFieldNewRole.getText());
             creditInfo.add(txtFieldNewRoleName.getText());
-            creditInfo.add(App.getSelectedProductionToEdit());
+            creditInfo.add(App.getSelectedProduction());
             if (App.getCreditSystem().createNewTvSeriesCreditAndPerson(creditInfo)== true){
                 resetFields();
                 App.switchScene("EditMyTvSeriesCreditsScreen");

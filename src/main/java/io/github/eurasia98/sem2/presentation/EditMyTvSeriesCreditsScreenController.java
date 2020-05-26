@@ -97,7 +97,7 @@ public class EditMyTvSeriesCreditsScreenController implements Initializable {
         try{
             String role = tvCredits.getSelectionModel().getSelectedItem().getRoleType();
             String roleName = tvCredits.getSelectionModel().getSelectedItem().getRoleName();
-            if (App.getCreditSystem().deleteCreditFromTvSeries(role, roleName,App.getSelectedProductionToEdit()) == true){
+            if (App.getCreditSystem().deleteCreditFromTvSeries(role, roleName,App.getSelectedProduction()) == true){
                 update();
             } else {
                 update();
@@ -109,7 +109,7 @@ public class EditMyTvSeriesCreditsScreenController implements Initializable {
 
     private void update() {
         ObservableList<ModelTableEditMyTvSeriesCredits> observableList = FXCollections.observableArrayList();
-        ArrayList<String[]> creditsInfo = App.getCreditSystem().getCreditsInfo(App.getSelectedProductionToEdit());
+        ArrayList<String[]> creditsInfo = App.getCreditSystem().getCreditsInfo(App.getSelectedProduction());
 
         for (String[] s : creditsInfo){
             observableList.add(new ModelTableEditMyTvSeriesCredits(s[0], s[1] ,s[2]));

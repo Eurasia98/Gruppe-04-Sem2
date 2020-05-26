@@ -85,7 +85,7 @@ public class EditChoosenEpisodeController implements Initializable {
 
     @FXML
     void btnSaveChangesHandler() {
-        if (App.getCreditSystem().changeDescriptionSeriesEpisode(App.getSelectedSeriesEpisodeToEdit(), txtAreaDescription.getText()) == true){
+        if (App.getCreditSystem().changeDescriptionSeriesEpisode(App.getSelectedSeriesEpisode(), txtAreaDescription.getText()) == true){
             resetFields();
             update();
         } else {
@@ -110,8 +110,8 @@ public class EditChoosenEpisodeController implements Initializable {
 
     public void update(){
         try {
-            if (!App.getCreditSystem().getEpisodeDescription(App.getSelectedSeriesEpisodeToEdit()).isEmpty()){
-                txtAreaDescription.appendText(App.getCreditSystem().getEpisodeDescription(App.getSelectedSeriesEpisodeToEdit()));
+            if (!App.getCreditSystem().getEpisodeDescription(App.getSelectedSeriesEpisode()).isEmpty()){
+                txtAreaDescription.appendText(App.getCreditSystem().getEpisodeDescription(App.getSelectedSeriesEpisode()));
                 btnSaveChanges.setVisible(false);
                 txtAreaDescription.setEditable(false);
 

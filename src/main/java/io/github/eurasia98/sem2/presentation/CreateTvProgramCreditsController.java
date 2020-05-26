@@ -9,7 +9,6 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
-import org.postgresql.jdbc2.ArrayAssistant;
 
 import java.net.URL;
 import java.util.ArrayList;
@@ -152,7 +151,7 @@ public class CreateTvProgramCreditsController implements Initializable {
             if (!txtFieldUsername.getText().isEmpty()){
                 ArrayList<String> creditsInfo = new ArrayList<>();
                 creditsInfo.add(txtFieldRole.getText());
-                creditsInfo.add(App.getSelectedProductionToEdit());
+                creditsInfo.add(App.getSelectedProduction());
                 creditsInfo.add(txtFieldUsername.getText());
                 if (App.getCreditSystem().createNewTvProgramCredit(creditsInfo) == true){
                     resetFields();
@@ -164,7 +163,7 @@ public class CreateTvProgramCreditsController implements Initializable {
             } else if (!txtFieldUserId.getText().isEmpty()){
                 ArrayList<String> creditsInfo = new ArrayList<>();
                 creditsInfo.add(txtFieldRole.getText());
-                creditsInfo.add(App.getSelectedProductionToEdit());
+                creditsInfo.add(App.getSelectedProduction());
                 creditsInfo.add(txtFieldUserId.getText());
                 if (App.getCreditSystem().createNewTvProgramCreditWithUserId(creditsInfo) == true){
                     resetFields();
@@ -194,7 +193,7 @@ public class CreateTvProgramCreditsController implements Initializable {
                     creditsInfo.add(txtFieldEmail.getText());
                 } else creditsInfo.add(null);
                 creditsInfo.add(txtFieldNewRole.getText());
-                creditsInfo.add(App.getSelectedProductionToEdit());
+                creditsInfo.add(App.getSelectedProduction());
                 if (App.getCreditSystem().createNewTvProgramCreditAndPerson(creditsInfo) == true){
                     App.switchScene("EditMyTvProgramCreditsScreen");
                 } else {

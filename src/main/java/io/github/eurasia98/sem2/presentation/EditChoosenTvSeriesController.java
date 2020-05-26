@@ -198,7 +198,7 @@ public class EditChoosenTvSeriesController implements Initializable {
     void btnSaveDescriptionHandler() {
         btnSaveDescription.setVisible(true);
         if (txtAreaDescription != null && !txtAreaDescription.getText().isEmpty()) {
-            if (App.getCreditSystem().changeDescription(App.getSelectedTvSeriesToEdit(), txtAreaDescription.getText()) == true) {
+            if (App.getCreditSystem().changeDescription(App.getSelectedTvSeries(), txtAreaDescription.getText()) == true) {
                 resetFields();
                 txtAreaDisplayInfo.appendText("Beskrivelsen blev ændret. ");
             } else {
@@ -224,8 +224,8 @@ public class EditChoosenTvSeriesController implements Initializable {
     void btnSaveSeasonHandler() {
         ArrayList<String> seasonInfo = new ArrayList<>();
         seasonInfo.add(txtFieldSeasonId.getText());
-        seasonInfo.add(App.getSelectedProductionToEdit());
-        seasonInfo.add(App.getSelectedTvSeriesToEdit());
+        seasonInfo.add(App.getSelectedProduction());
+        seasonInfo.add(App.getSelectedTvSeries());
         seasonInfo.add(txtFieldSeasonNumber.getText());
         if (App.getCreditSystem().createNewSeason(seasonInfo) == true) {
             resetFields();
@@ -238,7 +238,7 @@ public class EditChoosenTvSeriesController implements Initializable {
 
     @FXML
     void btnSelectHandler() {
-        App.setSelectedSeasonToEdit(tvSeasons.getSelectionModel().getSelectedItem().getId());
+        App.setSelectedSeason(tvSeasons.getSelectionModel().getSelectedItem().getId());
         App.switchScene("ChoosenSeasonToEdit");
     }
 
@@ -272,7 +272,7 @@ public class EditChoosenTvSeriesController implements Initializable {
     }
 
     public void update() {
-        String productionId = App.getSelectedProductionToEdit();
+        String productionId = App.getSelectedProduction();
         ObservableList<ModelTableChoosenEditTvSeries> observableList = FXCollections.observableArrayList();
         ArrayList<String[]> mySeriesInfo = App.getCreditSystem().getMySeriesInfo(productionId);
 

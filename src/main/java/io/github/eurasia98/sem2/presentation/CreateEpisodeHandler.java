@@ -81,8 +81,8 @@ public class CreateEpisodeHandler implements Initializable {
 
     @FXML
     void btnSaveHandler() {
-        if (App.getCreditSystem().createNewEpisode(App.getSelectedSeasonToEdit(), App.getSelectedTvSeriesToEdit(),
-                App.getSelectedProductionToEdit(),txtFieldEpisodeTitle.getText(), txtAreaDescription.getText(),
+        if (App.getCreditSystem().createNewEpisode(App.getSelectedSeason(), App.getSelectedTvSeries(),
+                App.getSelectedProduction(),txtFieldEpisodeTitle.getText(), txtAreaDescription.getText(),
                 txtFieldEpisodeId.getText(), txtFieldEpisodeNumber.getText()) == true){
             updateSucces();
         } else resetFields();

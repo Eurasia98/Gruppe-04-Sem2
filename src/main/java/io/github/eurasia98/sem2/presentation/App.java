@@ -20,13 +20,22 @@ public class App extends Application{
     private static CreditSystem creditSystem = new CreditSystem();
     private static List<String> userInfo = new ArrayList<>();
     private static String searchField;
-    private static String selectedProductionToEdit;
+    private static String selectedProduction;
     private static String selectedTitle;
-    private static String selectedTvSeriesToEdit;
-    private static String selectedSeasonToEdit;
-    private static String selectedSeriesEpisodeToEdit;
-    private static String selectedTvProgramEpisodeToEdit;
+    private static String selectedTvSeries;
+    private static String selectedSeason;
+    private static String selectedSeriesEpisode;
+    private static String selectedTvProgramEpisode;
     private static String selectedSearchResult;
+    private static ArrayList<String[]> selectedCreditsToExport;
+
+    public static ArrayList<String[]> getSelectedCreditsToExport() {
+        return selectedCreditsToExport;
+    }
+
+    public static void setSelectedCreditsToExport(ArrayList<String[]> selectedCreditsToExport) {
+        App.selectedCreditsToExport = selectedCreditsToExport;
+    }
 
     public static String getSelectedSearchResult() {
         return selectedSearchResult;
@@ -38,51 +47,51 @@ public class App extends Application{
 
     public static void resetSelects(){
         searchField = null;
-        selectedProductionToEdit = null;
-        selectedTvSeriesToEdit = null;
-        selectedSeasonToEdit = null;
-        selectedSeriesEpisodeToEdit = null;
-        selectedTvProgramEpisodeToEdit = null;
+        selectedProduction = null;
+        selectedTvSeries = null;
+        selectedSeason = null;
+        selectedSeriesEpisode = null;
+        selectedTvProgramEpisode = null;
     }
 
-    public static String getSelectedTvProgramEpisodeToEdit() {
-        return selectedTvProgramEpisodeToEdit;
+    public static String getSelectedTvProgramEpisode() {
+        return selectedTvProgramEpisode;
     }
 
-    public static void setSelectedTvProgramEpisodeToEdit(String selectedTvProgramEpisodeToEdit) {
-        App.selectedTvProgramEpisodeToEdit = selectedTvProgramEpisodeToEdit;
+    public static void setSelectedTvProgramEpisode(String selectedTvProgramEpisode) {
+        App.selectedTvProgramEpisode = selectedTvProgramEpisode;
     }
 
-    public static String getSelectedTvSeriesToEdit() {
-        return selectedTvSeriesToEdit;
+    public static String getSelectedTvSeries() {
+        return selectedTvSeries;
     }
 
-    public static void setSelectedTvSeriesToEdit(String selectedTvSeriesToEdit) {
-        App.selectedTvSeriesToEdit = selectedTvSeriesToEdit;
+    public static void setSelectedTvSeries(String selectedTvSeries) {
+        App.selectedTvSeries = selectedTvSeries;
     }
 
-    public static String getSelectedSeriesEpisodeToEdit() {
-        return selectedSeriesEpisodeToEdit;
+    public static String getSelectedSeriesEpisode() {
+        return selectedSeriesEpisode;
     }
 
-    public static void setSelectedSeriesEpisodeToEdit(String selectedSeriesEpisodeToEdit) {
-        App.selectedSeriesEpisodeToEdit = selectedSeriesEpisodeToEdit;
+    public static void setSelectedSeriesEpisode(String selectedSeriesEpisode) {
+        App.selectedSeriesEpisode = selectedSeriesEpisode;
     }
 
-    public static String getSelectedSeasonToEdit() {
-        return selectedSeasonToEdit;
+    public static String getSelectedSeason() {
+        return selectedSeason;
     }
 
-    public static void setSelectedSeasonToEdit(String selectedSeasonToEdit) {
-        App.selectedSeasonToEdit = selectedSeasonToEdit;
+    public static void setSelectedSeason(String selectedSeason) {
+        App.selectedSeason = selectedSeason;
     }
 
-    public static String getSelectedProductionToEdit() {
-        return selectedProductionToEdit;
+    public static String getSelectedProduction() {
+        return selectedProduction;
     }
 
-    public static void setSelectedProductionToEdit(String selectedProductionToEdit) {
-        App.selectedProductionToEdit = selectedProductionToEdit;
+    public static void setSelectedProduction(String selectedProduction) {
+        App.selectedProduction = selectedProduction;
     }
 
     public static String getSearchField() {
