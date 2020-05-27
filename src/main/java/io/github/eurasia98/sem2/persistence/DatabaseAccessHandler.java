@@ -7,7 +7,7 @@ import java.sql.SQLException;
 public class DatabaseAccessHandler {
     static Connection connection = null;
 
-    public static Connection getConnection(){
+    protected static Connection getConnection(){
         try {
             DriverManager.registerDriver(new org.postgresql.Driver());
             connection = DriverManager.getConnection(
