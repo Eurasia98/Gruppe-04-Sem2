@@ -50,7 +50,7 @@ public class SearchScreenUpdatedController implements Initializable {
     private ImageView ivSearchImage;
 
     @FXML
-    void btnSelectHandler() {
+    private void btnSelectHandler() {
         try {
             App.setSelectedSearchResult(tvEpisodes.getSelectionModel().getSelectedItem().getProduction_id());
             App.switchScene("SearchShowCreditsScreen");
@@ -99,7 +99,7 @@ public class SearchScreenUpdatedController implements Initializable {
     }
 
     @FXML
-    void ivSearchImageHandler() {
+    private void ivSearchImageHandler() {
         try {
             App.setSearchField(txtFieldSearch.getText());
             txtFieldSearch.clear();
@@ -110,7 +110,7 @@ public class SearchScreenUpdatedController implements Initializable {
     }
 
     @FXML
-    void txtFieldSearchKeyHandler(KeyEvent event) {
+    private void txtFieldSearchKeyHandler(KeyEvent event) {
         if (event.getCode().toString().equals("ENTER")){
             App.setSearchField(txtFieldSearch.getText());
             update();
@@ -119,7 +119,7 @@ public class SearchScreenUpdatedController implements Initializable {
         }
     }
 
-    public void update(){
+    private void update(){
         ObservableList<ModelTableSearch> observableList = FXCollections.observableArrayList();
         ArrayList<String[]> searchInfo = App.getCreditSystem().searchUpdated(App.getSearchField());
 
