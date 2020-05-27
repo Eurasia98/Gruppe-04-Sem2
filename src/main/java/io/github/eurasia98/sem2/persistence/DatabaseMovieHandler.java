@@ -10,8 +10,8 @@ public class DatabaseMovieHandler {
     public Boolean insertMovie(ArrayList<String> movieInfo){
         try {
             this.connection = DatabaseAccessHandler.getConnection();
-            DatabaseProductionManager databaseProductionManager = new DatabaseProductionManager();
-            databaseProductionManager.insertProduction(movieInfo);
+            DatabaseProductionHandler databaseProductionHandler = new DatabaseProductionHandler();
+            databaseProductionHandler.insertProduction(movieInfo);
 
             PreparedStatement insertPersonStatement = connection.prepareStatement(
                     "INSERT INTO movies(production_id, movie_title) VALUES(?,?)");

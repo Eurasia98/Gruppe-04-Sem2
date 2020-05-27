@@ -3,7 +3,7 @@ package io.github.eurasia98.sem2.persistence;
 import java.sql.*;
 import java.util.ArrayList;
 
-public class DatabaseProductionManager {
+public class DatabaseProductionHandler {
     static Connection connection = null;
     private ArrayList<String> backupProductions;
 
@@ -709,7 +709,7 @@ public class DatabaseProductionManager {
 
     public boolean deleteProduction(String production_id) {
         connection = DatabaseAccessHandler.getConnection();
-        DatabaseCreditsManager databaseCreditsManager = new DatabaseCreditsManager();
+        DatabaseCreditsHandler databaseCreditsHandler = new DatabaseCreditsHandler();
         DatabaseTvSeriesHandler databaseTvSeriesHandler = new DatabaseTvSeriesHandler();
         DatabaseSeasonHandler databaseSeasonHandler = new DatabaseSeasonHandler();
         DatabaseTvSeriesEpisodeHandler databaseTvSeriesEpisodeHandler = new DatabaseTvSeriesEpisodeHandler();
@@ -724,7 +724,7 @@ public class DatabaseProductionManager {
 
             switch (productionType){
                 case "Movie":
-                    if (databaseCreditsManager.deleteCreditDeleteProduction(production_id) == true){
+                    if (databaseCreditsHandler.deleteCreditDeleteProduction(production_id) == true){
                         if (databaseMovieHandler.deleteMovie(production_id) == true){
                             connection.commit();
                             connection.close();
@@ -741,7 +741,7 @@ public class DatabaseProductionManager {
                     if (databaseTvSeriesEpisodeHandler.deleteEpisode(production_id) == true){
                         if (databaseSeasonHandler.deleteSeason(production_id) == true){
                             if (databaseTvSeriesHandler.deleteSeries(production_id) == true){
-                                if (databaseCreditsManager.deleteCreditDeleteProduction(production_id) == true){
+                                if (databaseCreditsHandler.deleteCreditDeleteProduction(production_id) == true){
                                     connection.commit();
                                     connection.close();
                                     return deleteProductionFinal(production_id);

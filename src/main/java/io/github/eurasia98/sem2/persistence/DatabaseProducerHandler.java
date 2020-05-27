@@ -5,7 +5,7 @@ import io.github.eurasia98.sem2.logic.Producer;
 import java.sql.*;
 import java.util.ArrayList;
 
-public class DatabaseProducerManager{
+public class DatabaseProducerHandler {
     static Connection connection = null;
 
     public Boolean saveProducer(Producer producer){

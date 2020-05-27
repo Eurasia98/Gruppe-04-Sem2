@@ -1,7 +1,5 @@
 package io.github.eurasia98.sem2.persistence;
 
-import io.github.eurasia98.sem2.logic.ProductionManager;
-
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -14,8 +12,8 @@ public class DatabaseTvProgramHandler {
 
     public boolean insertTvProgram(ArrayList<String> tvProgramInfo) {
         connection = DatabaseAccessHandler.getConnection();
-        DatabaseProductionManager databaseProductionManager = new DatabaseProductionManager();
-        databaseProductionManager.insertProduction(tvProgramInfo);
+        DatabaseProductionHandler databaseProductionHandler = new DatabaseProductionHandler();
+        databaseProductionHandler.insertProduction(tvProgramInfo);
 
         try {
             PreparedStatement insertStatement = connection.prepareStatement(

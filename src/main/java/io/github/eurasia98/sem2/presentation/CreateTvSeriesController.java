@@ -14,7 +14,7 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
-public class CreateTvSeriesHandler implements Initializable {
+public class CreateTvSeriesController implements Initializable {
 
     @FXML
     private ImageView ivLogo;

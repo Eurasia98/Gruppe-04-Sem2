@@ -1,5 +1,6 @@
 package io.github.eurasia98.sem2.presentation;
 
+import io.github.eurasia98.sem2.logic.MovieManager;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -13,7 +14,7 @@ import javafx.scene.layout.VBox;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class CreateEpisodeHandler implements Initializable {
+public class CreateMovieScreenController implements Initializable {
 
     @FXML
     private ImageView ivLogo;
@@ -31,19 +32,16 @@ public class CreateEpisodeHandler implements Initializable {
     private VBox vBoxAccount;
 
     @FXML
-    private TextField txtFieldEpisodeTitle;
+    private TextField txtFieldTitel;
 
     @FXML
-    private TextArea txtAreaDescription;
-
-    @FXML
-    private TextField txtFieldEpisodeNumber;
-
-    @FXML
-    private TextField txtFieldEpisodeId;
+    private TextField txtFieldProductionid;
 
     @FXML
     private Button btnSave;
+
+    @FXML
+    private TextArea txtAreaMessage;
 
     @FXML
     private void ivLogoActionHandler(MouseEvent mouseEvent) {
@@ -80,29 +78,35 @@ public class CreateEpisodeHandler implements Initializable {
     }
 
     @FXML
-    void btnSaveHandler() {
-        if (App.getCreditSystem().createNewEpisode(App.getSelectedSeason(), App.getSelectedTvSeries(),
-                App.getSelectedProduction(),txtFieldEpisodeTitle.getText(), txtAreaDescription.getText(),
-                txtFieldEpisodeId.getText(), txtFieldEpisodeNumber.getText()) == true){
+    void btnSaveHandler(ActionEvent event) {
+        if (App.getCreditSystem().createNewMovie(txtFieldTitel.getText(), txtFieldProductionid.getText()) == true){
             updateSucces();
-        } else resetFields();
+        } else updateFail();
+
+        /*MovieManager movieManager = new MovieManager();
+        if (movieManager.insertMovie(movieManager.createMovie(txtFieldTitel.getText(), txtFieldProductionid.getText())) == false){
+            updateSucces();
+        } else {
+            updateFail();
+        }*/
+    }
+
+    private void updateSucces(){
+        txtAreaMessage.clear();
+        txtFieldProductionid.clear();
+        txtFieldTitel.clear();
+        txtAreaMessage.setText("Filmen er blevet gemt. ");
+    }
+
+    private void updateFail(){
+        txtAreaMessage.clear();
+        txtFieldTitel.clear();
+        txtFieldProductionid.clear();
+        txtAreaMessage.setText("Der skete en fejl. ");
     }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        resetFields();
         loggedIn();
     }
-
-    public void updateSucces(){
-        App.switchScene("ChoosenSeasonToEdit");
-    }
-
-    public void resetFields(){
-        txtAreaDescription.clear();
-        txtFieldEpisodeId.clear();
-        txtFieldEpisodeId.clear();
-        txtFieldEpisodeNumber.clear();
-    }
-
 }

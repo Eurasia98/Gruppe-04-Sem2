@@ -1,7 +1,5 @@
 package io.github.eurasia98.sem2.persistence;
 
-import javafx.fxml.Initializable;
-
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -14,8 +12,8 @@ public class DatabaseTvSeriesHandler {
     public Boolean insertTvSeries(ArrayList<String> tvSeriesInfo){
         try {
             this.connection = DatabaseAccessHandler.getConnection();
-            DatabaseProductionManager databaseProductionManager = new DatabaseProductionManager();
-            databaseProductionManager.insertProduction(tvSeriesInfo);
+            DatabaseProductionHandler databaseProductionHandler = new DatabaseProductionHandler();
+            databaseProductionHandler.insertProduction(tvSeriesInfo);
 
             PreparedStatement insertTvSeriesStatement = connection.prepareStatement(
                     "INSERT INTO tv_series(production_id, title, series_id, description) VALUES(?,?, ?, ?)");

@@ -55,9 +55,9 @@ public class CreditSystem {
    }
 
     public HashMap<String, String> search(String searchString) {
-        DatabaseSearchController databaseSearchController = new DatabaseSearchController();
+        DatabaseSearchHandler databaseSearchHandler = new DatabaseSearchHandler();
         HashMap<String, String> searchResultsMap = new HashMap<>();
-        ArrayList<SearchResults> searchResultsArrayList = databaseSearchController.search(searchString);
+        ArrayList<SearchResults> searchResultsArrayList = databaseSearchHandler.search(searchString);
         for (SearchResults searchResult : searchResultsArrayList) {
             searchResultsMap.put(searchResult.getTitle(), searchResult.getProductionId());
         }
@@ -70,8 +70,8 @@ public class CreditSystem {
     }
 
     public ArrayList<Credit> findCredits(SearchResults searchResults) {
-        DatabaseSearchController databaseSearchController = new DatabaseSearchController();
-        return databaseSearchController.searchCredits(searchResults);
+        DatabaseSearchHandler databaseSearchHandler = new DatabaseSearchHandler();
+        return databaseSearchHandler.searchCredits(searchResults);
     }
 
     public List<String> login(String username, String password) {
@@ -90,35 +90,35 @@ public class CreditSystem {
    }
 
     public Boolean createNewCredit(ArrayList<String> creditsInfo) {
-        DatabaseCreditsManager databaseCreditsManager = new DatabaseCreditsManager();
-        return databaseCreditsManager.insertCredit(creditsInfo);
+        DatabaseCreditsHandler databaseCreditsHandler = new DatabaseCreditsHandler();
+        return databaseCreditsHandler.insertCredit(creditsInfo);
     }
 
     public Boolean editProductionId(String oldProductionId, String newProductionId) {
-        DatabaseProductionManager databaseProductionManager = new DatabaseProductionManager();
-        ArrayList<String> productionInfo = databaseProductionManager.getProduction(oldProductionId);
+        DatabaseProductionHandler databaseProductionHandler = new DatabaseProductionHandler();
+        ArrayList<String> productionInfo = databaseProductionHandler.getProduction(oldProductionId);
         if (Login.getAccount().getUsername().equals(productionInfo.get(4))) {
-            return databaseProductionManager.editProductionId(oldProductionId, newProductionId);
+            return databaseProductionHandler.editProductionId(oldProductionId, newProductionId);
         }
         return false;
     }
 
     public Boolean editTitle(String newTitle, String production_id) {
-        DatabaseProductionManager databaseProductionManager = new DatabaseProductionManager();
-        return databaseProductionManager.editProductionTitle(newTitle, production_id);
+        DatabaseProductionHandler databaseProductionHandler = new DatabaseProductionHandler();
+        return databaseProductionHandler.editProductionTitle(newTitle, production_id);
     }
 
     public ArrayList<String> getProductionInfo(String productionId) {
-        DatabaseProductionManager databaseProductionManager = new DatabaseProductionManager();
-        return databaseProductionManager.getProduction(productionId);
+        DatabaseProductionHandler databaseProductionHandler = new DatabaseProductionHandler();
+        return databaseProductionHandler.getProduction(productionId);
     }
 
     public ArrayList<String[]> getCreditsInfo(String productionId) {
-        DatabaseCreditsManager databaseCreditsManager = new DatabaseCreditsManager();
+        DatabaseCreditsHandler databaseCreditsHandler = new DatabaseCreditsHandler();
         DatabasePersonHandler databasePersonHandler = new DatabasePersonHandler();
 
         ArrayList<String[]> finalInfoList = new ArrayList<>();
-        ArrayList<String[]> creditsInfo = databaseCreditsManager.getCreditsInfo(productionId);
+        ArrayList<String[]> creditsInfo = databaseCreditsHandler.getCreditsInfo(productionId);
         for (String[] s : creditsInfo) {
             ArrayList<String> getPersonInfo = databasePersonHandler.getPersonToEditMyCredits(Integer.parseInt(s[2]));
             finalInfoList.add(new String[]{getPersonInfo.get(0) + " " + getPersonInfo.get(1), s[0], s[1]});
@@ -157,8 +157,8 @@ public class CreditSystem {
    }
 
     public ArrayList<String[]> getLoggedInPersonCredits() {
-        DatabaseCreditsManager databaseCreditsManager = new DatabaseCreditsManager();
-        return databaseCreditsManager.getLoggedInPersonsCredits(Login.getAccount().getId());
+        DatabaseCreditsHandler databaseCreditsHandler = new DatabaseCreditsHandler();
+        return databaseCreditsHandler.getLoggedInPersonsCredits(Login.getAccount().getId());
     }
 
    public boolean createNewTv_series(ArrayList<String> tvSeriesInfo) {
@@ -211,13 +211,13 @@ public class CreditSystem {
     }
 
     public boolean changeDescription(String selectedTvSeriesToEdit, String newDescription) {
-        DatabaseProductionManager databaseProductionManager = new DatabaseProductionManager();
-        return databaseProductionManager.editDescription(selectedTvSeriesToEdit, newDescription);
+        DatabaseProductionHandler databaseProductionHandler = new DatabaseProductionHandler();
+        return databaseProductionHandler.editDescription(selectedTvSeriesToEdit, newDescription);
     }
 
     public String testProductionType(String productionId) {
-        DatabaseProductionManager databaseProductionManager = new DatabaseProductionManager();
-        return databaseProductionManager.printTestProductionType(productionId);
+        DatabaseProductionHandler databaseProductionHandler = new DatabaseProductionHandler();
+        return databaseProductionHandler.printTestProductionType(productionId);
     }
 
    public boolean createTvProgram(ArrayList<String> tvProgramInfo) {
@@ -275,28 +275,28 @@ public class CreditSystem {
     }
 
     public boolean createNewTvProgramCredit(ArrayList<String> creditsInfo) {
-        DatabaseCreditsManager databaseCreditsManager = new DatabaseCreditsManager();
+        DatabaseCreditsHandler databaseCreditsHandler = new DatabaseCreditsHandler();
         DatabaseAccountHandler databaseAccountHandler = new DatabaseAccountHandler();
         ArrayList<String> finalList = new ArrayList<>();
         finalList.add(creditsInfo.get(0));
         finalList.add(creditsInfo.get(1));
         finalList.add(databaseAccountHandler.getAccountId(creditsInfo.get(2)));
-        return databaseCreditsManager.insertTvProgramCredits(finalList);
+        return databaseCreditsHandler.insertTvProgramCredits(finalList);
     }
 
     public boolean createNewTvProgramCreditWithUserId(ArrayList<String> creditsInfo) {
-        DatabaseCreditsManager databaseCreditsManager = new DatabaseCreditsManager();
+        DatabaseCreditsHandler databaseCreditsHandler = new DatabaseCreditsHandler();
         ArrayList<String> finalList = new ArrayList<>();
         finalList.add(creditsInfo.get(0));
         finalList.add(creditsInfo.get(1));
         finalList.add(creditsInfo.get(2));
-        return databaseCreditsManager.insertTvProgramCredits(finalList);
+        return databaseCreditsHandler.insertTvProgramCredits(finalList);
     }
 
     public boolean createNewTvProgramCreditAndPerson(ArrayList<String> creditsInfo) {
         DatabaseAccountHandler databaseAccountHandler = new DatabaseAccountHandler();
         DatabasePersonHandler databasePersonHandler = new DatabasePersonHandler();
-        DatabaseCreditsManager databaseCreditsManager = new DatabaseCreditsManager();
+        DatabaseCreditsHandler databaseCreditsHandler = new DatabaseCreditsHandler();
         ArrayList<String> accountInfo = new ArrayList<>();
         accountInfo.add(creditsInfo.get(0));
         accountInfo.add(creditsInfo.get(1));
@@ -315,35 +315,35 @@ public class CreditSystem {
                 finalList.add(creditsInfo.get(5));
                 finalList.add(creditsInfo.get(6));
                 finalList.add(personInfo.get(0));
-                return databaseCreditsManager.insertTvProgramCredits(finalList);
+                return databaseCreditsHandler.insertTvProgramCredits(finalList);
             } else return false;
         } else return false;
     }
 
     public boolean createNewTvSeriesCredit(ArrayList<String> creditInfo) {
-        DatabaseCreditsManager databaseCreditsManager = new DatabaseCreditsManager();
+        DatabaseCreditsHandler databaseCreditsHandler = new DatabaseCreditsHandler();
         ArrayList<String> finalList = new ArrayList<>();
         finalList.add(creditInfo.get(0));
         finalList.add(creditInfo.get(1));
         finalList.add(creditInfo.get(2));
         finalList.add(creditInfo.get(3));
-        return databaseCreditsManager.insertCredit(finalList);
+        return databaseCreditsHandler.insertCredit(finalList);
     }
 
     public boolean deleteCredit(String role, String roleName, String productionId) {
-        DatabaseCreditsManager databaseCreditsManager = new DatabaseCreditsManager();
-        return databaseCreditsManager.deleteCredit(role, roleName, productionId);
+        DatabaseCreditsHandler databaseCreditsHandler = new DatabaseCreditsHandler();
+        return databaseCreditsHandler.deleteCredit(role, roleName, productionId);
     }
 
     public boolean deleteCreditFromTvProgram(String role, String productionId) {
-        DatabaseCreditsManager databaseCreditsManager = new DatabaseCreditsManager();
-        return databaseCreditsManager.deleteCreditFromTvProgram(role, productionId);
+        DatabaseCreditsHandler databaseCreditsHandler = new DatabaseCreditsHandler();
+        return databaseCreditsHandler.deleteCreditFromTvProgram(role, productionId);
     }
 
     public boolean createNewTvSeriesCreditAndPerson(ArrayList<String> creditsInfo) {
         DatabaseAccountHandler databaseAccountHandler = new DatabaseAccountHandler();
         DatabasePersonHandler databasePersonHandler = new DatabasePersonHandler();
-        DatabaseCreditsManager databaseCreditsManager = new DatabaseCreditsManager();
+        DatabaseCreditsHandler databaseCreditsHandler = new DatabaseCreditsHandler();
         ArrayList<String> accountInfo = new ArrayList<>();
         accountInfo.add(creditsInfo.get(0));
         accountInfo.add(creditsInfo.get(1));
@@ -363,26 +363,26 @@ public class CreditSystem {
                 finalList.add(creditsInfo.get(7));
                 finalList.add(creditsInfo.get(5));
                 finalList.add(creditsInfo.get(6));
-                return databaseCreditsManager.insertCredit(finalList);
+                return databaseCreditsHandler.insertCredit(finalList);
             } else return false;
         } else return false;
 
     }
 
     public boolean createNewTvSeriesCreditWithUsername(ArrayList<String> creditInfo) {
-        DatabaseCreditsManager databaseCreditsManager = new DatabaseCreditsManager();
+        DatabaseCreditsHandler databaseCreditsHandler = new DatabaseCreditsHandler();
         DatabaseAccountHandler databaseAccountHandler = new DatabaseAccountHandler();
         ArrayList<String> finalList = new ArrayList<>();
         finalList.add(databaseAccountHandler.getAccountId(creditInfo.get(0)));
         finalList.add(creditInfo.get(1));
         finalList.add(creditInfo.get(2));
         finalList.add(creditInfo.get(3));
-        return databaseCreditsManager.insertCredit(finalList);
+        return databaseCreditsHandler.insertCredit(finalList);
     }
 
     public boolean deleteCreditFromTvSeries(String role, String roleName, String productionId) {
-        DatabaseCreditsManager databaseCreditsManager = new DatabaseCreditsManager();
-        return databaseCreditsManager.deleteCredit(role, roleName, productionId);
+        DatabaseCreditsHandler databaseCreditsHandler = new DatabaseCreditsHandler();
+        return databaseCreditsHandler.deleteCredit(role, roleName, productionId);
     }
 
     public Boolean changeDescriptionSeriesEpisode(String selectedSeriesEpisodeToEdit, String newDescription) {
@@ -401,31 +401,31 @@ public class CreditSystem {
     }
 
     public boolean changeDescriptionMovie(String productionId, String newDescription) {
-        DatabaseProductionManager databaseProductionManager = new DatabaseProductionManager();
-        return databaseProductionManager.editMovieDescription(productionId, newDescription);
+        DatabaseProductionHandler databaseProductionHandler = new DatabaseProductionHandler();
+        return databaseProductionHandler.editMovieDescription(productionId, newDescription);
     }
 
     public String getDescription(String productionId) {
-        DatabaseProductionManager databaseProductionManager = new DatabaseProductionManager();
-        return databaseProductionManager.getDescription(productionId);
+        DatabaseProductionHandler databaseProductionHandler = new DatabaseProductionHandler();
+        return databaseProductionHandler.getDescription(productionId);
     }
 
     public String getMovieTitle(String productionId) {
-        DatabaseProductionManager databaseProductionManager = new DatabaseProductionManager();
-        return databaseProductionManager.getTitle(productionId);
+        DatabaseProductionHandler databaseProductionHandler = new DatabaseProductionHandler();
+        return databaseProductionHandler.getTitle(productionId);
     }
 
     public ArrayList<String[]> searchUpdated(String searchField) {
-        DatabaseProductionManager databaseProductionManager = new DatabaseProductionManager();
-        return databaseProductionManager.searchUpdated(searchField);
+        DatabaseProductionHandler databaseProductionHandler = new DatabaseProductionHandler();
+        return databaseProductionHandler.searchUpdated(searchField);
     }
 
     public ArrayList<String[]> getSearchCredits(String productionid) {
         try {
-            DatabaseCreditsManager databaseCreditsManager = new DatabaseCreditsManager();
+            DatabaseCreditsHandler databaseCreditsHandler = new DatabaseCreditsHandler();
             DatabasePersonHandler databasePersonHandler = new DatabasePersonHandler();
             ArrayList<String[]> unSortedFinalList = new ArrayList<>();
-            ArrayList<String[]> creditsInfo = databaseCreditsManager.getCreditsInfo(productionid);
+            ArrayList<String[]> creditsInfo = databaseCreditsHandler.getCreditsInfo(productionid);
             for (String[] s : creditsInfo) {
                 ArrayList<String> personInfo = databasePersonHandler.getPersonInfo(Integer.parseInt(s[2]));
                 unSortedFinalList.add(new String[]{personInfo.get(4) + " " +personInfo.get(5), s[0], s[1]});
@@ -484,12 +484,12 @@ public class CreditSystem {
     }
 
     public boolean deleteProduction(String production_id) {
-       DatabaseProductionManager databaseProductionManager = new DatabaseProductionManager();
-       return databaseProductionManager.deleteProduction(production_id);
+       DatabaseProductionHandler databaseProductionHandler = new DatabaseProductionHandler();
+       return databaseProductionHandler.deleteProduction(production_id);
     }
 
     public String getProductionTitle(String selectedProduction) {
-       DatabaseProductionManager databaseProductionManager = new DatabaseProductionManager();
-       return databaseProductionManager.getTitle(selectedProduction);
+       DatabaseProductionHandler databaseProductionHandler = new DatabaseProductionHandler();
+       return databaseProductionHandler.getTitle(selectedProduction);
     }
 }

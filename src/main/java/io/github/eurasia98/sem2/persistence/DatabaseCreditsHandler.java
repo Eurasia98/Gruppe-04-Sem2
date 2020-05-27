@@ -7,7 +7,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-public class DatabaseCreditsManager {
+public class DatabaseCreditsHandler {
     private static Connection connection = null;
 
     public Boolean insertCredit(ArrayList<String> creditsInfo){

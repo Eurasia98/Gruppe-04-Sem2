@@ -17,7 +17,7 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
-public class EditChoosenTvProgram implements Initializable {
+public class EditChoosenTvProgramController implements Initializable {
 
     @FXML
     private ImageView ivLogo;

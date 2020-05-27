@@ -1,17 +1,16 @@
 package io.github.eurasia98.sem2.logic;
 
-import io.github.eurasia98.sem2.persistence.DatabaseCreditsManager;
+import io.github.eurasia98.sem2.persistence.DatabaseCreditsHandler;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
 
 public class CreditManager {
 
     public Boolean insertCredit(ArrayList<String> creditInfo){
-        DatabaseCreditsManager databaseCreditsManager = new DatabaseCreditsManager();
-        return databaseCreditsManager.insertCredit(creditInfo);
+        DatabaseCreditsHandler databaseCreditsHandler = new DatabaseCreditsHandler();
+        return databaseCreditsHandler.insertCredit(creditInfo);
     }
 
     /*public Boolean insertCredit(Credit credit){
@@ -21,9 +20,9 @@ public class CreditManager {
 
     // fylder en arrayList med credit.toString() strings som fungere som rulletekster.
     public ArrayList<String> searchCredits(String production_id){
-        DatabaseCreditsManager databaseCreditsManager = new DatabaseCreditsManager();
+        DatabaseCreditsHandler databaseCreditsHandler = new DatabaseCreditsHandler();
         ArrayList<String> creditsToDisplay = new ArrayList<>();
-        ArrayList<String[]> creditsInfo = databaseCreditsManager.searchCredits(production_id);
+        ArrayList<String[]> creditsInfo = databaseCreditsHandler.searchCredits(production_id);
         for (String[] creditsArray : creditsInfo){
             creditsToDisplay.add(createCreditToDisplay(creditsArray).toString());
         }

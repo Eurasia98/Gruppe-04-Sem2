@@ -2,7 +2,7 @@ package io.github.eurasia98.sem2.logic;
 
 import io.github.eurasia98.sem2.persistence.DatabaseAccountHandler;
 import io.github.eurasia98.sem2.persistence.DatabasePersonHandler;
-import io.github.eurasia98.sem2.persistence.DatabaseProducerManager;
+import io.github.eurasia98.sem2.persistence.DatabaseProducerHandler;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -38,8 +38,8 @@ public class Login {
                 break;
             }
             case "Producer": {
-                DatabaseProducerManager databaseProducerManager = new DatabaseProducerManager();
-                ArrayList<String> producerInfo = databaseProducerManager.getProducer(Integer.parseInt(accountArray.get(0)));
+                DatabaseProducerHandler databaseProducerHandler = new DatabaseProducerHandler();
+                ArrayList<String> producerInfo = databaseProducerHandler.getProducer(Integer.parseInt(accountArray.get(0)));
                 account = new Producer(Integer.parseInt(producerInfo.get(0)), producerInfo.get(1), producerInfo.get(2),
                         producerInfo.get(3), accountArray.get(4), Integer.parseInt(producerInfo.get(5)), accountArray.get(1), accountArray.get(2));
                 break;
