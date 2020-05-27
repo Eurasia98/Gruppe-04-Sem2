@@ -86,16 +86,18 @@ public class SearchShowCreditsController implements Initializable {
     }
 
     private void loggedIn(){
-        lblAccount.setText(App.getUserInfo().get(0));
-        Hyperlink myPage = new Hyperlink("Min side");
-        myPage.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                App.resetSelects();
-                App.switchScene("AccountScreen");
-            }
-        });
-        vBoxAccount.getChildren().add(1, myPage);
+        if (!App.getUserInfo().isEmpty()){
+            lblAccount.setText(App.getUserInfo().get(0));
+            Hyperlink myPage = new Hyperlink("Min side");
+            myPage.setOnAction(new EventHandler<ActionEvent>() {
+                @Override
+                public void handle(ActionEvent event) {
+                    App.resetSelects();
+                    App.switchScene("AccountScreen");
+                }
+            });
+            vBoxAccount.getChildren().add(1, myPage);
+        }
     }
 
     @FXML
@@ -126,8 +128,15 @@ public class SearchShowCreditsController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         update();
+        btnExportDataAction.setVisible(false);
         txtFieldSearch.clear();
         loggedIn();
+        if (!App.getUserInfo().isEmpty()){
+            if (App.getUserInfo().get(1).equals("RegistreringDanmark")){
+                btnExportDataAction.setVisible(true);
+
+            }
+        }
     }
 
     public void update() {
