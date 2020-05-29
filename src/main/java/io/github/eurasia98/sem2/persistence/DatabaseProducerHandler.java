@@ -61,4 +61,37 @@ public class DatabaseProducerHandler {
             throwables.printStackTrace();
         } return null;
     }
+
+    public int getId(String username){
+        try {
+            connection = DatabaseAccessHandler.getConnection();
+            PreparedStatement searchIdStatement = connection.prepareStatement("SELECT id FROM accounts WHERE username = ?");
+            searchIdStatement.setString(1, username);
+            ResultSet rs = searchIdStatement.executeQuery();
+            if (rs.next()){
+                return rs.getInt(1);
+            } else return 0;
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        } return 0;
+    }
+
+    public Boolean insertProducer(ArrayList<String> producerInfo) {
+        try {
+            connection = DatabaseAccessHandler.getConnection();
+
+            PreparedStatement insertProducerStatement = connection.prepareStatement(
+                    "INSERT INTO producers(first_name, last_name, company_name, account_id) VALUES(?,?,?,?)");
+            insertProducerStatement.setString(1, producerInfo.get(0));
+            insertProducerStatement.setString(2, producerInfo.get(1));
+            insertProducerStatement.setString(3, producerInfo.get(2));
+            insertProducerStatement.setInt(4, Integer.parseInt(producerInfo.get(3)));
+            insertProducerStatement.execute();
+
+            return true;
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return false;
+    }
 }

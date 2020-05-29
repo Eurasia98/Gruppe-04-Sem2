@@ -74,7 +74,7 @@ public class SearchShowCreditsController implements Initializable {
     private Button btnExportDataAction;
 
     @FXML
-    void btnExportDataActionHandler(ActionEvent event) {
+    private void btnExportDataActionHandler(ActionEvent event) {
         ArrayList<String[]> creditsInfo = App.getCreditSystem().getSearchCredits(App.getSelectedSearchResult());
         App.setSelectedCreditsToExport(creditsInfo);
         if (App.getCreditSystem().exportData(creditsInfo, App.getCreditSystem().getProductionTitle(App.getSelectedSearchResult()))){
@@ -101,7 +101,7 @@ public class SearchShowCreditsController implements Initializable {
     }
 
     @FXML
-    void ivSearchHandler() {
+    private void ivSearchHandler() {
         try {
             App.resetSelects();
             App.setSearchField(txtFieldSearch.getText());
@@ -112,7 +112,7 @@ public class SearchShowCreditsController implements Initializable {
     }
 
     @FXML
-    void searchKeyHandler(KeyEvent event) {
+    private void searchKeyHandler(KeyEvent event) {
         try {
             if (event.getCode().toString().equals("ENTER")) {
                 App.resetSelects();
@@ -139,7 +139,7 @@ public class SearchShowCreditsController implements Initializable {
         }
     }
 
-    public void update() {
+    private void update() {
         ObservableList<ModelTableSearchCredits> observableList = FXCollections.observableArrayList();
         ArrayList<String[]> creditsInfo = App.getCreditSystem().getSearchCredits(App.getSelectedSearchResult());
         for (String[] s : creditsInfo) {

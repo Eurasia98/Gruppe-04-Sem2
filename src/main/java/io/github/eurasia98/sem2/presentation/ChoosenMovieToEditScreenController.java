@@ -80,14 +80,14 @@ public class ChoosenMovieToEditScreenController implements Initializable {
     }
 
     @FXML
-    void btnChangeDescriptionHandler() {
+    private void btnChangeDescriptionHandler() {
         btnSaveChanges.setVisible(true);
         txtAreaDescription.setEditable(true);
         txtAreaInfo.appendText("Du kan nu foretage ændringer i beskrivelsen. Max 1500 tegn. ");
     }
 
     @FXML
-    void btnSaveChangesHandler() {
+    private void btnSaveChangesHandler() {
         if (App.getCreditSystem().changeDescriptionMovie(App.getSelectedProduction(), txtAreaDescription.getText()) == true){
             resetFields();
         } else {

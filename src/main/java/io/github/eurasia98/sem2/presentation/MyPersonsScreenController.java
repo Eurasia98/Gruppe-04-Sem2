@@ -53,7 +53,7 @@ public class MyPersonsScreenController implements Initializable {
     private TableColumn<ModelTableMyPersons, String> tvcEmail;
 
     @FXML
-    void ivLogoHandler() {
+    private void ivLogoHandler() {
         App.switchScene("FrontPage");
     }
 
@@ -92,7 +92,7 @@ public class MyPersonsScreenController implements Initializable {
     }
 
     @FXML
-    void btnEditEmailHandler() {
+    private void btnEditEmailHandler() {
         resetFields();
         String username = App.getCreditSystem().getUsernameWithId(Integer.parseInt(tvPersons.getSelectionModel().getSelectedItem().getAccount_id()));
         String currentEmail = App.getCreditSystem().getEmail(username);
@@ -104,7 +104,7 @@ public class MyPersonsScreenController implements Initializable {
     }
 
     @FXML
-    void btnSaveChangesHandler() {
+    private void btnSaveChangesHandler() {
         if (!txtFieldNewEmail.getText().isEmpty()){
             int accountId = Integer.parseInt(tvPersons.getSelectionModel().getSelectedItem().getAccount_id());
             App.getCreditSystem().editAccountPersonEmail(txtFieldNewEmail.getText(), accountId);
@@ -135,7 +135,7 @@ public class MyPersonsScreenController implements Initializable {
         loggedIn();
     }
 
-    public void resetFields(){
+    private void resetFields(){
         txtFieldCurrentEmail.clear();
         txtFieldCurrentEmail.setVisible(false);
         txtFieldNewEmail.clear();

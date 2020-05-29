@@ -78,7 +78,7 @@ public class CreateTvProgramController implements Initializable {
     }
 
     @FXML
-    void btnSaveHandler() {
+    private void btnSaveHandler() {
         if (!txtFieldTitle.getText().isEmpty() && !txtFieldProductionId.getText().isEmpty()){
             ArrayList<String> tvProgramInfo = new ArrayList<>();
             tvProgramInfo.add(txtFieldProductionId.getText());

@@ -5,16 +5,14 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.Hyperlink;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class CreateProducerScreenController implements Initializable {
@@ -35,18 +33,28 @@ public class CreateProducerScreenController implements Initializable {
     private VBox vBoxAccount;
 
     @FXML
-    private TextField fNameField;
+    private TextField txtFieldEmail;
 
     @FXML
-    private Button saveButton;
+    private TextField txtFieldFirstName;
 
     @FXML
-    private TextField lNameField;
+    private Button btnSaveButton;
 
     @FXML
-    private void saveButtonHandler(ActionEvent event) {
-        createProducer();
-    }
+    private TextField txtFieldLastName;
+
+    @FXML
+    private TextArea txtAreaResponse;
+
+    @FXML
+    private TextField txtFieldUsername;
+
+    @FXML
+    private PasswordField pwField;
+
+    @FXML
+    private TextField txtFieldProductionCompanyName;
 
     @FXML
     private void ivLogoActionHandler(MouseEvent mouseEvent) {
@@ -82,13 +90,56 @@ public class CreateProducerScreenController implements Initializable {
         vBoxAccount.getChildren().add(1, myPage);
     }
 
-    public void createProducer(){
+    @FXML
+    void btnAvailableUsernameHandler(ActionEvent event) {
+        if (App.getCreditSystem().availableUsername(txtFieldUsername.getText())){
+            txtAreaResponse.clear();
+            txtAreaResponse.setText("Username:"  + txtFieldUsername.getText() + " is available. ");
+        } else {
+            txtAreaResponse.clear();
+            txtAreaResponse.setText("The username: " + txtFieldUsername + " is not available. ");
+        }
+    }
 
+    // Spaces have to be filled out. No time to implement security.
+    @FXML
+    void btnSaveProducerHandler(ActionEvent event) {
+        ArrayList<String> producerInfo = new ArrayList<>();
+        producerInfo.add(txtFieldUsername.getText());
+        producerInfo.add(pwField.getText());
+        producerInfo.add(txtFieldEmail.getText());
+        producerInfo.add("Producer");
+        producerInfo.add(txtFieldFirstName.getText());
+        producerInfo.add(txtFieldLastName.getText());
+        producerInfo.add(txtFieldProductionCompanyName.getText());
+        if (App.getCreditSystem().createNewProducer(producerInfo)){
+            updateProducerSuccessful();
+        } else updateProducerUnsuccessful();
+    }
+
+    //username, password, fName, lName, email, productionCompanyName
+    public void updateProducerSuccessful(){
+        txtFieldProductionCompanyName.clear();
+        txtFieldFirstName.clear();
+        txtFieldLastName.clear();
+        txtFieldEmail.clear();
+        pwField.clear();
+        txtFieldUsername.clear();
+        txtAreaResponse.setText("Producer has been succesfully created");
+    }
+
+    public void updateProducerUnsuccessful(){
+        txtFieldProductionCompanyName.clear();
+        txtFieldFirstName.clear();
+        txtFieldLastName.clear();
+        txtFieldEmail.clear();
+        pwField.clear();
+        txtFieldUsername.clear();
+        txtAreaResponse.setText("Producer has not been created - something went wrong. ");
     }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        createProducer();
         loggedIn();
     }
 }

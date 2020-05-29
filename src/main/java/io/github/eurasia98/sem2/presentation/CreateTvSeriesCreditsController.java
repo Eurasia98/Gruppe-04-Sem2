@@ -118,7 +118,7 @@ public class CreateTvSeriesCreditsController implements Initializable {
     }
 
     @FXML
-    void btnAvailableUsernameHandler() {
+    private void btnAvailableUsernameHandler() {
         if (App.getCreditSystem().availableUsername(txtFieldNewUsername.getText())) {
             txtArea.clear();
             txtArea.setVisible(true);
@@ -134,7 +134,7 @@ public class CreateTvSeriesCreditsController implements Initializable {
     }
 
     @FXML
-    void btnCreateNewPersonHandler() {
+    private void btnCreateNewPersonHandler() {
         resetFields();
         txtFieldNewUsername.setVisible(true);
         txtFieldPassword.setVisible(true);
@@ -148,7 +148,7 @@ public class CreateTvSeriesCreditsController implements Initializable {
     }
 
     @FXML
-    void btnKnownUserHandler() {
+    private void btnKnownUserHandler() {
         resetFields();
         txtFieldUsername.setVisible(true);
         txtFieldUserId.setVisible(true);
@@ -159,7 +159,7 @@ public class CreateTvSeriesCreditsController implements Initializable {
     }
 
     @FXML
-    void btnSaveCreditHandler() {
+    private void btnSaveCreditHandler() {
         if (!txtFieldUsername.getText().isEmpty()){
             ArrayList<String> creditInfo = new ArrayList<>();
             creditInfo.add(txtFieldUsername.getText());
@@ -198,7 +198,7 @@ public class CreateTvSeriesCreditsController implements Initializable {
     }
 
     @FXML
-    void btnSavePersonHandler() {
+    private void btnSavePersonHandler() {
 
         if (!txtFieldNewUsername.getText().isEmpty()){
             ArrayList<String> creditInfo = new ArrayList<>();
@@ -226,7 +226,7 @@ public class CreateTvSeriesCreditsController implements Initializable {
 
 
 
-    public void resetFields(){
+    private void resetFields(){
         txtFieldUsername.clear();
         txtFieldUsername.setVisible(false);
         txtFieldUserId.clear();

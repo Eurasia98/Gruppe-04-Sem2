@@ -492,4 +492,18 @@ public class CreditSystem {
        DatabaseProductionHandler databaseProductionHandler = new DatabaseProductionHandler();
        return databaseProductionHandler.getTitle(selectedProduction);
     }
+
+    public Boolean createNewProducer(ArrayList<String> producerInfo) {
+        DatabaseAccountHandler databaseAccountHandler = new DatabaseAccountHandler();
+        DatabaseProducerHandler databaseProducerHandler = new DatabaseProducerHandler();
+        if (databaseAccountHandler.insertAccount(producerInfo)) {
+            ArrayList<String> finalProducerInfo = new ArrayList<>();
+            finalProducerInfo.add(producerInfo.get(4));
+            finalProducerInfo.add(producerInfo.get(5));
+            finalProducerInfo.add(producerInfo.get(6));
+            finalProducerInfo.add(databaseAccountHandler.getAccountId(producerInfo.get(0)));
+            return databaseProducerHandler.insertProducer(finalProducerInfo);
+        }
+        return false;
+    }
 }

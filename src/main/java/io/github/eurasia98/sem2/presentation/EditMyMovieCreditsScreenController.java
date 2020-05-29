@@ -121,14 +121,14 @@ public class EditMyMovieCreditsScreenController implements Initializable {
     }
 
     @FXML
-    void btnAddCreditHandler(ActionEvent event) {
+    private void btnAddCreditHandler(ActionEvent event) {
         resetFields();
         btnKnownUser.setVisible(true);
         btnNewUser.setVisible(true);
     }
 
     @FXML
-    void btnDeleteCreditHandler(ActionEvent event) {
+    private void btnDeleteCreditHandler(ActionEvent event) {
         String role = tvMyCredits.getSelectionModel().getSelectedItem().getRoleType();
         String roleName = tvMyCredits.getSelectionModel().getSelectedItem().getRoleName();
         if (App.getCreditSystem().deleteCredit(role, roleName, App.getSelectedProduction()) == true) {
@@ -142,7 +142,7 @@ public class EditMyMovieCreditsScreenController implements Initializable {
     }
 
     @FXML
-    void btnKnownUserHandler(ActionEvent event) {
+    private void btnKnownUserHandler(ActionEvent event) {
         resetFields();
 
         txtAreaInfo.setVisible(true);
@@ -159,7 +159,7 @@ public class EditMyMovieCreditsScreenController implements Initializable {
     }
 
     @FXML
-    void btnNewUserHandler(ActionEvent event) {
+    private void btnNewUserHandler(ActionEvent event) {
         resetFields();
 
         txtAreaInfo.setVisible(true);
@@ -177,7 +177,7 @@ public class EditMyMovieCreditsScreenController implements Initializable {
     }
 
     @FXML
-    void btnSaveChangesHandler() {
+    private void btnSaveChangesHandler() {
         if (!txtFieldFirstName.getText().isEmpty() && !txtFieldLastName.getText().isEmpty()) {
             if (App.getCreditSystem().availableUsername(txtFieldUsername.getText()) == true) {
                 ArrayList<String> personInfo = new ArrayList<>();
@@ -230,16 +230,16 @@ public class EditMyMovieCreditsScreenController implements Initializable {
     }
 
     @FXML
-    void hlinkNoHandler() {
+    private void hlinkNoHandler() {
 
     }
 
     @FXML
-    void hlinkYesHandler() {
+    private void hlinkYesHandler() {
 
     }
 
-    public void update() {
+    private void update() {
         String productionId = App.getSelectedProduction();
         ObservableList<ModelTableEditMyMovieCredits> observableList = FXCollections.observableArrayList();
         ArrayList<String[]> myCredits = App.getCreditSystem().getCreditsInfo(productionId);
@@ -286,7 +286,7 @@ public class EditMyMovieCreditsScreenController implements Initializable {
         loggedIn();
     }
 
-    public void setHyperLinks() {
+    private void setHyperLinks() {
         hlinkNo.setVisible(true);
         hlinkYes.setVisible(true);
 

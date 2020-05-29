@@ -84,7 +84,7 @@ public class CreateTvSeriesScreenController implements Initializable {
     }
 
     @FXML
-    void btnSaveSeriesHandler() {
+    private void btnSaveSeriesHandler() {
         ArrayList<String> seriesInfo = new ArrayList<>();
         seriesInfo.add(txtFieldProductionId.getText());
         seriesInfo.add(txtFieldTitle.getText());
@@ -101,7 +101,7 @@ public class CreateTvSeriesScreenController implements Initializable {
         loggedIn();
     }
 
-    public void resetFields(){
+    private void resetFields(){
         txtFieldTitle.clear();
         txtFieldProductionId.clear();
         txtFieldSeriesId.clear();
@@ -110,7 +110,7 @@ public class CreateTvSeriesScreenController implements Initializable {
         txtAreaDisplayInfo.setEditable(false);
     }
 
-    public void updateSucces(){
+    private void updateSucces(){
         txtAreaDisplayInfo.appendText("Serien er blevet oprettet. Find den under mine produktioner. " +
                 "\n Her kan du ligeledes tilføje sæsoner og episoder til serien. ");
     }

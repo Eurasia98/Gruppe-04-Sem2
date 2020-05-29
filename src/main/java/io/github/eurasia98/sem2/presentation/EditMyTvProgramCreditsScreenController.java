@@ -84,7 +84,7 @@ public class EditMyTvProgramCreditsScreenController implements Initializable {
     }
 
     @FXML
-    void btnDeleteCreditHandler() {
+    private void btnDeleteCreditHandler() {
         String role = tvCredits.getSelectionModel().getSelectedItem().getRole();
         if (App.getCreditSystem().deleteCreditFromTvProgram(role, App.getSelectedProduction()) == true){
             update();
@@ -94,7 +94,7 @@ public class EditMyTvProgramCreditsScreenController implements Initializable {
     }
 
     @FXML
-    void btnAddCreditsHandler() {
+    private void btnAddCreditsHandler() {
         App.switchScene("CreateTvProgramCreditsScreen");
     }
 

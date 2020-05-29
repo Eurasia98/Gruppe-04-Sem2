@@ -74,12 +74,12 @@ public class TvProgramDescriptionScreenController implements Initializable {
     }
 
     @FXML
-    void btnChangeDescriptionHandler() {
+    private void btnChangeDescriptionHandler() {
         txtAreaDescrption.setEditable(true);
     }
 
     @FXML
-    void btnSaveChanges() {
+    private void btnSaveChanges() {
         if (App.getCreditSystem().changeTvProgramEpisodeDescription(App.getSelectedTvProgramEpisode(),txtAreaDescrption.getText()) == true){
             App.switchScene("ChoosenTvProgramToEdit");
         } else {

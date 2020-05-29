@@ -80,7 +80,7 @@ public class CreateEpisodeController implements Initializable {
     }
 
     @FXML
-    void btnSaveHandler() {
+    private void btnSaveHandler() {
         if (App.getCreditSystem().createNewEpisode(App.getSelectedSeason(), App.getSelectedTvSeries(),
                 App.getSelectedProduction(),txtFieldEpisodeTitle.getText(), txtAreaDescription.getText(),
                 txtFieldEpisodeId.getText(), txtFieldEpisodeNumber.getText()) == true){

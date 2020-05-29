@@ -83,7 +83,7 @@ public class MyProductionsScreenController implements Initializable {
     private Button btnConfirmDelete;
 
     @FXML
-    void btnConfirmDeleteHandler(ActionEvent event) {
+    private void btnConfirmDeleteHandler(ActionEvent event) {
         try {
             if (App.getCreditSystem().deleteProduction(tvMyProductions.getSelectionModel().getSelectedItem().getProduction_id()) == true){
                 resetFields();
@@ -101,7 +101,7 @@ public class MyProductionsScreenController implements Initializable {
     }
 
     @FXML
-    void btnDeleteProductionHandler(ActionEvent event) {
+    private void btnDeleteProductionHandler(ActionEvent event) {
         btnConfirmDelete.setVisible(true);
     }
 
@@ -141,7 +141,7 @@ public class MyProductionsScreenController implements Initializable {
     }
 
     @FXML
-    void btnEditCreditsHandler(ActionEvent event) {
+    private void btnEditCreditsHandler(ActionEvent event) {
 
         switch (tvMyProductions.getSelectionModel().getSelectedItem().getProduction_type()){
             case "Movie":
@@ -162,7 +162,7 @@ public class MyProductionsScreenController implements Initializable {
     }
 
     @FXML
-    void btnEditProductionIdHandler(ActionEvent event) {
+    private void btnEditProductionIdHandler(ActionEvent event) {
         txtFieldCurrentProductionId.setManaged(true);
         txtFieldCurrentProductionId.setVisible(true);
         txtFieldCurrentProductionId.setText(tvMyProductions.getSelectionModel().getSelectedItem().getProduction_id());
@@ -172,7 +172,7 @@ public class MyProductionsScreenController implements Initializable {
     }
 
     @FXML
-    void btnEditTitleHandler(ActionEvent event) {
+    private void btnEditTitleHandler(ActionEvent event) {
         txtAreaDisplayInfo.appendText(App.getCreditSystem().testProductionType(tvMyProductions.getSelectionModel().getSelectedItem().getProduction_id()));
 
         txtFieldCurrentTitle.setManaged(true);
@@ -184,7 +184,7 @@ public class MyProductionsScreenController implements Initializable {
     }
 
     @FXML
-    void btnWatchDetailsHandler(ActionEvent event) {
+    private void btnWatchDetailsHandler(ActionEvent event) {
         switch (tvMyProductions.getSelectionModel().getSelectedItem().getProduction_type()){
             case "Movie":
                 App.setSelectedProduction(tvMyProductions.getSelectionModel().getSelectedItem().getProduction_id());
@@ -203,7 +203,7 @@ public class MyProductionsScreenController implements Initializable {
     }
 
     @FXML
-    void btnSaveChangesHandler() {
+    private void btnSaveChangesHandler() {
         if (!txtFieldNewId.getText().isEmpty()){
             if (App.getCreditSystem().editProductionId(txtFieldCurrentProductionId.getText(), txtFieldNewId.getText())){
                 update();
@@ -254,7 +254,7 @@ public class MyProductionsScreenController implements Initializable {
         App.resetSelects();
     }
 
-    public void update(){
+    private void update(){
         ObservableList<ModelTableMyProductions> observableList = FXCollections.observableArrayList();
         ArrayList<String[]> myProductions = App.getCreditSystem().showMyProductions();
         for (String[] s : myProductions){

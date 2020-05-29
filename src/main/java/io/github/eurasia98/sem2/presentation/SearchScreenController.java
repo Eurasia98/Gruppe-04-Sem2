@@ -71,7 +71,7 @@ public class SearchScreenController implements Initializable {
     }
 
 
-    public void search(){
+    private  void search(){
         if (!txtFieldSearch.getText().isEmpty()) {
             vBoxSearchResults.getChildren().clear();
             vBoxSearchResults.setVisible(true);

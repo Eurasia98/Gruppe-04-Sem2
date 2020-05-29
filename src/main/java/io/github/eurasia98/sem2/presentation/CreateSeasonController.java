@@ -81,7 +81,7 @@ public class CreateSeasonController implements Initializable {
     }
 
     @FXML
-    void btnSaveHandler() {
+    private void btnSaveHandler() {
         ArrayList<String> seasonInfo = new ArrayList<>();
         seasonInfo.add(txtFieldSeasonId.getText());
         seasonInfo.add(txtFieldTitle.getText());

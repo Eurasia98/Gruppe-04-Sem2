@@ -84,7 +84,7 @@ public class CreateTvSeriesController implements Initializable {
     }
 
     @FXML
-    void btnSaveSeriesHandler() {
+    private void btnSaveSeriesHandler() {
         if (!txtFieldTitle.getText().isEmpty() && !txtFieldProductionId.getText().isEmpty() &&
                 !txtFieldSeriesId.getText().isEmpty() && !txtAreaDescription.getText().isEmpty()){
             ArrayList<String> seriesInfo = new ArrayList<>();
@@ -126,7 +126,7 @@ public class CreateTvSeriesController implements Initializable {
         }
     }
 
-    public void resetFields(){
+    private void resetFields(){
         txtFieldTitle.clear();
         txtAreaDescription.clear();
         txtFieldSeriesId.clear();
@@ -135,7 +135,7 @@ public class CreateTvSeriesController implements Initializable {
         txtAreaDisplayInfo.setEditable(false);
     }
 
-    public void updateSucces(){
+    private void updateSucces(){
         txtAreaDisplayInfo.appendText("Serien blev gemt. Se den under mine produktioner. ");
     }
 

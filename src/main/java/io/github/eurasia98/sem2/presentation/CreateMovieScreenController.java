@@ -78,7 +78,7 @@ public class CreateMovieScreenController implements Initializable {
     }
 
     @FXML
-    void btnSaveHandler(ActionEvent event) {
+    private void btnSaveHandler(ActionEvent event) {
         if (App.getCreditSystem().createNewMovie(txtFieldTitel.getText(), txtFieldProductionid.getText()) == true){
             updateSucces();
         } else updateFail();

@@ -77,17 +77,17 @@ public class ProducerScreenController implements Initializable {
     }
 
     @FXML
-    void btnCreatePersonHandler(ActionEvent event) {
+    private void btnCreatePersonHandler(ActionEvent event) {
         App.switchScene("CreatePersonScreen");
     }
 
     @FXML
-    void btnCreateProductionHandler(ActionEvent event) {
+    private void btnCreateProductionHandler(ActionEvent event) {
         App.switchScene("CreateProductionScreen");
     }
 
     @FXML
-    void btnMyProductionsHandler(ActionEvent event) {
+    private void btnMyProductionsHandler(ActionEvent event) {
 
     }
 

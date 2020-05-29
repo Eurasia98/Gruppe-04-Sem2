@@ -152,7 +152,6 @@ public class AccountScreenController implements Initializable {
     @FXML
     private void btnLogOutActionHandler(ActionEvent event){
         App.setUserInfo(Collections.emptyList());
-        // App.getCreditSystem().login("", "");
         App.switchScene("FrontPage");
     }
 
@@ -186,6 +185,7 @@ public class AccountScreenController implements Initializable {
         App.switchScene("CreateSysAdminScreen");
     }
 
+    // Enables text field and button to change email.
     @FXML
     private void btnChangeEmailActionHandler(ActionEvent event) {
         txtFieldNewEmail.setDisable(false);
@@ -194,6 +194,7 @@ public class AccountScreenController implements Initializable {
         btnSaveEmail.setVisible(true);
     }
 
+    // Enables password fields and button to change password.
     @FXML
     private void btnChangePasswordActionHandler(ActionEvent event) {
         pwOldPassword.setDisable(false);
@@ -206,6 +207,9 @@ public class AccountScreenController implements Initializable {
         btnSavePassword.setVisible(true);
     }
 
+    /*  Checks if the user has entered their old email in the new email field. 
+        Sends content to CreditSystem::editAccountEmail() and updates email label.
+        Gives the user a notification if successful. Red prompt text if not.    */
     @FXML
     private void btnSaveEmailActionHandler(ActionEvent event) {
         if (!txtFieldNewEmail.getText().equals(lblAccountEmail.getText())){
@@ -222,6 +226,9 @@ public class AccountScreenController implements Initializable {
         }
     }
 
+    /*  Checks if the user entered the same password in both new password fields.
+        Sends new and old password to CreditSystem::editAccountPassword 
+        and gives the user a notification if successful. Red prompt text if not.   */
     @FXML
     private void btnSavePasswordActionHandler(ActionEvent event) {
         if (pwNewPassword1.getText().equals(pwNewPassword2.getText())){
@@ -240,6 +247,7 @@ public class AccountScreenController implements Initializable {
         }
     }
 
+    // Gets username from App::userInfo and creates "Min side" hyperlink
     private void loggedIn(){
         lblAccount.setText(App.getUserInfo().get(0));
         Hyperlink myPage = new Hyperlink("Min side");
@@ -252,6 +260,10 @@ public class AccountScreenController implements Initializable {
         vBoxAccount.getChildren().add(1, myPage);
     }
 
+    /*  Shows buttons corresponding to the user's account type rights.
+        Switch case doesn't break in the individual cases,
+        as the SystemAdministrator has all rights,
+        and the Producer also has the right of the Person.  */
     private void sideBarVisibility(){
 
         switch (App.getUserInfo().get(1)) {
@@ -287,6 +299,9 @@ public class AccountScreenController implements Initializable {
         }
     }
 
+    /*  Fills account information with getters depending on
+        if the user is a Producer or a Person. SystemAdministrator
+        and RegistreringDanmark have no additional information. */
     private void accountInfoFill(){
         lblAccountUsername.setText(App.getCreditSystem().getAccount().getUsername());
         lblAccountEmail.setText(App.getCreditSystem().getAccount().getEmail());
@@ -303,6 +318,7 @@ public class AccountScreenController implements Initializable {
         }
     }
 
+    // Calls the 3 different methods to fill out the scene depending on account type.
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         loggedIn();

@@ -135,13 +135,13 @@ public class EditChoosenTvProgramController implements Initializable {
     }
 
     @FXML
-    void btnShowDescriptionHandler() {
+    private void btnShowDescriptionHandler() {
         App.setSelectedTvProgramEpisode(tvMyEpisodes.getSelectionModel().getSelectedItem().getEpisode_id());
         App.switchScene("TvProgramDescriptionScreen");
     }
 
     @FXML
-    void btnSaveCreatedEpisodeHandler() {
+    private void btnSaveCreatedEpisodeHandler() {
         if (App.getCreditSystem().createNewTvProgramEpisode(App.getSelectedProduction(), txtFieldCreateEpisodeNumber.getText(),
                 txtFieldCreateEpisodeTitle.getText(), txtFieldCreateEpisodeId.getText()) == true){
             resetFields();
@@ -150,7 +150,7 @@ public class EditChoosenTvProgramController implements Initializable {
     }
 
     @FXML
-    void btnCreateEpisodeHandler() {
+    private void btnCreateEpisodeHandler() {
         txtFieldCreateEpisodeTitle.setVisible(true);
         txtFieldCreateEpisodeNumber.setVisible(true);
         txtFieldCreateEpisodeId.setVisible(true);
@@ -158,7 +158,7 @@ public class EditChoosenTvProgramController implements Initializable {
     }
 
     @FXML
-    void btnChangeEpisodeNumberHandler() {
+    private void btnChangeEpisodeNumberHandler() {
         try {
             resetFields();
             txtFieldCurrentEpisodeNumber.setText(tvMyEpisodes.getSelectionModel().getSelectedItem().getEpisode_number());
@@ -173,7 +173,7 @@ public class EditChoosenTvProgramController implements Initializable {
     }
 
     @FXML
-    void btnChangeIdHandler() {
+    private void btnChangeIdHandler() {
         resetFields();
         txtFieldCurrentId.setVisible(true);
         txtFieldCurrentId.setEditable(false);
@@ -183,7 +183,7 @@ public class EditChoosenTvProgramController implements Initializable {
     }
 
     @FXML
-    void btnChangeTitleHandler() {
+    private void btnChangeTitleHandler() {
         resetFields();
         txtFieldCurrentTitle.setVisible(true);
         txtFieldCurrentTitle.setEditable(false);
@@ -193,7 +193,7 @@ public class EditChoosenTvProgramController implements Initializable {
     }
 
     @FXML
-    void btnSaveEpisodeNumberHandler() {
+    private void btnSaveEpisodeNumberHandler() {
         if (!txtFieldNewEpisodeNumber.getText().isEmpty()){
             if (App.getCreditSystem().changeTvProgramEpisodeNumber(tvMyEpisodes.getSelectionModel().getSelectedItem().getEpisode_id(),
                     txtFieldNewEpisodeNumber.getText()) == true){
@@ -204,7 +204,7 @@ public class EditChoosenTvProgramController implements Initializable {
     }
 
     @FXML
-    void btnSaveIdHandler() {
+    private void btnSaveIdHandler() {
         if (!txtFieldNewId.getText().isEmpty()){
             if (App.getCreditSystem().changeTvProgramEpisodeId(tvMyEpisodes.getSelectionModel().getSelectedItem().getEpisode_id(),
                     txtFieldNewId.getText()) == true){
@@ -215,7 +215,7 @@ public class EditChoosenTvProgramController implements Initializable {
     }
 
     @FXML
-    void btnSaveTitleHandler() {
+    private void btnSaveTitleHandler() {
         if (!txtFieldNewTitle.getText().isEmpty()){
             if (App.getCreditSystem().changeTvProgramEpisodeTitle(tvMyEpisodes.getSelectionModel().getSelectedItem().getEpisode_id(),
                     txtFieldNewTitle.getText()) == true){

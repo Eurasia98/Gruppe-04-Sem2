@@ -99,7 +99,7 @@ public class DatabaseAccountHandler {
     public List<String> verifyLogin (String username, String password){
         this.connection = DatabaseAccessHandler.getConnection();
 
-        List<String> accountInfo = new ArrayList<>();
+        List<String> accountInfo;
 
         try {
             PreparedStatement verifyLoginStatement = connection.prepareStatement(
@@ -108,14 +108,6 @@ public class DatabaseAccountHandler {
             verifyLoginStatement.setString(2, password);
             ResultSet rs = verifyLoginStatement.executeQuery();
 
-//            while(rs.next()){
-//                accountInfo.add(rs.getString(1));
-//                accountInfo.add(rs.getString(2));
-//                accountInfo.add(rs.getString(3));
-//                accountInfo.add(rs.getString(4));
-//            }
-
-            // har ændret nedenstående til ovenstående i et forsøg på at løse en login ting.
             if (!rs.next()){
                 return Collections.emptyList();
             }
@@ -127,7 +119,6 @@ public class DatabaseAccountHandler {
             throwables.printStackTrace();
         }
         return Collections.emptyList();
-
     }
 
     public ArrayList<String> getAccount(int account_id){

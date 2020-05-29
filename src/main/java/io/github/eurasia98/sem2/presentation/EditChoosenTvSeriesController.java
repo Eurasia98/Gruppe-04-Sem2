@@ -95,7 +95,7 @@ public class EditChoosenTvSeriesController implements Initializable {
     private TextField txtFieldNewId;
 
     @FXML
-    void btnEditSeasonIdHandler(ActionEvent event) {
+    private void btnEditSeasonIdHandler(ActionEvent event) {
         try {
             resetFields();
             txtFieldCurrentId.setVisible(true);
@@ -110,7 +110,7 @@ public class EditChoosenTvSeriesController implements Initializable {
     }
 
     @FXML
-    void btnEditSeasonNumberHandler(ActionEvent event) {
+    private void btnEditSeasonNumberHandler(ActionEvent event) {
         try {
             resetFields();
             txtFieldCurrentNumber.setVisible(true);
@@ -125,7 +125,7 @@ public class EditChoosenTvSeriesController implements Initializable {
     }
 
     @FXML
-    void btnSaveChangesHandler(ActionEvent event) {
+    private void btnSaveChangesHandler(ActionEvent event) {
         if (!txtFieldNewNumber.getText().isEmpty()){
             if (App.getCreditSystem().editSeasonNumber(tvSeasons.getSelectionModel().getSelectedItem().getId(), txtFieldNewNumber.getText()) == true){
                 update();
@@ -187,7 +187,7 @@ public class EditChoosenTvSeriesController implements Initializable {
     }
 
     @FXML
-    void btnChangeDescriptionHandler() {
+    private void btnChangeDescriptionHandler() {
         resetFields();
         btnSaveDescription.setVisible(true);
         txtAreaDescription.setEditable(true);
@@ -195,7 +195,7 @@ public class EditChoosenTvSeriesController implements Initializable {
     }
 
     @FXML
-    void btnSaveDescriptionHandler() {
+    private void btnSaveDescriptionHandler() {
         btnSaveDescription.setVisible(true);
         if (txtAreaDescription != null && !txtAreaDescription.getText().isEmpty()) {
             if (App.getCreditSystem().changeDescription(App.getSelectedTvSeries(), txtAreaDescription.getText()) == true) {
@@ -212,7 +212,7 @@ public class EditChoosenTvSeriesController implements Initializable {
     }
 
     @FXML
-    void btnAddSeasonHandler() {
+    private void btnAddSeasonHandler() {
         resetFields();
         btnSaveSeason.setVisible(true);
         txtFieldSeasonNumber.setVisible(true);
@@ -221,7 +221,7 @@ public class EditChoosenTvSeriesController implements Initializable {
     }
 
     @FXML
-    void btnSaveSeasonHandler() {
+    private void btnSaveSeasonHandler() {
         ArrayList<String> seasonInfo = new ArrayList<>();
         seasonInfo.add(txtFieldSeasonId.getText());
         seasonInfo.add(App.getSelectedProduction());
@@ -237,7 +237,7 @@ public class EditChoosenTvSeriesController implements Initializable {
     }
 
     @FXML
-    void btnSelectHandler() {
+    private void btnSelectHandler() {
         App.setSelectedSeason(tvSeasons.getSelectionModel().getSelectedItem().getId());
         App.switchScene("ChoosenSeasonToEdit");
     }
@@ -249,7 +249,7 @@ public class EditChoosenTvSeriesController implements Initializable {
         loggedIn();
     }
 
-    public void resetFields() {
+    private void resetFields() {
         txtAreaDescription.setEditable(false);
         btnSaveSeason.setVisible(false);
         txtAreaDisplayInfo.clear();
@@ -271,7 +271,7 @@ public class EditChoosenTvSeriesController implements Initializable {
         btnSaveChanges.setVisible(false);
     }
 
-    public void update() {
+    private void update() {
         String productionId = App.getSelectedProduction();
         ObservableList<ModelTableChoosenEditTvSeries> observableList = FXCollections.observableArrayList();
         ArrayList<String[]> mySeriesInfo = App.getCreditSystem().getMySeriesInfo(productionId);

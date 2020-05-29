@@ -88,12 +88,12 @@ public class EditMyTvSeriesCreditsScreenController implements Initializable {
     }
 
     @FXML
-    void btnAddCreditsHandler() {
+    private void btnAddCreditsHandler() {
         App.switchScene("CreateTvSeriesCreditsScreen");
     }
 
     @FXML
-    void btnDeleteCreditHandler() {
+    private void btnDeleteCreditHandler() {
         try{
             String role = tvCredits.getSelectionModel().getSelectedItem().getRoleType();
             String roleName = tvCredits.getSelectionModel().getSelectedItem().getRoleName();
